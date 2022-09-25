@@ -1,3 +1,6 @@
+/*
+    Clase que refiere al usuario que cuida a las mascotas.
+*/
 #pragma once
 
 using namespace System;
