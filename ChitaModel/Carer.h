@@ -1,5 +1,5 @@
 /*
-    Clase que refiere al usuario que cuida a las mascotas.
+    Clase que refiere al usuario que cuida a las mascotasssss.
 */
 #pragma once
 
