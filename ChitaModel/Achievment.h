@@ -1,3 +1,7 @@
+/*
+	Clase que representa a los logros obtenidos por los usuarios
+*/
+
 #pragma once
 
 using namespace System;
