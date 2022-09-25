@@ -1,9 +1,10 @@
+#include "Pet.h"
 #pragma once
 
 using namespace System;
 
 namespace ChitaiModel {
-	public ref class ExoticPet {
+	public ref class ExoticPet : public Pet{
 	public:
 		property String^ SpecialCares;
 		property String^ SpecialFood;

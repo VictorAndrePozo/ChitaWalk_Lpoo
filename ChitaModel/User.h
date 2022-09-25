@@ -1,9 +1,11 @@
+
+#include "Person.h"
 #pragma once
 
 using namespace System;
 
 namespace ChitaiModel {
-    public ref class User{
+    public ref class User: public Person{
     public:
         property int Id;
         property String^ username;
