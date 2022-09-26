@@ -5,11 +5,11 @@
 
 #include "PetOwner.h"
 
-ChitaiModel::PetOwner::PetOwner() {
+ChitaModel::PetOwner::PetOwner() {
 
 }
 
-ChitaiModel::PetOwner::PetOwner(int Dni, String^ DocNumbrer, String^ Address, String^ PhoneNumber,
+ChitaModel::PetOwner::PetOwner(int Dni, String^ DocNumbrer, String^ Address, String^ PhoneNumber,
 								String^ Email, char Gender,int Id, String^ username, String^ password,
 								String^ Lastname,String^ Firstname, int Valoration, String^ Award,
 								String^ Birthday,Pet^ objPet) {

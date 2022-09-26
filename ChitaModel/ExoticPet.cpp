@@ -5,11 +5,11 @@
 
 #include "ExoticPet.h"
 
-ChitaiModel::ExoticPet::ExoticPet() {
+ChitaModel::ExoticPet::ExoticPet() {
 
 }
 
-ChitaiModel::ExoticPet::ExoticPet(int Id, String^ Name, int Age, String^ Species, char Vaccines,
+ChitaModel::ExoticPet::ExoticPet(int Id, String^ Name, int Age, String^ Species, char Vaccines,
 								  String^ Conduct,String^ SpecialCares, String^ SpecialFood, 
 								  bool Poisonous) {
 	this->Id = Id;

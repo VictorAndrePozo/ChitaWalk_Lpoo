@@ -3,7 +3,7 @@
 
 using namespace System;
 
-namespace ChitaiModel {
+namespace ChitaModel {
 	public ref class Keeper : public Carer {
 	public:
 		property bool Home;

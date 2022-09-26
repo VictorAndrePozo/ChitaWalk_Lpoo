@@ -5,7 +5,7 @@
 
 using namespace System;
 
-namespace ChitaiModel {
+namespace ChitaModel {
 	public ref class Achievment{
 	public:
 		property int Id;

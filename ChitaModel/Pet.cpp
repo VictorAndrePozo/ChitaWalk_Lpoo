@@ -5,11 +5,11 @@
 
 #include "Pet.h"
 
-ChitaiModel::Pet::Pet() {
+ChitaModel::Pet::Pet() {
 
 }
 
-ChitaiModel::Pet::Pet(int Id, String^ Name, int Age, String^ Species, char Vaccines,
+ChitaModel::Pet::Pet(int Id, String^ Name, int Age, String^ Species, char Vaccines,
 					  String^ Conduct) {
 	this->Id = Id;
 	this->Name = Name;

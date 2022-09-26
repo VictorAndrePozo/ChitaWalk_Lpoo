@@ -2,7 +2,7 @@
 
 using namespace System;
 
-namespace ChitaiModel {
+namespace ChitaModel {
     public ref class Pet{
     public:
         property int Id;

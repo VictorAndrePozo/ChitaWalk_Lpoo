@@ -5,11 +5,11 @@
 
 #include "CarerService.h"
 
-ChitaiModel::CarerService::CarerService() {
+ChitaModel::CarerService::CarerService() {
 
 }
 
-ChitaiModel::CarerService::CarerService(char Status, Carer^ objCarer, Service^ objService) {
+ChitaModel::CarerService::CarerService(char Status, Carer^ objCarer, Service^ objService) {
 	this->objCarer = objCarer;
 	this->objService = objService;
 	this->Status = Status;

@@ -5,11 +5,11 @@
 
 #include "Achievment.h"
 
-ChitaiModel::Achievment::Achievment() {
+ChitaModel::Achievment::Achievment() {
 
 }
 
-ChitaiModel::Achievment::Achievment(int Id,String^ Description,Carer^ objCarer, Medals^ objMedals) {
+ChitaModel::Achievment::Achievment(int Id,String^ Description,Carer^ objCarer, Medals^ objMedals) {
 	this->Id = Id;
 	this->Description = Description;
 	this->objCarer = objCarer;

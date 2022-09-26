@@ -4,7 +4,7 @@
 
 using namespace System;
 
-namespace ChitaiModel {
+namespace ChitaModel {
 	public ref class ServiceDetail{
 	public:
 		property DateTime Date;

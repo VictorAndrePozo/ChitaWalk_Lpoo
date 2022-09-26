@@ -5,11 +5,11 @@
 
 #include "Person.h"
 
-ChitaiModel::Person::Person() {
+ChitaModel::Person::Person() {
 
 }
 
-ChitaiModel::Person::Person(int Dni, String^ DocNumbrer, String^ Address, String^ PhoneNumber,
+ChitaModel::Person::Person(int Dni, String^ DocNumbrer, String^ Address, String^ PhoneNumber,
 							String^ Email, char Gender) {
 	this->Dni = Dni;
 	this->DocNumbrer = DocNumbrer;

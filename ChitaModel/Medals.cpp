@@ -5,11 +5,11 @@
 
 #include "Medals.h"
 
-ChitaiModel::Medals::Medals() {
+ChitaModel::Medals::Medals() {
 
 }
 
-ChitaiModel::Medals::Medals(int Id, String^ Description, String^ Icon) {
+ChitaModel::Medals::Medals(int Id, String^ Description, String^ Icon) {
 	this->Id = Id;
 	this->Description = Description;
 	this->Icon = Icon;

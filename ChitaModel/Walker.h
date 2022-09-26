@@ -4,7 +4,7 @@
 
 using namespace System;
 
-namespace ChitaiModel {
+namespace ChitaModel {
 	public ref class Walker : public Carer {
 	public:
 		property String^ StrollArea;

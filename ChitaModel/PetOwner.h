@@ -5,7 +5,7 @@
 
 using namespace System;
 
-namespace ChitaiModel {
+namespace ChitaModel {
 	public ref class PetOwner: public User{
 	public:
 		property String^ Birthday;

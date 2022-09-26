@@ -3,11 +3,11 @@
 
 #include "Service.h"
 
-ChitaiModel::Service::Service() {
+ChitaModel::Service::Service() {
 
 }
 
-ChitaiModel::Service::Service(int Time, double Price, String^ Description) {
+ChitaModel::Service::Service(int Time, double Price, String^ Description) {
 	this->Description = Description;
 	this->Time = Time;
 	this->Price = Price;

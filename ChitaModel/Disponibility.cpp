@@ -5,11 +5,11 @@
 
 #include "Disponibility.h"
 
-ChitaiModel::Disponibility::Disponibility() {
+ChitaModel::Disponibility::Disponibility() {
 
 }
 
-ChitaiModel::Disponibility::Disponibility(int Id,String^ Schedule,DateTime Date,Carer^ objCarer) {
+ChitaModel::Disponibility::Disponibility(int Id,String^ Schedule,DateTime Date,Carer^ objCarer) {
 	this->Id = Id;
 	this->Schedule = Schedule;
 	this->Date = Date;

@@ -5,7 +5,7 @@
 
 using namespace System;
 
-namespace ChitaiModel {
+namespace ChitaModel {
 	public ref class Supervisor : public User {
 	public:
 		property String^ Area;

@@ -6,11 +6,11 @@
 
 #include "Carer.h"
 
-ChitaiModel::Carer::Carer() {
+ChitaModel::Carer::Carer() {
 
 }
 
-ChitaiModel::Carer::Carer(int Dni, String^ DocNumbrer, String^ Address, String^ PhoneNumber,
+ChitaModel::Carer::Carer(int Dni, String^ DocNumbrer, String^ Address, String^ PhoneNumber,
 	String^ Email, char Gender, int Id, String^ username,
 	String^ password, String^ Lastname,
 	String^ Firstname, int Valoration, String^ Award, int Experience,

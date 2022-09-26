@@ -6,7 +6,7 @@
 using namespace System;
 using namespace System::Collections::Generic;
 
-namespace ChitaiModel {
+namespace ChitaModel {
 	public ref class ServiceRequest{
 	public:
 		property DateTime Date;

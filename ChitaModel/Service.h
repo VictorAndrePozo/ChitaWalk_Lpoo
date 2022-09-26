@@ -2,7 +2,7 @@
 
 using namespace System;
 
-namespace ChitaiModel {
+namespace ChitaModel {
     public ref class Service{
     public:
         property int Time;

@@ -3,7 +3,7 @@
 
 using namespace System;
 
-namespace ChitaiModel {
+namespace ChitaModel {
 	public ref class ExoticPet : public Pet{
 	public:
 		property String^ SpecialCares;

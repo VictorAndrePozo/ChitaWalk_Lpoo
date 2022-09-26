@@ -4,7 +4,7 @@
 
 using namespace System;
 
-namespace ChitaiModel {
+namespace ChitaModel {
 	public ref class DomesticPet: public Pet{
 	public:
 		property String^ CommercialFood;

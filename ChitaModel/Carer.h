@@ -7,7 +7,7 @@
 
 using namespace System;
 
-namespace ChitaiModel {
+namespace ChitaModel {
 	public ref class Carer : public User {
 	public:
 		property int Experience;

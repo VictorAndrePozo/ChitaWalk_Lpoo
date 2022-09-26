@@ -5,11 +5,11 @@
 
 #include "User.h"
 
-ChitaiModel::User::User() {
+ChitaModel::User::User() {
 
 }
 
-ChitaiModel::User::User(int Id, String^ username, String^ password, String^ Lastname,
+ChitaModel::User::User(int Id, String^ username, String^ password, String^ Lastname,
 	String^ Firstname, int Valoration, String^ Award) {
 	this->Id = Id;
 	this->username = username;
