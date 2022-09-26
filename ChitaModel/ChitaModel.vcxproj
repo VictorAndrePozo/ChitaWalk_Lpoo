@@ -161,7 +161,7 @@
     <ClCompile Include="Pet.cpp" />
     <ClCompile Include="PetOwner.cpp" />
     <ClCompile Include="Service.cpp" />
-    <ClCompile Include="ServiceDetaill.cpp" />
+    <ClCompile Include="ServiceDetail.cpp" />
     <ClCompile Include="ServiceRequest.cpp" />
     <ClCompile Include="Supervisor.cpp" />
     <ClCompile Include="User.cpp" />

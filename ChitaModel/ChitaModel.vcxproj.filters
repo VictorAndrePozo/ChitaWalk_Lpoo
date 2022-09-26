@@ -116,7 +116,7 @@
     <ClCompile Include="Service.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="ServiceDetaill.cpp">
+    <ClCompile Include="ServiceDetail.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="ServiceRequest.cpp">
