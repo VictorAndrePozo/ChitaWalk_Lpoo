@@ -122,6 +122,7 @@
     <ClInclude Include="Achievment.h" />
     <ClInclude Include="Carer.h" />
     <ClInclude Include="CarerService.h" />
+    <ClInclude Include="ChitaiModel.h" />
     <ClInclude Include="Disponibility.h" />
     <ClInclude Include="DomesticPet.h" />
     <ClInclude Include="ExoticPet.h" />
@@ -144,6 +145,7 @@
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Carer.cpp" />
     <ClCompile Include="CarerService.cpp" />
+    <ClCompile Include="ChitaiModel.cpp" />
     <ClCompile Include="Disponibility.cpp" />
     <ClCompile Include="DomesticPet.cpp" />
     <ClCompile Include="ExoticPet.cpp" />
