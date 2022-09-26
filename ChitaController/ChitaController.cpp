@@ -1,8 +1,4 @@
 #include "pch.h"
 
-using namespace System;
+#include "ChitaController.h"
 
-int main(array<System::String ^> ^args)
-{
-    return 0;
-}
