@@ -121,6 +121,7 @@
   <ItemGroup>
     <ClInclude Include="Achievment.h" />
     <ClInclude Include="Carer.h" />
+    <ClInclude Include="CarerService.h" />
     <ClInclude Include="Disponibility.h" />
     <ClInclude Include="DomesticPet.h" />
     <ClInclude Include="ExoticPet.h" />
@@ -141,6 +142,7 @@
     <ClCompile Include="Achievment.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Carer.cpp" />
+    <ClCompile Include="CarerService.cpp" />
     <ClCompile Include="Disponibility.cpp" />
     <ClCompile Include="DomesticPet.cpp" />
     <ClCompile Include="ExoticPet.cpp" />
