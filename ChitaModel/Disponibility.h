@@ -9,7 +9,7 @@ namespace ChitaiModel {
         property int Id;
         property String^ Schedule;
         property DateTime Date;
-		property Carer^ Carer;
+		property Carer^ objCarer;
 	public:
 		Disponibility();
 		Disponibility(int Id, String^ Schedule, DateTime Date);

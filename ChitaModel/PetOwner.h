@@ -12,6 +12,7 @@ namespace ChitaiModel {
 		property Pet^ Pet;
 	public:
 		PetOwner();
-		PetOwner(String^ Birthday);
+		PetOwner(int Id, String^ username, String^ password, String^ Lastname,
+				String^ Firstname, int Valoration, String^ Award,String^ Birthday);
 	};
 }
