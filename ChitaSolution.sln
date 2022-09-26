@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChitaModel", "ChitaModel\ChitaModel.vcxproj", "{82543852-E372-4D40-9879-4FEA8076104F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChitaController", "ChitaController\ChitaController.vcxproj", "{CD68F409-B548-43F5-B175-7C40A4562488}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{82543852-E372-4D40-9879-4FEA8076104F}.Release|x64.Build.0 = Release|x64
 		{82543852-E372-4D40-9879-4FEA8076104F}.Release|x86.ActiveCfg = Release|Win32
 		{82543852-E372-4D40-9879-4FEA8076104F}.Release|x86.Build.0 = Release|Win32
+		{CD68F409-B548-43F5-B175-7C40A4562488}.Debug|x64.ActiveCfg = Debug|x64
+		{CD68F409-B548-43F5-B175-7C40A4562488}.Debug|x64.Build.0 = Debug|x64
+		{CD68F409-B548-43F5-B175-7C40A4562488}.Debug|x86.ActiveCfg = Debug|Win32
+		{CD68F409-B548-43F5-B175-7C40A4562488}.Debug|x86.Build.0 = Debug|Win32
+		{CD68F409-B548-43F5-B175-7C40A4562488}.Release|x64.ActiveCfg = Release|x64
+		{CD68F409-B548-43F5-B175-7C40A4562488}.Release|x64.Build.0 = Release|x64
+		{CD68F409-B548-43F5-B175-7C40A4562488}.Release|x86.ActiveCfg = Release|Win32
+		{CD68F409-B548-43F5-B175-7C40A4562488}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
