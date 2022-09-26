@@ -9,10 +9,12 @@ namespace ChitaiModel {
 	public ref class PetOwner: public User{
 	public:
 		property String^ Birthday;
-		property Pet^ Pet;
+		property Pet^ objPet;
 	public:
 		PetOwner();
-		PetOwner(int Id, String^ username, String^ password, String^ Lastname,
-				String^ Firstname, int Valoration, String^ Award,String^ Birthday);
+		PetOwner(int Dni, String^ DocNumbrer, String^ Address, String^ PhoneNumber,
+				String^ Email, char Gender, int Id, String^ username, String^ password,
+				String^ Lastname, String^ Firstname, int Valoration, String^ Award,
+				String^ Birthday, Pet^ objPet);
 	};
 }

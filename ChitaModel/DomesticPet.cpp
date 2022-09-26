@@ -9,6 +9,13 @@ ChitaiModel::DomesticPet::DomesticPet() {
 
 }
 
-ChitaiModel::DomesticPet::DomesticPet(String^ CommercialFood) {
+ChitaiModel::DomesticPet::DomesticPet(int Id, String^ Name, int Age, String^ Species, char Vaccines,
+									  String^ Conduct,String^ CommercialFood) {
+	this->Id = Id;
+	this->Name = Name;
+	this->Age = Age;
+	this->Species = Species;
+	this->Vaccines = Vaccines;
+	this->Conduct = Conduct;
 	this->CommercialFood = CommercialFood;
 }

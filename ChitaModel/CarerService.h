@@ -8,10 +8,10 @@ namespace ChitaiModel {
 	public ref class CarerService {
 	public:
 		property char Status;
-		property Carer^ Carer;
-		property Service^ Service;
+		property Carer^ objCarer;
+		property Service^ objService;
 	public:
 		CarerService();
-		CarerService(char Status);
+		CarerService(char Status,Carer^ objCarer,Service^ objService);
 	};
 }

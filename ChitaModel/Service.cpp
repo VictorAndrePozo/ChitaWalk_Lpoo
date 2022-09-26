@@ -7,7 +7,8 @@ ChitaiModel::Service::Service() {
 
 }
 
-ChitaiModel::Service::Service(int Time, double Price) {
+ChitaiModel::Service::Service(int Time, double Price, String^ Description) {
+	this->Description = Description;
 	this->Time = Time;
 	this->Price = Price;
 }

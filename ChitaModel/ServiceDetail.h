@@ -10,10 +10,10 @@ namespace ChitaiModel {
 		property DateTime Date;
         property double Amount;
         property int Id;
-		property Service^ Service;
-		property Pet^ Pet;
+		property Service^ objService;
+		property Pet^ objPet;
 	public:   
 		ServiceDetail();
-		ServiceDetail(DateTime Date, double Amount, int Id);
+		ServiceDetail(DateTime Date, double Amount, int Id, Service^ objService, Pet^ objPet);
 	};
 }

@@ -135,6 +135,7 @@
     <ClInclude Include="Service.h" />
     <ClInclude Include="ServiceDetail.h" />
     <ClInclude Include="ServiceRequest.h" />
+    <ClInclude Include="Supervisor.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="Walker.h" />
   </ItemGroup>
@@ -160,6 +161,7 @@
     <ClCompile Include="Service.cpp" />
     <ClCompile Include="ServiceDetaill.cpp" />
     <ClCompile Include="ServiceRequest.cpp" />
+    <ClCompile Include="Supervisor.cpp" />
     <ClCompile Include="User.cpp" />
     <ClCompile Include="Walker.cpp" />
   </ItemGroup>

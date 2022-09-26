@@ -10,6 +10,7 @@ namespace ChitaiModel {
 		property String^ CommercialFood;
 	public:
 		DomesticPet();
-		DomesticPet(String^ CommercialFood);
+		DomesticPet(int Id, String^ Name, int Age, String^ Species, char Vaccines,
+					String^ Conduct,String^ CommercialFood);
 	};
 }
