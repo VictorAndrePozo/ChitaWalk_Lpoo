@@ -1,5 +1,7 @@
-#include "Carer.h"
+
 #pragma once
+
+#include "Carer.h"
 
 using namespace System;
 
@@ -12,6 +14,6 @@ namespace ChitaiModel {
 		property Carer^ objCarer;
 	public:
 		Disponibility();
-		Disponibility(int Id, String^ Schedule, DateTime Date);
+		Disponibility(int Id, String^ Schedule, DateTime Date,Carer^ objCarer);
 	};
 }

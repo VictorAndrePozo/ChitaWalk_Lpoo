@@ -10,7 +10,7 @@ ChitaiModel::Walker::Walker(int Dni, String^ DocNumbrer, String^ Address, String
 	String^ Email, char Gender, int Id, String^ username,
 	String^ password, String^ Lastname,
 	String^ Firstname, int Valoration, String^ Award, int Experience,
-	int Level, int Warranty, double Salary, Disponibility^ objDisponibility, String^ StrollArea) {
+	int Level, int Warranty, double Salary, String^ StrollArea) {
 	this->Dni = Dni;
 	this->DocNumbrer = DocNumbrer;
 	this->Address = Address;
@@ -28,6 +28,5 @@ ChitaiModel::Walker::Walker(int Dni, String^ DocNumbrer, String^ Address, String
 	this->Level = Level;
 	this->Warranty = Warranty;
 	this->Salary = Salary;
-	this->objDisponibility = objDisponibility;
 	this->StrollArea = StrollArea;
 }

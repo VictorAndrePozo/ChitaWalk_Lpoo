@@ -9,8 +9,9 @@ ChitaiModel::Disponibility::Disponibility() {
 
 }
 
-ChitaiModel::Disponibility::Disponibility(int Id,String^ Schedule,DateTime Date) {
+ChitaiModel::Disponibility::Disponibility(int Id,String^ Schedule,DateTime Date,Carer^ objCarer) {
 	this->Id = Id;
 	this->Schedule = Schedule;
 	this->Date = Date;
+	this->objCarer = objCarer;
 }

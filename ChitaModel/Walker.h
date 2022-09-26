@@ -14,6 +14,6 @@ namespace ChitaiModel {
 			String^ Email, char Gender, int Id, String^ username,
 			String^ password, String^ Lastname,
 			String^ Firstname, int Valoration, String^ Award, int Experience,
-			int Level, int Warranty, double Salary, Disponibility^ objDisponibility, String^ StrollArea);
+			int Level, int Warranty, double Salary, String^ StrollArea);
 	};
 }

@@ -10,8 +10,7 @@ ChitaiModel::Keeper::Keeper(int Dni, String^ DocNumbrer, String^ Address, String
 	String^ Email, char Gender, int Id, String^ username,
 	String^ password, String^ Lastname, String^ Firstname,
 	int Valoration, String^ Award, int Experience,
-	int Level, int Warranty, double Salary, Disponibility^ objDisponibility,
-	bool Home) {
+	int Level, int Warranty, double Salary,bool Home) {
 	this->Dni = Dni;
 	this->DocNumbrer = DocNumbrer;
 	this->Address = Address;
@@ -29,6 +28,5 @@ ChitaiModel::Keeper::Keeper(int Dni, String^ DocNumbrer, String^ Address, String
 	this->Level = Level;
 	this->Warranty = Warranty;
 	this->Salary = Salary;
-	this->objDisponibility = objDisponibility;
 	this->Home = Home;
 }
