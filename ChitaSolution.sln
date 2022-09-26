@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChitaModel", "ChitaModel\ChitaModel.vcxproj", "{82543852-E372-4D40-9879-4FEA8076104F}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChitaView", "ChitaView\ChitaView.vcxproj", "{A40F39E5-003D-4130-A493-DCFCCC8AEA98}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChitaController", "ChitaController\ChitaController.vcxproj", "{0F994690-6EB7-4B2B-A654-024F8A9440B7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChitaModel", "ChitaModel\ChitaModel.vcxproj", "{51360789-A27D-4386-B5BA-8EC2D656D171}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChitaController", "ChitaController\ChitaController.vcxproj", "{FC088744-1988-4769-8D35-DF40B4346D3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,14 +17,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{82543852-E372-4D40-9879-4FEA8076104F}.Debug|x64.ActiveCfg = Debug|x64
-		{82543852-E372-4D40-9879-4FEA8076104F}.Debug|x64.Build.0 = Debug|x64
-		{82543852-E372-4D40-9879-4FEA8076104F}.Debug|x86.ActiveCfg = Debug|Win32
-		{82543852-E372-4D40-9879-4FEA8076104F}.Debug|x86.Build.0 = Debug|Win32
-		{82543852-E372-4D40-9879-4FEA8076104F}.Release|x64.ActiveCfg = Release|x64
-		{82543852-E372-4D40-9879-4FEA8076104F}.Release|x64.Build.0 = Release|x64
-		{82543852-E372-4D40-9879-4FEA8076104F}.Release|x86.ActiveCfg = Release|Win32
-		{82543852-E372-4D40-9879-4FEA8076104F}.Release|x86.Build.0 = Release|Win32
 		{A40F39E5-003D-4130-A493-DCFCCC8AEA98}.Debug|x64.ActiveCfg = Debug|x64
 		{A40F39E5-003D-4130-A493-DCFCCC8AEA98}.Debug|x64.Build.0 = Debug|x64
 		{A40F39E5-003D-4130-A493-DCFCCC8AEA98}.Debug|x86.ActiveCfg = Debug|Win32
@@ -33,14 +25,22 @@ Global
 		{A40F39E5-003D-4130-A493-DCFCCC8AEA98}.Release|x64.Build.0 = Release|x64
 		{A40F39E5-003D-4130-A493-DCFCCC8AEA98}.Release|x86.ActiveCfg = Release|Win32
 		{A40F39E5-003D-4130-A493-DCFCCC8AEA98}.Release|x86.Build.0 = Release|Win32
-		{0F994690-6EB7-4B2B-A654-024F8A9440B7}.Debug|x64.ActiveCfg = Debug|x64
-		{0F994690-6EB7-4B2B-A654-024F8A9440B7}.Debug|x64.Build.0 = Debug|x64
-		{0F994690-6EB7-4B2B-A654-024F8A9440B7}.Debug|x86.ActiveCfg = Debug|Win32
-		{0F994690-6EB7-4B2B-A654-024F8A9440B7}.Debug|x86.Build.0 = Debug|Win32
-		{0F994690-6EB7-4B2B-A654-024F8A9440B7}.Release|x64.ActiveCfg = Release|x64
-		{0F994690-6EB7-4B2B-A654-024F8A9440B7}.Release|x64.Build.0 = Release|x64
-		{0F994690-6EB7-4B2B-A654-024F8A9440B7}.Release|x86.ActiveCfg = Release|Win32
-		{0F994690-6EB7-4B2B-A654-024F8A9440B7}.Release|x86.Build.0 = Release|Win32
+		{51360789-A27D-4386-B5BA-8EC2D656D171}.Debug|x64.ActiveCfg = Debug|x64
+		{51360789-A27D-4386-B5BA-8EC2D656D171}.Debug|x64.Build.0 = Debug|x64
+		{51360789-A27D-4386-B5BA-8EC2D656D171}.Debug|x86.ActiveCfg = Debug|Win32
+		{51360789-A27D-4386-B5BA-8EC2D656D171}.Debug|x86.Build.0 = Debug|Win32
+		{51360789-A27D-4386-B5BA-8EC2D656D171}.Release|x64.ActiveCfg = Release|x64
+		{51360789-A27D-4386-B5BA-8EC2D656D171}.Release|x64.Build.0 = Release|x64
+		{51360789-A27D-4386-B5BA-8EC2D656D171}.Release|x86.ActiveCfg = Release|Win32
+		{51360789-A27D-4386-B5BA-8EC2D656D171}.Release|x86.Build.0 = Release|Win32
+		{FC088744-1988-4769-8D35-DF40B4346D3A}.Debug|x64.ActiveCfg = Debug|x64
+		{FC088744-1988-4769-8D35-DF40B4346D3A}.Debug|x64.Build.0 = Debug|x64
+		{FC088744-1988-4769-8D35-DF40B4346D3A}.Debug|x86.ActiveCfg = Debug|Win32
+		{FC088744-1988-4769-8D35-DF40B4346D3A}.Debug|x86.Build.0 = Debug|Win32
+		{FC088744-1988-4769-8D35-DF40B4346D3A}.Release|x64.ActiveCfg = Release|x64
+		{FC088744-1988-4769-8D35-DF40B4346D3A}.Release|x64.Build.0 = Release|x64
+		{FC088744-1988-4769-8D35-DF40B4346D3A}.Release|x86.ActiveCfg = Release|Win32
+		{FC088744-1988-4769-8D35-DF40B4346D3A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

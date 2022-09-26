@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
-    <ProjectGuid>{82543852-E372-4D40-9879-4FEA8076104F}</ProjectGuid>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <ProjectGuid>{51360789-A27D-4386-B5BA-8EC2D656D171}</ProjectGuid>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
     <RootNamespace>ChitaModel</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
@@ -132,7 +132,7 @@
     <ClInclude Include="Person.h" />
     <ClInclude Include="Pet.h" />
     <ClInclude Include="PetOwner.h" />
-    <ClInclude Include="resource.h" />
+    <ClInclude Include="Resource.h" />
     <ClInclude Include="Service.h" />
     <ClInclude Include="ServiceDetail.h" />
     <ClInclude Include="ServiceRequest.h" />
