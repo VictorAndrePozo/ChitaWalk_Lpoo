@@ -34,6 +34,17 @@ namespace ChitaView {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::MenuStrip^ menuStrip1;
+	protected:
+	private: System::Windows::Forms::ToolStripMenuItem^ archivoToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ transaccionToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ transaccionToolStripMenuItem1;
+	private: System::Windows::Forms::ToolStripMenuItem^ mantenimientoToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ carerToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ mascotasToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ reporteToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ ayudaToolStripMenuItem;
 
 	private:
 		/// <summary>
@@ -48,18 +59,117 @@ namespace ChitaView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->archivoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->transaccionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->transaccionToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->mantenimientoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->reporteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ayudaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->salirToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->carerToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->mascotasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
+			// 
+			// menuStrip1
+			// 
+			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(6) {
+				this->transaccionToolStripMenuItem,
+					this->archivoToolStripMenuItem, this->transaccionToolStripMenuItem1, this->mantenimientoToolStripMenuItem, this->reporteToolStripMenuItem,
+					this->ayudaToolStripMenuItem
+			});
+			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Size = System::Drawing::Size(900, 28);
+			this->menuStrip1->TabIndex = 0;
+			this->menuStrip1->Text = L"menuStrip1";
+			// 
+			// archivoToolStripMenuItem
+			// 
+			this->archivoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->salirToolStripMenuItem });
+			this->archivoToolStripMenuItem->Name = L"archivoToolStripMenuItem";
+			this->archivoToolStripMenuItem->Size = System::Drawing::Size(73, 24);
+			this->archivoToolStripMenuItem->Text = L"Archivo";
+			// 
+			// transaccionToolStripMenuItem
+			// 
+			this->transaccionToolStripMenuItem->Name = L"transaccionToolStripMenuItem";
+			this->transaccionToolStripMenuItem->Size = System::Drawing::Size(14, 24);
+			this->transaccionToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::transaccionToolStripMenuItem_Click);
+			// 
+			// transaccionToolStripMenuItem1
+			// 
+			this->transaccionToolStripMenuItem1->Name = L"transaccionToolStripMenuItem1";
+			this->transaccionToolStripMenuItem1->Size = System::Drawing::Size(100, 24);
+			this->transaccionToolStripMenuItem1->Text = L"Transaccion";
+			// 
+			// mantenimientoToolStripMenuItem
+			// 
+			this->mantenimientoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->carerToolStripMenuItem,
+					this->mascotasToolStripMenuItem
+			});
+			this->mantenimientoToolStripMenuItem->Name = L"mantenimientoToolStripMenuItem";
+			this->mantenimientoToolStripMenuItem->Size = System::Drawing::Size(124, 24);
+			this->mantenimientoToolStripMenuItem->Text = L"Mantenimiento";
+			// 
+			// reporteToolStripMenuItem
+			// 
+			this->reporteToolStripMenuItem->Name = L"reporteToolStripMenuItem";
+			this->reporteToolStripMenuItem->Size = System::Drawing::Size(76, 24);
+			this->reporteToolStripMenuItem->Text = L"Reporte";
+			// 
+			// ayudaToolStripMenuItem
+			// 
+			this->ayudaToolStripMenuItem->Name = L"ayudaToolStripMenuItem";
+			this->ayudaToolStripMenuItem->Size = System::Drawing::Size(65, 24);
+			this->ayudaToolStripMenuItem->Text = L"Ayuda";
+			// 
+			// salirToolStripMenuItem
+			// 
+			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
+			this->salirToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->salirToolStripMenuItem->Text = L"Salir";
+			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::salirToolStripMenuItem_Click);
+			// 
+			// carerToolStripMenuItem
+			// 
+			this->carerToolStripMenuItem->Name = L"carerToolStripMenuItem";
+			this->carerToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->carerToolStripMenuItem->Text = L"Carer";
+			// 
+			// mascotasToolStripMenuItem
+			// 
+			this->mascotasToolStripMenuItem->Name = L"mascotasToolStripMenuItem";
+			this->mascotasToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->mascotasToolStripMenuItem->Text = L"Mascotas";
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->ClientSize = System::Drawing::Size(900, 400);
+			this->Controls->Add(this->menuStrip1);
+			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"MyForm";
-			this->Text = L"MyForm";
+			this->Text = L"Chita : Pagina general";
+			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
+			this->menuStrip1->ResumeLayout(false);
+			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
-	};
+	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void transaccionToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	}
+};
 }
