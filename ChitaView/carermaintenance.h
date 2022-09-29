@@ -76,6 +76,23 @@ namespace ChitaView {
 	private: System::Windows::Forms::TextBox^ textBox12;
 	private: System::Windows::Forms::TextBox^ textBox13;
 	private: System::Windows::Forms::TextBox^ textBox14;
+	private: System::Windows::Forms::DataGridView^ dataGridView1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ carerId;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ carerdni;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ carername;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ carerlastname;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ carerposition;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ carerstatus;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ carergender;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ carerdirection;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ careremail;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ carerusername;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ carervaloration;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ carerlevel;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ carerexperience;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ carersalary;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ carerwarranty;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ carernombres;
 
 	protected:
 
@@ -127,7 +144,25 @@ namespace ChitaView {
 			this->textBox12 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox13 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox14 = (gcnew System::Windows::Forms::TextBox());
+			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->carerId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->carerdni = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->carername = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->carerlastname = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->carerposition = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->carerstatus = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->carergender = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->carerdirection = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->careremail = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->carerusername = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->carervaloration = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->carerlevel = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->carerexperience = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->carersalary = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->carerwarranty = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->carernombres = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// labelId
@@ -421,11 +456,140 @@ namespace ChitaView {
 			this->textBox14->Size = System::Drawing::Size(125, 111);
 			this->textBox14->TabIndex = 36;
 			// 
+			// dataGridView1
+			// 
+			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(16) {
+				this->carerId,
+					this->carerdni, this->carername, this->carerlastname, this->carerposition, this->carerstatus, this->carergender, this->carerdirection,
+					this->careremail, this->carerusername, this->carervaloration, this->carerlevel, this->carerexperience, this->carersalary, this->carerwarranty,
+					this->carernombres
+			});
+			this->dataGridView1->Location = System::Drawing::Point(12, 335);
+			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->RowHeadersWidth = 51;
+			this->dataGridView1->RowTemplate->Height = 24;
+			this->dataGridView1->Size = System::Drawing::Size(1084, 278);
+			this->dataGridView1->TabIndex = 37;
+			// 
+			// carerId
+			// 
+			this->carerId->HeaderText = L"Id";
+			this->carerId->MinimumWidth = 6;
+			this->carerId->Name = L"carerId";
+			this->carerId->Width = 125;
+			// 
+			// carerdni
+			// 
+			this->carerdni->HeaderText = L"Dni";
+			this->carerdni->MinimumWidth = 6;
+			this->carerdni->Name = L"carerdni";
+			this->carerdni->Width = 125;
+			// 
+			// carername
+			// 
+			this->carername->HeaderText = L"Nombres";
+			this->carername->MinimumWidth = 6;
+			this->carername->Name = L"carername";
+			this->carername->Width = 125;
+			// 
+			// carerlastname
+			// 
+			this->carerlastname->HeaderText = L"Apellidos";
+			this->carerlastname->MinimumWidth = 6;
+			this->carerlastname->Name = L"carerlastname";
+			this->carerlastname->Width = 125;
+			// 
+			// carerposition
+			// 
+			this->carerposition->HeaderText = L"Posicion";
+			this->carerposition->MinimumWidth = 6;
+			this->carerposition->Name = L"carerposition";
+			this->carerposition->Width = 125;
+			// 
+			// carerstatus
+			// 
+			this->carerstatus->HeaderText = L"Estado";
+			this->carerstatus->MinimumWidth = 6;
+			this->carerstatus->Name = L"carerstatus";
+			this->carerstatus->Width = 125;
+			// 
+			// carergender
+			// 
+			this->carergender->HeaderText = L"Género";
+			this->carergender->MinimumWidth = 6;
+			this->carergender->Name = L"carergender";
+			this->carergender->Width = 125;
+			// 
+			// carerdirection
+			// 
+			this->carerdirection->HeaderText = L"Dirección";
+			this->carerdirection->MinimumWidth = 6;
+			this->carerdirection->Name = L"carerdirection";
+			this->carerdirection->Width = 125;
+			// 
+			// careremail
+			// 
+			this->careremail->HeaderText = L"Correo";
+			this->careremail->MinimumWidth = 6;
+			this->careremail->Name = L"careremail";
+			this->careremail->Width = 125;
+			// 
+			// carerusername
+			// 
+			this->carerusername->HeaderText = L"Usuario";
+			this->carerusername->MinimumWidth = 6;
+			this->carerusername->Name = L"carerusername";
+			this->carerusername->Width = 125;
+			// 
+			// carervaloration
+			// 
+			this->carervaloration->HeaderText = L"Valoración";
+			this->carervaloration->MinimumWidth = 6;
+			this->carervaloration->Name = L"carervaloration";
+			this->carervaloration->Width = 125;
+			// 
+			// carerlevel
+			// 
+			this->carerlevel->HeaderText = L"Nivel";
+			this->carerlevel->MinimumWidth = 6;
+			this->carerlevel->Name = L"carerlevel";
+			this->carerlevel->Width = 125;
+			// 
+			// carerexperience
+			// 
+			this->carerexperience->HeaderText = L"Experiencia";
+			this->carerexperience->MinimumWidth = 6;
+			this->carerexperience->Name = L"carerexperience";
+			this->carerexperience->Width = 125;
+			// 
+			// carersalary
+			// 
+			this->carersalary->HeaderText = L"Salario";
+			this->carersalary->MinimumWidth = 6;
+			this->carersalary->Name = L"carersalary";
+			this->carersalary->Width = 125;
+			// 
+			// carerwarranty
+			// 
+			this->carerwarranty->HeaderText = L"Garantía";
+			this->carerwarranty->MinimumWidth = 6;
+			this->carerwarranty->Name = L"carerwarranty";
+			this->carerwarranty->Width = 125;
+			// 
+			// carernombres
+			// 
+			this->carernombres->HeaderText = L"Nombres";
+			this->carernombres->MinimumWidth = 6;
+			this->carernombres->Name = L"carernombres";
+			this->carernombres->Width = 125;
+			// 
 			// carermaintenance
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1108, 625);
+			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->textBox14);
 			this->Controls->Add(this->textBox13);
 			this->Controls->Add(this->textBox12);
@@ -464,6 +628,7 @@ namespace ChitaView {
 			this->Name = L"carermaintenance";
 			this->Text = L"carermaintenance";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
