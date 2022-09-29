@@ -57,10 +57,16 @@ namespace ChitaView {
 	private: System::Windows::Forms::TextBox^ textBox8;
 	private: System::Windows::Forms::TextBox^ textBox9;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
-	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Button^ button3;
-	private: System::Windows::Forms::Button^ button4;
+	private: System::Windows::Forms::Button^ btnAdd_Click;
+	private: System::Windows::Forms::Button^ btnUpdate_Click;
+	private: System::Windows::Forms::Button^ btnDelete_Click;
+	private: System::Windows::Forms::Button^ btnChangePhoto_Click;
+
+
+
+
+
+
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label9;
 
@@ -127,10 +133,10 @@ namespace ChitaView {
 			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox9 = (gcnew System::Windows::Forms::TextBox());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->btnAdd_Click = (gcnew System::Windows::Forms::Button());
+			this->btnUpdate_Click = (gcnew System::Windows::Forms::Button());
+			this->btnDelete_Click = (gcnew System::Windows::Forms::Button());
+			this->btnChangePhoto_Click = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label11 = (gcnew System::Windows::Forms::Label());
@@ -310,41 +316,42 @@ namespace ChitaView {
 			this->pictureBox1->TabIndex = 17;
 			this->pictureBox1->TabStop = false;
 			// 
-			// button1
+			// btnAdd_Click
 			// 
-			this->button1->Location = System::Drawing::Point(61, 276);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(137, 45);
-			this->button1->TabIndex = 18;
-			this->button1->Text = L"Agregar";
-			this->button1->UseVisualStyleBackColor = true;
+			this->btnAdd_Click->Location = System::Drawing::Point(61, 276);
+			this->btnAdd_Click->Name = L"btnAdd_Click";
+			this->btnAdd_Click->Size = System::Drawing::Size(137, 45);
+			this->btnAdd_Click->TabIndex = 18;
+			this->btnAdd_Click->Text = L"Agregar";
+			this->btnAdd_Click->UseVisualStyleBackColor = true;
+			this->btnAdd_Click->Click += gcnew System::EventHandler(this, &carermaintenance::button1_Click);
 			// 
-			// button2
+			// btnUpdate_Click
 			// 
-			this->button2->Location = System::Drawing::Point(443, 276);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(137, 45);
-			this->button2->TabIndex = 19;
-			this->button2->Text = L"Modificar";
-			this->button2->UseVisualStyleBackColor = true;
+			this->btnUpdate_Click->Location = System::Drawing::Point(255, 276);
+			this->btnUpdate_Click->Name = L"btnUpdate_Click";
+			this->btnUpdate_Click->Size = System::Drawing::Size(137, 45);
+			this->btnUpdate_Click->TabIndex = 19;
+			this->btnUpdate_Click->Text = L"Modificar";
+			this->btnUpdate_Click->UseVisualStyleBackColor = true;
 			// 
-			// button3
+			// btnDelete_Click
 			// 
-			this->button3->Location = System::Drawing::Point(255, 276);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(137, 45);
-			this->button3->TabIndex = 20;
-			this->button3->Text = L"Eliminar";
-			this->button3->UseVisualStyleBackColor = true;
+			this->btnDelete_Click->Location = System::Drawing::Point(443, 276);
+			this->btnDelete_Click->Name = L"btnDelete_Click";
+			this->btnDelete_Click->Size = System::Drawing::Size(137, 45);
+			this->btnDelete_Click->TabIndex = 20;
+			this->btnDelete_Click->Text = L"Eliminar";
+			this->btnDelete_Click->UseVisualStyleBackColor = true;
 			// 
-			// button4
+			// btnChangePhoto_Click
 			// 
-			this->button4->Location = System::Drawing::Point(642, 276);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(137, 45);
-			this->button4->TabIndex = 21;
-			this->button4->Text = L"Agregar foto";
-			this->button4->UseVisualStyleBackColor = true;
+			this->btnChangePhoto_Click->Location = System::Drawing::Point(642, 276);
+			this->btnChangePhoto_Click->Name = L"btnChangePhoto_Click";
+			this->btnChangePhoto_Click->Size = System::Drawing::Size(137, 45);
+			this->btnChangePhoto_Click->TabIndex = 21;
+			this->btnChangePhoto_Click->Text = L"Agregar foto";
+			this->btnChangePhoto_Click->UseVisualStyleBackColor = true;
 			// 
 			// label1
 			// 
@@ -603,10 +610,10 @@ namespace ChitaView {
 			this->Controls->Add(this->label11);
 			this->Controls->Add(this->label9);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->button4);
-			this->Controls->Add(this->button3);
-			this->Controls->Add(this->button2);
-			this->Controls->Add(this->button1);
+			this->Controls->Add(this->btnChangePhoto_Click);
+			this->Controls->Add(this->btnDelete_Click);
+			this->Controls->Add(this->btnUpdate_Click);
+			this->Controls->Add(this->btnAdd_Click);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->textBox9);
 			this->Controls->Add(this->textBox8);
@@ -642,6 +649,8 @@ namespace ChitaView {
 private: System::Void label10_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void label12_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
