@@ -128,10 +128,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="carermaintenance.cpp" />
     <ClCompile Include="MaintenancePetOwner.cpp" />
     <ClCompile Include="MyForm.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="carermaintenance.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MaintenancePetOwner.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -140,6 +144,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="carermaintenance.resx">
+      <DependentUpon>carermaintenance.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MaintenancePetOwner.resx">
       <DependentUpon>MaintenancePetOwner.h</DependentUpon>
     </EmbeddedResource>

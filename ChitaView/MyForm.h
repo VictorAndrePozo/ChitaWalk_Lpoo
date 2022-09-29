@@ -1,4 +1,5 @@
 #pragma once
+#include "carermaintenance.h"
 
 namespace ChitaView {
 
@@ -60,15 +61,15 @@ namespace ChitaView {
 		void InitializeComponent(void)
 		{
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
-			this->archivoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->transaccionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->archivoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->salirToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->transaccionToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->mantenimientoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->reporteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->ayudaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->salirToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->carerToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->mascotasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->reporteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ayudaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -82,27 +83,34 @@ namespace ChitaView {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(900, 28);
+			this->menuStrip1->Size = System::Drawing::Size(900, 30);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
+			// 
+			// transaccionToolStripMenuItem
+			// 
+			this->transaccionToolStripMenuItem->Name = L"transaccionToolStripMenuItem";
+			this->transaccionToolStripMenuItem->Size = System::Drawing::Size(14, 26);
+			this->transaccionToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::transaccionToolStripMenuItem_Click);
 			// 
 			// archivoToolStripMenuItem
 			// 
 			this->archivoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->salirToolStripMenuItem });
 			this->archivoToolStripMenuItem->Name = L"archivoToolStripMenuItem";
-			this->archivoToolStripMenuItem->Size = System::Drawing::Size(73, 24);
+			this->archivoToolStripMenuItem->Size = System::Drawing::Size(73, 26);
 			this->archivoToolStripMenuItem->Text = L"Archivo";
 			// 
-			// transaccionToolStripMenuItem
+			// salirToolStripMenuItem
 			// 
-			this->transaccionToolStripMenuItem->Name = L"transaccionToolStripMenuItem";
-			this->transaccionToolStripMenuItem->Size = System::Drawing::Size(14, 24);
-			this->transaccionToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::transaccionToolStripMenuItem_Click);
+			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
+			this->salirToolStripMenuItem->Size = System::Drawing::Size(121, 26);
+			this->salirToolStripMenuItem->Text = L"Salir";
+			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::salirToolStripMenuItem_Click);
 			// 
 			// transaccionToolStripMenuItem1
 			// 
 			this->transaccionToolStripMenuItem1->Name = L"transaccionToolStripMenuItem1";
-			this->transaccionToolStripMenuItem1->Size = System::Drawing::Size(100, 24);
+			this->transaccionToolStripMenuItem1->Size = System::Drawing::Size(100, 26);
 			this->transaccionToolStripMenuItem1->Text = L"Transaccion";
 			// 
 			// mantenimientoToolStripMenuItem
@@ -112,39 +120,33 @@ namespace ChitaView {
 					this->mascotasToolStripMenuItem
 			});
 			this->mantenimientoToolStripMenuItem->Name = L"mantenimientoToolStripMenuItem";
-			this->mantenimientoToolStripMenuItem->Size = System::Drawing::Size(124, 24);
+			this->mantenimientoToolStripMenuItem->Size = System::Drawing::Size(124, 26);
 			this->mantenimientoToolStripMenuItem->Text = L"Mantenimiento";
+			// 
+			// carerToolStripMenuItem
+			// 
+			this->carerToolStripMenuItem->Name = L"carerToolStripMenuItem";
+			this->carerToolStripMenuItem->Size = System::Drawing::Size(154, 26);
+			this->carerToolStripMenuItem->Text = L"Carer";
+			this->carerToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::carerToolStripMenuItem_Click);
+			// 
+			// mascotasToolStripMenuItem
+			// 
+			this->mascotasToolStripMenuItem->Name = L"mascotasToolStripMenuItem";
+			this->mascotasToolStripMenuItem->Size = System::Drawing::Size(154, 26);
+			this->mascotasToolStripMenuItem->Text = L"Mascotas";
 			// 
 			// reporteToolStripMenuItem
 			// 
 			this->reporteToolStripMenuItem->Name = L"reporteToolStripMenuItem";
-			this->reporteToolStripMenuItem->Size = System::Drawing::Size(76, 24);
+			this->reporteToolStripMenuItem->Size = System::Drawing::Size(76, 26);
 			this->reporteToolStripMenuItem->Text = L"Reporte";
 			// 
 			// ayudaToolStripMenuItem
 			// 
 			this->ayudaToolStripMenuItem->Name = L"ayudaToolStripMenuItem";
-			this->ayudaToolStripMenuItem->Size = System::Drawing::Size(65, 24);
+			this->ayudaToolStripMenuItem->Size = System::Drawing::Size(65, 26);
 			this->ayudaToolStripMenuItem->Text = L"Ayuda";
-			// 
-			// salirToolStripMenuItem
-			// 
-			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
-			this->salirToolStripMenuItem->Size = System::Drawing::Size(224, 26);
-			this->salirToolStripMenuItem->Text = L"Salir";
-			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::salirToolStripMenuItem_Click);
-			// 
-			// carerToolStripMenuItem
-			// 
-			this->carerToolStripMenuItem->Name = L"carerToolStripMenuItem";
-			this->carerToolStripMenuItem->Size = System::Drawing::Size(224, 26);
-			this->carerToolStripMenuItem->Text = L"Carer";
-			// 
-			// mascotasToolStripMenuItem
-			// 
-			this->mascotasToolStripMenuItem->Name = L"mascotasToolStripMenuItem";
-			this->mascotasToolStripMenuItem->Size = System::Drawing::Size(224, 26);
-			this->mascotasToolStripMenuItem->Text = L"Mascotas";
 			// 
 			// MyForm
 			// 
@@ -153,6 +155,7 @@ namespace ChitaView {
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->ClientSize = System::Drawing::Size(900, 400);
 			this->Controls->Add(this->menuStrip1);
+			this->IsMdiContainer = true;
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"MyForm";
 			this->Text = L"Chita : Pagina general";
@@ -169,7 +172,12 @@ namespace ChitaView {
 	private: System::Void transaccionToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-
+		Application::Exit();
 	}
+private: System::Void carerToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	carermaintenance^ Carermaintenance = gcnew carermaintenance();
+	Carermaintenance->MdiParent = this;
+	Carermaintenance->Show();
+}
 };
 }
