@@ -114,7 +114,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ProjectReference Include="..\ChitaController\ChitaController.vcxproj">
-      <Project>{cd68f409-b548-43f5-b175-7c40a4562488}</Project>
+      <Project>{327bcf84-5e5e-4074-9c97-9e21f0f9efa9}</Project>
     </ProjectReference>
     <ProjectReference Include="..\ChitaModel\ChitaModel.vcxproj">
       <Project>{51360789-a27d-4386-b5ba-8ec2d656d171}</Project>
@@ -142,6 +142,9 @@
   <ItemGroup>
     <EmbeddedResource Include="MaintenancePetOwner.resx">
       <DependentUpon>MaintenancePetOwner.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm.resx">
+      <DependentUpon>MyForm.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
