@@ -6,10 +6,11 @@ ChitaModel::Supervisor::Supervisor() {
 
 }
 
+
 ChitaModel::Supervisor::Supervisor(int Dni, String^ DocNumbrer, String^ Address, String^ PhoneNumber,
 									String^ Email, char Gender, int Id, String^ username, String^ password,
 									String^ Lastname, String^ Firstname, int Valoration, String^ Award,
-									String^ Area) {
+									String^ Area, array <Byte>^ Photo, char Status) {
 	this->Dni = Dni;
 	this->DocNumbrer = DocNumbrer;
 	this->Address = Address;
@@ -23,4 +24,6 @@ ChitaModel::Supervisor::Supervisor(int Dni, String^ DocNumbrer, String^ Address,
 	this->Firstname = Firstname;
 	this->Valoration = Valoration;
 	this->Area = Area;
+	this->Photo = Photo;
+	this->Status = Status;
 }

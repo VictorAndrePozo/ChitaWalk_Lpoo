@@ -13,6 +13,6 @@ namespace ChitaModel {
 			String^ Email, char Gender, int Id, String^ username,
 			String^ password, String^ Lastname, String^ Firstname,
 			int Valoration, String^ Award, int Experience,
-			int Level, int Warranty, double Salary,bool Home);
+			int Level, int Warranty, double Salary,bool Home, array <Byte>^ Photo, char Status);
 	};
 }

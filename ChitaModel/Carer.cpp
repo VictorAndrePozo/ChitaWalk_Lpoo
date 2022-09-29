@@ -10,11 +10,13 @@ ChitaModel::Carer::Carer() {
 
 }
 
+
+
 ChitaModel::Carer::Carer(int Dni, String^ DocNumbrer, String^ Address, String^ PhoneNumber,
 	String^ Email, char Gender, int Id, String^ username,
 	String^ password, String^ Lastname,
 	String^ Firstname, int Valoration, String^ Award, int Experience,
-	int Level, int Warranty, double Salary ) {
+	int Level, int Warranty, double Salary, array <Byte>^ Photo, char Status) {
 	this->Dni = Dni;
 	this->DocNumbrer = DocNumbrer;
 	this->Address = Address;
@@ -32,4 +34,6 @@ ChitaModel::Carer::Carer(int Dni, String^ DocNumbrer, String^ Address, String^ P
 	this->Level = Level;
 	this->Warranty = Warranty;
 	this->Salary = Salary;
+	this->Photo = Photo;
+	this->Status = Status;
 }

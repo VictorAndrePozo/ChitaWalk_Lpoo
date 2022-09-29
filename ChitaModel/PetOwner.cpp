@@ -9,10 +9,11 @@ ChitaModel::PetOwner::PetOwner() {
 
 }
 
+
 ChitaModel::PetOwner::PetOwner(int Dni, String^ DocNumbrer, String^ Address, String^ PhoneNumber,
 								String^ Email, char Gender,int Id, String^ username, String^ password,
 								String^ Lastname,String^ Firstname, int Valoration, String^ Award,
-								String^ Birthday,Pet^ objPet) {
+								String^ Birthday,Pet^ objPet, array <Byte>^ Photo, char Status) {
 	this->Dni = Dni;
 	this->DocNumbrer = DocNumbrer;
 	this->Address = Address;
@@ -27,4 +28,6 @@ ChitaModel::PetOwner::PetOwner(int Dni, String^ DocNumbrer, String^ Address, Str
 	this->Valoration = Valoration;
 	this->Birthday = Birthday;
 	this->objPet = objPet;
+	this->Photo = Photo;
+	this->Status = Status;
 }

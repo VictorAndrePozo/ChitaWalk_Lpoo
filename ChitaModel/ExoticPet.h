@@ -13,6 +13,6 @@ namespace ChitaModel {
 		ExoticPet();
 		ExoticPet(int Id, String^ Name, int Age, String^ Species, char Vaccines,
 				String^ Conduct, String^ SpecialCares, String^ SpecialFood,
-				bool Poisonous);
+				bool Poisonous, array <Byte>^ Photo, char Status);
 	};
 }

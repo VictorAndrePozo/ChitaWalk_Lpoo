@@ -11,6 +11,6 @@ namespace ChitaModel {
 	public:
 		DomesticPet();
 		DomesticPet(int Id, String^ Name, int Age, String^ Species, char Vaccines,
-					String^ Conduct,String^ CommercialFood);
+					String^ Conduct,String^ CommercialFood, array <Byte>^ Photo, char Status);
 	};
 }

@@ -14,6 +14,6 @@ namespace ChitaModel {
 		Supervisor(int Dni, String^ DocNumbrer, String^ Address, String^ PhoneNumber,
 			String^ Email, char Gender, int Id, String^ username, String^ password,
 			String^ Lastname, String^ Firstname, int Valoration, String^ Award,
-			String^ Area);
+			String^ Area, array <Byte>^ Photo, char Status);
 	};
 }
