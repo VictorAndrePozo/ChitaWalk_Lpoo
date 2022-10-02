@@ -374,7 +374,7 @@ namespace ChitaView {
 			this->btnDelete->TabIndex = 20;
 			this->btnDelete->Text = L"Eliminar";
 			this->btnDelete->UseVisualStyleBackColor = true;
-			this->btnDelete->Click += gcnew System::EventHandler(this, &carermaintenance::btnDelete_Click_1);
+			this->btnDelete->Click += gcnew System::EventHandler(this, &carermaintenance::btnDelete_Click);
 			// 
 			// btnChangePhoto
 			// 
@@ -402,7 +402,6 @@ namespace ChitaView {
 			this->label9->Size = System::Drawing::Size(72, 16);
 			this->label9->TabIndex = 23;
 			this->label9->Text = L"Valoración";
-			this->label9->Click += gcnew System::EventHandler(this, &carermaintenance::label9);
 			// 
 			// label11
 			// 
@@ -421,7 +420,6 @@ namespace ChitaView {
 			this->label12->Size = System::Drawing::Size(58, 16);
 			this->label12->TabIndex = 26;
 			this->label12->Text = L"Garantía";
-			this->label12->Click += gcnew System::EventHandler(this, &carermaintenance::label12);
 			// 
 			// label13
 			// 
