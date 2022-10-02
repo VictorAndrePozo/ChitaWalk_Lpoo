@@ -128,6 +128,12 @@ namespace ChitaView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ carernombres;
 	private: System::Windows::Forms::Label^ label10;
 	private: System::Windows::Forms::TextBox^ txtPhoneNumber;
+private: System::Windows::Forms::MenuStrip^ menuStrip1;
+private: System::Windows::Forms::ToolStripMenuItem^ generalToolStripMenuItem;
+private: System::Windows::Forms::ToolStripMenuItem^ cuidadoresToolStripMenuItem;
+private: System::Windows::Forms::ToolStripMenuItem^ paseadoresToolStripMenuItem;
+private: System::Windows::Forms::ToolStripMenuItem^ paseadoresToolStripMenuItem1;
+private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 
 	protected:
 
@@ -198,8 +204,15 @@ namespace ChitaView {
 			this->carernombres = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->txtPhoneNumber = (gcnew System::Windows::Forms::TextBox());
+			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->generalToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->salirToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->cuidadoresToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->paseadoresToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->paseadoresToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picturePhoto))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvCarer))->BeginInit();
+			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// labelId
@@ -638,6 +651,53 @@ namespace ChitaView {
 			this->txtPhoneNumber->Size = System::Drawing::Size(125, 22);
 			this->txtPhoneNumber->TabIndex = 39;
 			// 
+			// menuStrip1
+			// 
+			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+				this->generalToolStripMenuItem,
+					this->cuidadoresToolStripMenuItem, this->paseadoresToolStripMenuItem, this->paseadoresToolStripMenuItem1
+			});
+			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Size = System::Drawing::Size(1108, 28);
+			this->menuStrip1->TabIndex = 40;
+			this->menuStrip1->Text = L"menuStrip1";
+			// 
+			// generalToolStripMenuItem
+			// 
+			this->generalToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->salirToolStripMenuItem });
+			this->generalToolStripMenuItem->Name = L"generalToolStripMenuItem";
+			this->generalToolStripMenuItem->Size = System::Drawing::Size(73, 24);
+			this->generalToolStripMenuItem->Text = L"Archivo";
+			this->generalToolStripMenuItem->Click += gcnew System::EventHandler(this, &carermaintenance::generalToolStripMenuItem_Click);
+			// 
+			// salirToolStripMenuItem
+			// 
+			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
+			this->salirToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->salirToolStripMenuItem->Text = L"Salir";
+			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &carermaintenance::salirToolStripMenuItem_Click);
+			// 
+			// cuidadoresToolStripMenuItem
+			// 
+			this->cuidadoresToolStripMenuItem->Name = L"cuidadoresToolStripMenuItem";
+			this->cuidadoresToolStripMenuItem->Size = System::Drawing::Size(74, 24);
+			this->cuidadoresToolStripMenuItem->Text = L"General";
+			this->cuidadoresToolStripMenuItem->Click += gcnew System::EventHandler(this, &carermaintenance::cuidadoresToolStripMenuItem_Click);
+			// 
+			// paseadoresToolStripMenuItem
+			// 
+			this->paseadoresToolStripMenuItem->Name = L"paseadoresToolStripMenuItem";
+			this->paseadoresToolStripMenuItem->Size = System::Drawing::Size(98, 24);
+			this->paseadoresToolStripMenuItem->Text = L"Cuidadores";
+			// 
+			// paseadoresToolStripMenuItem1
+			// 
+			this->paseadoresToolStripMenuItem1->Name = L"paseadoresToolStripMenuItem1";
+			this->paseadoresToolStripMenuItem1->Size = System::Drawing::Size(97, 24);
+			this->paseadoresToolStripMenuItem1->Text = L"Paseadores";
+			// 
 			// carermaintenance
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -681,10 +741,14 @@ namespace ChitaView {
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->labelId);
+			this->Controls->Add(this->menuStrip1);
+			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"carermaintenance";
 			this->Text = L"carermaintenance";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picturePhoto))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvCarer))->EndInit();
+			this->menuStrip1->ResumeLayout(false);
+			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -831,5 +895,14 @@ namespace ChitaView {
 
 
 	
+
+private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	Application::Exit();
+}
+private: System::Void cuidadoresToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	//carermaintenance^ Carermaintenance = gcnew carermaintenance();
+	//Carermaintenance->MdiParent = this;
+	//Carermaintenance->Show();
+}
 };
 }
