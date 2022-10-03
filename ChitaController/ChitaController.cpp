@@ -2,7 +2,45 @@
 
 #include "ChitaController.h"
 
-
+//---------------------------------------------------------------------------------------------------------------------
+// PARA MANTENIMIENTO DE PETOWNER
+//---------------------------------------------------------------------------------------------------------------------
+int ChitaController::Controller::AddPetOwner(PetOwner^ PetOwner) {
+	PetOwnerList->Add(PetOwner);
+	return 1;
+}
+int ChitaController::Controller::UpdatePetOwner(PetOwner^ PetOwner) {
+	for (int i = 0; i < PetOwnerList->Count; i++)
+		if (PetOwner->Id == PetOwnerList[i]->Id) {
+			PetOwnerList[i] = PetOwner;
+			return 1;
+		}
+	return 0;
+}
+int ChitaController::Controller::DeletePetOwner(int PetOwnerId) {
+	for (int i = 0; i < PetOwnerList->Count; i++)
+		if (PetOwnerId == PetOwnerList[i]->Id) {
+			PetOwnerList->RemoveAt(i);
+			return 1;
+		}
+	return 0;
+}
+List<PetOwner^>^ ChitaController::Controller::QueryAllPetOwner() {
+	List<PetOwner^>^ activePetOwnerList = gcnew List<PetOwner^>();
+	for (int i = 0; i < PetOwnerList->Count; i++) {
+		if (PetOwnerList[i]->Status == 'A') {
+			activePetOwnerList->Add(PetOwnerList[i]);
+		}
+	}
+	return activePetOwnerList;
+}
+PetOwner^ ChitaController::Controller::QueryPetOwnerById(int PetOwnerId){
+	for (int i = 0; i < PetOwnerList->Count; i++)
+		if (PetOwnerId == PetOwnerList[i]->Id) {
+			return PetOwnerList[i];
+		}
+	return nullptr;
+}
 //---------------------------------------------------------------------------------------------------------------------
 // PARA MANTENIMIENTO DE CARER
 //---------------------------------------------------------------------------------------------------------------------

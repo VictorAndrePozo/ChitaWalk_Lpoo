@@ -7,6 +7,18 @@ using namespace System::Collections::Generic;
 namespace ChitaController {
 	public ref class Controller
 	{
+
+		//---------------------------------------------------------------------------------------------------------------------
+		// PARA MANTENIMIENTO DE PETOWNER
+		//---------------------------------------------------------------------------------------------------------------------
+	private:
+		static List <PetOwner^>^ PetOwnerList = gcnew List<PetOwner^>(); //lista de PetOwners
+	public:
+		static int AddPetOwner(PetOwner^ PetOwner); //anadir petowner
+		static int UpdatePetOwner(PetOwner^ PetOwner);                   // Modificar petowner
+		static int DeletePetOwner(int PetOwnerId);                    // Eliminar petowner
+		static List <PetOwner^>^ QueryAllPetOwner();                 // Consultar todos los petowner activos
+		static PetOwner^ QueryPetOwnerById(int PetOwnerId);              // Consultar petowner por ID
 		//---------------------------------------------------------------------------------------------------------------------
 		// PARA MANTENIMIENTO DE CARER
 		//---------------------------------------------------------------------------------------------------------------------
