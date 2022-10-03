@@ -175,7 +175,7 @@ namespace ChitaView {
 		Application::Exit();
 	}
 private: System::Void carerToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	//carermaintenance^ Carermaintenance = gcnew carermaintenance();
+	carermaintenance^ Carermaintenance = gcnew carermaintenance();
 	Carermaintenance->MdiParent = this;
 	Carermaintenance->Show();
 }

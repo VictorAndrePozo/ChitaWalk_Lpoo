@@ -1,5 +1,5 @@
 #pragma once
-/*
+
 namespace ChitaView {
 
 	using namespace System;
@@ -946,4 +946,3 @@ private: System::Void cuidadoresToolStripMenuItem_Click(System::Object^ sender, 
 }
 };
 }
-*/
