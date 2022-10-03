@@ -132,6 +132,7 @@
     <ClCompile Include="MaintenancePetOwner.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="PetForm.cpp" />
+    <ClCompile Include="ServiceRequestForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="carermaintenance.h">
@@ -144,6 +145,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="PetForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ServiceRequestForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
@@ -159,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PetForm.resx">
       <DependentUpon>PetForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceRequestForm.resx">
+      <DependentUpon>ServiceRequestForm.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
