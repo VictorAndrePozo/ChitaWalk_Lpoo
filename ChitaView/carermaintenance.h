@@ -1,5 +1,5 @@
 #pragma once
-
+/*
 namespace ChitaView {
 
 	using namespace System;
@@ -218,152 +218,171 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// labelId
 			// 
 			this->labelId->AutoSize = true;
-			this->labelId->Location = System::Drawing::Point(47, 56);
+			this->labelId->Location = System::Drawing::Point(35, 46);
+			this->labelId->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->labelId->Name = L"labelId";
-			this->labelId->Size = System::Drawing::Size(18, 16);
+			this->labelId->Size = System::Drawing::Size(16, 13);
 			this->labelId->TabIndex = 0;
 			this->labelId->Text = L"Id";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(47, 85);
+			this->label2->Location = System::Drawing::Point(35, 69);
+			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(27, 16);
+			this->label2->Size = System::Drawing::Size(23, 13);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Dni";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(49, 145);
+			this->label3->Location = System::Drawing::Point(37, 118);
+			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(64, 16);
+			this->label3->Size = System::Drawing::Size(52, 13);
 			this->label3->TabIndex = 2;
 			this->label3->Text = L"Dirección";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(47, 210);
+			this->label4->Location = System::Drawing::Point(35, 171);
+			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(48, 16);
+			this->label4->Size = System::Drawing::Size(38, 13);
 			this->label4->TabIndex = 3;
 			this->label4->Text = L"Correo";
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(354, 82);
+			this->label5->Location = System::Drawing::Point(266, 67);
+			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(52, 16);
+			this->label5->Size = System::Drawing::Size(42, 13);
 			this->label5->TabIndex = 4;
 			this->label5->Text = L"Género";
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(49, 248);
+			this->label6->Location = System::Drawing::Point(37, 202);
+			this->label6->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(54, 16);
+			this->label6->Size = System::Drawing::Size(43, 13);
 			this->label6->TabIndex = 5;
 			this->label6->Text = L"Usuario";
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(47, 112);
+			this->label7->Location = System::Drawing::Point(35, 91);
+			this->label7->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(63, 16);
+			this->label7->Size = System::Drawing::Size(49, 13);
 			this->label7->TabIndex = 6;
 			this->label7->Text = L"Nombres";
 			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(354, 112);
+			this->label8->Location = System::Drawing::Point(266, 91);
+			this->label8->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(64, 16);
+			this->label8->Size = System::Drawing::Size(49, 13);
 			this->label8->TabIndex = 7;
 			this->label8->Text = L"Apellidos";
 			// 
 			// txtId
 			// 
-			this->txtId->Location = System::Drawing::Point(145, 50);
+			this->txtId->Location = System::Drawing::Point(109, 41);
+			this->txtId->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtId->Name = L"txtId";
-			this->txtId->Size = System::Drawing::Size(75, 22);
+			this->txtId->Size = System::Drawing::Size(57, 20);
 			this->txtId->TabIndex = 8;
 			// 
 			// txtDni
 			// 
-			this->txtDni->Location = System::Drawing::Point(145, 82);
+			this->txtDni->Location = System::Drawing::Point(109, 67);
+			this->txtDni->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtDni->Name = L"txtDni";
-			this->txtDni->Size = System::Drawing::Size(161, 22);
+			this->txtDni->Size = System::Drawing::Size(122, 20);
 			this->txtDni->TabIndex = 9;
 			// 
 			// txtEmail
 			// 
-			this->txtEmail->Location = System::Drawing::Point(145, 207);
+			this->txtEmail->Location = System::Drawing::Point(109, 168);
+			this->txtEmail->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtEmail->Name = L"txtEmail";
-			this->txtEmail->Size = System::Drawing::Size(453, 22);
+			this->txtEmail->Size = System::Drawing::Size(341, 20);
 			this->txtEmail->TabIndex = 10;
 			// 
 			// txtAddress
 			// 
-			this->txtAddress->Location = System::Drawing::Point(145, 145);
+			this->txtAddress->Location = System::Drawing::Point(109, 118);
+			this->txtAddress->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtAddress->Multiline = true;
 			this->txtAddress->Name = L"txtAddress";
-			this->txtAddress->Size = System::Drawing::Size(453, 52);
+			this->txtAddress->Size = System::Drawing::Size(341, 43);
 			this->txtAddress->TabIndex = 11;
 			// 
 			// txtFirstName
 			// 
-			this->txtFirstName->Location = System::Drawing::Point(145, 112);
+			this->txtFirstName->Location = System::Drawing::Point(109, 91);
+			this->txtFirstName->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtFirstName->Name = L"txtFirstName";
-			this->txtFirstName->Size = System::Drawing::Size(161, 22);
+			this->txtFirstName->Size = System::Drawing::Size(122, 20);
 			this->txtFirstName->TabIndex = 12;
 			// 
 			// txtLastName
 			// 
-			this->txtLastName->Location = System::Drawing::Point(443, 109);
+			this->txtLastName->Location = System::Drawing::Point(332, 89);
+			this->txtLastName->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtLastName->Name = L"txtLastName";
-			this->txtLastName->Size = System::Drawing::Size(155, 22);
+			this->txtLastName->Size = System::Drawing::Size(117, 20);
 			this->txtLastName->TabIndex = 13;
 			// 
 			// txtGender
 			// 
-			this->txtGender->Location = System::Drawing::Point(443, 79);
+			this->txtGender->Location = System::Drawing::Point(332, 64);
+			this->txtGender->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtGender->Name = L"txtGender";
-			this->txtGender->Size = System::Drawing::Size(155, 22);
+			this->txtGender->Size = System::Drawing::Size(117, 20);
 			this->txtGender->TabIndex = 14;
 			// 
 			// txtUsername
 			// 
-			this->txtUsername->Location = System::Drawing::Point(145, 239);
+			this->txtUsername->Location = System::Drawing::Point(109, 194);
+			this->txtUsername->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtUsername->Name = L"txtUsername";
-			this->txtUsername->Size = System::Drawing::Size(157, 22);
+			this->txtUsername->Size = System::Drawing::Size(119, 20);
 			this->txtUsername->TabIndex = 15;
 			// 
 			// txtStatus
 			// 
-			this->txtStatus->Location = System::Drawing::Point(437, 239);
+			this->txtStatus->Location = System::Drawing::Point(328, 194);
+			this->txtStatus->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtStatus->Name = L"txtStatus";
-			this->txtStatus->Size = System::Drawing::Size(161, 22);
+			this->txtStatus->Size = System::Drawing::Size(122, 20);
 			this->txtStatus->TabIndex = 16;
 			// 
 			// picturePhoto
 			// 
-			this->picturePhoto->Location = System::Drawing::Point(620, 46);
+			this->picturePhoto->Location = System::Drawing::Point(465, 37);
+			this->picturePhoto->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->picturePhoto->Name = L"picturePhoto";
-			this->picturePhoto->Size = System::Drawing::Size(178, 218);
+			this->picturePhoto->Size = System::Drawing::Size(134, 177);
 			this->picturePhoto->TabIndex = 17;
 			this->picturePhoto->TabStop = false;
 			// 
 			// btnAdd
 			// 
-			this->btnAdd->Location = System::Drawing::Point(61, 276);
+			this->btnAdd->Location = System::Drawing::Point(46, 224);
+			this->btnAdd->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnAdd->Name = L"btnAdd";
-			this->btnAdd->Size = System::Drawing::Size(137, 45);
+			this->btnAdd->Size = System::Drawing::Size(103, 37);
 			this->btnAdd->TabIndex = 18;
 			this->btnAdd->Text = L"Agregar";
 			this->btnAdd->UseVisualStyleBackColor = true;
@@ -371,9 +390,10 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(255, 276);
+			this->btnUpdate->Location = System::Drawing::Point(191, 224);
+			this->btnUpdate->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnUpdate->Name = L"btnUpdate";
-			this->btnUpdate->Size = System::Drawing::Size(137, 45);
+			this->btnUpdate->Size = System::Drawing::Size(103, 37);
 			this->btnUpdate->TabIndex = 19;
 			this->btnUpdate->Text = L"Modificar";
 			this->btnUpdate->UseVisualStyleBackColor = true;
@@ -381,9 +401,10 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// 
 			// btnDelete
 			// 
-			this->btnDelete->Location = System::Drawing::Point(443, 276);
+			this->btnDelete->Location = System::Drawing::Point(332, 224);
+			this->btnDelete->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnDelete->Name = L"btnDelete";
-			this->btnDelete->Size = System::Drawing::Size(137, 45);
+			this->btnDelete->Size = System::Drawing::Size(103, 37);
 			this->btnDelete->TabIndex = 20;
 			this->btnDelete->Text = L"Eliminar";
 			this->btnDelete->UseVisualStyleBackColor = true;
@@ -391,9 +412,10 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// 
 			// btnChangePhoto
 			// 
-			this->btnChangePhoto->Location = System::Drawing::Point(642, 276);
+			this->btnChangePhoto->Location = System::Drawing::Point(482, 224);
+			this->btnChangePhoto->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnChangePhoto->Name = L"btnChangePhoto";
-			this->btnChangePhoto->Size = System::Drawing::Size(137, 45);
+			this->btnChangePhoto->Size = System::Drawing::Size(103, 37);
 			this->btnChangePhoto->TabIndex = 21;
 			this->btnChangePhoto->Text = L"Agregar foto";
 			this->btnChangePhoto->UseVisualStyleBackColor = true;
@@ -401,109 +423,122 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(821, 85);
+			this->label1->Location = System::Drawing::Point(616, 69);
+			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(38, 16);
+			this->label1->Size = System::Drawing::Size(31, 13);
 			this->label1->TabIndex = 22;
 			this->label1->Text = L"Nivel";
 			// 
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(821, 54);
+			this->label9->Location = System::Drawing::Point(616, 44);
+			this->label9->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(72, 16);
+			this->label9->Size = System::Drawing::Size(57, 13);
 			this->label9->TabIndex = 23;
 			this->label9->Text = L"Valoración";
 			// 
 			// label11
 			// 
 			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(821, 118);
+			this->label11->Location = System::Drawing::Point(616, 96);
+			this->label11->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(78, 16);
+			this->label11->Size = System::Drawing::Size(62, 13);
 			this->label11->TabIndex = 25;
 			this->label11->Text = L"Experiencia";
 			// 
 			// label12
 			// 
 			this->label12->AutoSize = true;
-			this->label12->Location = System::Drawing::Point(821, 213);
+			this->label12->Location = System::Drawing::Point(616, 173);
+			this->label12->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(58, 16);
+			this->label12->Size = System::Drawing::Size(49, 13);
 			this->label12->TabIndex = 26;
 			this->label12->Text = L"Garantía";
 			// 
 			// label13
 			// 
 			this->label13->AutoSize = true;
-			this->label13->Location = System::Drawing::Point(821, 157);
+			this->label13->Location = System::Drawing::Point(616, 128);
+			this->label13->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(50, 16);
+			this->label13->Size = System::Drawing::Size(39, 13);
 			this->label13->TabIndex = 27;
 			this->label13->Text = L"Salario";
 			// 
 			// CmbPosition
 			// 
 			this->CmbPosition->FormattingEnabled = true;
-			this->CmbPosition->Location = System::Drawing::Point(443, 46);
+			this->CmbPosition->Location = System::Drawing::Point(332, 37);
+			this->CmbPosition->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->CmbPosition->Name = L"CmbPosition";
-			this->CmbPosition->Size = System::Drawing::Size(155, 24);
+			this->CmbPosition->Size = System::Drawing::Size(117, 21);
 			this->CmbPosition->TabIndex = 29;
 			// 
 			// label14
 			// 
 			this->label14->AutoSize = true;
-			this->label14->Location = System::Drawing::Point(354, 245);
+			this->label14->Location = System::Drawing::Point(266, 199);
+			this->label14->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label14->Name = L"label14";
-			this->label14->Size = System::Drawing::Size(50, 16);
+			this->label14->Size = System::Drawing::Size(40, 13);
 			this->label14->TabIndex = 30;
 			this->label14->Text = L"Estado";
 			// 
 			// label15
 			// 
 			this->label15->AutoSize = true;
-			this->label15->Location = System::Drawing::Point(354, 50);
+			this->label15->Location = System::Drawing::Point(266, 41);
+			this->label15->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label15->Name = L"label15";
-			this->label15->Size = System::Drawing::Size(59, 16);
+			this->label15->Size = System::Drawing::Size(47, 13);
 			this->label15->TabIndex = 31;
 			this->label15->Text = L"Posición";
 			// 
 			// txtValoration
 			// 
-			this->txtValoration->Location = System::Drawing::Point(931, 50);
+			this->txtValoration->Location = System::Drawing::Point(698, 41);
+			this->txtValoration->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtValoration->Name = L"txtValoration";
-			this->txtValoration->Size = System::Drawing::Size(125, 22);
+			this->txtValoration->Size = System::Drawing::Size(95, 20);
 			this->txtValoration->TabIndex = 32;
 			// 
 			// txtLevel
 			// 
-			this->txtLevel->Location = System::Drawing::Point(931, 82);
+			this->txtLevel->Location = System::Drawing::Point(698, 67);
+			this->txtLevel->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtLevel->Name = L"txtLevel";
-			this->txtLevel->Size = System::Drawing::Size(125, 22);
+			this->txtLevel->Size = System::Drawing::Size(95, 20);
 			this->txtLevel->TabIndex = 33;
 			// 
 			// txtExperience
 			// 
-			this->txtExperience->Location = System::Drawing::Point(931, 115);
+			this->txtExperience->Location = System::Drawing::Point(698, 93);
+			this->txtExperience->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtExperience->Name = L"txtExperience";
-			this->txtExperience->Size = System::Drawing::Size(125, 22);
+			this->txtExperience->Size = System::Drawing::Size(95, 20);
 			this->txtExperience->TabIndex = 34;
 			// 
 			// txtSalary
 			// 
-			this->txtSalary->Location = System::Drawing::Point(931, 145);
+			this->txtSalary->Location = System::Drawing::Point(698, 118);
+			this->txtSalary->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtSalary->Multiline = true;
 			this->txtSalary->Name = L"txtSalary";
-			this->txtSalary->Size = System::Drawing::Size(125, 52);
+			this->txtSalary->Size = System::Drawing::Size(95, 43);
 			this->txtSalary->TabIndex = 35;
 			// 
 			// txtWarranty
 			// 
-			this->txtWarranty->Location = System::Drawing::Point(931, 206);
+			this->txtWarranty->Location = System::Drawing::Point(698, 167);
+			this->txtWarranty->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtWarranty->Multiline = true;
 			this->txtWarranty->Name = L"txtWarranty";
-			this->txtWarranty->Size = System::Drawing::Size(125, 83);
+			this->txtWarranty->Size = System::Drawing::Size(95, 68);
 			this->txtWarranty->TabIndex = 36;
 			// 
 			// dgvCarer
@@ -515,11 +550,12 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 					this->carerusername, this->carervaloration, this->carerlevel, this->carerexperience, this->carersalary, this->carerwarranty,
 					this->carernombres
 			});
-			this->dgvCarer->Location = System::Drawing::Point(12, 335);
+			this->dgvCarer->Location = System::Drawing::Point(9, 272);
+			this->dgvCarer->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->dgvCarer->Name = L"dgvCarer";
 			this->dgvCarer->RowHeadersWidth = 51;
 			this->dgvCarer->RowTemplate->Height = 24;
-			this->dgvCarer->Size = System::Drawing::Size(1084, 278);
+			this->dgvCarer->Size = System::Drawing::Size(813, 226);
 			this->dgvCarer->TabIndex = 37;
 			this->dgvCarer->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &carermaintenance::dgvCarer_CellClick);
 			// 
@@ -638,17 +674,19 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(830, 299);
+			this->label10->Location = System::Drawing::Point(622, 243);
+			this->label10->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(49, 16);
+			this->label10->Size = System::Drawing::Size(39, 13);
 			this->label10->TabIndex = 38;
 			this->label10->Text = L"Celular";
 			// 
 			// txtPhoneNumber
 			// 
-			this->txtPhoneNumber->Location = System::Drawing::Point(931, 299);
+			this->txtPhoneNumber->Location = System::Drawing::Point(698, 243);
+			this->txtPhoneNumber->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtPhoneNumber->Name = L"txtPhoneNumber";
-			this->txtPhoneNumber->Size = System::Drawing::Size(125, 22);
+			this->txtPhoneNumber->Size = System::Drawing::Size(95, 20);
 			this->txtPhoneNumber->TabIndex = 39;
 			// 
 			// menuStrip1
@@ -660,7 +698,8 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1108, 28);
+			this->menuStrip1->Padding = System::Windows::Forms::Padding(4, 2, 0, 2);
+			this->menuStrip1->Size = System::Drawing::Size(831, 24);
 			this->menuStrip1->TabIndex = 40;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -668,41 +707,41 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// 
 			this->generalToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->salirToolStripMenuItem });
 			this->generalToolStripMenuItem->Name = L"generalToolStripMenuItem";
-			this->generalToolStripMenuItem->Size = System::Drawing::Size(73, 24);
+			this->generalToolStripMenuItem->Size = System::Drawing::Size(60, 20);
 			this->generalToolStripMenuItem->Text = L"Archivo";
 			this->generalToolStripMenuItem->Click += gcnew System::EventHandler(this, &carermaintenance::generalToolStripMenuItem_Click);
 			// 
 			// salirToolStripMenuItem
 			// 
 			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
-			this->salirToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->salirToolStripMenuItem->Size = System::Drawing::Size(96, 22);
 			this->salirToolStripMenuItem->Text = L"Salir";
 			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &carermaintenance::salirToolStripMenuItem_Click);
 			// 
 			// cuidadoresToolStripMenuItem
 			// 
 			this->cuidadoresToolStripMenuItem->Name = L"cuidadoresToolStripMenuItem";
-			this->cuidadoresToolStripMenuItem->Size = System::Drawing::Size(74, 24);
+			this->cuidadoresToolStripMenuItem->Size = System::Drawing::Size(59, 20);
 			this->cuidadoresToolStripMenuItem->Text = L"General";
 			this->cuidadoresToolStripMenuItem->Click += gcnew System::EventHandler(this, &carermaintenance::cuidadoresToolStripMenuItem_Click);
 			// 
 			// paseadoresToolStripMenuItem
 			// 
 			this->paseadoresToolStripMenuItem->Name = L"paseadoresToolStripMenuItem";
-			this->paseadoresToolStripMenuItem->Size = System::Drawing::Size(98, 24);
+			this->paseadoresToolStripMenuItem->Size = System::Drawing::Size(79, 20);
 			this->paseadoresToolStripMenuItem->Text = L"Cuidadores";
 			// 
 			// paseadoresToolStripMenuItem1
 			// 
 			this->paseadoresToolStripMenuItem1->Name = L"paseadoresToolStripMenuItem1";
-			this->paseadoresToolStripMenuItem1->Size = System::Drawing::Size(97, 24);
+			this->paseadoresToolStripMenuItem1->Size = System::Drawing::Size(78, 20);
 			this->paseadoresToolStripMenuItem1->Text = L"Paseadores";
 			// 
 			// carermaintenance
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1108, 625);
+			this->ClientSize = System::Drawing::Size(831, 508);
 			this->Controls->Add(this->txtPhoneNumber);
 			this->Controls->Add(this->label10);
 			this->Controls->Add(this->dgvCarer);
@@ -743,6 +782,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			this->Controls->Add(this->labelId);
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"carermaintenance";
 			this->Text = L"carermaintenance";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picturePhoto))->EndInit();
@@ -906,3 +946,4 @@ private: System::Void cuidadoresToolStripMenuItem_Click(System::Object^ sender, 
 }
 };
 }
+*/
