@@ -129,22 +129,22 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="carermaintenance.cpp" />
-    <ClCompile Include="MaintenancePetOwner.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="PetForm.cpp" />
+    <ClCompile Include="PetOwnerMaintence.cpp" />
     <ClCompile Include="ServiceRequestForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="carermaintenance.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="MaintenancePetOwner.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="PetForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="PetOwnerMaintence.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ServiceRequestForm.h">
@@ -155,14 +155,14 @@
     <EmbeddedResource Include="carermaintenance.resx">
       <DependentUpon>carermaintenance.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MaintenancePetOwner.resx">
-      <DependentUpon>MaintenancePetOwner.h</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PetForm.resx">
       <DependentUpon>PetForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PetOwnerMaintence.resx">
+      <DependentUpon>PetOwnerMaintence.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceRequestForm.resx">
       <DependentUpon>ServiceRequestForm.h</DependentUpon>

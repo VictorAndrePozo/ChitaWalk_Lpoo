@@ -135,6 +135,8 @@ private: System::Windows::Forms::ToolStripMenuItem^ paseadoresToolStripMenuItem;
 private: System::Windows::Forms::ToolStripMenuItem^ paseadoresToolStripMenuItem1;
 private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 
+
+
 	protected:
 
 	private:
@@ -298,7 +300,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// txtId
 			// 
 			this->txtId->Location = System::Drawing::Point(109, 41);
-			this->txtId->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtId->Margin = System::Windows::Forms::Padding(2);
 			this->txtId->Name = L"txtId";
 			this->txtId->Size = System::Drawing::Size(57, 20);
 			this->txtId->TabIndex = 8;
@@ -306,7 +308,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// txtDni
 			// 
 			this->txtDni->Location = System::Drawing::Point(109, 67);
-			this->txtDni->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtDni->Margin = System::Windows::Forms::Padding(2);
 			this->txtDni->Name = L"txtDni";
 			this->txtDni->Size = System::Drawing::Size(122, 20);
 			this->txtDni->TabIndex = 9;
@@ -314,7 +316,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// txtEmail
 			// 
 			this->txtEmail->Location = System::Drawing::Point(109, 168);
-			this->txtEmail->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtEmail->Margin = System::Windows::Forms::Padding(2);
 			this->txtEmail->Name = L"txtEmail";
 			this->txtEmail->Size = System::Drawing::Size(341, 20);
 			this->txtEmail->TabIndex = 10;
@@ -322,7 +324,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// txtAddress
 			// 
 			this->txtAddress->Location = System::Drawing::Point(109, 118);
-			this->txtAddress->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtAddress->Margin = System::Windows::Forms::Padding(2);
 			this->txtAddress->Multiline = true;
 			this->txtAddress->Name = L"txtAddress";
 			this->txtAddress->Size = System::Drawing::Size(341, 43);
@@ -331,7 +333,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// txtFirstName
 			// 
 			this->txtFirstName->Location = System::Drawing::Point(109, 91);
-			this->txtFirstName->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtFirstName->Margin = System::Windows::Forms::Padding(2);
 			this->txtFirstName->Name = L"txtFirstName";
 			this->txtFirstName->Size = System::Drawing::Size(122, 20);
 			this->txtFirstName->TabIndex = 12;
@@ -339,7 +341,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// txtLastName
 			// 
 			this->txtLastName->Location = System::Drawing::Point(332, 89);
-			this->txtLastName->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtLastName->Margin = System::Windows::Forms::Padding(2);
 			this->txtLastName->Name = L"txtLastName";
 			this->txtLastName->Size = System::Drawing::Size(117, 20);
 			this->txtLastName->TabIndex = 13;
@@ -347,7 +349,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// txtGender
 			// 
 			this->txtGender->Location = System::Drawing::Point(332, 64);
-			this->txtGender->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtGender->Margin = System::Windows::Forms::Padding(2);
 			this->txtGender->Name = L"txtGender";
 			this->txtGender->Size = System::Drawing::Size(117, 20);
 			this->txtGender->TabIndex = 14;
@@ -355,7 +357,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// txtUsername
 			// 
 			this->txtUsername->Location = System::Drawing::Point(109, 194);
-			this->txtUsername->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtUsername->Margin = System::Windows::Forms::Padding(2);
 			this->txtUsername->Name = L"txtUsername";
 			this->txtUsername->Size = System::Drawing::Size(119, 20);
 			this->txtUsername->TabIndex = 15;
@@ -363,7 +365,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// txtStatus
 			// 
 			this->txtStatus->Location = System::Drawing::Point(328, 194);
-			this->txtStatus->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtStatus->Margin = System::Windows::Forms::Padding(2);
 			this->txtStatus->Name = L"txtStatus";
 			this->txtStatus->Size = System::Drawing::Size(122, 20);
 			this->txtStatus->TabIndex = 16;
@@ -371,7 +373,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// picturePhoto
 			// 
 			this->picturePhoto->Location = System::Drawing::Point(465, 37);
-			this->picturePhoto->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->picturePhoto->Margin = System::Windows::Forms::Padding(2);
 			this->picturePhoto->Name = L"picturePhoto";
 			this->picturePhoto->Size = System::Drawing::Size(134, 177);
 			this->picturePhoto->TabIndex = 17;
@@ -380,7 +382,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// btnAdd
 			// 
 			this->btnAdd->Location = System::Drawing::Point(46, 224);
-			this->btnAdd->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnAdd->Margin = System::Windows::Forms::Padding(2);
 			this->btnAdd->Name = L"btnAdd";
 			this->btnAdd->Size = System::Drawing::Size(103, 37);
 			this->btnAdd->TabIndex = 18;
@@ -391,7 +393,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// btnUpdate
 			// 
 			this->btnUpdate->Location = System::Drawing::Point(191, 224);
-			this->btnUpdate->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnUpdate->Margin = System::Windows::Forms::Padding(2);
 			this->btnUpdate->Name = L"btnUpdate";
 			this->btnUpdate->Size = System::Drawing::Size(103, 37);
 			this->btnUpdate->TabIndex = 19;
@@ -402,7 +404,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// btnDelete
 			// 
 			this->btnDelete->Location = System::Drawing::Point(332, 224);
-			this->btnDelete->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnDelete->Margin = System::Windows::Forms::Padding(2);
 			this->btnDelete->Name = L"btnDelete";
 			this->btnDelete->Size = System::Drawing::Size(103, 37);
 			this->btnDelete->TabIndex = 20;
@@ -413,7 +415,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// btnChangePhoto
 			// 
 			this->btnChangePhoto->Location = System::Drawing::Point(482, 224);
-			this->btnChangePhoto->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnChangePhoto->Margin = System::Windows::Forms::Padding(2);
 			this->btnChangePhoto->Name = L"btnChangePhoto";
 			this->btnChangePhoto->Size = System::Drawing::Size(103, 37);
 			this->btnChangePhoto->TabIndex = 21;
@@ -474,7 +476,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// 
 			this->CmbPosition->FormattingEnabled = true;
 			this->CmbPosition->Location = System::Drawing::Point(332, 37);
-			this->CmbPosition->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->CmbPosition->Margin = System::Windows::Forms::Padding(2);
 			this->CmbPosition->Name = L"CmbPosition";
 			this->CmbPosition->Size = System::Drawing::Size(117, 21);
 			this->CmbPosition->TabIndex = 29;
@@ -502,7 +504,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// txtValoration
 			// 
 			this->txtValoration->Location = System::Drawing::Point(698, 41);
-			this->txtValoration->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtValoration->Margin = System::Windows::Forms::Padding(2);
 			this->txtValoration->Name = L"txtValoration";
 			this->txtValoration->Size = System::Drawing::Size(95, 20);
 			this->txtValoration->TabIndex = 32;
@@ -510,7 +512,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// txtLevel
 			// 
 			this->txtLevel->Location = System::Drawing::Point(698, 67);
-			this->txtLevel->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtLevel->Margin = System::Windows::Forms::Padding(2);
 			this->txtLevel->Name = L"txtLevel";
 			this->txtLevel->Size = System::Drawing::Size(95, 20);
 			this->txtLevel->TabIndex = 33;
@@ -518,7 +520,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// txtExperience
 			// 
 			this->txtExperience->Location = System::Drawing::Point(698, 93);
-			this->txtExperience->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtExperience->Margin = System::Windows::Forms::Padding(2);
 			this->txtExperience->Name = L"txtExperience";
 			this->txtExperience->Size = System::Drawing::Size(95, 20);
 			this->txtExperience->TabIndex = 34;
@@ -526,7 +528,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// txtSalary
 			// 
 			this->txtSalary->Location = System::Drawing::Point(698, 118);
-			this->txtSalary->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtSalary->Margin = System::Windows::Forms::Padding(2);
 			this->txtSalary->Multiline = true;
 			this->txtSalary->Name = L"txtSalary";
 			this->txtSalary->Size = System::Drawing::Size(95, 43);
@@ -535,7 +537,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// txtWarranty
 			// 
 			this->txtWarranty->Location = System::Drawing::Point(698, 167);
-			this->txtWarranty->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtWarranty->Margin = System::Windows::Forms::Padding(2);
 			this->txtWarranty->Multiline = true;
 			this->txtWarranty->Name = L"txtWarranty";
 			this->txtWarranty->Size = System::Drawing::Size(95, 68);
@@ -551,7 +553,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 					this->carernombres
 			});
 			this->dgvCarer->Location = System::Drawing::Point(9, 272);
-			this->dgvCarer->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->dgvCarer->Margin = System::Windows::Forms::Padding(2);
 			this->dgvCarer->Name = L"dgvCarer";
 			this->dgvCarer->RowHeadersWidth = 51;
 			this->dgvCarer->RowTemplate->Height = 24;
@@ -684,7 +686,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// txtPhoneNumber
 			// 
 			this->txtPhoneNumber->Location = System::Drawing::Point(698, 243);
-			this->txtPhoneNumber->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtPhoneNumber->Margin = System::Windows::Forms::Padding(2);
 			this->txtPhoneNumber->Name = L"txtPhoneNumber";
 			this->txtPhoneNumber->Size = System::Drawing::Size(95, 20);
 			this->txtPhoneNumber->TabIndex = 39;
@@ -713,7 +715,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			// salirToolStripMenuItem
 			// 
 			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
-			this->salirToolStripMenuItem->Size = System::Drawing::Size(96, 22);
+			this->salirToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->salirToolStripMenuItem->Text = L"Salir";
 			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &carermaintenance::salirToolStripMenuItem_Click);
 			// 
@@ -781,7 +783,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			this->Controls->Add(this->labelId);
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"carermaintenance";
 			this->Text = L"carermaintenance";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picturePhoto))->EndInit();
