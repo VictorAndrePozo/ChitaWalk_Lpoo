@@ -11,8 +11,8 @@ ChitaModel::Pet::Pet() {
 
 
 
-ChitaModel::Pet::Pet(int Id, String^ Name, int Age, String^ Species, char Vaccines,
-					  String^ Conduct, array <Byte>^ Photo, char Status) {
+ChitaModel::Pet::Pet(int Id, String^ Name, int Age, String^ Species, String^ Vaccines,
+					  String^ Conduct, array <Byte>^ Photo, String^ Kind) {
 	this->Id = Id;
 	this->Name = Name;
 	this->Age = Age;
@@ -20,5 +20,5 @@ ChitaModel::Pet::Pet(int Id, String^ Name, int Age, String^ Species, char Vaccin
 	this->Vaccines = Vaccines;
 	this->Conduct = Conduct;
 	this->Photo = Photo;
-	this->Status = Status;
+	this->Kind = Kind;
 }

@@ -41,10 +41,10 @@ namespace ChitaController {
 
 	public: //static es para que los metodos sean globales.
 		static int AddPet(Pet^ pet);				//Método para añadir mascotas.
-		static int UptadePet(Pet^ pet);				//Método para actualizar datos de las mascotas.
+		static int UpdatePet(Pet^ pet);				//Método para actualizar datos de las mascotas.
 		static int DeletePet(int productId);		//Método para eliminar una mascota del registro.
 
-		static Pet^ QueryPoductById(int petId);		//Método para mostrar una mascota por ID.
+		static Pet^ QueryPetById(int petId);		//Método para mostrar una mascota por ID.
 		static List <Pet^>^ QueryAllPets();			//Método para mostrar a todas las mascotas en una lista.
 
 	};

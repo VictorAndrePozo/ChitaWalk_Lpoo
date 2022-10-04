@@ -11,8 +11,8 @@ namespace ChitaModel {
 		property bool Poisonous;
 	public:
 		ExoticPet();
-		ExoticPet(int Id, String^ Name, int Age, String^ Species, char Vaccines,
+		ExoticPet(int Id, String^ Name, int Age, String^ Species, String^ Vaccines,
 				String^ Conduct, String^ SpecialCares, String^ SpecialFood,
-				bool Poisonous, array <Byte>^ Photo, char Status);
+				bool Poisonous, array <Byte>^ Photo, String^ Kind);
 	};
 }

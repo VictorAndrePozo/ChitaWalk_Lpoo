@@ -10,8 +10,8 @@ ChitaModel::DomesticPet::DomesticPet() {
 }
 
 
-ChitaModel::DomesticPet::DomesticPet(int Id, String^ Name, int Age, String^ Species, char Vaccines,
-									  String^ Conduct,String^ CommercialFood, array <Byte>^ Photo, char Status) {
+ChitaModel::DomesticPet::DomesticPet(int Id, String^ Name, int Age, String^ Species, String^ Vaccines,
+									  String^ Conduct,String^ CommercialFood, array <Byte>^ Photo, String^ Kind) {
 	this->Id = Id;
 	this->Name = Name;
 	this->Age = Age;
@@ -20,5 +20,5 @@ ChitaModel::DomesticPet::DomesticPet(int Id, String^ Name, int Age, String^ Spec
 	this->Conduct = Conduct;
 	this->CommercialFood = CommercialFood;
 	this->Photo = Photo;
-	this->Status = Status;
+	this->Kind = Kind;
 }

@@ -91,7 +91,7 @@ Carer^ ChitaController::Controller::QueryCarerById(int carerId)
 }
 
 //---------------------------------------------------------------------------------------------------------------------
-// PARA MANTENIMIENTO DE CARER
+// PARA MANTENIMIENTO DE PET
 //---------------------------------------------------------------------------------------------------------------------
 int ChitaController::Controller::AddPet(Pet^ pet)
 {
@@ -99,7 +99,7 @@ int ChitaController::Controller::AddPet(Pet^ pet)
     return 0;
 }
 
-int ChitaController::Controller::UptadePet(Pet^ pet)
+int ChitaController::Controller::UpdatePet(Pet^ pet)
 {
     for (int i = 0; i < petList->Count; i++) { // de 0 a ++ mientras i sea menor al total de listas(count)
         if (pet->Id == petList[i]->Id) {    //Si atributo Id de Pet es igual al atributo Id de petList entonces...
@@ -121,7 +121,7 @@ int ChitaController::Controller::DeletePet(int petId)
     return 0;
 }
 
-Pet^ ChitaController::Controller::QueryPoductById(int petId)
+Pet^ ChitaController::Controller::QueryPetById(int petId)
 {
     for (int i = 0; i < petList->Count; i++) { //Barrido de todos los elementos de la lista
         if (petId == petList[i]->Id) {    //Si petId es igual al atributo Id de petList entonces...
@@ -131,11 +131,12 @@ Pet^ ChitaController::Controller::QueryPoductById(int petId)
     return nullptr; //Si no encuentra una coincidenica, no debuelve algo.
 }
 
+
 List<Pet^>^ ChitaController::Controller::QueryAllPets()
 {
     List<Pet^>^ activePetList = gcnew List<Pet^>(); //Reserva espacio de memoria para la lista
     for (int i = 0; i < petList->Count; i++) {  //Barrido de todos los elementos de la lista
-        if (petList[i]->Status == 'w') {    //status char: esperando(w) servicios care (c), walk(k), transport(t)
+        if (petList[i]-> Id > 0) {  
             activePetList->Add(petList[i]);
         }
     }

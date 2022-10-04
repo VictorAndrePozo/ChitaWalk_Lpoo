@@ -9,14 +9,14 @@ namespace ChitaModel {
         property String^ Name;
         property int Age;
         property String^ Species;
-        property char Vaccines;
+        property String^ Vaccines;
         property String^ Conduct;
         property array <Byte>^ Photo;
-        property char Status;
+        property String^ Kind;
 
     public:
         Pet();
-        Pet(int Id, String^ Name, int Age, String^ Species, char Vaccines,
-            String^ Conduct, array <Byte>^ Photo, char Status);
+        Pet(int Id, String^ Name, int Age, String^ Species, String^ Vaccines,
+            String^ Conduct, array <Byte>^ Photo, String^ Kind);
     };
 }

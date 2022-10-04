@@ -10,9 +10,9 @@ ChitaModel::ExoticPet::ExoticPet() {
 }
 
 
-ChitaModel::ExoticPet::ExoticPet(int Id, String^ Name, int Age, String^ Species, char Vaccines,
+ChitaModel::ExoticPet::ExoticPet(int Id, String^ Name, int Age, String^ Species, String^ Vaccines,
 								  String^ Conduct,String^ SpecialCares, String^ SpecialFood, 
-								  bool Poisonous, array <Byte>^ Photo, char Status) {
+								  bool Poisonous, array <Byte>^ Photo, String^ kind) {
 	this->Id = Id;
 	this->Name = Name;
 	this->Age = Age;
@@ -23,5 +23,5 @@ ChitaModel::ExoticPet::ExoticPet(int Id, String^ Name, int Age, String^ Species,
 	this->SpecialFood = SpecialFood;
 	this->Poisonous = Poisonous;
 	this->Photo = Photo;
-	this->Status = Status;
+	this->Kind = Kind;
 }

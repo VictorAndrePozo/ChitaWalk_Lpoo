@@ -1,4 +1,5 @@
 #pragma once
+#include "PetForm.h"
 
 namespace ChitaView {
 
@@ -8,6 +9,10 @@ namespace ChitaView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace ChitaModel;
+	using namespace ChitaController;
+	using namespace System::Collections::Generic;	//para listas
+
 
 	/// <summary>
 	/// Resumen de PetForm
@@ -81,8 +86,10 @@ namespace ChitaView {
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::PictureBox^ pbPetPhoto;
+	private: System::Windows::Forms::DataGridView^ dgvPetList;
 
-	private: System::Windows::Forms::DataGridView^ dataGridView1;
+
+
 	private: System::Windows::Forms::TextBox^ txtPetId;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvPetId;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvPetName;
@@ -144,8 +151,7 @@ namespace ChitaView {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->pbPetPhoto = (gcnew System::Windows::Forms::PictureBox());
-			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->txtPetId = (gcnew System::Windows::Forms::TextBox());
+			this->dgvPetList = (gcnew System::Windows::Forms::DataGridView());
 			this->dgvPetId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dgvPetName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dgvPedKind = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -153,9 +159,10 @@ namespace ChitaView {
 			this->dgvPetAge = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dgvPetConduct = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dgvPetVaccines = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->txtPetId = (gcnew System::Windows::Forms::TextBox());
 			this->btnAddPetPhoto = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPetPhoto))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPetList))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// label1
@@ -211,6 +218,7 @@ namespace ChitaView {
 			this->btnAdd->TabIndex = 17;
 			this->btnAdd->Text = L"Añadir";
 			this->btnAdd->UseVisualStyleBackColor = true;
+			this->btnAdd->Click += gcnew System::EventHandler(this, &PetForm::btnAdd_Click);
 			// 
 			// btnUpdate
 			// 
@@ -220,6 +228,7 @@ namespace ChitaView {
 			this->btnUpdate->TabIndex = 18;
 			this->btnUpdate->Text = L"Modificar";
 			this->btnUpdate->UseVisualStyleBackColor = true;
+			this->btnUpdate->Click += gcnew System::EventHandler(this, &PetForm::btnUpdate_Click);
 			// 
 			// btnRemove
 			// 
@@ -229,6 +238,7 @@ namespace ChitaView {
 			this->btnRemove->TabIndex = 19;
 			this->btnRemove->Text = L"Eliminar";
 			this->btnRemove->UseVisualStyleBackColor = true;
+			this->btnRemove->Click += gcnew System::EventHandler(this, &PetForm::btnRemove_Click);
 			// 
 			// txtPetName
 			// 
@@ -304,24 +314,18 @@ namespace ChitaView {
 			this->pbPetPhoto->TabIndex = 29;
 			this->pbPetPhoto->TabStop = false;
 			// 
-			// dataGridView1
+			// dgvPetList
 			// 
-			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(7) {
+			this->dgvPetList->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgvPetList->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(7) {
 				this->dgvPetId,
 					this->dgvPetName, this->dgvPedKind, this->dgvPetSpecies, this->dgvPetAge, this->dgvPetConduct, this->dgvPetVaccines
 			});
-			this->dataGridView1->Location = System::Drawing::Point(7, 258);
-			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(483, 204);
-			this->dataGridView1->TabIndex = 30;
-			// 
-			// txtPetId
-			// 
-			this->txtPetId->Location = System::Drawing::Point(76, 12);
-			this->txtPetId->Name = L"txtPetId";
-			this->txtPetId->Size = System::Drawing::Size(200, 20);
-			this->txtPetId->TabIndex = 31;
+			this->dgvPetList->Location = System::Drawing::Point(7, 258);
+			this->dgvPetList->Name = L"dgvPetList";
+			this->dgvPetList->Size = System::Drawing::Size(483, 204);
+			this->dgvPetList->TabIndex = 30;
+			this->dgvPetList->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &PetForm::dgvPetList_CellClick);
 			// 
 			// dgvPetId
 			// 
@@ -365,6 +369,13 @@ namespace ChitaView {
 			this->dgvPetVaccines->Name = L"dgvPetVaccines";
 			this->dgvPetVaccines->Width = 60;
 			// 
+			// txtPetId
+			// 
+			this->txtPetId->Location = System::Drawing::Point(76, 12);
+			this->txtPetId->Name = L"txtPetId";
+			this->txtPetId->Size = System::Drawing::Size(200, 20);
+			this->txtPetId->TabIndex = 31;
+			// 
 			// btnAddPetPhoto
 			// 
 			this->btnAddPetPhoto->Location = System::Drawing::Point(359, 204);
@@ -381,7 +392,7 @@ namespace ChitaView {
 			this->ClientSize = System::Drawing::Size(498, 474);
 			this->Controls->Add(this->btnAddPetPhoto);
 			this->Controls->Add(this->txtPetId);
-			this->Controls->Add(this->dataGridView1);
+			this->Controls->Add(this->dgvPetList);
 			this->Controls->Add(this->pbPetPhoto);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->label5);
@@ -402,13 +413,85 @@ namespace ChitaView {
 			this->Name = L"PetForm";
 			this->Text = L"Inscripción de Mascota";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPetPhoto))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPetList))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
 	
+		public:
+			void RefreshGrid() {
+				List<Pet^>^ petList = Controller::QueryAllPets();
+				dgvPetList->Rows->Clear();
 
+				for (int i = 0; i < petList->Count; i++) {
+					dgvPetList->Rows->Add(gcnew array<String^>{
+						" " + petList[i] -> Id,
+							  petList[i] -> Name,
+							  petList[i] -> Kind,
+							  petList[i] -> Species,
+							  petList[i] -> Vaccines,
+							  petList[i] -> Conduct,
+						" " + petList[i] -> Age,
+					});
+				
+				}
+			}
+			
+	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		Pet^ p = gcnew Pet();					//definimos un objeto p (mascota)
+		p->Id = Int32::Parse(txtPetId->Text);	//pasamos el escrito en txtId al atributo Id de p
+												//Int32::Parse() transforma el string a entero lo que está dentro del ().
+		p->Name = txtPetName->Text;				//Toma el Texto de txtName y lo carga en Name de p.
+		p->Kind = cbPetKind->Text;
+		p->Species = txtPetSpecies->Text;
+		p->Vaccines = cbPetVaccines->Text;
+		p->Conduct = cbPetConduct->Text;
+		p->Age = Int32::Parse(txtPetAge->Text);
+	
+
+		Controller::AddPet(p);	//Invocamos al controller y agregamos el objeto p.
+
+		RefreshGrid();
+	}
+private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	Pet^ p = gcnew Pet();					//definimos un objeto p (mascota)
+	p->Id = Int32::Parse(txtPetId->Text);	//pasamos el escrito en txtId al atributo Id de p
+											//Int32::Parse() transforma el string a entero lo que está dentro del ().
+	p->Name = txtPetName->Text;				//Toma el Texto de txtName y lo carga en Name de p.
+	p->Kind = cbPetKind->Text;
+	p->Species = txtPetSpecies->Text;
+	p->Vaccines = cbPetVaccines->Text;
+	p->Conduct = cbPetConduct->Text;
+	p->Age = Int32::Parse(txtPetAge->Text);
+
+
+	Controller::UpdatePet(p);	//Invocamos al controller y agregamos el objeto p.
+
+	RefreshGrid();
+
+}
+private: System::Void btnRemove_Click(System::Object^ sender, System::EventArgs^ e) {
+	int petId = Int32::Parse(txtPetId->Text);
+	Controller::DeletePet(petId);
+	RefreshGrid();
+
+}
+private: System::Void dgvPetList_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	int selectedRowIndex = dgvPetList->SelectedCells[0]->RowIndex;
+		int petId = Int32::Parse(dgvPetList->Rows[selectedRowIndex]->Cells[0]->Value->ToString());
+		Pet^ p = Controller::QueryPetById(petId);
+
+		txtPetId->  Text = " " + p->Id;
+		txtPetName->Text = p->Name;
+		cbPetKind-> Text = p->Kind;
+		txtPetSpecies->Text = p->Species;
+		cbPetVaccines->Text= p->Vaccines;
+		cbPetConduct->Text = p->Conduct;
+		txtPetAge->Text = " " + p->Age;
+}
 };
 }
