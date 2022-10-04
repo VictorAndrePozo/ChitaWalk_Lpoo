@@ -8,7 +8,9 @@ namespace ChitaView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	using namespace ChitaModel;
+	using namespace ChitaController;
+	using namespace System::Collections::Generic;
 	/// <summary>
 	/// Resumen de PetOwnerMaintence
 	/// </summary>
@@ -40,11 +42,15 @@ namespace ChitaView {
 
 
 	private: System::Windows::Forms::TextBox^ txtUsername;
-	private: System::Windows::Forms::TextBox^ txtGender;
-	private: System::Windows::Forms::TextBox^ ApellidoPO;
+	private: System::Windows::Forms::TextBox^ txtEmail;
+
+	private: System::Windows::Forms::TextBox^ txtApellido;
+
 
 	private: System::Windows::Forms::TextBox^ txtFirstName;
 	private: System::Windows::Forms::TextBox^ txtAddress;
+
+
 
 	private: System::Windows::Forms::TextBox^ txtDni;
 	private: System::Windows::Forms::TextBox^ txtId;
@@ -65,7 +71,8 @@ namespace ChitaView {
 	private: System::Windows::Forms::Button^ btnChangePhoto;
 	private: System::Windows::Forms::PictureBox^ picturePhoto;
 	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ txtPassword;
+
 	private: System::Windows::Forms::RadioButton^ radioFemale;
 	private: System::Windows::Forms::RadioButton^ radioMale;
 	private: System::Windows::Forms::Button^ btnDelete;
@@ -78,6 +85,10 @@ namespace ChitaView {
 	private: System::Windows::Forms::ToolStripMenuItem^ nuevoToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ editarToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ consultaToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ consultaToolStripMenuItem1;
+	private: System::Windows::Forms::DateTimePicker^ dtpBirthday;
+	private: System::Windows::Forms::Label^ CumpleanosPO;
 
 	private:
 		/// <summary>
@@ -93,8 +104,8 @@ namespace ChitaView {
 		void InitializeComponent(void)
 		{
 			this->txtUsername = (gcnew System::Windows::Forms::TextBox());
-			this->txtGender = (gcnew System::Windows::Forms::TextBox());
-			this->ApellidoPO = (gcnew System::Windows::Forms::TextBox());
+			this->txtEmail = (gcnew System::Windows::Forms::TextBox());
+			this->txtApellido = (gcnew System::Windows::Forms::TextBox());
 			this->txtFirstName = (gcnew System::Windows::Forms::TextBox());
 			this->txtAddress = (gcnew System::Windows::Forms::TextBox());
 			this->txtDni = (gcnew System::Windows::Forms::TextBox());
@@ -110,7 +121,7 @@ namespace ChitaView {
 			this->btnChangePhoto = (gcnew System::Windows::Forms::Button());
 			this->picturePhoto = (gcnew System::Windows::Forms::PictureBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->txtPassword = (gcnew System::Windows::Forms::TextBox());
 			this->radioFemale = (gcnew System::Windows::Forms::RadioButton());
 			this->radioMale = (gcnew System::Windows::Forms::RadioButton());
 			this->btnDelete = (gcnew System::Windows::Forms::Button());
@@ -123,6 +134,10 @@ namespace ChitaView {
 			this->nuevoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->editarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->salirToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->consultaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->consultaToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->dtpBirthday = (gcnew System::Windows::Forms::DateTimePicker());
+			this->CumpleanosPO = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picturePhoto))->BeginInit();
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
@@ -135,21 +150,21 @@ namespace ChitaView {
 			this->txtUsername->Size = System::Drawing::Size(189, 20);
 			this->txtUsername->TabIndex = 47;
 			// 
-			// txtGender
+			// txtEmail
 			// 
-			this->txtGender->Location = System::Drawing::Point(146, 310);
-			this->txtGender->Margin = System::Windows::Forms::Padding(2);
-			this->txtGender->Name = L"txtGender";
-			this->txtGender->Size = System::Drawing::Size(189, 20);
-			this->txtGender->TabIndex = 46;
+			this->txtEmail->Location = System::Drawing::Point(146, 310);
+			this->txtEmail->Margin = System::Windows::Forms::Padding(2);
+			this->txtEmail->Name = L"txtEmail";
+			this->txtEmail->Size = System::Drawing::Size(189, 20);
+			this->txtEmail->TabIndex = 46;
 			// 
-			// ApellidoPO
+			// txtApellido
 			// 
-			this->ApellidoPO->Location = System::Drawing::Point(146, 133);
-			this->ApellidoPO->Margin = System::Windows::Forms::Padding(2);
-			this->ApellidoPO->Name = L"ApellidoPO";
-			this->ApellidoPO->Size = System::Drawing::Size(189, 20);
-			this->ApellidoPO->TabIndex = 45;
+			this->txtApellido->Location = System::Drawing::Point(146, 133);
+			this->txtApellido->Margin = System::Windows::Forms::Padding(2);
+			this->txtApellido->Name = L"txtApellido";
+			this->txtApellido->Size = System::Drawing::Size(189, 20);
+			this->txtApellido->TabIndex = 45;
 			// 
 			// txtFirstName
 			// 
@@ -293,13 +308,13 @@ namespace ChitaView {
 			this->label1->TabIndex = 54;
 			this->label1->Text = L"Contrasena(*)";
 			// 
-			// textBox1
+			// txtPassword
 			// 
-			this->textBox1->Location = System::Drawing::Point(146, 71);
-			this->textBox1->Margin = System::Windows::Forms::Padding(2);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(189, 20);
-			this->textBox1->TabIndex = 55;
+			this->txtPassword->Location = System::Drawing::Point(146, 71);
+			this->txtPassword->Margin = System::Windows::Forms::Padding(2);
+			this->txtPassword->Name = L"txtPassword";
+			this->txtPassword->Size = System::Drawing::Size(189, 20);
+			this->txtPassword->TabIndex = 55;
 			// 
 			// radioFemale
 			// 
@@ -352,10 +367,11 @@ namespace ChitaView {
 			this->btnAdd->TabIndex = 58;
 			this->btnAdd->Text = L"Agregar";
 			this->btnAdd->UseVisualStyleBackColor = true;
+			this->btnAdd->Click += gcnew System::EventHandler(this, &PetOwnerMaintence::btnAdd_Click);
 			// 
 			// txtPhoneNumber
 			// 
-			this->txtPhoneNumber->Location = System::Drawing::Point(146, 334);
+			this->txtPhoneNumber->Location = System::Drawing::Point(146, 382);
 			this->txtPhoneNumber->Margin = System::Windows::Forms::Padding(2);
 			this->txtPhoneNumber->Name = L"txtPhoneNumber";
 			this->txtPhoneNumber->Size = System::Drawing::Size(189, 20);
@@ -364,7 +380,7 @@ namespace ChitaView {
 			// CelularPO
 			// 
 			this->CelularPO->AutoSize = true;
-			this->CelularPO->Location = System::Drawing::Point(39, 337);
+			this->CelularPO->Location = System::Drawing::Point(39, 385);
 			this->CelularPO->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->CelularPO->Name = L"CelularPO";
 			this->CelularPO->Size = System::Drawing::Size(49, 13);
@@ -374,7 +390,10 @@ namespace ChitaView {
 			// menuStrip1
 			// 
 			this->menuStrip1->BackColor = System::Drawing::Color::Transparent;
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->archivoToolStripMenuItem });
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->archivoToolStripMenuItem,
+					this->consultaToolStripMenuItem
+			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
 			this->menuStrip1->Size = System::Drawing::Size(520, 24);
@@ -403,6 +422,7 @@ namespace ChitaView {
 			this->editarToolStripMenuItem->Name = L"editarToolStripMenuItem";
 			this->editarToolStripMenuItem->Size = System::Drawing::Size(109, 22);
 			this->editarToolStripMenuItem->Text = L"Editar";
+			this->editarToolStripMenuItem->Click += gcnew System::EventHandler(this, &PetOwnerMaintence::editarToolStripMenuItem_Click);
 			// 
 			// salirToolStripMenuItem
 			// 
@@ -411,11 +431,44 @@ namespace ChitaView {
 			this->salirToolStripMenuItem->Text = L"Salir";
 			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &PetOwnerMaintence::salirToolStripMenuItem_Click);
 			// 
+			// consultaToolStripMenuItem
+			// 
+			this->consultaToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->consultaToolStripMenuItem1 });
+			this->consultaToolStripMenuItem->Name = L"consultaToolStripMenuItem";
+			this->consultaToolStripMenuItem->Size = System::Drawing::Size(60, 20);
+			this->consultaToolStripMenuItem->Text = L"Reporte";
+			// 
+			// consultaToolStripMenuItem1
+			// 
+			this->consultaToolStripMenuItem1->Name = L"consultaToolStripMenuItem1";
+			this->consultaToolStripMenuItem1->Size = System::Drawing::Size(121, 22);
+			this->consultaToolStripMenuItem1->Text = L"Consulta";
+			this->consultaToolStripMenuItem1->Click += gcnew System::EventHandler(this, &PetOwnerMaintence::consultaToolStripMenuItem1_Click);
+			// 
+			// dtpBirthday
+			// 
+			this->dtpBirthday->Location = System::Drawing::Point(146, 347);
+			this->dtpBirthday->Name = L"dtpBirthday";
+			this->dtpBirthday->Size = System::Drawing::Size(189, 20);
+			this->dtpBirthday->TabIndex = 64;
+			// 
+			// CumpleanosPO
+			// 
+			this->CumpleanosPO->AutoSize = true;
+			this->CumpleanosPO->Location = System::Drawing::Point(40, 353);
+			this->CumpleanosPO->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->CumpleanosPO->Name = L"CumpleanosPO";
+			this->CumpleanosPO->Size = System::Drawing::Size(75, 13);
+			this->CumpleanosPO->TabIndex = 65;
+			this->CumpleanosPO->Text = L"Cumpleaños(*)";
+			// 
 			// PetOwnerMaintence
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(520, 373);
+			this->ClientSize = System::Drawing::Size(520, 480);
+			this->Controls->Add(this->CumpleanosPO);
+			this->Controls->Add(this->dtpBirthday);
 			this->Controls->Add(this->txtPhoneNumber);
 			this->Controls->Add(this->CelularPO);
 			this->Controls->Add(this->btnDelete);
@@ -423,13 +476,13 @@ namespace ChitaView {
 			this->Controls->Add(this->btnAdd);
 			this->Controls->Add(this->radioMale);
 			this->Controls->Add(this->radioFemale);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->txtPassword);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->btnChangePhoto);
 			this->Controls->Add(this->picturePhoto);
 			this->Controls->Add(this->txtUsername);
-			this->Controls->Add(this->txtGender);
-			this->Controls->Add(this->ApellidoPO);
+			this->Controls->Add(this->txtEmail);
+			this->Controls->Add(this->txtApellido);
 			this->Controls->Add(this->txtFirstName);
 			this->Controls->Add(this->txtAddress);
 			this->Controls->Add(this->txtDni);
@@ -458,24 +511,60 @@ namespace ChitaView {
 	///						Metodos
 	///---------------------------------------------------
 	private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-		Application::Exit();
+		this->Close();
 	}
 	private: System::Void nuevoToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-		DisableControls();
+	
 	}
 	Void DisableControls() {
-		IdPO->ReadOnly = true;
-		NombrePO->ReadOnly = true;
-		Ape->ReadOnly = true;
-		txtSalary->ReadOnly = true;
-		txtQuota->ReadOnly = true;
+		txtId->ReadOnly = true;
+		txtFirstName->ReadOnly = true;
+		txtApellido->ReadOnly = true;
+		txtAddress->ReadOnly = true;
+		txtDni->ReadOnly = true;
+		txtEmail->ReadOnly = true;
+		txtPassword->ReadOnly = true;
+		txtPhoneNumber->ReadOnly = true;
+		txtUsername->ReadOnly = true;
+		dtpBirthday->Enabled = true;
 		btnAdd->Enabled = false;
 		btnUpdate->Enabled = false;
-		btnDelete->Enabled = false;
+		btnDelete->Enabled = false;	
 	}
-	//EnableControls();
-	btnUpdate->Enabled = false;
-    btnDelete->Enabled = false;
-	 //ClearControls();
+	Void EnableControls() {
+		txtId->ReadOnly = false;
+		txtFirstName->ReadOnly = false;
+		txtApellido->ReadOnly = false;
+		txtAddress->ReadOnly = false;
+		txtDni->ReadOnly = false;
+		txtEmail->ReadOnly = false;
+		txtPassword->ReadOnly = false;
+		txtPhoneNumber->ReadOnly = false;
+		txtUsername->ReadOnly = false;
+		dtpBirthday->Enabled = false;
+		btnAdd->Enabled = true;
+		btnUpdate->Enabled = true;
+		btnDelete->Enabled = true;
+	}
+	
+	private: System::Void consultaToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
+		DisableControls();
+	}
+	private: System::Void editarToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		EnableControls();
+		btnAdd->Enabled = false;
+		btnUpdate->Enabled = true;
+		btnDelete->Enabled = true;
+	}
+	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) { //Boton Agregar
+		PetOwner^ p;
+		try {
+			p = gcnew((Int32::Parse(txtDni->Text), txtDni->Text,txtAddress->Text,txtPhoneNumber->Text,
+					txtEmail->Text,);
+		}
+		catch(Exception^ ex) {
+			return;
+		}
+	}
 };
 }
