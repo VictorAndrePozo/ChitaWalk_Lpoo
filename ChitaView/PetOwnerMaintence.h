@@ -559,8 +559,8 @@ namespace ChitaView {
 	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) { //Boton Agregar
 		PetOwner^ p;
 		try {
-			p = gcnew((Int32::Parse(txtDni->Text), txtDni->Text,txtAddress->Text,txtPhoneNumber->Text,
-					txtEmail->Text,);
+			//p = gcnew((Int32::Parse(txtDni->Text), txtDni->Text,txtAddress->Text,txtPhoneNumber->Text,
+			//		txtEmail->Text,);
 		}
 		catch(Exception^ ex) {
 			return;
