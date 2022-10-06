@@ -89,6 +89,26 @@ namespace ChitaView {
 	private: System::Windows::Forms::ToolStripMenuItem^ consultaToolStripMenuItem1;
 	private: System::Windows::Forms::DateTimePicker^ dtpBirthday;
 	private: System::Windows::Forms::Label^ CumpleanosPO;
+	private: System::Windows::Forms::DataGridView^ dgvPetOwner;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ IdColumna;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ UsuarioColumna;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ NombreColumna;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ApellidoColumna;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ DniColumna;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ CorreoColumna;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ CumpleanosColumna;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ DireccionColumna;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ GeneroColumna;
+
+
+
+
+
+
+
+
+
+
 
 	private:
 		/// <summary>
@@ -138,8 +158,19 @@ namespace ChitaView {
 			this->consultaToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->dtpBirthday = (gcnew System::Windows::Forms::DateTimePicker());
 			this->CumpleanosPO = (gcnew System::Windows::Forms::Label());
+			this->dgvPetOwner = (gcnew System::Windows::Forms::DataGridView());
+			this->IdColumna = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->UsuarioColumna = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->NombreColumna = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->ApellidoColumna = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->DniColumna = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->CorreoColumna = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->CumpleanosColumna = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->DireccionColumna = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->GeneroColumna = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picturePhoto))->BeginInit();
 			this->menuStrip1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPetOwner))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// txtUsername
@@ -152,7 +183,7 @@ namespace ChitaView {
 			// 
 			// txtEmail
 			// 
-			this->txtEmail->Location = System::Drawing::Point(146, 310);
+			this->txtEmail->Location = System::Drawing::Point(491, 181);
 			this->txtEmail->Margin = System::Windows::Forms::Padding(2);
 			this->txtEmail->Name = L"txtEmail";
 			this->txtEmail->Size = System::Drawing::Size(189, 20);
@@ -176,7 +207,7 @@ namespace ChitaView {
 			// 
 			// txtAddress
 			// 
-			this->txtAddress->Location = System::Drawing::Point(146, 238);
+			this->txtAddress->Location = System::Drawing::Point(491, 121);
 			this->txtAddress->Margin = System::Windows::Forms::Padding(2);
 			this->txtAddress->Multiline = true;
 			this->txtAddress->Name = L"txtAddress";
@@ -185,7 +216,7 @@ namespace ChitaView {
 			// 
 			// txtDni
 			// 
-			this->txtDni->Location = System::Drawing::Point(146, 187);
+			this->txtDni->Location = System::Drawing::Point(491, 70);
 			this->txtDni->Margin = System::Windows::Forms::Padding(2);
 			this->txtDni->Name = L"txtDni";
 			this->txtDni->Size = System::Drawing::Size(189, 20);
@@ -193,7 +224,7 @@ namespace ChitaView {
 			// 
 			// txtId
 			// 
-			this->txtId->Location = System::Drawing::Point(146, 214);
+			this->txtId->Location = System::Drawing::Point(491, 97);
 			this->txtId->Margin = System::Windows::Forms::Padding(2);
 			this->txtId->Name = L"txtId";
 			this->txtId->Size = System::Drawing::Size(189, 20);
@@ -232,7 +263,7 @@ namespace ChitaView {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(39, 160);
+			this->label5->Location = System::Drawing::Point(384, 43);
 			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(52, 13);
@@ -242,7 +273,7 @@ namespace ChitaView {
 			// CorreoPO
 			// 
 			this->CorreoPO->AutoSize = true;
-			this->CorreoPO->Location = System::Drawing::Point(39, 310);
+			this->CorreoPO->Location = System::Drawing::Point(384, 181);
 			this->CorreoPO->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->CorreoPO->Name = L"CorreoPO";
 			this->CorreoPO->Size = System::Drawing::Size(48, 13);
@@ -252,7 +283,7 @@ namespace ChitaView {
 			// DireccionPO
 			// 
 			this->DireccionPO->AutoSize = true;
-			this->DireccionPO->Location = System::Drawing::Point(39, 248);
+			this->DireccionPO->Location = System::Drawing::Point(384, 131);
 			this->DireccionPO->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->DireccionPO->Name = L"DireccionPO";
 			this->DireccionPO->Size = System::Drawing::Size(62, 13);
@@ -262,7 +293,7 @@ namespace ChitaView {
 			// DniPO
 			// 
 			this->DniPO->AutoSize = true;
-			this->DniPO->Location = System::Drawing::Point(39, 187);
+			this->DniPO->Location = System::Drawing::Point(384, 70);
 			this->DniPO->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->DniPO->Name = L"DniPO";
 			this->DniPO->Size = System::Drawing::Size(33, 13);
@@ -272,7 +303,7 @@ namespace ChitaView {
 			// IdPO
 			// 
 			this->IdPO->AutoSize = true;
-			this->IdPO->Location = System::Drawing::Point(39, 214);
+			this->IdPO->Location = System::Drawing::Point(384, 97);
 			this->IdPO->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->IdPO->Name = L"IdPO";
 			this->IdPO->Size = System::Drawing::Size(26, 13);
@@ -281,17 +312,18 @@ namespace ChitaView {
 			// 
 			// btnChangePhoto
 			// 
-			this->btnChangePhoto->Location = System::Drawing::Point(373, 232);
+			this->btnChangePhoto->Location = System::Drawing::Point(732, 232);
 			this->btnChangePhoto->Margin = System::Windows::Forms::Padding(2);
 			this->btnChangePhoto->Name = L"btnChangePhoto";
-			this->btnChangePhoto->Size = System::Drawing::Size(103, 37);
+			this->btnChangePhoto->Size = System::Drawing::Size(103, 32);
 			this->btnChangePhoto->TabIndex = 53;
 			this->btnChangePhoto->Text = L"Agregar foto";
 			this->btnChangePhoto->UseVisualStyleBackColor = true;
+			this->btnChangePhoto->Click += gcnew System::EventHandler(this, &PetOwnerMaintence::btnChangePhoto_Click);
 			// 
 			// picturePhoto
 			// 
-			this->picturePhoto->Location = System::Drawing::Point(354, 41);
+			this->picturePhoto->Location = System::Drawing::Point(711, 42);
 			this->picturePhoto->Margin = System::Windows::Forms::Padding(2);
 			this->picturePhoto->Name = L"picturePhoto";
 			this->picturePhoto->Size = System::Drawing::Size(134, 177);
@@ -319,7 +351,7 @@ namespace ChitaView {
 			// radioFemale
 			// 
 			this->radioFemale->AutoSize = true;
-			this->radioFemale->Location = System::Drawing::Point(152, 160);
+			this->radioFemale->Location = System::Drawing::Point(497, 43);
 			this->radioFemale->Name = L"radioFemale";
 			this->radioFemale->Size = System::Drawing::Size(51, 17);
 			this->radioFemale->TabIndex = 56;
@@ -330,7 +362,7 @@ namespace ChitaView {
 			// radioMale
 			// 
 			this->radioMale->AutoSize = true;
-			this->radioMale->Location = System::Drawing::Point(253, 160);
+			this->radioMale->Location = System::Drawing::Point(598, 43);
 			this->radioMale->Name = L"radioMale";
 			this->radioMale->Size = System::Drawing::Size(62, 17);
 			this->radioMale->TabIndex = 57;
@@ -340,7 +372,7 @@ namespace ChitaView {
 			// 
 			// btnDelete
 			// 
-			this->btnDelete->Location = System::Drawing::Point(394, 310);
+			this->btnDelete->Location = System::Drawing::Point(755, 310);
 			this->btnDelete->Margin = System::Windows::Forms::Padding(2);
 			this->btnDelete->Name = L"btnDelete";
 			this->btnDelete->Size = System::Drawing::Size(55, 25);
@@ -350,20 +382,20 @@ namespace ChitaView {
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(354, 278);
+			this->btnUpdate->Location = System::Drawing::Point(713, 278);
 			this->btnUpdate->Margin = System::Windows::Forms::Padding(2);
 			this->btnUpdate->Name = L"btnUpdate";
-			this->btnUpdate->Size = System::Drawing::Size(61, 25);
+			this->btnUpdate->Size = System::Drawing::Size(61, 28);
 			this->btnUpdate->TabIndex = 59;
 			this->btnUpdate->Text = L"Modificar";
 			this->btnUpdate->UseVisualStyleBackColor = true;
 			// 
 			// btnAdd
 			// 
-			this->btnAdd->Location = System::Drawing::Point(431, 278);
+			this->btnAdd->Location = System::Drawing::Point(790, 278);
 			this->btnAdd->Margin = System::Windows::Forms::Padding(2);
 			this->btnAdd->Name = L"btnAdd";
-			this->btnAdd->Size = System::Drawing::Size(57, 25);
+			this->btnAdd->Size = System::Drawing::Size(57, 28);
 			this->btnAdd->TabIndex = 58;
 			this->btnAdd->Text = L"Agregar";
 			this->btnAdd->UseVisualStyleBackColor = true;
@@ -371,7 +403,7 @@ namespace ChitaView {
 			// 
 			// txtPhoneNumber
 			// 
-			this->txtPhoneNumber->Location = System::Drawing::Point(146, 382);
+			this->txtPhoneNumber->Location = System::Drawing::Point(146, 193);
 			this->txtPhoneNumber->Margin = System::Windows::Forms::Padding(2);
 			this->txtPhoneNumber->Name = L"txtPhoneNumber";
 			this->txtPhoneNumber->Size = System::Drawing::Size(189, 20);
@@ -380,7 +412,7 @@ namespace ChitaView {
 			// CelularPO
 			// 
 			this->CelularPO->AutoSize = true;
-			this->CelularPO->Location = System::Drawing::Point(39, 385);
+			this->CelularPO->Location = System::Drawing::Point(39, 196);
 			this->CelularPO->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->CelularPO->Name = L"CelularPO";
 			this->CelularPO->Size = System::Drawing::Size(49, 13);
@@ -396,7 +428,7 @@ namespace ChitaView {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(520, 24);
+			this->menuStrip1->Size = System::Drawing::Size(866, 24);
 			this->menuStrip1->TabIndex = 63;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -447,7 +479,7 @@ namespace ChitaView {
 			// 
 			// dtpBirthday
 			// 
-			this->dtpBirthday->Location = System::Drawing::Point(146, 347);
+			this->dtpBirthday->Location = System::Drawing::Point(146, 158);
 			this->dtpBirthday->Name = L"dtpBirthday";
 			this->dtpBirthday->Size = System::Drawing::Size(189, 20);
 			this->dtpBirthday->TabIndex = 64;
@@ -455,18 +487,78 @@ namespace ChitaView {
 			// CumpleanosPO
 			// 
 			this->CumpleanosPO->AutoSize = true;
-			this->CumpleanosPO->Location = System::Drawing::Point(40, 353);
+			this->CumpleanosPO->Location = System::Drawing::Point(40, 164);
 			this->CumpleanosPO->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->CumpleanosPO->Name = L"CumpleanosPO";
 			this->CumpleanosPO->Size = System::Drawing::Size(75, 13);
 			this->CumpleanosPO->TabIndex = 65;
 			this->CumpleanosPO->Text = L"Cumpleaños(*)";
 			// 
+			// dgvPetOwner
+			// 
+			this->dgvPetOwner->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgvPetOwner->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(9) {
+				this->IdColumna,
+					this->UsuarioColumna, this->NombreColumna, this->ApellidoColumna, this->DniColumna, this->CorreoColumna, this->CumpleanosColumna,
+					this->DireccionColumna, this->GeneroColumna
+			});
+			this->dgvPetOwner->Location = System::Drawing::Point(12, 227);
+			this->dgvPetOwner->Name = L"dgvPetOwner";
+			this->dgvPetOwner->Size = System::Drawing::Size(668, 286);
+			this->dgvPetOwner->TabIndex = 66;
+			this->dgvPetOwner->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &PetOwnerMaintence::dataGridView1_CellContentClick);
+			// 
+			// IdColumna
+			// 
+			this->IdColumna->HeaderText = L"Id";
+			this->IdColumna->Name = L"IdColumna";
+			// 
+			// UsuarioColumna
+			// 
+			this->UsuarioColumna->HeaderText = L"Usuario";
+			this->UsuarioColumna->Name = L"UsuarioColumna";
+			// 
+			// NombreColumna
+			// 
+			this->NombreColumna->HeaderText = L"Nombre";
+			this->NombreColumna->Name = L"NombreColumna";
+			// 
+			// ApellidoColumna
+			// 
+			this->ApellidoColumna->HeaderText = L"Apellido";
+			this->ApellidoColumna->Name = L"ApellidoColumna";
+			// 
+			// DniColumna
+			// 
+			this->DniColumna->HeaderText = L"Dni";
+			this->DniColumna->Name = L"DniColumna";
+			// 
+			// CorreoColumna
+			// 
+			this->CorreoColumna->HeaderText = L"Correo";
+			this->CorreoColumna->Name = L"CorreoColumna";
+			// 
+			// CumpleanosColumna
+			// 
+			this->CumpleanosColumna->HeaderText = L"Cumpleanos";
+			this->CumpleanosColumna->Name = L"CumpleanosColumna";
+			// 
+			// DireccionColumna
+			// 
+			this->DireccionColumna->HeaderText = L"Direccion";
+			this->DireccionColumna->Name = L"DireccionColumna";
+			// 
+			// GeneroColumna
+			// 
+			this->GeneroColumna->HeaderText = L"Genero";
+			this->GeneroColumna->Name = L"GeneroColumna";
+			// 
 			// PetOwnerMaintence
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(520, 480);
+			this->ClientSize = System::Drawing::Size(866, 525);
+			this->Controls->Add(this->dgvPetOwner);
 			this->Controls->Add(this->CumpleanosPO);
 			this->Controls->Add(this->dtpBirthday);
 			this->Controls->Add(this->txtPhoneNumber);
@@ -502,6 +594,7 @@ namespace ChitaView {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picturePhoto))->EndInit();
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPetOwner))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -514,7 +607,13 @@ namespace ChitaView {
 		this->Close();
 	}
 	private: System::Void nuevoToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	
+		ClearControls();
+		EnableControls();
+		btnAdd->Enabled = true;
+		dtpBirthday->Enabled = true;
+		btnChangePhoto->Enabled = true;
+		btnDelete->Enabled = false;
+		btnUpdate->Enabled = false;
 	}
 	Void DisableControls() {
 		txtId->ReadOnly = true;
@@ -552,19 +651,71 @@ namespace ChitaView {
 	}
 	private: System::Void editarToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		EnableControls();
+		dtpBirthday->Enabled = true;
 		btnAdd->Enabled = false;
 		btnUpdate->Enabled = true;
 		btnDelete->Enabled = true;
+		btnChangePhoto->Enabled = true;
+	}
+	public:
+		void RefreshPetOwnerGrid() {
+			List<PetOwner^>^ petOwnerList = Controller::QueryAllPetOwner();
+			dgvPetOwner->Rows->Clear();
+
+			for (int i = 0; i < petOwnerList->Count; i++) {
+				dgvPetOwner->Rows->Add(gcnew array<String^>{
+										" " + petOwnerList[i]->Id.ToString(),
+											petOwnerList[i]->username,
+											petOwnerList[i]->Firstname,
+											petOwnerList[i]->Lastname,
+											petOwnerList[i]->Dni.ToString(),
+											petOwnerList[i]->Email,
+											petOwnerList[i]->Birthday,
+											petOwnerList[i]->Address,
+										" "	+ petOwnerList[i]->Gender
+				});
+			}
+		}
+	Void ClearControls() {
+		txtId->Text = "";
+		txtFirstName->Text = "";
+		txtApellido->Text = "";
+		txtAddress->Text = "";
+		txtDni->Text = "";
+		txtEmail->Text = "";
+		txtPassword->Text = "";
+		txtPhoneNumber->Text = "";
+		txtUsername->Text = "";
+		dtpBirthday->Text = "";
 	}
 	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) { //Boton Agregar
 		PetOwner^ p;
 		try {
-			//p = gcnew((Int32::Parse(txtDni->Text), txtDni->Text,txtAddress->Text,txtPhoneNumber->Text,
-			//		txtEmail->Text,);
+			p = gcnew PetOwner();
+			p->Id = Int32::Parse(txtId->Text);
+			p->Dni = Int32::Parse(txtDni->Text); 
+			p->DocNumbrer = txtDni->Text;
+			p->Lastname = txtApellido->Text;
+			p->Firstname = txtFirstName->Text;
+			p->Address = txtAddress->Text;
+			p->PhoneNumber = txtPhoneNumber->Text;
+			p->Email = txtEmail->Text;
+			p->Gender = Convert::ToChar(radioMale->Checked ? 'M' : 'F');
+			p->username = txtUsername->Text;
+			p->Birthday = dtpBirthday->Value.ToString("yyyy-MM-dd");
+			p->password = txtPassword->Text;
 		}
 		catch(Exception^ ex) {
+			MessageBox::Show(ex->ToString(), "Comparta el error al área de Servicio al Cliente.");
 			return;
 		}
+		Controller::AddPetOwner(p);
+		RefreshPetOwnerGrid();
+		ClearControls();
 	}
+private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+}
+private: System::Void btnChangePhoto_Click(System::Object^ sender, System::EventArgs^ e) {
+} 
 };
 }

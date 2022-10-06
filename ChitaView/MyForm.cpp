@@ -1,4 +1,6 @@
 #include "MyForm.h"
+#include "PetOwnerMaintence.h"
+
 
 using namespace System;
 using namespace System::Windows::Forms;
@@ -8,6 +10,6 @@ void main(array<String^>^ args) {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 	//LPOOInduction is your project name
-	ChitaView::MyForm form;
+	ChitaView::PetOwnerMaintence form;
 	Application::Run(% form);
 }

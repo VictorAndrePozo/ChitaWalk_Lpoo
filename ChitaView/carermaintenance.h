@@ -711,10 +711,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 			this->generalToolStripMenuItem->Name = L"generalToolStripMenuItem";
 			this->generalToolStripMenuItem->Size = System::Drawing::Size(60, 20);
 			this->generalToolStripMenuItem->Text = L"Archivo";
-<<<<<<< HEAD
-=======
+
 			//this->generalToolStripMenuItem->Click += gcnew System::EventHandler(this, &carermaintenance::generalToolStripMenuItem_Click);
->>>>>>> Pet form controller developed
+
 			// 
 			// salirToolStripMenuItem
 			// 

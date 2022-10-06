@@ -28,7 +28,7 @@ int ChitaController::Controller::DeletePetOwner(int PetOwnerId) {
 List<PetOwner^>^ ChitaController::Controller::QueryAllPetOwner() {
 	List<PetOwner^>^ activePetOwnerList = gcnew List<PetOwner^>();
 	for (int i = 0; i < PetOwnerList->Count; i++) {
-		if (PetOwnerList[i]->Status == 'A') {
+		if (PetOwnerList[i]->Id > 0) {
 			activePetOwnerList->Add(PetOwnerList[i]);
 		}
 	}

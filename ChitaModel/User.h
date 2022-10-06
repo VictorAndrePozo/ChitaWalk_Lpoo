@@ -14,6 +14,7 @@ namespace ChitaModel {
         property String^ Firstname;
         property int Valoration;
         property String^ Award;
+        //un char/string q identifique carer o owner 
     public:
         User();
         User(int Id, String^ username, String^ password, String^ Lastname,
