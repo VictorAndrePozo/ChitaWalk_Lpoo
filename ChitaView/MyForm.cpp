@@ -10,6 +10,6 @@ void main(array<String^>^ args) {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 	//LPOOInduction is your project name
-	ChitaView::PetOwnerMaintence form;
+	ChitaView::MyForm form;
 	Application::Run(% form);
 }
