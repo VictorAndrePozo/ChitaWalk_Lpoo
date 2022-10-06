@@ -72,52 +72,63 @@ PetOwner^ ChitaController::Controller::QueryPetOwnerById(int PetOwnerId){
 	return nullptr;
 }
 //---------------------------------------------------------------------------------------------------------------------
-// PARA MANTENIMIENTO DE CARER
+// PARA MANTENIMIENTO DE KEEPER
 //---------------------------------------------------------------------------------------------------------------------
-int ChitaController::Controller::AddCarer(Carer^ carer)
+
+int ChitaController::Controller::AddKeeper(Keeper^ keeper)
 {
-	carerList->Add(carer);
+	keeperList->Add(keeper);
 	return 1;
 }
 
-int ChitaController::Controller::UpdateCarer(Carer^ carer)
+int ChitaController::Controller::UpdateKeeper(Keeper^ keeper)
 {
-	for (int i = 0; i < carerList->Count; i++)
-		if (carer->Id == carerList[i]->Id) {
-			carerList[i] = carer;
+	for (int i = 0; i < keeperList->Count; i++)
+		if (keeper->Id == keeperList[i]->Id) {
+			keeperList[i] = keeper;
 			return 1;
 		}
 	return 0;
 }
 
-int ChitaController::Controller::DeleteCarer(int carerId)
+int ChitaController::Controller::DeleteKeeper(int keeperId)
 {
-	for (int i = 0; i < carerList->Count; i++)
-		if (carerId == carerList[i]->Id) {
-			carerList->RemoveAt(i);
+	for (int i = 0; i < keeperList->Count; i++)
+		if (keeperId == keeperList[i]->Id) {
+			keeperList->RemoveAt(i);
 			return 1;
 		}
 	return 0;
 }
 
-List<Carer^>^ ChitaController::Controller::QueryAllCarers()
+List<Keeper^>^ ChitaController::Controller::QueryAllKeepers()
 {
-	List<Carer^>^ activeCarersList = gcnew List<Carer^>();
-	for (int i = 0; i < carerList->Count; i++) {
-		if (carerList[i]->Status == 'A') {
-			activeCarersList->Add(carerList[i]);
+	List<Keeper^>^ activeKeepersList = gcnew List<Keeper^>();
+	for (int i = 0; i < keeperList->Count; i++) {
+		if (keeperList[i]->Status == 'A') {
+			activeKeepersList->Add(keeperList[i]);
 		}
 	}
-	return activeCarersList;
+	return activeKeepersList;
 }
 
-Carer^ ChitaController::Controller::QueryCarerById(int carerId)
+Keeper^ ChitaController::Controller::QueryKeeperById(int keeperId)
 {
-	for (int i = 0; i < carerList->Count; i++)
-		if (carerId == carerList[i]->Id) {
-			return carerList[i];
+	for (int i = 0; i < keeperList->Count; i++)
+		if (keeperId == keeperList[i]->Id) {
+			return keeperList[i];
 		}
 	return nullptr;
+}
+
+void ChitaController::Controller::PersistKeepers()
+{
+	throw gcnew System::NotImplementedException();
+}
+
+void ChitaController::Controller::LoadKeepersData()
+{
+	throw gcnew System::NotImplementedException();
 }
 
 //---------------------------------------------------------------------------------------------------------------------

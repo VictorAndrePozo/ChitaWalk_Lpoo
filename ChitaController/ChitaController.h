@@ -23,17 +23,20 @@ namespace ChitaController {
 		static void PersistPetOwner(); 
 		static void LoadPetOwnerData();
 		//---------------------------------------------------------------------------------------------------------------------
-		// PARA MANTENIMIENTO DE CARER
+		// PARA MANTENIMIENTO DE KEEPER
 		//---------------------------------------------------------------------------------------------------------------------
 
 	private:
-		static List <Carer^>^ carerList = gcnew List<Carer^>(); // Variable de clase o atributo estático
+		static List <Keeper^>^ keeperList = gcnew List<Keeper^>(); // Variable de clase o atributo estático
 	public:
-		static int AddCarer(Carer^ carer);                      // Añadir carer
-		static int UpdateCarer(Carer^ carer);                   // Modificar carer
-		static int DeleteCarer(int carerId);                    // Eliminar carer
-		static List <Carer^>^ QueryAllCarers();                 // Consultar todos los Carers activos
-		static Carer^ QueryCarerById(int carerId);              // Consultar Carer por ID
+		static int AddKeeper(Keeper^ keeper);                      // Añadir carer
+		static int UpdateKeeper(Keeper^ keeper);                   // Modificar carer
+		static int DeleteKeeper(int keeperId);                    // Eliminar carer
+		static List <Keeper^>^ QueryAllKeepers();                 // Consultar todos los Carers activos
+		static Keeper^ QueryKeeperById(int keeperId);              // Consultar Carer por ID
+		static void PersistKeepers();
+		static void LoadKeepersData();
+
 
 		//---------------------------------------------------------------------------------------------------------------------
 		// PARA MANTENIMIENTO DE PET
