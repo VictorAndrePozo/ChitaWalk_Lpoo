@@ -5,6 +5,7 @@
 using namespace System;
 
 namespace ChitaModel {
+    [Serializable]
     public ref class User: public Person{
     public:
         property int Id;

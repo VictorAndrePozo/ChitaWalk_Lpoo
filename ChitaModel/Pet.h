@@ -3,6 +3,7 @@
 using namespace System;
 
 namespace ChitaModel {
+    [Serializable]
     public ref class Pet{
     public:
         property int Id;

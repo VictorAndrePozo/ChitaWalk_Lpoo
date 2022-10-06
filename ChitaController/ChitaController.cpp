@@ -2,17 +2,27 @@
 
 #include "ChitaController.h"
 
+using namespace System::Runtime::Serialization::Formatters::Binary;
+
 //---------------------------------------------------------------------------------------------------------------------
 // PARA MANTENIMIENTO DE PETOWNER
 //---------------------------------------------------------------------------------------------------------------------
+void ChitaController::Controller::PersistPetOwner() {
+	Stream^ stream = File::Open("PetOwners.bin", FileMode::Create);
+	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
+	bFormatter->Serialize(stream, PetOwnerList);
+	stream->Close();
+}
 int ChitaController::Controller::AddPetOwner(PetOwner^ PetOwner) {
 	PetOwnerList->Add(PetOwner);
+	PersistPetOwner();
 	return 1;
 }
 int ChitaController::Controller::UpdatePetOwner(PetOwner^ PetOwner) {
 	for (int i = 0; i < PetOwnerList->Count; i++)
 		if (PetOwner->Id == PetOwnerList[i]->Id) {
 			PetOwnerList[i] = PetOwner;
+			PersistPetOwner();
 			return 1;
 		}
 	return 0;
@@ -21,11 +31,31 @@ int ChitaController::Controller::DeletePetOwner(int PetOwnerId) {
 	for (int i = 0; i < PetOwnerList->Count; i++)
 		if (PetOwnerId == PetOwnerList[i]->Id) {
 			PetOwnerList->RemoveAt(i);
+			PersistPetOwner();
 			return 1;
 		}
 	return 0;
 }
+void ChitaController::Controller::LoadPetOwnerData() {
+	//Lectura desde un archivo binario
+	Stream^ sr = nullptr;
+	try {
+		sr = File::Open("PetOwners.bin", FileMode::Open);
+		BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
+		PetOwnerList = (List<PetOwner^>^)bFormatter->Deserialize(sr);
+	}
+	catch (FileNotFoundException^ ex) {
+	}
+	catch (Exception^ ex) {
+	}
+	finally {
+		if (sr != nullptr) sr->Close();
+	}
+}
 List<PetOwner^>^ ChitaController::Controller::QueryAllPetOwner() {
+
+	LoadPetOwnerData();
+
 	List<PetOwner^>^ activePetOwnerList = gcnew List<PetOwner^>();
 	for (int i = 0; i < PetOwnerList->Count; i++) {
 		if (PetOwnerList[i]->Id > 0) {
