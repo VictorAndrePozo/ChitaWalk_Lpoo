@@ -12,6 +12,8 @@ namespace ChitaView {
 	using namespace ChitaModel;
 	using namespace ChitaController;
 	using namespace System::Collections::Generic;
+	using namespace Threading;
+
 
 	/// <summary>
 	/// Resumen de carermaintenance
@@ -1563,8 +1565,9 @@ private: System::ComponentModel::IContainer^ components;
 
 
 
+
 	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
-		Keeper^ c = gcnew Keeper();
+		/*Keeper^ c = gcnew Keeper();
 
 		c->Dni = Int32::Parse(txtDni->Text);
 		c->Address = txtAddress->Text;
@@ -1586,11 +1589,47 @@ private: System::ComponentModel::IContainer^ components;
 
 		Controller::AddKeeper(c);
 		RefreshGrid();
+		ClearControls();*/
+
+
+		Keeper^ c;
+		try {
+		
+			/*c = gcnew Keeper(Int32::Parse(txtDni->Text), txtAddress->Text, txtPhoneNumber->Text, txtEmail->Text,
+				rbtnMasc->Checked ? 'M' : 'F', Int32::Parse(txtId->Text), txtUsername->Text, txtLastName->Text, txtFirstName->Text,
+				Int32::Parse(txtValoration->Text), Int32::Parse(txtExperience->Text), Int32::Parse(txtLevel->Text),
+				Int32::Parse(txtWarranty->Text), Double::Parse(txtSalary->Text));*/
+
+			c->Dni = Int32::Parse(txtDni->Text);
+			c->Address = txtAddress->Text;
+			c->PhoneNumber = txtPhoneNumber->Text;
+			c->Email = txtEmail->Text;
+			//c->Gender = Char::Parse(txtGender->Text);
+			c->Id = Int32::Parse(txtId->Text);
+			c->username = txtUsername->Text;
+			c->Lastname = txtLastName->Text;
+			c->Firstname = txtFirstName->Text;
+			c->Valoration = Int32::Parse(txtValoration->Text);
+			c->Experience = Int32::Parse(txtExperience->Text);
+			c->Level = Int32::Parse(txtLevel->Text);
+			c->Warranty = Int32::Parse(txtWarranty->Text);
+			c->Salary = Double::Parse(txtSalary->Text);
+			//c->Photo = array::Parse(PicturePhoto->Picture);
+			c->Status = 'A';
+			c->Position = CmbPosition->Text;
+		}
+		catch (Exception^ ex) {
+			MessageBox::Show(ex->ToString(), "Comparta el error al área de TI.");
+			return;
+		}
+
+		Controller::AddKeeper(c);
+		RefreshGrid();
 		ClearControls();
 	}
 
 	private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
-		Keeper^ c = gcnew Keeper();
+		/*Keeper^ c = gcnew Keeper();
 		c->Dni = Int32::Parse(txtDni->Text);
 		c->Address = txtAddress->Text;
 		c->PhoneNumber = txtPhoneNumber->Text;
@@ -1610,17 +1649,65 @@ private: System::ComponentModel::IContainer^ components;
 		c->Position = CmbPosition->Text;
 
 		Controller::UpdateKeeper(c);
+		RefreshGrid();*/
+
+		Keeper^c = gcnew Keeper();
+		try {
+			if (txtId->Text->Trim() == "") {
+				MessageBox::Show("El Id no debe estar vacío.");
+				return;
+			}
+			c->Dni = Int32::Parse(txtDni->Text);
+			c->Address = txtAddress->Text;
+			c->PhoneNumber = txtPhoneNumber->Text;
+			c->Email = txtEmail->Text;
+			c->Gender = rbtnMasc->Checked ? 'M' : 'F';
+			c->Id = Int32::Parse(txtId->Text);
+			c->username = txtUsername->Text;
+			c->Lastname = txtLastName->Text;
+			c->Firstname = txtFirstName->Text;
+			c->Valoration = Int32::Parse(txtValoration->Text);
+			c->Experience = Int32::Parse(txtExperience->Text);
+			c->Level = Int32::Parse(txtLevel->Text);
+			c->Warranty = Int32::Parse(txtWarranty->Text);
+			c->Salary = Double::Parse(txtSalary->Text);
+			//c->Photo = array::Parse(PicturePhoto->Picture);
+			c->Status = 'A';
+			c->Position = CmbPosition->Text;
+		}
+		catch (Exception^ ex) {
+			MessageBox::Show(ex->ToString(), "Comparta el error al área de TI.");
+			return;
+		}
+
+		Controller::UpdateKeeper(c);
 		RefreshGrid();
 
 	}
 	private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
-		int KeeperId = Int32::Parse(txtId->Text);
+		/*int KeeperId = Int32::Parse(txtId->Text);
 		Controller::DeleteKeeper(KeeperId);
+		RefreshGrid();
+		ClearControls();*/
+
+		int keeperId = -1;
+		try {
+			if (txtId->Text->Trim() == "") {
+				MessageBox::Show("No se puede eliminar porque no hay ningún cliente seleccionado.");
+				return;
+			}
+			keeperId = Int32::Parse(txtId->Text);
+		}
+		catch (Exception^ ex) {
+			MessageBox::Show(ex->ToString(), "Comparta el error al área de TI.");
+			return;
+		}
+		Controller::DeleteKeeper(keeperId);
 		RefreshGrid();
 		ClearControls();
 	}
 	private: System::Void dgvKeeper_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-		int selectedRowIndex = dgvKeeper->SelectedCells[0]->RowIndex;
+		/*int selectedRowIndex = dgvKeeper->SelectedCells[0]->RowIndex;
 		int KeeperId = Int32::Parse(dgvKeeper->Rows[selectedRowIndex]->Cells[0]->Value->ToString());
 		Keeper^ c = Controller::QueryKeeperById(KeeperId);
 
@@ -1644,6 +1731,41 @@ private: System::ComponentModel::IContainer^ components;
 		//txt->Text = "" + c->Photo;
 		txtStatus->Text = "" + c->Status;
 		CmbPosition->Text = "" + c->Position;
+		*/
+
+		if (dgvKeeper->CurrentCell != nullptr &&
+			dgvKeeper->CurrentCell->Value != nullptr &&
+			dgvKeeper->CurrentCell->Value->ToString() != "") {
+			int selectedrowindex = dgvKeeper->SelectedCells[0]->RowIndex;
+			DataGridViewRow^ selectedRow = dgvKeeper->Rows[selectedrowindex];
+			String^ a = selectedRow->Cells[0]->Value->ToString();
+
+			int keeperId = Int32::Parse(a);
+			Keeper^ keeper = Controller::QueryKeeperById(keeperId);
+			//MessageBox::Show(customer->ToString()); //Polimorfismo
+			if (keeper != nullptr && keeper->GetType() == Keeper::typeid) {
+				
+				txtDni->Text = "" + keeper->Dni;
+				txtAddress->Text = keeper->Address;
+				txtPhoneNumber->Text = keeper->PhoneNumber;
+				txtEmail->Text = keeper->Email;
+				rbtnMasc->Checked = dynamic_cast<Keeper^>(keeper)->Gender == 'M';
+				rbtnFem->Checked = dynamic_cast<Keeper^>(keeper)->Gender == 'F';
+				txtId->Text = "" + keeper->Id;
+				txtUsername->Text = keeper->username;
+				//txtLastName->Text = keeper->password;
+				txtLastName->Text = dynamic_cast<Keeper^>(keeper)->Lastname;
+				txtFirstName->Text = dynamic_cast<Keeper^>(keeper)->Firstname;
+				txtValoration->Text = "" + keeper->Valoration;
+				txtExperience->Text = "" + keeper->Experience;
+				txtLevel->Text = "" + keeper->Level;
+				txtWarranty->Text = "" + keeper->Warranty;
+				txtSalary->Text = "" + keeper->Salary;
+				//txt->Text = "" + c->Photo;
+				txtStatus->Text = "" + keeper->Status;
+				CmbPosition->Text = "" + keeper->Position;
+			}
+		}
 
 	}
 
