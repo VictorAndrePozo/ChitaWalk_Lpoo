@@ -30,6 +30,9 @@
     <ClInclude Include="PetOwnerMaintence.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="RegisterForm.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyForm.cpp">
@@ -46,6 +49,9 @@
     </ClCompile>
     <ClCompile Include="PetOwnerMaintence.cpp">
       <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="RegisterForm.cpp">
+      <Filter>Archivos de encabezado</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

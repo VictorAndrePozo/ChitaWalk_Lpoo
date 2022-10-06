@@ -20,7 +20,7 @@ namespace ChitaController {
 		static int DeletePetOwner(int PetOwnerId);                    // Eliminar petowner
 		static List <PetOwner^>^ QueryAllPetOwner();                 // Consultar todos los petowner activos
 		static PetOwner^ QueryPetOwnerById(int PetOwnerId);              // Consultar petowner por ID
-		static void PersistPetOwner(); 
+		static void PersistPetOwner();	
 		static void LoadPetOwnerData();
 		//---------------------------------------------------------------------------------------------------------------------
 		// PARA MANTENIMIENTO DE KEEPER

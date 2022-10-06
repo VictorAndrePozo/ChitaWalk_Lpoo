@@ -132,6 +132,7 @@
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="PetForm.cpp" />
     <ClCompile Include="PetOwnerMaintence.cpp" />
+    <ClCompile Include="RegisterForm.cpp" />
     <ClCompile Include="ServiceRequestForm.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +146,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="PetOwnerMaintence.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="RegisterForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ServiceRequestForm.h">
