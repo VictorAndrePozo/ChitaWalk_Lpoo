@@ -79,6 +79,7 @@ PetOwner^ ChitaController::Controller::QueryPetOwnerById(int PetOwnerId){
 int ChitaController::Controller::AddKeeper(Keeper^ keeper)
 {
 	keeperList->Add(keeper);
+	PersistKeepers();
 	return 1;
 }
 
@@ -87,6 +88,7 @@ int ChitaController::Controller::UpdateKeeper(Keeper^ keeper)
 	for (int i = 0; i < keeperList->Count; i++)
 		if (keeper->Id == keeperList[i]->Id) {
 			keeperList[i] = keeper;
+			PersistKeepers();
 			return 1;
 		}
 	return 0;
@@ -97,6 +99,7 @@ int ChitaController::Controller::DeleteKeeper(int keeperId)
 	for (int i = 0; i < keeperList->Count; i++)
 		if (keeperId == keeperList[i]->Id) {
 			keeperList->RemoveAt(i);
+			PersistKeepers();
 			return 1;
 		}
 	return 0;
@@ -104,6 +107,7 @@ int ChitaController::Controller::DeleteKeeper(int keeperId)
 
 List<Keeper^>^ ChitaController::Controller::QueryAllKeepers()
 {
+	LoadKeepersData();
 	List<Keeper^>^ activeKeepersList = gcnew List<Keeper^>();
 	for (int i = 0; i < keeperList->Count; i++) {
 		if (keeperList[i]->Status == 'A') {

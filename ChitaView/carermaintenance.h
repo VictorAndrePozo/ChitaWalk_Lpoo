@@ -872,28 +872,28 @@ private: System::ComponentModel::IContainer^ components;
 			// salirToolStripMenuItem
 			// 
 			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
-			this->salirToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->salirToolStripMenuItem->Size = System::Drawing::Size(146, 26);
 			this->salirToolStripMenuItem->Text = L"Salir";
 			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &carermaintenance::salirToolStripMenuItem_Click);
 			// 
 			// nuevoToolStripMenuItem
 			// 
 			this->nuevoToolStripMenuItem->Name = L"nuevoToolStripMenuItem";
-			this->nuevoToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->nuevoToolStripMenuItem->Size = System::Drawing::Size(146, 26);
 			this->nuevoToolStripMenuItem->Text = L"Nuevo";
 			this->nuevoToolStripMenuItem->Click += gcnew System::EventHandler(this, &carermaintenance::nuevoToolStripMenuItem_Click);
 			// 
 			// modificarToolStripMenuItem
 			// 
 			this->modificarToolStripMenuItem->Name = L"modificarToolStripMenuItem";
-			this->modificarToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->modificarToolStripMenuItem->Size = System::Drawing::Size(146, 26);
 			this->modificarToolStripMenuItem->Text = L"Editar";
 			this->modificarToolStripMenuItem->Click += gcnew System::EventHandler(this, &carermaintenance::modificarToolStripMenuItem_Click);
 			// 
 			// eliminarToolStripMenuItem
 			// 
 			this->eliminarToolStripMenuItem->Name = L"eliminarToolStripMenuItem";
-			this->eliminarToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->eliminarToolStripMenuItem->Size = System::Drawing::Size(146, 26);
 			this->eliminarToolStripMenuItem->Text = L"Eliminar";
 			// 
 			// cuidadoresToolStripMenuItem
@@ -989,7 +989,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Cuidador";
 			this->tabPage1->UseVisualStyleBackColor = true;
-			//this->tabPage1->Click += gcnew System::EventHandler(this, &carermaintenance::tabPage1_Click);
 			// 
 			// tabPage2
 			// 
@@ -1520,6 +1519,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"carermaintenance";
 			this->Text = L"carermaintenance";
+			this->Load += gcnew System::EventHandler(this, &carermaintenance::carermaintenance_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picturePhoto))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvKeeper))->EndInit();
 			this->menuStrip1->ResumeLayout(false);
@@ -1888,6 +1888,9 @@ private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, Syste
 }
 
 private: System::Void dgvKeeper_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+}
+private: System::Void carermaintenance_Load(System::Object^ sender, System::EventArgs^ e) {
+	RefreshGrid();
 }
 };
 }
