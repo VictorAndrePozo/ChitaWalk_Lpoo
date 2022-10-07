@@ -153,9 +153,11 @@ private: System::Windows::Forms::TabPage^ tabPage2;
 private: System::Windows::Forms::ToolStripMenuItem^ nuevoToolStripMenuItem;
 private: System::Windows::Forms::ToolStripMenuItem^ modificarToolStripMenuItem;
 private: System::Windows::Forms::ToolStripMenuItem^ eliminarToolStripMenuItem;
-private: System::Windows::Forms::Button^ button1;
+private: System::Windows::Forms::Button^ btnAddWalker;
+
 private: System::Windows::Forms::Label^ label16;
-private: System::Windows::Forms::DataGridView^ dataGridView1;
+private: System::Windows::Forms::DataGridView^ dgvWalker;
+private: System::Windows::Forms::RadioButton^ rbtnMascWalker;
 
 
 
@@ -172,41 +174,69 @@ private: System::Windows::Forms::DataGridView^ dataGridView1;
 
 
 
-private: System::Windows::Forms::RadioButton^ radioButton3;
+
+
+
 private: System::Windows::Forms::Label^ label17;
-private: System::Windows::Forms::RadioButton^ radioButton4;
+private: System::Windows::Forms::RadioButton^ rbtnFemWalker;
+
+
+
 private: System::Windows::Forms::Label^ label18;
-private: System::Windows::Forms::TextBox^ textBox1;
+private: System::Windows::Forms::TextBox^ txtPhoneNumberWalker;
+
 private: System::Windows::Forms::Label^ label19;
 private: System::Windows::Forms::Label^ label20;
 private: System::Windows::Forms::Label^ label21;
 private: System::Windows::Forms::Label^ label22;
-private: System::Windows::Forms::TextBox^ textBox2;
+private: System::Windows::Forms::TextBox^ txtWarrantyWalker;
+
 private: System::Windows::Forms::Label^ label23;
-private: System::Windows::Forms::TextBox^ textBox3;
+private: System::Windows::Forms::TextBox^ txtSalaryWalker;
+
 private: System::Windows::Forms::Label^ label24;
-private: System::Windows::Forms::TextBox^ textBox4;
-private: System::Windows::Forms::TextBox^ textBox5;
-private: System::Windows::Forms::TextBox^ textBox6;
-private: System::Windows::Forms::TextBox^ textBox7;
-private: System::Windows::Forms::TextBox^ textBox8;
-private: System::Windows::Forms::TextBox^ textBox9;
+private: System::Windows::Forms::TextBox^ txtExperienceWalker;
+
+private: System::Windows::Forms::TextBox^ txtIdWalker;
+private: System::Windows::Forms::TextBox^ txtLevelWalker;
+private: System::Windows::Forms::TextBox^ txtDniWalker;
+
+
+
+
+private: System::Windows::Forms::TextBox^ txtValorationWalker;
+
+
+
+private: System::Windows::Forms::TextBox^ txtEmailWalker;
+
 private: System::Windows::Forms::Label^ label25;
-private: System::Windows::Forms::TextBox^ textBox10;
+private: System::Windows::Forms::TextBox^ txtAddressWalker;
+
 private: System::Windows::Forms::Label^ label26;
-private: System::Windows::Forms::TextBox^ textBox11;
-private: System::Windows::Forms::ComboBox^ comboBox1;
-private: System::Windows::Forms::TextBox^ textBox12;
+private: System::Windows::Forms::TextBox^ txtFirstNameWalker;
+private: System::Windows::Forms::ComboBox^ CmbPositionWalker;
+
+
+private: System::Windows::Forms::TextBox^ txtLastNameWalker;
+
+
+
 private: System::Windows::Forms::Label^ label27;
-private: System::Windows::Forms::TextBox^ textBox13;
+private: System::Windows::Forms::TextBox^ txtUsernameWalker;
+
+
 private: System::Windows::Forms::Label^ label28;
-private: System::Windows::Forms::TextBox^ textBox14;
+private: System::Windows::Forms::TextBox^ txtStatusWalker;
+
 private: System::Windows::Forms::Label^ label29;
 private: System::Windows::Forms::PictureBox^ pictureBox1;
 private: System::Windows::Forms::Label^ label30;
-private: System::Windows::Forms::Button^ button2;
+private: System::Windows::Forms::Button^ btnUpdateWalker;
+
 private: System::Windows::Forms::Label^ label31;
-private: System::Windows::Forms::Button^ button3;
+private: System::Windows::Forms::Button^ btnDeleteWalker;
+
 private: System::Windows::Forms::Button^ button4;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ keeperId;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ keeperdni;
@@ -329,9 +359,9 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->btnAddWalker = (gcnew System::Windows::Forms::Button());
 			this->label16 = (gcnew System::Windows::Forms::Label());
-			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->dgvWalker = (gcnew System::Windows::Forms::DataGridView());
 			this->walker = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -348,41 +378,41 @@ private: System::ComponentModel::IContainer^ components;
 			this->dataGridViewTextBoxColumn14 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn15 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn16 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->radioButton3 = (gcnew System::Windows::Forms::RadioButton());
+			this->rbtnMascWalker = (gcnew System::Windows::Forms::RadioButton());
 			this->label17 = (gcnew System::Windows::Forms::Label());
-			this->radioButton4 = (gcnew System::Windows::Forms::RadioButton());
+			this->rbtnFemWalker = (gcnew System::Windows::Forms::RadioButton());
 			this->label18 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->txtPhoneNumberWalker = (gcnew System::Windows::Forms::TextBox());
 			this->label19 = (gcnew System::Windows::Forms::Label());
 			this->label20 = (gcnew System::Windows::Forms::Label());
 			this->label21 = (gcnew System::Windows::Forms::Label());
 			this->label22 = (gcnew System::Windows::Forms::Label());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->txtWarrantyWalker = (gcnew System::Windows::Forms::TextBox());
 			this->label23 = (gcnew System::Windows::Forms::Label());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->txtSalaryWalker = (gcnew System::Windows::Forms::TextBox());
 			this->label24 = (gcnew System::Windows::Forms::Label());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox9 = (gcnew System::Windows::Forms::TextBox());
+			this->txtExperienceWalker = (gcnew System::Windows::Forms::TextBox());
+			this->txtIdWalker = (gcnew System::Windows::Forms::TextBox());
+			this->txtLevelWalker = (gcnew System::Windows::Forms::TextBox());
+			this->txtDniWalker = (gcnew System::Windows::Forms::TextBox());
+			this->txtValorationWalker = (gcnew System::Windows::Forms::TextBox());
+			this->txtEmailWalker = (gcnew System::Windows::Forms::TextBox());
 			this->label25 = (gcnew System::Windows::Forms::Label());
-			this->textBox10 = (gcnew System::Windows::Forms::TextBox());
+			this->txtAddressWalker = (gcnew System::Windows::Forms::TextBox());
 			this->label26 = (gcnew System::Windows::Forms::Label());
-			this->textBox11 = (gcnew System::Windows::Forms::TextBox());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-			this->textBox12 = (gcnew System::Windows::Forms::TextBox());
+			this->txtFirstNameWalker = (gcnew System::Windows::Forms::TextBox());
+			this->CmbPositionWalker = (gcnew System::Windows::Forms::ComboBox());
+			this->txtLastNameWalker = (gcnew System::Windows::Forms::TextBox());
 			this->label27 = (gcnew System::Windows::Forms::Label());
-			this->textBox13 = (gcnew System::Windows::Forms::TextBox());
+			this->txtUsernameWalker = (gcnew System::Windows::Forms::TextBox());
 			this->label28 = (gcnew System::Windows::Forms::Label());
-			this->textBox14 = (gcnew System::Windows::Forms::TextBox());
+			this->txtStatusWalker = (gcnew System::Windows::Forms::TextBox());
 			this->label29 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->label30 = (gcnew System::Windows::Forms::Label());
-			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->btnUpdateWalker = (gcnew System::Windows::Forms::Button());
 			this->label31 = (gcnew System::Windows::Forms::Label());
-			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->btnDeleteWalker = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picturePhoto))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvKeeper))->BeginInit();
@@ -390,7 +420,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->tabPage2->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvWalker))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -992,44 +1022,44 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// tabPage2
 			// 
-			this->tabPage2->Controls->Add(this->button1);
+			this->tabPage2->Controls->Add(this->btnAddWalker);
 			this->tabPage2->Controls->Add(this->label16);
-			this->tabPage2->Controls->Add(this->dataGridView1);
-			this->tabPage2->Controls->Add(this->radioButton3);
+			this->tabPage2->Controls->Add(this->dgvWalker);
+			this->tabPage2->Controls->Add(this->rbtnMascWalker);
 			this->tabPage2->Controls->Add(this->label17);
-			this->tabPage2->Controls->Add(this->radioButton4);
+			this->tabPage2->Controls->Add(this->rbtnFemWalker);
 			this->tabPage2->Controls->Add(this->label18);
-			this->tabPage2->Controls->Add(this->textBox1);
+			this->tabPage2->Controls->Add(this->txtPhoneNumberWalker);
 			this->tabPage2->Controls->Add(this->label19);
 			this->tabPage2->Controls->Add(this->label20);
 			this->tabPage2->Controls->Add(this->label21);
 			this->tabPage2->Controls->Add(this->label22);
-			this->tabPage2->Controls->Add(this->textBox2);
+			this->tabPage2->Controls->Add(this->txtWarrantyWalker);
 			this->tabPage2->Controls->Add(this->label23);
-			this->tabPage2->Controls->Add(this->textBox3);
+			this->tabPage2->Controls->Add(this->txtSalaryWalker);
 			this->tabPage2->Controls->Add(this->label24);
-			this->tabPage2->Controls->Add(this->textBox4);
-			this->tabPage2->Controls->Add(this->textBox5);
-			this->tabPage2->Controls->Add(this->textBox6);
-			this->tabPage2->Controls->Add(this->textBox7);
-			this->tabPage2->Controls->Add(this->textBox8);
-			this->tabPage2->Controls->Add(this->textBox9);
+			this->tabPage2->Controls->Add(this->txtExperienceWalker);
+			this->tabPage2->Controls->Add(this->txtIdWalker);
+			this->tabPage2->Controls->Add(this->txtLevelWalker);
+			this->tabPage2->Controls->Add(this->txtDniWalker);
+			this->tabPage2->Controls->Add(this->txtValorationWalker);
+			this->tabPage2->Controls->Add(this->txtEmailWalker);
 			this->tabPage2->Controls->Add(this->label25);
-			this->tabPage2->Controls->Add(this->textBox10);
+			this->tabPage2->Controls->Add(this->txtAddressWalker);
 			this->tabPage2->Controls->Add(this->label26);
-			this->tabPage2->Controls->Add(this->textBox11);
-			this->tabPage2->Controls->Add(this->comboBox1);
-			this->tabPage2->Controls->Add(this->textBox12);
+			this->tabPage2->Controls->Add(this->txtFirstNameWalker);
+			this->tabPage2->Controls->Add(this->CmbPositionWalker);
+			this->tabPage2->Controls->Add(this->txtLastNameWalker);
 			this->tabPage2->Controls->Add(this->label27);
-			this->tabPage2->Controls->Add(this->textBox13);
+			this->tabPage2->Controls->Add(this->txtUsernameWalker);
 			this->tabPage2->Controls->Add(this->label28);
-			this->tabPage2->Controls->Add(this->textBox14);
+			this->tabPage2->Controls->Add(this->txtStatusWalker);
 			this->tabPage2->Controls->Add(this->label29);
 			this->tabPage2->Controls->Add(this->pictureBox1);
 			this->tabPage2->Controls->Add(this->label30);
-			this->tabPage2->Controls->Add(this->button2);
+			this->tabPage2->Controls->Add(this->btnUpdateWalker);
 			this->tabPage2->Controls->Add(this->label31);
-			this->tabPage2->Controls->Add(this->button3);
+			this->tabPage2->Controls->Add(this->btnDeleteWalker);
 			this->tabPage2->Controls->Add(this->button4);
 			this->tabPage2->Location = System::Drawing::Point(4, 25);
 			this->tabPage2->Name = L"tabPage2";
@@ -1039,15 +1069,15 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage2->Text = L"Paseador";
 			this->tabPage2->UseVisualStyleBackColor = true;
 			// 
-			// button1
+			// btnAddWalker
 			// 
-			this->button1->Location = System::Drawing::Point(59, 248);
-			this->button1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(137, 46);
-			this->button1->TabIndex = 60;
-			this->button1->Text = L"Agregar";
-			this->button1->UseVisualStyleBackColor = true;
+			this->btnAddWalker->Location = System::Drawing::Point(59, 248);
+			this->btnAddWalker->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->btnAddWalker->Name = L"btnAddWalker";
+			this->btnAddWalker->Size = System::Drawing::Size(137, 46);
+			this->btnAddWalker->TabIndex = 60;
+			this->btnAddWalker->Text = L"Agregar";
+			this->btnAddWalker->UseVisualStyleBackColor = true;
 			// 
 			// label16
 			// 
@@ -1058,23 +1088,23 @@ private: System::ComponentModel::IContainer^ components;
 			this->label16->TabIndex = 43;
 			this->label16->Text = L"Id";
 			// 
-			// dataGridView1
+			// dgvWalker
 			// 
-			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(16) {
-				this->walker,
-					this->dataGridViewTextBoxColumn2, this->dataGridViewTextBoxColumn3, this->dataGridViewTextBoxColumn4, this->dataGridViewTextBoxColumn5,
-					this->dataGridViewTextBoxColumn6, this->dataGridViewTextBoxColumn7, this->dataGridViewTextBoxColumn8, this->dataGridViewTextBoxColumn9,
-					this->dataGridViewTextBoxColumn10, this->dataGridViewTextBoxColumn11, this->dataGridViewTextBoxColumn12, this->dataGridViewTextBoxColumn13,
-					this->dataGridViewTextBoxColumn14, this->dataGridViewTextBoxColumn15, this->dataGridViewTextBoxColumn16
+			this->dgvWalker->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgvWalker->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(16) {
+				this->walker, this->dataGridViewTextBoxColumn2,
+					this->dataGridViewTextBoxColumn3, this->dataGridViewTextBoxColumn4, this->dataGridViewTextBoxColumn5, this->dataGridViewTextBoxColumn6,
+					this->dataGridViewTextBoxColumn7, this->dataGridViewTextBoxColumn8, this->dataGridViewTextBoxColumn9, this->dataGridViewTextBoxColumn10,
+					this->dataGridViewTextBoxColumn11, this->dataGridViewTextBoxColumn12, this->dataGridViewTextBoxColumn13, this->dataGridViewTextBoxColumn14,
+					this->dataGridViewTextBoxColumn15, this->dataGridViewTextBoxColumn16
 			});
-			this->dataGridView1->Location = System::Drawing::Point(14, 309);
-			this->dataGridView1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->RowHeadersWidth = 51;
-			this->dataGridView1->RowTemplate->Height = 24;
-			this->dataGridView1->Size = System::Drawing::Size(1084, 278);
-			this->dataGridView1->TabIndex = 77;
+			this->dgvWalker->Location = System::Drawing::Point(14, 309);
+			this->dgvWalker->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->dgvWalker->Name = L"dgvWalker";
+			this->dgvWalker->RowHeadersWidth = 51;
+			this->dgvWalker->RowTemplate->Height = 24;
+			this->dgvWalker->Size = System::Drawing::Size(1084, 278);
+			this->dgvWalker->TabIndex = 77;
 			// 
 			// walker
 			// 
@@ -1188,15 +1218,15 @@ private: System::ComponentModel::IContainer^ components;
 			this->dataGridViewTextBoxColumn16->Name = L"dataGridViewTextBoxColumn16";
 			this->dataGridViewTextBoxColumn16->Width = 125;
 			// 
-			// radioButton3
+			// rbtnMascWalker
 			// 
-			this->radioButton3->AutoSize = true;
-			this->radioButton3->Location = System::Drawing::Point(532, 52);
-			this->radioButton3->Name = L"radioButton3";
-			this->radioButton3->Size = System::Drawing::Size(64, 20);
-			this->radioButton3->TabIndex = 81;
-			this->radioButton3->Text = L"Varon";
-			this->radioButton3->UseVisualStyleBackColor = true;
+			this->rbtnMascWalker->AutoSize = true;
+			this->rbtnMascWalker->Location = System::Drawing::Point(532, 52);
+			this->rbtnMascWalker->Name = L"rbtnMascWalker";
+			this->rbtnMascWalker->Size = System::Drawing::Size(64, 20);
+			this->rbtnMascWalker->TabIndex = 81;
+			this->rbtnMascWalker->Text = L"Varon";
+			this->rbtnMascWalker->UseVisualStyleBackColor = true;
 			// 
 			// label17
 			// 
@@ -1207,17 +1237,17 @@ private: System::ComponentModel::IContainer^ components;
 			this->label17->TabIndex = 44;
 			this->label17->Text = L"Dni";
 			// 
-			// radioButton4
+			// rbtnFemWalker
 			// 
-			this->radioButton4->AutoSize = true;
-			this->radioButton4->Checked = true;
-			this->radioButton4->Location = System::Drawing::Point(441, 52);
-			this->radioButton4->Name = L"radioButton4";
-			this->radioButton4->Size = System::Drawing::Size(61, 20);
-			this->radioButton4->TabIndex = 80;
-			this->radioButton4->TabStop = true;
-			this->radioButton4->Text = L"Mujer";
-			this->radioButton4->UseVisualStyleBackColor = true;
+			this->rbtnFemWalker->AutoSize = true;
+			this->rbtnFemWalker->Checked = true;
+			this->rbtnFemWalker->Location = System::Drawing::Point(441, 52);
+			this->rbtnFemWalker->Name = L"rbtnFemWalker";
+			this->rbtnFemWalker->Size = System::Drawing::Size(61, 20);
+			this->rbtnFemWalker->TabIndex = 80;
+			this->rbtnFemWalker->TabStop = true;
+			this->rbtnFemWalker->Text = L"Mujer";
+			this->rbtnFemWalker->UseVisualStyleBackColor = true;
 			// 
 			// label18
 			// 
@@ -1228,13 +1258,13 @@ private: System::ComponentModel::IContainer^ components;
 			this->label18->TabIndex = 45;
 			this->label18->Text = L"Dirección";
 			// 
-			// textBox1
+			// txtPhoneNumberWalker
 			// 
-			this->textBox1->Location = System::Drawing::Point(929, 271);
-			this->textBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(125, 22);
-			this->textBox1->TabIndex = 79;
+			this->txtPhoneNumberWalker->Location = System::Drawing::Point(929, 271);
+			this->txtPhoneNumberWalker->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->txtPhoneNumberWalker->Name = L"txtPhoneNumberWalker";
+			this->txtPhoneNumberWalker->Size = System::Drawing::Size(125, 22);
+			this->txtPhoneNumberWalker->TabIndex = 79;
 			// 
 			// label19
 			// 
@@ -1272,14 +1302,14 @@ private: System::ComponentModel::IContainer^ components;
 			this->label22->TabIndex = 48;
 			this->label22->Text = L"Usuario";
 			// 
-			// textBox2
+			// txtWarrantyWalker
 			// 
-			this->textBox2->Location = System::Drawing::Point(929, 178);
-			this->textBox2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->textBox2->Multiline = true;
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(125, 83);
-			this->textBox2->TabIndex = 76;
+			this->txtWarrantyWalker->Location = System::Drawing::Point(929, 178);
+			this->txtWarrantyWalker->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->txtWarrantyWalker->Multiline = true;
+			this->txtWarrantyWalker->Name = L"txtWarrantyWalker";
+			this->txtWarrantyWalker->Size = System::Drawing::Size(125, 83);
+			this->txtWarrantyWalker->TabIndex = 76;
 			// 
 			// label23
 			// 
@@ -1290,14 +1320,14 @@ private: System::ComponentModel::IContainer^ components;
 			this->label23->TabIndex = 49;
 			this->label23->Text = L"Nombres";
 			// 
-			// textBox3
+			// txtSalaryWalker
 			// 
-			this->textBox3->Location = System::Drawing::Point(929, 117);
-			this->textBox3->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->textBox3->Multiline = true;
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(125, 52);
-			this->textBox3->TabIndex = 75;
+			this->txtSalaryWalker->Location = System::Drawing::Point(929, 117);
+			this->txtSalaryWalker->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->txtSalaryWalker->Multiline = true;
+			this->txtSalaryWalker->Name = L"txtSalaryWalker";
+			this->txtSalaryWalker->Size = System::Drawing::Size(125, 52);
+			this->txtSalaryWalker->TabIndex = 75;
 			// 
 			// label24
 			// 
@@ -1308,53 +1338,53 @@ private: System::ComponentModel::IContainer^ components;
 			this->label24->TabIndex = 50;
 			this->label24->Text = L"Apellidos";
 			// 
-			// textBox4
+			// txtExperienceWalker
 			// 
-			this->textBox4->Location = System::Drawing::Point(929, 86);
-			this->textBox4->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(125, 22);
-			this->textBox4->TabIndex = 74;
+			this->txtExperienceWalker->Location = System::Drawing::Point(929, 86);
+			this->txtExperienceWalker->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->txtExperienceWalker->Name = L"txtExperienceWalker";
+			this->txtExperienceWalker->Size = System::Drawing::Size(125, 22);
+			this->txtExperienceWalker->TabIndex = 74;
 			// 
-			// textBox5
+			// txtIdWalker
 			// 
-			this->textBox5->Location = System::Drawing::Point(143, 22);
-			this->textBox5->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(75, 22);
-			this->textBox5->TabIndex = 51;
+			this->txtIdWalker->Location = System::Drawing::Point(143, 22);
+			this->txtIdWalker->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->txtIdWalker->Name = L"txtIdWalker";
+			this->txtIdWalker->Size = System::Drawing::Size(75, 22);
+			this->txtIdWalker->TabIndex = 51;
 			// 
-			// textBox6
+			// txtLevelWalker
 			// 
-			this->textBox6->Location = System::Drawing::Point(929, 54);
-			this->textBox6->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->textBox6->Name = L"textBox6";
-			this->textBox6->Size = System::Drawing::Size(125, 22);
-			this->textBox6->TabIndex = 73;
+			this->txtLevelWalker->Location = System::Drawing::Point(929, 54);
+			this->txtLevelWalker->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->txtLevelWalker->Name = L"txtLevelWalker";
+			this->txtLevelWalker->Size = System::Drawing::Size(125, 22);
+			this->txtLevelWalker->TabIndex = 73;
 			// 
-			// textBox7
+			// txtDniWalker
 			// 
-			this->textBox7->Location = System::Drawing::Point(143, 54);
-			this->textBox7->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->textBox7->Name = L"textBox7";
-			this->textBox7->Size = System::Drawing::Size(161, 22);
-			this->textBox7->TabIndex = 52;
+			this->txtDniWalker->Location = System::Drawing::Point(143, 54);
+			this->txtDniWalker->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->txtDniWalker->Name = L"txtDniWalker";
+			this->txtDniWalker->Size = System::Drawing::Size(161, 22);
+			this->txtDniWalker->TabIndex = 52;
 			// 
-			// textBox8
+			// txtValorationWalker
 			// 
-			this->textBox8->Location = System::Drawing::Point(929, 22);
-			this->textBox8->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->textBox8->Name = L"textBox8";
-			this->textBox8->Size = System::Drawing::Size(125, 22);
-			this->textBox8->TabIndex = 72;
+			this->txtValorationWalker->Location = System::Drawing::Point(929, 22);
+			this->txtValorationWalker->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->txtValorationWalker->Name = L"txtValorationWalker";
+			this->txtValorationWalker->Size = System::Drawing::Size(125, 22);
+			this->txtValorationWalker->TabIndex = 72;
 			// 
-			// textBox9
+			// txtEmailWalker
 			// 
-			this->textBox9->Location = System::Drawing::Point(143, 179);
-			this->textBox9->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->textBox9->Name = L"textBox9";
-			this->textBox9->Size = System::Drawing::Size(453, 22);
-			this->textBox9->TabIndex = 53;
+			this->txtEmailWalker->Location = System::Drawing::Point(143, 179);
+			this->txtEmailWalker->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->txtEmailWalker->Name = L"txtEmailWalker";
+			this->txtEmailWalker->Size = System::Drawing::Size(453, 22);
+			this->txtEmailWalker->TabIndex = 53;
 			// 
 			// label25
 			// 
@@ -1365,14 +1395,14 @@ private: System::ComponentModel::IContainer^ components;
 			this->label25->TabIndex = 71;
 			this->label25->Text = L"Posición";
 			// 
-			// textBox10
+			// txtAddressWalker
 			// 
-			this->textBox10->Location = System::Drawing::Point(143, 117);
-			this->textBox10->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->textBox10->Multiline = true;
-			this->textBox10->Name = L"textBox10";
-			this->textBox10->Size = System::Drawing::Size(453, 52);
-			this->textBox10->TabIndex = 54;
+			this->txtAddressWalker->Location = System::Drawing::Point(143, 117);
+			this->txtAddressWalker->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->txtAddressWalker->Multiline = true;
+			this->txtAddressWalker->Name = L"txtAddressWalker";
+			this->txtAddressWalker->Size = System::Drawing::Size(453, 52);
+			this->txtAddressWalker->TabIndex = 54;
 			// 
 			// label26
 			// 
@@ -1383,30 +1413,30 @@ private: System::ComponentModel::IContainer^ components;
 			this->label26->TabIndex = 70;
 			this->label26->Text = L"Estado";
 			// 
-			// textBox11
+			// txtFirstNameWalker
 			// 
-			this->textBox11->Location = System::Drawing::Point(143, 84);
-			this->textBox11->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->textBox11->Name = L"textBox11";
-			this->textBox11->Size = System::Drawing::Size(161, 22);
-			this->textBox11->TabIndex = 55;
+			this->txtFirstNameWalker->Location = System::Drawing::Point(143, 84);
+			this->txtFirstNameWalker->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->txtFirstNameWalker->Name = L"txtFirstNameWalker";
+			this->txtFirstNameWalker->Size = System::Drawing::Size(161, 22);
+			this->txtFirstNameWalker->TabIndex = 55;
 			// 
-			// comboBox1
+			// CmbPositionWalker
 			// 
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Location = System::Drawing::Point(441, 18);
-			this->comboBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(155, 24);
-			this->comboBox1->TabIndex = 69;
+			this->CmbPositionWalker->FormattingEnabled = true;
+			this->CmbPositionWalker->Location = System::Drawing::Point(441, 18);
+			this->CmbPositionWalker->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->CmbPositionWalker->Name = L"CmbPositionWalker";
+			this->CmbPositionWalker->Size = System::Drawing::Size(155, 24);
+			this->CmbPositionWalker->TabIndex = 69;
 			// 
-			// textBox12
+			// txtLastNameWalker
 			// 
-			this->textBox12->Location = System::Drawing::Point(441, 82);
-			this->textBox12->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->textBox12->Name = L"textBox12";
-			this->textBox12->Size = System::Drawing::Size(155, 22);
-			this->textBox12->TabIndex = 56;
+			this->txtLastNameWalker->Location = System::Drawing::Point(441, 82);
+			this->txtLastNameWalker->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->txtLastNameWalker->Name = L"txtLastNameWalker";
+			this->txtLastNameWalker->Size = System::Drawing::Size(155, 22);
+			this->txtLastNameWalker->TabIndex = 56;
 			// 
 			// label27
 			// 
@@ -1417,13 +1447,13 @@ private: System::ComponentModel::IContainer^ components;
 			this->label27->TabIndex = 68;
 			this->label27->Text = L"Salario";
 			// 
-			// textBox13
+			// txtUsernameWalker
 			// 
-			this->textBox13->Location = System::Drawing::Point(143, 211);
-			this->textBox13->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->textBox13->Name = L"textBox13";
-			this->textBox13->Size = System::Drawing::Size(157, 22);
-			this->textBox13->TabIndex = 57;
+			this->txtUsernameWalker->Location = System::Drawing::Point(143, 211);
+			this->txtUsernameWalker->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->txtUsernameWalker->Name = L"txtUsernameWalker";
+			this->txtUsernameWalker->Size = System::Drawing::Size(157, 22);
+			this->txtUsernameWalker->TabIndex = 57;
 			// 
 			// label28
 			// 
@@ -1434,13 +1464,13 @@ private: System::ComponentModel::IContainer^ components;
 			this->label28->TabIndex = 67;
 			this->label28->Text = L"Garantía";
 			// 
-			// textBox14
+			// txtStatusWalker
 			// 
-			this->textBox14->Location = System::Drawing::Point(435, 211);
-			this->textBox14->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->textBox14->Name = L"textBox14";
-			this->textBox14->Size = System::Drawing::Size(161, 22);
-			this->textBox14->TabIndex = 58;
+			this->txtStatusWalker->Location = System::Drawing::Point(435, 211);
+			this->txtStatusWalker->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->txtStatusWalker->Name = L"txtStatusWalker";
+			this->txtStatusWalker->Size = System::Drawing::Size(161, 22);
+			this->txtStatusWalker->TabIndex = 58;
 			// 
 			// label29
 			// 
@@ -1469,15 +1499,15 @@ private: System::ComponentModel::IContainer^ components;
 			this->label30->TabIndex = 65;
 			this->label30->Text = L"Valoración";
 			// 
-			// button2
+			// btnUpdateWalker
 			// 
-			this->button2->Location = System::Drawing::Point(253, 248);
-			this->button2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(137, 46);
-			this->button2->TabIndex = 61;
-			this->button2->Text = L"Modificar";
-			this->button2->UseVisualStyleBackColor = true;
+			this->btnUpdateWalker->Location = System::Drawing::Point(253, 248);
+			this->btnUpdateWalker->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->btnUpdateWalker->Name = L"btnUpdateWalker";
+			this->btnUpdateWalker->Size = System::Drawing::Size(137, 46);
+			this->btnUpdateWalker->TabIndex = 61;
+			this->btnUpdateWalker->Text = L"Modificar";
+			this->btnUpdateWalker->UseVisualStyleBackColor = true;
 			// 
 			// label31
 			// 
@@ -1488,15 +1518,15 @@ private: System::ComponentModel::IContainer^ components;
 			this->label31->TabIndex = 64;
 			this->label31->Text = L"Nivel";
 			// 
-			// button3
+			// btnDeleteWalker
 			// 
-			this->button3->Location = System::Drawing::Point(441, 248);
-			this->button3->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(137, 46);
-			this->button3->TabIndex = 62;
-			this->button3->Text = L"Eliminar";
-			this->button3->UseVisualStyleBackColor = true;
+			this->btnDeleteWalker->Location = System::Drawing::Point(441, 248);
+			this->btnDeleteWalker->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->btnDeleteWalker->Name = L"btnDeleteWalker";
+			this->btnDeleteWalker->Size = System::Drawing::Size(137, 46);
+			this->btnDeleteWalker->TabIndex = 62;
+			this->btnDeleteWalker->Text = L"Eliminar";
+			this->btnDeleteWalker->UseVisualStyleBackColor = true;
 			// 
 			// button4
 			// 
@@ -1529,7 +1559,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage1->PerformLayout();
 			this->tabPage2->ResumeLayout(false);
 			this->tabPage2->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvWalker))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -1566,7 +1596,33 @@ private: System::ComponentModel::IContainer^ components;
 			}
 		}
 
-
+		void RefreshGrid_Walker() {
+			List<Walker^>^ walkerList = Controller::QueryAllWalkers();
+			dgvWalker->Rows->Clear();
+			for (int i = 0; i < walkerList->Count; i++) {
+				dgvWalker->Rows->Add(gcnew array<String^>{
+					"" + walkerList[i]->Dni,
+						walkerList[i]->Address,
+						walkerList[i]->PhoneNumber,
+						walkerList[i]->Email,
+						"" + walkerList[i]->Gender,
+						"" + walkerList[i]->Id,
+						walkerList[i]->username,
+						walkerList[i]->password,
+						walkerList[i]->Lastname,
+						walkerList[i]->Firstname,
+						"" + walkerList[i]->Valoration,
+						walkerList[i]->Award,
+						"" + walkerList[i]->Experience,
+						"" + walkerList[i]->Level,
+						"" + walkerList[i]->Warranty,
+						"" + walkerList[i]->Salary,
+						"" + walkerList[i]->Photo,
+						"" + walkerList[i]->Status,
+						"" + walkerList[i]->Position
+				});
+			}
+		}
 
 
 	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1590,47 +1646,36 @@ private: System::ComponentModel::IContainer^ components;
 		c->Status = 'A';
 		c->Position = CmbPosition->Text;
 
-		/*
-		Controller::AddKeeper(c);
-		RefreshGrid();
-		ClearControls();*/
-
-		
-		//Keeper^ c;
-		//try {
-		
-			/*c = gcnew Keeper(Int32::Parse(txtDni->Text), txtAddress->Text, txtPhoneNumber->Text, txtEmail->Text,
-				rbtnMasc->Checked ? 'M' : 'F', Int32::Parse(txtId->Text), txtUsername->Text, txtLastName->Text, txtFirstName->Text,
-				Int32::Parse(txtValoration->Text), Int32::Parse(txtExperience->Text), Int32::Parse(txtLevel->Text),
-				Int32::Parse(txtWarranty->Text), Double::Parse(txtSalary->Text));*/
-		/*
-			c->Dni = Int32::Parse(txtDni->Text);
-			c->Address = txtAddress->Text;
-			c->PhoneNumber = txtPhoneNumber->Text;
-			c->Email = txtEmail->Text;
-			//c->Gender = Char::Parse(txtGender->Text);
-			c->Id = Int32::Parse(txtId->Text);
-			c->username = txtUsername->Text;
-			c->Lastname = txtLastName->Text;
-			c->Firstname = txtFirstName->Text;
-			c->Valoration = Int32::Parse(txtValoration->Text);
-			c->Experience = Int32::Parse(txtExperience->Text);
-			c->Level = Int32::Parse(txtLevel->Text);
-			c->Warranty = Int32::Parse(txtWarranty->Text);
-			c->Salary = Double::Parse(txtSalary->Text);
-			//c->Photo = array::Parse(PicturePhoto->Picture);
-			c->Status = 'A';
-			c->Position = CmbPosition->Text;*/
-		//}
-		//catch (Exception^ ex) {
-		//	MessageBox::Show(ex->ToString(), "Comparta el error al área de TI.");
-		//	return;
-		//}
-
 		Controller::AddKeeper(c);
 		RefreshGrid();
 		ClearControls();
 	}
+
+	private: System::Void btnAddWalker_Click(System::Object^ sender, System::EventArgs^ e) {
+		 Walker^ c = gcnew Walker();
+
+		 c->Dni = Int32::Parse(txtDniWalker->Text);
+		 c->Address = txtAddressWalker->Text;
+		 c->PhoneNumber = txtPhoneNumberWalker->Text;
+		 c->Email = txtEmailWalker->Text;
+		 //c->Gender = Char::Parse(txtGender->Text);
+		 c->Id = Int32::Parse(txtIdWalker->Text);
+		 c->username = txtUsernameWalker->Text;
+		 c->Lastname = txtLastNameWalker->Text;
+		 c->Firstname = txtFirstNameWalker->Text;
+		 c->Valoration = Int32::Parse(txtValorationWalker->Text);
+		 c->Experience = Int32::Parse(txtExperienceWalker->Text);
+		 c->Level = Int32::Parse(txtLevelWalker->Text);
+		 c->Warranty = Int32::Parse(txtWarrantyWalker->Text);
+		 c->Salary = Double::Parse(txtSalaryWalker->Text);
+		 //c->Photo = array::Parse(PicturePhoto->Picture);
+		 c->Status = 'A';
+		 c->Position = CmbPositionWalker->Text;
+
+		 Controller::AddWalker(c);
+		 RefreshGrid_Walker();
+		 ClearControls();
+	 }
 
 	private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
 		Keeper^ c = gcnew Keeper();
@@ -1654,39 +1699,31 @@ private: System::ComponentModel::IContainer^ components;
 
 		Controller::UpdateKeeper(c);
 		RefreshGrid();
-		/*
-		Keeper^c = gcnew Keeper();
-		try {
-			if (txtId->Text->Trim() == "") {
-				MessageBox::Show("El Id no debe estar vacío.");
-				return;
-			}
-			c->Dni = Int32::Parse(txtDni->Text);
-			c->Address = txtAddress->Text;
-			c->PhoneNumber = txtPhoneNumber->Text;
-			c->Email = txtEmail->Text;
-			c->Gender = rbtnMasc->Checked ? 'M' : 'F';
-			c->Id = Int32::Parse(txtId->Text);
-			c->username = txtUsername->Text;
-			c->Lastname = txtLastName->Text;
-			c->Firstname = txtFirstName->Text;
-			c->Valoration = Int32::Parse(txtValoration->Text);
-			c->Experience = Int32::Parse(txtExperience->Text);
-			c->Level = Int32::Parse(txtLevel->Text);
-			c->Warranty = Int32::Parse(txtWarranty->Text);
-			c->Salary = Double::Parse(txtSalary->Text);
-			//c->Photo = array::Parse(PicturePhoto->Picture);
-			c->Status = 'A';
-			c->Position = CmbPosition->Text;
-		}
-		catch (Exception^ ex) {
-			MessageBox::Show(ex->ToString(), "Comparta el error al área de TI.");
-			return;
-		}
 
-		Controller::UpdateKeeper(c);
-		RefreshGrid();
-		*/
+	}
+
+	private: System::Void btnUpdateWalker_Click(System::Object^ sender, System::EventArgs^ e) {
+		Walker^ c = gcnew Walker();
+		c->Dni = Int32::Parse(txtDniWalker->Text);
+		c->Address = txtAddressWalker->Text;
+		c->PhoneNumber = txtPhoneNumberWalker->Text;
+		c->Email = txtEmailWalker->Text;
+		c->Gender = rbtnMascWalker->Checked ? 'M' : 'F';
+		c->Id = Int32::Parse(txtIdWalker->Text);
+		c->username = txtUsernameWalker->Text;
+		c->Lastname = txtLastNameWalker->Text;
+		c->Firstname = txtFirstNameWalker->Text;
+		c->Valoration = Int32::Parse(txtValorationWalker->Text);
+		c->Experience = Int32::Parse(txtExperienceWalker->Text);
+		c->Level = Int32::Parse(txtLevelWalker->Text);
+		c->Warranty = Int32::Parse(txtWarrantyWalker->Text);
+		c->Salary = Double::Parse(txtSalaryWalker->Text);
+		//c->Photo = array::Parse(PicturePhoto->Picture);
+		c->Status = 'A';
+		c->Position = CmbPositionWalker->Text;
+
+		Controller::UpdateWalker(c);
+		RefreshGrid_Walker();
 
 	}
 	private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1695,22 +1732,14 @@ private: System::ComponentModel::IContainer^ components;
 		RefreshGrid();
 		ClearControls();
 
-		/*
-		int keeperId = -1;
-		try {
-			if (txtId->Text->Trim() == "") {
-				MessageBox::Show("No se puede eliminar porque no hay ningún cliente seleccionado.");
-				return;
-			}
-			keeperId = Int32::Parse(txtId->Text);
-		}
-		catch (Exception^ ex) {
-			MessageBox::Show(ex->ToString(), "Comparta el error al área de TI.");
-			return;
-		}
-		Controller::DeleteKeeper(keeperId);
-		RefreshGrid();
-		ClearControls();*/
+	}
+
+	private: System::Void btnDeleteWalker_Click(System::Object^ sender, System::EventArgs^ e) {
+		int WalkerId = Int32::Parse(txtId->Text);
+		Controller::DeleteKeeper(WalkerId);
+		RefreshGrid_Walker();
+		ClearControls();
+
 	}
 	private: System::Void dgvKeeper_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 		/*int selectedRowIndex = dgvKeeper->SelectedCells[0]->RowIndex;
