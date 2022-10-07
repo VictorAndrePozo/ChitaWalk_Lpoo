@@ -5,6 +5,8 @@
 using namespace System;
 
 namespace ChitaModel {
+	[Serializable]
+
 	public ref class Walker : public Carer {
 	public:
 		property String^ StrollArea;

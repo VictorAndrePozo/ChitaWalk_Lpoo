@@ -37,6 +37,22 @@ namespace ChitaController {
 		static void PersistKeepers();
 		static void LoadKeepersData();
 
+		//---------------------------------------------------------------------------------------------------------------------
+		// PARA MANTENIMIENTO DE WALKER
+		//---------------------------------------------------------------------------------------------------------------------
+
+	private:
+		static List <Walker^>^ walkerList = gcnew List<Walker^>(); // Variable de clase o atributo estático
+	public:
+		static int AddWalker(Walker^ walker);                      // Añadir carer
+		static int UpdateWalker(Walker^ walker);                   // Modificar carer
+		static int DeleteWalker(int walkerId);                    // Eliminar carer
+		static List <Walker^>^ QueryAllWalkers();                 // Consultar todos los Carers activos
+		static Walker^ QueryWalkerById(int walkerId);              // Consultar Carer por ID
+		static void PersistWalkers();
+		static void LoadWalkersData();
+
+
 
 		//---------------------------------------------------------------------------------------------------------------------
 		// PARA MANTENIMIENTO DE PET

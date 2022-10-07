@@ -4,6 +4,8 @@
 using namespace System;
 
 namespace ChitaModel {
+	[Serializable]
+
 	public ref class Keeper : public Carer {
 	public:
 		property bool Home;

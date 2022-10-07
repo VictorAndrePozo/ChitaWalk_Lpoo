@@ -2,6 +2,7 @@
 
 #include "ChitaController.h"
 
+using namespace System::Xml::Serialization;
 using namespace System::Runtime::Serialization::Formatters::Binary;
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -123,12 +124,24 @@ Keeper^ ChitaController::Controller::QueryKeeperById(int keeperId)
 
 void ChitaController::Controller::PersistKeepers()
 {
-	throw gcnew System::NotImplementedException();
+
+	//En formato de archivo binario
+	Stream^ stream = File::Open("Keepers.bin", FileMode::Create);
+	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
+	bFormatter->Serialize(stream, keeperList);
+	stream->Close();
 }
 
 void ChitaController::Controller::LoadKeepersData()
 {
-	throw gcnew System::NotImplementedException();
+
+	keeperList = gcnew List<Keeper^>();
+	//Lectura desde un archivo binario
+	Stream^ sr = File::Open("Keepers.bin", FileMode::Open);
+	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
+	keeperList = (List<Keeper^>^)bFormatter->Deserialize(sr);
+
+	sr->Close();
 }
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -182,4 +195,77 @@ List<Pet^>^ ChitaController::Controller::QueryAllPets()
         }
     }
     return activePetList;
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+// PARA MANTENIMIENTO DE WALKER
+//---------------------------------------------------------------------------------------------------------------------
+
+
+int ChitaController::Controller::AddWalker(Walker^ walker)
+{
+	walkerList->Add(walker);
+	return 1;
+}
+
+int ChitaController::Controller::UpdateWalker(Walker^ walker)
+{
+	for (int i = 0; i < walkerList->Count; i++)
+		if (walker->Id == walkerList[i]->Id) {
+			walkerList[i] = walker;
+			return 1;
+		}
+	return 0;
+}
+
+int ChitaController::Controller::DeleteWalker(int walkerId)
+{
+	for (int i = 0; i < walkerList->Count; i++)
+		if (walkerId == walkerList[i]->Id) {
+			walkerList->RemoveAt(i);
+			return 1;
+		}
+	return 0;
+}
+
+List<Walker^>^ ChitaController::Controller::QueryAllWalkers()
+{
+	List<Walker^>^ activeWalkersList = gcnew List<Walker^>();
+	for (int i = 0; i < walkerList->Count; i++) {
+		if (walkerList[i]->Status == 'A') {
+			activeWalkersList->Add(walkerList[i]);
+		}
+	}
+	return activeWalkersList;
+}
+
+Walker^ ChitaController::Controller::QueryWalkerById(int walkerId)
+{
+	for (int i = 0; i < walkerList->Count; i++)
+		if (walkerId == walkerList[i]->Id) {
+			return walkerList[i];
+		}
+	return nullptr;
+}
+
+void ChitaController::Controller::PersistWalkers()
+{
+
+	//En formato de archivo binario
+	Stream^ stream = File::Open("Walkers.bin", FileMode::Create);
+	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
+	bFormatter->Serialize(stream, walkerList);
+	stream->Close();
+}
+
+void ChitaController::Controller::LoadWalkersData()
+{
+
+	walkerList = gcnew List<Walker^>();
+	//Lectura desde un archivo binario
+	Stream^ sr = File::Open("Walkers.bin", FileMode::Open);
+	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
+	walkerList = (List<Walker^>^)bFormatter->Deserialize(sr);
+
+	sr->Close();
 }

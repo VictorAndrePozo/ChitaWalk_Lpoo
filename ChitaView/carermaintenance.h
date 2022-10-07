@@ -714,6 +714,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->dgvKeeper->Size = System::Drawing::Size(1084, 278);
 			this->dgvKeeper->TabIndex = 37;
 			this->dgvKeeper->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &carermaintenance::dgvKeeper_CellClick);
+			this->dgvKeeper->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &carermaintenance::dgvKeeper_CellContentClick);
 			// 
 			// keeperId
 			// 
@@ -871,26 +872,28 @@ private: System::ComponentModel::IContainer^ components;
 			// salirToolStripMenuItem
 			// 
 			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
-			this->salirToolStripMenuItem->Size = System::Drawing::Size(156, 26);
+			this->salirToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->salirToolStripMenuItem->Text = L"Salir";
 			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &carermaintenance::salirToolStripMenuItem_Click);
 			// 
 			// nuevoToolStripMenuItem
 			// 
 			this->nuevoToolStripMenuItem->Name = L"nuevoToolStripMenuItem";
-			this->nuevoToolStripMenuItem->Size = System::Drawing::Size(156, 26);
+			this->nuevoToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->nuevoToolStripMenuItem->Text = L"Nuevo";
+			this->nuevoToolStripMenuItem->Click += gcnew System::EventHandler(this, &carermaintenance::nuevoToolStripMenuItem_Click);
 			// 
 			// modificarToolStripMenuItem
 			// 
 			this->modificarToolStripMenuItem->Name = L"modificarToolStripMenuItem";
-			this->modificarToolStripMenuItem->Size = System::Drawing::Size(156, 26);
-			this->modificarToolStripMenuItem->Text = L"Modificar";
+			this->modificarToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->modificarToolStripMenuItem->Text = L"Editar";
+			this->modificarToolStripMenuItem->Click += gcnew System::EventHandler(this, &carermaintenance::modificarToolStripMenuItem_Click);
 			// 
 			// eliminarToolStripMenuItem
 			// 
 			this->eliminarToolStripMenuItem->Name = L"eliminarToolStripMenuItem";
-			this->eliminarToolStripMenuItem->Size = System::Drawing::Size(156, 26);
+			this->eliminarToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->eliminarToolStripMenuItem->Text = L"Eliminar";
 			// 
 			// cuidadoresToolStripMenuItem
@@ -986,7 +989,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Cuidador";
 			this->tabPage1->UseVisualStyleBackColor = true;
-			this->tabPage1->Click += gcnew System::EventHandler(this, &carermaintenance::tabPage1_Click);
+			//this->tabPage1->Click += gcnew System::EventHandler(this, &carermaintenance::tabPage1_Click);
 			// 
 			// tabPage2
 			// 
@@ -1796,15 +1799,92 @@ private: System::ComponentModel::IContainer^ components;
 
 	
 
-private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+/*private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	Application::Exit();
-}
+}*/
 private: System::Void cuidadoresToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	//carermaintenance^ Carermaintenance = gcnew carermaintenance();
 	//Carermaintenance->MdiParent = this;
 	//Carermaintenance->Show();
 }
-private: System::Void tabPage1_Click(System::Object^ sender, System::EventArgs^ e) {
+
+private: System::Void nuevoToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	ClearControls();
+	EnableControls();
+	btnAdd->Enabled = true;
+	btnUpdate->Enabled = false;
+	btnDelete->Enabled = false;
+	//btnAddWalker->Enabled = true;
+	//btnUpdateWalker->Enabled = false;
+	//btnDeleteWalker->Enabled = false;
+
+}
+
+	//public: System::Void ClearControls();
+	//public: System::Void RefreshGrid();
+
+
+	public:
+		Void DisableControls() {
+			//Keeper Controls
+			//txtId->ReadOnly = true;
+			txtPhoneNumber->ReadOnly = true;
+			txtAddress->ReadOnly = true;
+			txtDni->ReadOnly = true;
+			txtFirstName->ReadOnly = true;
+			txtLastName->ReadOnly = true;
+			txtEmail->ReadOnly = true;
+			//dtpBirthday->Enabled = false;
+			btnAdd->Enabled = false;
+			btnUpdate->Enabled = false;
+			btnDelete->Enabled = false;
+
+			//Walker Controls
+			//txtWalkerId->ReadOnly = true;
+			//btnAddWalker->Enabled = false;
+			//btnUpdateWalker->Enabled = false;
+			//btnDeleteWalker->Enabled = false;
+		}
+
+		Void EnableControls() {
+			//Keeper Controls
+			//txtId->ReadOnly = true;
+			txtPhoneNumber->ReadOnly = false;
+			txtAddress->ReadOnly = false;
+			txtDni->ReadOnly = false;
+			txtFirstName->ReadOnly = false;
+			txtLastName->ReadOnly = false;
+			txtEmail->ReadOnly = false;
+			
+			btnAdd->Enabled = true;
+			btnUpdate->Enabled = false;
+			btnDelete->Enabled = false;
+
+			//Walker Controls
+			//btnAddWalker->Enabled = true;
+			//btnUpdateWalker->Enabled = false;
+			//btnDeleteWalker->Enabled = false;
+		}
+
+/*private: System::Void consultasToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	DisableControls();
+}*/
+private: System::Void modificarToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	EnableControls();
+	btnAdd->Enabled = false;
+	btnUpdate->Enabled = true;
+	btnDelete->Enabled = true;
+
+	//btnAddWalker->Enabled = false;
+	//btnUpdateWalker->Enabled = true;
+	//btnDeleteWalker->Enabled = true;
+
+}
+private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+}
+
+private: System::Void dgvKeeper_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 }
 };
 }
