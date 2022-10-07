@@ -168,6 +168,9 @@
     <EmbeddedResource Include="PetOwnerMaintence.resx">
       <DependentUpon>PetOwnerMaintence.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RegisterForm.resx">
+      <DependentUpon>RegisterForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ServiceRequestForm.resx">
       <DependentUpon>ServiceRequestForm.h</DependentUpon>
     </EmbeddedResource>
