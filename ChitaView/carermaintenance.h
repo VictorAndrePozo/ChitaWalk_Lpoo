@@ -1828,12 +1828,12 @@ private: System::Void nuevoToolStripMenuItem_Click(System::Object^ sender, Syste
 		Void DisableControls() {
 			//Keeper Controls
 			//txtId->ReadOnly = true;
-			txtPhoneNumber->ReadOnly = true;
-			txtAddress->ReadOnly = true;
-			txtDni->ReadOnly = true;
-			txtFirstName->ReadOnly = true;
-			txtLastName->ReadOnly = true;
-			txtEmail->ReadOnly = true;
+			//txtPhoneNumber->ReadOnly = true;
+			//txtAddress->ReadOnly = true;
+			//txtDni->ReadOnly = true;
+			//txtFirstName->ReadOnly = true;
+			//txtLastName->ReadOnly = true;
+			//txtEmail->ReadOnly = true;
 			//dtpBirthday->Enabled = false;
 			btnAdd->Enabled = false;
 			btnUpdate->Enabled = false;
@@ -1849,12 +1849,12 @@ private: System::Void nuevoToolStripMenuItem_Click(System::Object^ sender, Syste
 		Void EnableControls() {
 			//Keeper Controls
 			//txtId->ReadOnly = true;
-			txtPhoneNumber->ReadOnly = false;
-			txtAddress->ReadOnly = false;
-			txtDni->ReadOnly = false;
-			txtFirstName->ReadOnly = false;
-			txtLastName->ReadOnly = false;
-			txtEmail->ReadOnly = false;
+			//txtPhoneNumber->ReadOnly = false;
+			//txtAddress->ReadOnly = false;
+			//txtDni->ReadOnly = false;
+			//txtFirstName->ReadOnly = false;
+			//txtLastName->ReadOnly = false;
+			//txtEmail->ReadOnly = false;
 			
 			btnAdd->Enabled = true;
 			btnUpdate->Enabled = false;
