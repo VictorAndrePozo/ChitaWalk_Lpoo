@@ -1570,7 +1570,7 @@ private: System::ComponentModel::IContainer^ components;
 
 
 	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
-		/*Keeper^ c = gcnew Keeper();
+		Keeper^ c = gcnew Keeper();
 
 		c->Dni = Int32::Parse(txtDni->Text);
 		c->Address = txtAddress->Text;
@@ -1590,19 +1590,20 @@ private: System::ComponentModel::IContainer^ components;
 		c->Status = 'A';
 		c->Position = CmbPosition->Text;
 
+		/*
 		Controller::AddKeeper(c);
 		RefreshGrid();
 		ClearControls();*/
 
-
-		Keeper^ c;
-		try {
+		
+		//Keeper^ c;
+		//try {
 		
 			/*c = gcnew Keeper(Int32::Parse(txtDni->Text), txtAddress->Text, txtPhoneNumber->Text, txtEmail->Text,
 				rbtnMasc->Checked ? 'M' : 'F', Int32::Parse(txtId->Text), txtUsername->Text, txtLastName->Text, txtFirstName->Text,
 				Int32::Parse(txtValoration->Text), Int32::Parse(txtExperience->Text), Int32::Parse(txtLevel->Text),
 				Int32::Parse(txtWarranty->Text), Double::Parse(txtSalary->Text));*/
-
+		/*
 			c->Dni = Int32::Parse(txtDni->Text);
 			c->Address = txtAddress->Text;
 			c->PhoneNumber = txtPhoneNumber->Text;
@@ -1619,12 +1620,12 @@ private: System::ComponentModel::IContainer^ components;
 			c->Salary = Double::Parse(txtSalary->Text);
 			//c->Photo = array::Parse(PicturePhoto->Picture);
 			c->Status = 'A';
-			c->Position = CmbPosition->Text;
-		}
-		catch (Exception^ ex) {
-			MessageBox::Show(ex->ToString(), "Comparta el error al área de TI.");
-			return;
-		}
+			c->Position = CmbPosition->Text;*/
+		//}
+		//catch (Exception^ ex) {
+		//	MessageBox::Show(ex->ToString(), "Comparta el error al área de TI.");
+		//	return;
+		//}
 
 		Controller::AddKeeper(c);
 		RefreshGrid();
@@ -1632,7 +1633,7 @@ private: System::ComponentModel::IContainer^ components;
 	}
 
 	private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
-		/*Keeper^ c = gcnew Keeper();
+		Keeper^ c = gcnew Keeper();
 		c->Dni = Int32::Parse(txtDni->Text);
 		c->Address = txtAddress->Text;
 		c->PhoneNumber = txtPhoneNumber->Text;
@@ -1652,8 +1653,8 @@ private: System::ComponentModel::IContainer^ components;
 		c->Position = CmbPosition->Text;
 
 		Controller::UpdateKeeper(c);
-		RefreshGrid();*/
-
+		RefreshGrid();
+		/*
 		Keeper^c = gcnew Keeper();
 		try {
 			if (txtId->Text->Trim() == "") {
@@ -1685,14 +1686,16 @@ private: System::ComponentModel::IContainer^ components;
 
 		Controller::UpdateKeeper(c);
 		RefreshGrid();
+		*/
 
 	}
 	private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
-		/*int KeeperId = Int32::Parse(txtId->Text);
+		int KeeperId = Int32::Parse(txtId->Text);
 		Controller::DeleteKeeper(KeeperId);
 		RefreshGrid();
-		ClearControls();*/
+		ClearControls();
 
+		/*
 		int keeperId = -1;
 		try {
 			if (txtId->Text->Trim() == "") {
@@ -1707,7 +1710,7 @@ private: System::ComponentModel::IContainer^ components;
 		}
 		Controller::DeleteKeeper(keeperId);
 		RefreshGrid();
-		ClearControls();
+		ClearControls();*/
 	}
 	private: System::Void dgvKeeper_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 		/*int selectedRowIndex = dgvKeeper->SelectedCells[0]->RowIndex;

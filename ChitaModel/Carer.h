@@ -9,6 +9,7 @@ using namespace System;
 
 namespace ChitaModel {
 	[Serializable]
+
 	public ref class Carer : public User {
 	public:
 		property int Experience;
