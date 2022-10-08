@@ -37,7 +37,9 @@ namespace ChitaView {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::MenuStrip^ menuStrip1;
+	private: System::Windows::Forms::MenuStrip^ MenuPrincipal;
+	protected:
+
 	protected:
 	private: System::Windows::Forms::ToolStripMenuItem^ archivoToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ transaccionToolStripMenuItem;
@@ -63,7 +65,7 @@ namespace ChitaView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->MenuPrincipal = (gcnew System::Windows::Forms::MenuStrip());
 			this->transaccionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->archivoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->salirToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -71,26 +73,26 @@ namespace ChitaView {
 			this->mantenimientoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->carerToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->mascotasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->usuariosPropietariosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reporteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ayudaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->usuariosPropietariosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->menuStrip1->SuspendLayout();
+			this->MenuPrincipal->SuspendLayout();
 			this->SuspendLayout();
 			// 
-			// menuStrip1
+			// MenuPrincipal
 			// 
-			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(6) {
+			this->MenuPrincipal->ImageScalingSize = System::Drawing::Size(20, 20);
+			this->MenuPrincipal->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(6) {
 				this->transaccionToolStripMenuItem,
 					this->archivoToolStripMenuItem, this->transaccionToolStripMenuItem1, this->mantenimientoToolStripMenuItem, this->reporteToolStripMenuItem,
 					this->ayudaToolStripMenuItem
 			});
-			this->menuStrip1->Location = System::Drawing::Point(0, 0);
-			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Padding = System::Windows::Forms::Padding(4, 2, 0, 2);
-			this->menuStrip1->Size = System::Drawing::Size(675, 24);
-			this->menuStrip1->TabIndex = 0;
-			this->menuStrip1->Text = L"menuStrip1";
+			this->MenuPrincipal->Location = System::Drawing::Point(0, 0);
+			this->MenuPrincipal->Name = L"MenuPrincipal";
+			this->MenuPrincipal->Padding = System::Windows::Forms::Padding(4, 2, 0, 2);
+			this->MenuPrincipal->Size = System::Drawing::Size(675, 24);
+			this->MenuPrincipal->TabIndex = 1;
+			this->MenuPrincipal->Text = L"MenuPrincipal";
 			// 
 			// transaccionToolStripMenuItem
 			// 
@@ -142,6 +144,13 @@ namespace ChitaView {
 			this->mascotasToolStripMenuItem->Text = L"Mascotas";
 			this->mascotasToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::mascotasToolStripMenuItem_Click);
 			// 
+			// usuariosPropietariosToolStripMenuItem
+			// 
+			this->usuariosPropietariosToolStripMenuItem->Name = L"usuariosPropietariosToolStripMenuItem";
+			this->usuariosPropietariosToolStripMenuItem->Size = System::Drawing::Size(185, 22);
+			this->usuariosPropietariosToolStripMenuItem->Text = L"Usuarios Propietarios";
+			this->usuariosPropietariosToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::usuariosPropietariosToolStripMenuItem_Click);
+			// 
 			// reporteToolStripMenuItem
 			// 
 			this->reporteToolStripMenuItem->Name = L"reporteToolStripMenuItem";
@@ -154,28 +163,21 @@ namespace ChitaView {
 			this->ayudaToolStripMenuItem->Size = System::Drawing::Size(53, 20);
 			this->ayudaToolStripMenuItem->Text = L"Ayuda";
 			// 
-			// usuariosPropietariosToolStripMenuItem
-			// 
-			this->usuariosPropietariosToolStripMenuItem->Name = L"usuariosPropietariosToolStripMenuItem";
-			this->usuariosPropietariosToolStripMenuItem->Size = System::Drawing::Size(185, 22);
-			this->usuariosPropietariosToolStripMenuItem->Text = L"Usuarios Propietarios";
-			this->usuariosPropietariosToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::usuariosPropietariosToolStripMenuItem_Click);
-			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->ClientSize = System::Drawing::Size(675, 325);
-			this->Controls->Add(this->menuStrip1);
+			this->Controls->Add(this->MenuPrincipal);
 			this->IsMdiContainer = true;
-			this->MainMenuStrip = this->menuStrip1;
+			this->MainMenuStrip = this->MenuPrincipal;
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"MyForm";
 			this->Text = L"Chita : Pagina general";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
-			this->menuStrip1->ResumeLayout(false);
-			this->menuStrip1->PerformLayout();
+			this->MenuPrincipal->ResumeLayout(false);
+			this->MenuPrincipal->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -190,20 +192,23 @@ namespace ChitaView {
 	}
 private: System::Void carerToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	carermaintenance^ Carermaintenance = gcnew carermaintenance();
-	Carermaintenance->MdiParent = this;
-	Carermaintenance->Show();
+	Carermaintenance->ShowDialog();
+	//Carermaintenance->MdiParent = this;
+	//Carermaintenance->Show();
 }
 	   
 private: System::Void mascotasToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	
 	PetForm^ petForm = gcnew PetForm();		//Crear form.
-	petForm -> MdiParent = this;			//Padre mdi(form de donde viene) this = ese mismo
-	petForm -> Show();						//Mostrar form
+	petForm->ShowDialog();
+	//petForm -> MdiParent = this;			//Padre mdi(form de donde viene) this = ese mismo
+	//petForm -> Show();						//Mostrar form
 }
 private: System::Void usuariosPropietariosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	PetOwnerMaintence^ PetOwnerForm = gcnew PetOwnerMaintence();
-	PetOwnerForm->MdiParent = this;
-	PetOwnerForm->Show();
+	PetOwnerForm->ShowDialog();
+	//PetOwnerForm->MdiParent = this;
+	//PetOwnerForm->Show();
 }
 };
 }

@@ -80,7 +80,8 @@ namespace ChitaView {
 	private: System::Windows::Forms::Button^ btnAdd;
 	private: System::Windows::Forms::TextBox^ txtPhoneNumber;
 	private: System::Windows::Forms::Label^ CelularPO;
-	private: System::Windows::Forms::MenuStrip^ menuStrip1;
+	private: System::Windows::Forms::MenuStrip^ MenuPetOwner;
+
 	private: System::Windows::Forms::ToolStripMenuItem^ archivoToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ nuevoToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ editarToolStripMenuItem;
@@ -99,7 +100,7 @@ namespace ChitaView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ CumpleanosColumna;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ DireccionColumna;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ GeneroColumna;
-	private: System::Windows::Forms::ToolStripMenuItem^ refrescarToolStripMenuItem;
+
 
 
 
@@ -150,14 +151,13 @@ namespace ChitaView {
 			this->btnAdd = (gcnew System::Windows::Forms::Button());
 			this->txtPhoneNumber = (gcnew System::Windows::Forms::TextBox());
 			this->CelularPO = (gcnew System::Windows::Forms::Label());
-			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->MenuPetOwner = (gcnew System::Windows::Forms::MenuStrip());
 			this->archivoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->nuevoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->editarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->salirToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->consultaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->consultaToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->refrescarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->dtpBirthday = (gcnew System::Windows::Forms::DateTimePicker());
 			this->CumpleanosPO = (gcnew System::Windows::Forms::Label());
 			this->dgvPetOwner = (gcnew System::Windows::Forms::DataGridView());
@@ -171,7 +171,7 @@ namespace ChitaView {
 			this->DireccionColumna = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->GeneroColumna = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picturePhoto))->BeginInit();
-			this->menuStrip1->SuspendLayout();
+			this->MenuPetOwner->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPetOwner))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -423,20 +423,20 @@ namespace ChitaView {
 			this->CelularPO->TabIndex = 61;
 			this->CelularPO->Text = L"Celular(*)";
 			// 
-			// menuStrip1
+			// MenuPetOwner
 			// 
-			this->menuStrip1->BackColor = System::Drawing::Color::Transparent;
-			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+			this->MenuPetOwner->BackColor = System::Drawing::Color::Transparent;
+			this->MenuPetOwner->ImageScalingSize = System::Drawing::Size(20, 20);
+			this->MenuPetOwner->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
 				this->archivoToolStripMenuItem,
-					this->consultaToolStripMenuItem, this->refrescarToolStripMenuItem
+					this->consultaToolStripMenuItem
 			});
-			this->menuStrip1->Location = System::Drawing::Point(0, 0);
-			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Padding = System::Windows::Forms::Padding(4, 2, 0, 2);
-			this->menuStrip1->Size = System::Drawing::Size(866, 24);
-			this->menuStrip1->TabIndex = 63;
-			this->menuStrip1->Text = L"menuStrip1";
+			this->MenuPetOwner->Location = System::Drawing::Point(0, 0);
+			this->MenuPetOwner->Name = L"MenuPetOwner";
+			this->MenuPetOwner->Padding = System::Windows::Forms::Padding(4, 2, 0, 2);
+			this->MenuPetOwner->Size = System::Drawing::Size(866, 24);
+			this->MenuPetOwner->TabIndex = 63;
+			this->MenuPetOwner->Text = L"menuStrip1";
 			// 
 			// archivoToolStripMenuItem
 			// 
@@ -479,16 +479,9 @@ namespace ChitaView {
 			// consultaToolStripMenuItem1
 			// 
 			this->consultaToolStripMenuItem1->Name = L"consultaToolStripMenuItem1";
-			this->consultaToolStripMenuItem1->Size = System::Drawing::Size(121, 22);
+			this->consultaToolStripMenuItem1->Size = System::Drawing::Size(180, 22);
 			this->consultaToolStripMenuItem1->Text = L"Consulta";
 			this->consultaToolStripMenuItem1->Click += gcnew System::EventHandler(this, &PetOwnerMaintence::consultaToolStripMenuItem1_Click);
-			// 
-			// refrescarToolStripMenuItem
-			// 
-			this->refrescarToolStripMenuItem->Name = L"refrescarToolStripMenuItem";
-			this->refrescarToolStripMenuItem->Size = System::Drawing::Size(67, 20);
-			this->refrescarToolStripMenuItem->Text = L"Refrescar";
-			this->refrescarToolStripMenuItem->Click += gcnew System::EventHandler(this, &PetOwnerMaintence::refrescarToolStripMenuItem_Click);
 			// 
 			// dtpBirthday
 			// 
@@ -619,13 +612,14 @@ namespace ChitaView {
 			this->Controls->Add(this->DireccionPO);
 			this->Controls->Add(this->DniPO);
 			this->Controls->Add(this->IdPO);
-			this->Controls->Add(this->menuStrip1);
-			this->MainMenuStrip = this->menuStrip1;
+			this->Controls->Add(this->MenuPetOwner);
+			this->MainMenuStrip = this->MenuPetOwner;
 			this->Name = L"PetOwnerMaintence";
 			this->Text = L"PetOwnerMaintence";
+			this->Load += gcnew System::EventHandler(this, &PetOwnerMaintence::refrescarToolStripMenuItem_Click);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picturePhoto))->EndInit();
-			this->menuStrip1->ResumeLayout(false);
-			this->menuStrip1->PerformLayout();
+			this->MenuPetOwner->ResumeLayout(false);
+			this->MenuPetOwner->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPetOwner))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -652,12 +646,12 @@ namespace ChitaView {
 		txtFirstName->ReadOnly = true;
 		txtApellido->ReadOnly = true;
 		txtAddress->ReadOnly = true;
-		txtDni->ReadOnly = true;
+		txtDni->ReadOnly = false;
 		txtEmail->ReadOnly = true;
 		txtPassword->ReadOnly = true;
 		txtPhoneNumber->ReadOnly = true;
-		txtUsername->ReadOnly = true;
-		dtpBirthday->Enabled = true;
+		txtUsername->ReadOnly = false;
+		dtpBirthday->Enabled = false;
 		btnAdd->Enabled = false;
 		btnUpdate->Enabled = false;
 		btnDelete->Enabled = false;	
