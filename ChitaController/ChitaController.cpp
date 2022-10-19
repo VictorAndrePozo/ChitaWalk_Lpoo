@@ -4,6 +4,7 @@
 
 using namespace System::Xml::Serialization;
 using namespace System::Runtime::Serialization::Formatters::Binary;
+using namespace System::Xml::Serialization;
 
 //---------------------------------------------------------------------------------------------------------------------
 // PARA MANTENIMIENTO DE PETOWNER
@@ -154,6 +155,7 @@ void ChitaController::Controller::LoadKeepersData()
 int ChitaController::Controller::AddPet(Pet^ pet)
 {
     petList->Add(pet);  //agregar a la petList, el pet que entra al método
+	PersistPetOwner();
     return 0;
 }
 
@@ -162,6 +164,7 @@ int ChitaController::Controller::UpdatePet(Pet^ pet)
     for (int i = 0; i < petList->Count; i++) { // de 0 a ++ mientras i sea menor al total de listas(count)
         if (pet->Id == petList[i]->Id) {    //Si atributo Id de Pet es igual al atributo Id de petList entonces...
             petList[i] = pet;   //Flag Done 
+			PersistPetOwner();
             return 1;
         }
     }
@@ -173,6 +176,7 @@ int ChitaController::Controller::DeletePet(int petId)
     for (int i = 0; i < petList->Count; i++) { // de 0 a ++ mientras i sea menor al total de listas(count)
         if (petId == petList[i]->Id) {    //Si petId entrante es igual al atributo Id de petList entonces...
             petList->RemoveAt(i);       //Borrar toda la celda perteneciente a dicho i (Id)
+			PersistPetOwner();
             return 1;   //Flag Done
         }
     }
@@ -271,5 +275,21 @@ void ChitaController::Controller::LoadWalkersData()
 	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
 	walkerList = (List<Walker^>^)bFormatter->Deserialize(sr);
 
+	sr->Close();
+}
+
+void ChitaController::Controller::PersistPets() {
+	XmlSerializer^ writer = gcnew XmlSerializer(petList->GetType());
+	StreamWriter^ sw = gcnew StreamWriter("Pets.xml");
+	writer->Serialize(sw, petList);
+	sw->Close();
+}
+
+
+Void ChitaController::Controller::LoadPetsData() {	//Método de lectura de valores de .txt
+	petList = gcnew List<Pet^>();					//Creamos una nueva lista 
+	XmlSerializer^ reader = gcnew XmlSerializer(petList->GetType());
+	StreamReader^ sr = gcnew StreamReader("Pets.xml");
+	petList = (List<Pet^>^)reader->Deserialize(sr);
 	sr->Close();
 }

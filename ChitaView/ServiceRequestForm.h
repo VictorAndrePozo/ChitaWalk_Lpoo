@@ -109,6 +109,11 @@ namespace ChitaView {
 			this->dtpServiceTimeStart = (gcnew System::Windows::Forms::DateTimePicker());
 			this->dtpServiceDate = (gcnew System::Windows::Forms::DateTimePicker());
 			this->dgvPetForm = (gcnew System::Windows::Forms::DataGridView());
+			this->dgvRequestId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dgvRequestPet = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dgvRequestService = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dgvServiceDate = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dgvServiceTimeInit = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label8 = (gcnew System::Windows::Forms::Label());
@@ -119,11 +124,6 @@ namespace ChitaView {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->dtpRequestDate = (gcnew System::Windows::Forms::DateTimePicker());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->dgvRequestId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dgvRequestPet = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dgvRequestService = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dgvServiceDate = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dgvServiceTimeInit = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPetForm))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -197,17 +197,21 @@ namespace ChitaView {
 			// 
 			// dtpServiceTimeEnd
 			// 
-			this->dtpServiceTimeEnd->Format = System::Windows::Forms::DateTimePickerFormat::Time;
+			this->dtpServiceTimeEnd->CustomFormat = L"HH:mm";
+			this->dtpServiceTimeEnd->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
 			this->dtpServiceTimeEnd->Location = System::Drawing::Point(277, 192);
 			this->dtpServiceTimeEnd->Name = L"dtpServiceTimeEnd";
+			this->dtpServiceTimeEnd->ShowUpDown = true;
 			this->dtpServiceTimeEnd->Size = System::Drawing::Size(64, 20);
 			this->dtpServiceTimeEnd->TabIndex = 40;
 			// 
 			// dtpServiceTimeStart
 			// 
-			this->dtpServiceTimeStart->Format = System::Windows::Forms::DateTimePickerFormat::Time;
+			this->dtpServiceTimeStart->CustomFormat = L"HH:mm";
+			this->dtpServiceTimeStart->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
 			this->dtpServiceTimeStart->Location = System::Drawing::Point(145, 191);
 			this->dtpServiceTimeStart->Name = L"dtpServiceTimeStart";
+			this->dtpServiceTimeStart->ShowUpDown = true;
 			this->dtpServiceTimeStart->Size = System::Drawing::Size(64, 20);
 			this->dtpServiceTimeStart->TabIndex = 39;
 			// 
@@ -229,6 +233,35 @@ namespace ChitaView {
 			this->dgvPetForm->Name = L"dgvPetForm";
 			this->dgvPetForm->Size = System::Drawing::Size(373, 210);
 			this->dgvPetForm->TabIndex = 37;
+			// 
+			// dgvRequestId
+			// 
+			this->dgvRequestId->HeaderText = L"Id";
+			this->dgvRequestId->Name = L"dgvRequestId";
+			this->dgvRequestId->Width = 50;
+			// 
+			// dgvRequestPet
+			// 
+			this->dgvRequestPet->HeaderText = L"Mascota";
+			this->dgvRequestPet->Name = L"dgvRequestPet";
+			this->dgvRequestPet->Width = 50;
+			// 
+			// dgvRequestService
+			// 
+			this->dgvRequestService->HeaderText = L"Servicio";
+			this->dgvRequestService->Name = L"dgvRequestService";
+			this->dgvRequestService->Width = 60;
+			// 
+			// dgvServiceDate
+			// 
+			this->dgvServiceDate->HeaderText = L"Fecha Servicio";
+			this->dgvServiceDate->Name = L"dgvServiceDate";
+			// 
+			// dgvServiceTimeInit
+			// 
+			this->dgvServiceTimeInit->HeaderText = L"Hora Inicio";
+			this->dgvServiceTimeInit->Name = L"dgvServiceTimeInit";
+			this->dgvServiceTimeInit->Width = 70;
 			// 
 			// label10
 			// 
@@ -314,35 +347,6 @@ namespace ChitaView {
 			this->label3->Size = System::Drawing::Size(83, 13);
 			this->label3->TabIndex = 53;
 			this->label3->Text = L"Fecha Solicitud:";
-			// 
-			// dgvRequestId
-			// 
-			this->dgvRequestId->HeaderText = L"Id";
-			this->dgvRequestId->Name = L"dgvRequestId";
-			this->dgvRequestId->Width = 50;
-			// 
-			// dgvRequestPet
-			// 
-			this->dgvRequestPet->HeaderText = L"Mascota";
-			this->dgvRequestPet->Name = L"dgvRequestPet";
-			this->dgvRequestPet->Width = 50;
-			// 
-			// dgvRequestService
-			// 
-			this->dgvRequestService->HeaderText = L"Servicio";
-			this->dgvRequestService->Name = L"dgvRequestService";
-			this->dgvRequestService->Width = 60;
-			// 
-			// dgvServiceDate
-			// 
-			this->dgvServiceDate->HeaderText = L"Fecha Servicio";
-			this->dgvServiceDate->Name = L"dgvServiceDate";
-			// 
-			// dgvServiceTimeInit
-			// 
-			this->dgvServiceTimeInit->HeaderText = L"Hora Inicio";
-			this->dgvServiceTimeInit->Name = L"dgvServiceTimeInit";
-			this->dgvServiceTimeInit->Width = 70;
 			// 
 			// ServiceRequestForm
 			// 

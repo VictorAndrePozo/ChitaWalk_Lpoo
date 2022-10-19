@@ -412,6 +412,7 @@ namespace ChitaView {
 			this->Controls->Add(this->label1);
 			this->Name = L"PetForm";
 			this->Text = L"Inscripción de Mascota";
+			this->Load += gcnew System::EventHandler(this, &PetForm::PetForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPetPhoto))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPetList))->EndInit();
 			this->ResumeLayout(false);
@@ -493,5 +494,17 @@ private: System::Void dgvPetList_CellClick(System::Object^ sender, System::Windo
 		cbPetConduct->Text = p->Conduct;
 		txtPetAge->Text = " " + p->Age;
 }
+private: System::Void PetForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	//FillCmbPets();
+	RefreshGrid();
+}
 };
 }
+/*
+void FillCmbPets() {
+	cmbPet->Items->Clear();
+	List <String^>^ petList = Controller::QueryAllPets();
+	for (int = 0; i < petList->Count; i++) {
+		cmbPet->Items->Add(petList[i]);
+	}
+}*/

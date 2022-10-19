@@ -5,6 +5,7 @@ using namespace ChitaModel;
 using namespace System::Collections::Generic;
 using namespace System::IO;
 
+
 namespace ChitaController {
 	public ref class Controller
 	{
@@ -64,10 +65,14 @@ namespace ChitaController {
 	public: //static es para que los metodos sean globales.
 		static int AddPet(Pet^ pet);				//Método para añadir mascotas.
 		static int UpdatePet(Pet^ pet);				//Método para actualizar datos de las mascotas.
-		static int DeletePet(int productId);		//Método para eliminar una mascota del registro.
+		static int DeletePet(int petId);		//Método para eliminar una mascota del registro.
 
 		static Pet^ QueryPetById(int petId);		//Método para mostrar una mascota por ID.
 		static List <Pet^>^ QueryAllPets();			//Método para mostrar a todas las mascotas en una lista.
+
+		void PersistPets();
+
+		Void LoadPetsData();
 
 	};
 }
