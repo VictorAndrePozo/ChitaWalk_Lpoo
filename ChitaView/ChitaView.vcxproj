@@ -152,6 +152,9 @@
     <ClInclude Include="RegisterForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="RequestSearcherForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="ServiceRequestForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -171,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RequestSearcherForm.resx">
+      <DependentUpon>RequestSearcherForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceRequestForm.resx">
       <DependentUpon>ServiceRequestForm.h</DependentUpon>

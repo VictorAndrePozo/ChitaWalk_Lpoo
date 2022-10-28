@@ -70,7 +70,7 @@ namespace ChitaView {
 
 
 
-	private: System::Windows::Forms::TextBox^ txtPetSpecies;
+
 
 	private: System::Windows::Forms::ComboBox^ cbPetKind;
 	private: System::Windows::Forms::ComboBox^ cbPetVaccines;
@@ -99,6 +99,8 @@ namespace ChitaView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvPetConduct;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvPetVaccines;
 	private: System::Windows::Forms::Button^ btnAddPetPhoto;
+	private: System::Windows::Forms::ComboBox^ cbPetSpecies;
+
 
 
 
@@ -144,7 +146,6 @@ namespace ChitaView {
 			this->btnRemove = (gcnew System::Windows::Forms::Button());
 			this->txtPetName = (gcnew System::Windows::Forms::TextBox());
 			this->txtPetAge = (gcnew System::Windows::Forms::TextBox());
-			this->txtPetSpecies = (gcnew System::Windows::Forms::TextBox());
 			this->cbPetKind = (gcnew System::Windows::Forms::ComboBox());
 			this->cbPetVaccines = (gcnew System::Windows::Forms::ComboBox());
 			this->cbPetConduct = (gcnew System::Windows::Forms::ComboBox());
@@ -161,6 +162,7 @@ namespace ChitaView {
 			this->dgvPetVaccines = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->txtPetId = (gcnew System::Windows::Forms::TextBox());
 			this->btnAddPetPhoto = (gcnew System::Windows::Forms::Button());
+			this->cbPetSpecies = (gcnew System::Windows::Forms::ComboBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPetPhoto))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPetList))->BeginInit();
 			this->SuspendLayout();
@@ -177,7 +179,7 @@ namespace ChitaView {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(188, 105);
+			this->label2->Location = System::Drawing::Point(216, 105);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(35, 13);
 			this->label2->TabIndex = 1;
@@ -244,22 +246,15 @@ namespace ChitaView {
 			// 
 			this->txtPetName->Location = System::Drawing::Point(76, 41);
 			this->txtPetName->Name = L"txtPetName";
-			this->txtPetName->Size = System::Drawing::Size(200, 20);
+			this->txtPetName->Size = System::Drawing::Size(228, 20);
 			this->txtPetName->TabIndex = 20;
 			// 
 			// txtPetAge
 			// 
-			this->txtPetAge->Location = System::Drawing::Point(232, 102);
+			this->txtPetAge->Location = System::Drawing::Point(260, 102);
 			this->txtPetAge->Name = L"txtPetAge";
 			this->txtPetAge->Size = System::Drawing::Size(44, 20);
 			this->txtPetAge->TabIndex = 21;
-			// 
-			// txtPetSpecies
-			// 
-			this->txtPetSpecies->Location = System::Drawing::Point(76, 102);
-			this->txtPetSpecies->Name = L"txtPetSpecies";
-			this->txtPetSpecies->Size = System::Drawing::Size(100, 20);
-			this->txtPetSpecies->TabIndex = 22;
 			// 
 			// cbPetKind
 			// 
@@ -267,7 +262,7 @@ namespace ChitaView {
 			this->cbPetKind->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Doméstico", L"Exótico" });
 			this->cbPetKind->Location = System::Drawing::Point(109, 71);
 			this->cbPetKind->Name = L"cbPetKind";
-			this->cbPetKind->Size = System::Drawing::Size(167, 21);
+			this->cbPetKind->Size = System::Drawing::Size(195, 21);
 			this->cbPetKind->TabIndex = 23;
 			// 
 			// cbPetVaccines
@@ -285,7 +280,7 @@ namespace ChitaView {
 			this->cbPetConduct->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Juguetón", L"Tranquilo", L"Hiperactivo", L"Agresivo" });
 			this->cbPetConduct->Location = System::Drawing::Point(76, 130);
 			this->cbPetConduct->Name = L"cbPetConduct";
-			this->cbPetConduct->Size = System::Drawing::Size(121, 21);
+			this->cbPetConduct->Size = System::Drawing::Size(134, 21);
 			this->cbPetConduct->TabIndex = 26;
 			// 
 			// label5
@@ -373,7 +368,7 @@ namespace ChitaView {
 			// 
 			this->txtPetId->Location = System::Drawing::Point(76, 12);
 			this->txtPetId->Name = L"txtPetId";
-			this->txtPetId->Size = System::Drawing::Size(200, 20);
+			this->txtPetId->Size = System::Drawing::Size(228, 20);
 			this->txtPetId->TabIndex = 31;
 			// 
 			// btnAddPetPhoto
@@ -385,11 +380,21 @@ namespace ChitaView {
 			this->btnAddPetPhoto->Text = L"Añadir Foto";
 			this->btnAddPetPhoto->UseVisualStyleBackColor = true;
 			// 
+			// cbPetSpecies
+			// 
+			this->cbPetSpecies->FormattingEnabled = true;
+			this->cbPetSpecies->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Doméstico", L"Exótico" });
+			this->cbPetSpecies->Location = System::Drawing::Point(76, 101);
+			this->cbPetSpecies->Name = L"cbPetSpecies";
+			this->cbPetSpecies->Size = System::Drawing::Size(134, 21);
+			this->cbPetSpecies->TabIndex = 33;
+			// 
 			// PetForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(498, 474);
+			this->Controls->Add(this->cbPetSpecies);
 			this->Controls->Add(this->btnAddPetPhoto);
 			this->Controls->Add(this->txtPetId);
 			this->Controls->Add(this->dgvPetList);
@@ -399,7 +404,6 @@ namespace ChitaView {
 			this->Controls->Add(this->cbPetConduct);
 			this->Controls->Add(this->cbPetVaccines);
 			this->Controls->Add(this->cbPetKind);
-			this->Controls->Add(this->txtPetSpecies);
 			this->Controls->Add(this->txtPetAge);
 			this->Controls->Add(this->txtPetName);
 			this->Controls->Add(this->btnRemove);
@@ -439,7 +443,16 @@ namespace ChitaView {
 				
 				}
 			}
-			
+		Void ClearControls() {
+			txtPetId->Text = "";
+			txtPetName->Text = "";
+			cbPetKind->Text = "";
+			cbPetSpecies->Text = "";
+			txtPetAge->Text = "";
+			cbPetConduct->Text = "";
+			cbPetVaccines->Text = "";
+		}
+
 	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		Pet^ p = gcnew Pet();					//definimos un objeto p (mascota)
@@ -447,7 +460,7 @@ namespace ChitaView {
 												//Int32::Parse() transforma el string a entero lo que está dentro del ().
 		p->Name = txtPetName->Text;				//Toma el Texto de txtName y lo carga en Name de p.
 		p->Kind = cbPetKind->Text;
-		p->Species = txtPetSpecies->Text;
+		p->Species = cbPetSpecies->Text;
 		p->Vaccines = cbPetVaccines->Text;
 		p->Conduct = cbPetConduct->Text;
 		p->Age = Int32::Parse(txtPetAge->Text);
@@ -464,7 +477,7 @@ private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^
 											//Int32::Parse() transforma el string a entero lo que está dentro del ().
 	p->Name = txtPetName->Text;				//Toma el Texto de txtName y lo carga en Name de p.
 	p->Kind = cbPetKind->Text;
-	p->Species = txtPetSpecies->Text;
+	p->Species = cbPetSpecies->Text;
 	p->Vaccines = cbPetVaccines->Text;
 	p->Conduct = cbPetConduct->Text;
 	p->Age = Int32::Parse(txtPetAge->Text);
@@ -489,7 +502,7 @@ private: System::Void dgvPetList_CellClick(System::Object^ sender, System::Windo
 		txtPetId->  Text = " " + p->Id;
 		txtPetName->Text = p->Name;
 		cbPetKind-> Text = p->Kind;
-		txtPetSpecies->Text = p->Species;
+		cbPetSpecies->Text = p->Species;
 		cbPetVaccines->Text= p->Vaccines;
 		cbPetConduct->Text = p->Conduct;
 		txtPetAge->Text = " " + p->Age;

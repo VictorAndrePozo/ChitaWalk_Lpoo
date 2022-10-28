@@ -152,10 +152,19 @@ void ChitaController::Controller::LoadKeepersData()
 //---------------------------------------------------------------------------------------------------------------------
 // PARA MANTENIMIENTO DE PET
 //---------------------------------------------------------------------------------------------------------------------
+
+void ChitaController::Controller::PersistPets() {
+	Stream^ stream = File::Open("Pets.bin", FileMode::Create);
+	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
+	bFormatter->Serialize(stream, petList);
+	stream->Close();
+}
+
+
 int ChitaController::Controller::AddPet(Pet^ pet)
 {
     petList->Add(pet);  //agregar a la petList, el pet que entra al método
-	PersistPetOwner();
+	PersistPets();
     return 0;
 }
 
@@ -164,7 +173,7 @@ int ChitaController::Controller::UpdatePet(Pet^ pet)
     for (int i = 0; i < petList->Count; i++) { // de 0 a ++ mientras i sea menor al total de listas(count)
         if (pet->Id == petList[i]->Id) {    //Si atributo Id de Pet es igual al atributo Id de petList entonces...
             petList[i] = pet;   //Flag Done 
-			PersistPetOwner();
+			PersistPets();
             return 1;
         }
     }
@@ -176,7 +185,7 @@ int ChitaController::Controller::DeletePet(int petId)
     for (int i = 0; i < petList->Count; i++) { // de 0 a ++ mientras i sea menor al total de listas(count)
         if (petId == petList[i]->Id) {    //Si petId entrante es igual al atributo Id de petList entonces...
             petList->RemoveAt(i);       //Borrar toda la celda perteneciente a dicho i (Id)
-			PersistPetOwner();
+			PersistPets();
             return 1;   //Flag Done
         }
     }
@@ -196,6 +205,8 @@ Pet^ ChitaController::Controller::QueryPetById(int petId)
 
 List<Pet^>^ ChitaController::Controller::QueryAllPets()
 {
+	LoadPetsData();
+
     List<Pet^>^ activePetList = gcnew List<Pet^>(); //Reserva espacio de memoria para la lista
     for (int i = 0; i < petList->Count; i++) {  //Barrido de todos los elementos de la lista
         if (petList[i]-> Id > 0) {  
@@ -203,6 +214,18 @@ List<Pet^>^ ChitaController::Controller::QueryAllPets()
         }
     }
     return activePetList;
+}
+
+
+void ChitaController::Controller::LoadPetsData() {
+
+	petList = gcnew List<Pet^>();
+	//Lectura desde un archivo binario
+	Stream^ sr = File::Open("Pets.bin", FileMode::Open);
+	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
+	petList = (List<Pet^>^)bFormatter->Deserialize(sr);
+
+	sr->Close();
 }
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -278,18 +301,3 @@ void ChitaController::Controller::LoadWalkersData()
 	sr->Close();
 }
 
-void ChitaController::Controller::PersistPets() {
-	XmlSerializer^ writer = gcnew XmlSerializer(petList->GetType());
-	StreamWriter^ sw = gcnew StreamWriter("Pets.xml");
-	writer->Serialize(sw, petList);
-	sw->Close();
-}
-
-
-Void ChitaController::Controller::LoadPetsData() {	//Método de lectura de valores de .txt
-	petList = gcnew List<Pet^>();					//Creamos una nueva lista 
-	XmlSerializer^ reader = gcnew XmlSerializer(petList->GetType());
-	StreamReader^ sr = gcnew StreamReader("Pets.xml");
-	petList = (List<Pet^>^)reader->Deserialize(sr);
-	sr->Close();
-}

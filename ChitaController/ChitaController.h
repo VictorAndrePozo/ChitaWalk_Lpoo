@@ -70,9 +70,9 @@ namespace ChitaController {
 		static Pet^ QueryPetById(int petId);		//Método para mostrar una mascota por ID.
 		static List <Pet^>^ QueryAllPets();			//Método para mostrar a todas las mascotas en una lista.
 
-		void PersistPets();
+		static void PersistPets();
 
-		Void LoadPetsData();
+		static Void LoadPetsData();
 
 	};
 }

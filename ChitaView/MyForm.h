@@ -82,7 +82,7 @@ namespace ChitaView {
 			this->reporteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ayudaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->buscadorDeSolicitudesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->menuStrip1->SuspendLayout();
+			//this->menuStrip1->SuspendLayout();
 			this->MenuPrincipal->SuspendLayout();
 			this->SuspendLayout();
 			// 
