@@ -129,15 +129,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="carermaintenance.cpp" />
+    <ClCompile Include="CarerWorkForm.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="PetForm.cpp" />
     <ClCompile Include="PetOwnerMaintence.cpp" />
     <ClCompile Include="RegisterForm.cpp" />
     <ClCompile Include="RequestSearcherForm.cpp" />
+    <ClCompile Include="ServiceDetailForm.cpp" />
     <ClCompile Include="ServiceRequestForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="carermaintenance.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="CarerWorkForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MyForm.h">
@@ -155,6 +160,9 @@
     <ClInclude Include="RequestSearcherForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ServiceDetailForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="ServiceRequestForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -162,6 +170,9 @@
   <ItemGroup>
     <EmbeddedResource Include="carermaintenance.resx">
       <DependentUpon>carermaintenance.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CarerWorkForm.resx">
+      <DependentUpon>CarerWorkForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
@@ -177,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RequestSearcherForm.resx">
       <DependentUpon>RequestSearcherForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceDetailForm.resx">
+      <DependentUpon>ServiceDetailForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceRequestForm.resx">
       <DependentUpon>ServiceRequestForm.h</DependentUpon>

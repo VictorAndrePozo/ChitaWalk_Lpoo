@@ -74,5 +74,24 @@ namespace ChitaController {
 
 		static Void LoadPetsData();
 
+		//---------------------------------------------------------------------------------------------------------------------
+		// PARA MANTENIMIENTO DE SERVICE REQUEST
+		//---------------------------------------------------------------------------------------------------------------------
+
+	private:	//privado para que otras clases no accedan a el.
+		static List <ServiceRequest^>^ servicerequestList = gcnew List<ServiceRequest^>();	//como atributo para que viva mientras controller esté activo. static: Lista unica y global.
+
+	public: //static es para que los metodos sean globales.
+		static int AddServiceRequest(ServiceRequest^ servicerequest);				//Método para añadir mascotas.
+		static int UpdateServiceRequest(ServiceRequest^ servicerequest);				//Método para actualizar datos de las mascotas.
+		static int DeleteServiceRequest(int servicerequestId);		//Método para eliminar una mascota del registro.
+
+		static ServiceRequest^ QueryServiceRequestById(int servicerequestId);		//Método para mostrar una mascota por ID.
+		static List <ServiceRequest^>^ QueryAllServiceRequest();			//Método para mostrar a todas las mascotas en una lista.
+
+		static void PersistServiceRequest();
+
+		static Void LoadServiceRequestData();
+
 	};
 }

@@ -4,6 +4,7 @@
 #include "PetOwnerMaintence.h"
 #include "ServiceRequestForm.h"
 #include "RequestSearcherForm.h"
+#include "CarerWorkForm.h"
 
 namespace ChitaView {
 
@@ -55,6 +56,7 @@ namespace ChitaView {
 	private: System::Windows::Forms::ToolStripMenuItem^ usuariosPropietariosToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ solicitarServicioToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ buscadorDeSolicitudesToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ cuidadosPendientesToolStripMenuItem;
 
 	private:
 		/// <summary>
@@ -75,14 +77,14 @@ namespace ChitaView {
 			this->salirToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->transaccionToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->solicitarServicioToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->buscadorDeSolicitudesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->cuidadosPendientesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->mantenimientoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->carerToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->mascotasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->usuariosPropietariosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reporteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ayudaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->buscadorDeSolicitudesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			//this->menuStrip1->SuspendLayout();
 			this->MenuPrincipal->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -123,9 +125,9 @@ namespace ChitaView {
 			// 
 			// transaccionToolStripMenuItem1
 			// 
-			this->transaccionToolStripMenuItem1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+			this->transaccionToolStripMenuItem1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
 				this->solicitarServicioToolStripMenuItem,
-					this->buscadorDeSolicitudesToolStripMenuItem
+					this->buscadorDeSolicitudesToolStripMenuItem, this->cuidadosPendientesToolStripMenuItem
 			});
 			this->transaccionToolStripMenuItem1->Name = L"transaccionToolStripMenuItem1";
 			this->transaccionToolStripMenuItem1->Size = System::Drawing::Size(81, 20);
@@ -137,6 +139,20 @@ namespace ChitaView {
 			this->solicitarServicioToolStripMenuItem->Size = System::Drawing::Size(199, 22);
 			this->solicitarServicioToolStripMenuItem->Text = L"Solicitar Servicio";
 			this->solicitarServicioToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::solicitarServicioToolStripMenuItem_Click);
+			// 
+			// buscadorDeSolicitudesToolStripMenuItem
+			// 
+			this->buscadorDeSolicitudesToolStripMenuItem->Name = L"buscadorDeSolicitudesToolStripMenuItem";
+			this->buscadorDeSolicitudesToolStripMenuItem->Size = System::Drawing::Size(199, 22);
+			this->buscadorDeSolicitudesToolStripMenuItem->Text = L"Buscador de Solicitudes";
+			this->buscadorDeSolicitudesToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::buscadorDeSolicitudesToolStripMenuItem_Click_1);
+			// 
+			// cuidadosPendientesToolStripMenuItem
+			// 
+			this->cuidadosPendientesToolStripMenuItem->Name = L"cuidadosPendientesToolStripMenuItem";
+			this->cuidadosPendientesToolStripMenuItem->Size = System::Drawing::Size(199, 22);
+			this->cuidadosPendientesToolStripMenuItem->Text = L"Cuidados Pendientes";
+			this->cuidadosPendientesToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::cuidadosPendientesToolStripMenuItem_Click);
 			// 
 			// mantenimientoToolStripMenuItem
 			// 
@@ -180,13 +196,6 @@ namespace ChitaView {
 			this->ayudaToolStripMenuItem->Name = L"ayudaToolStripMenuItem";
 			this->ayudaToolStripMenuItem->Size = System::Drawing::Size(53, 20);
 			this->ayudaToolStripMenuItem->Text = L"Ayuda";
-			// 
-			// usuariosPropietariosToolStripMenuItem
-			// 
-			this->usuariosPropietariosToolStripMenuItem->Name = L"usuariosPropietariosToolStripMenuItem";
-			this->usuariosPropietariosToolStripMenuItem->Size = System::Drawing::Size(185, 22);
-			this->usuariosPropietariosToolStripMenuItem->Text = L"Usuarios Propietarios";
-			this->usuariosPropietariosToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::usuariosPropietariosToolStripMenuItem_Click);
 			// 
 			// MyForm
 			// 
@@ -240,7 +249,15 @@ private: System::Void solicitarServicioToolStripMenuItem_Click(System::Object^ s
 	serviceRequestForm->MdiParent = this;			//Padre mdi(form de donde viene) this = ese mismo
 	serviceRequestForm->Show();
 }
-private: System::Void buscadorDeSolicitudesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+private: System::Void cuidadosPendientesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	CarerWorkForm^ carerWorkForm = gcnew CarerWorkForm();		//Crear form.
+	carerWorkForm ->MdiParent = this;			//Padre mdi(form de donde viene) this = ese mismo
+	carerWorkForm ->Show();
+
+}
+
+private: System::Void buscadorDeSolicitudesToolStripMenuItem_Click_1(System::Object^ sender, System::EventArgs^ e) {
 	RequestSearcherForm^ requestSearcherForm = gcnew RequestSearcherForm();		//Crear form.
 	requestSearcherForm->MdiParent = this;			//Padre mdi(form de donde viene) this = ese mismo
 	requestSearcherForm->Show();

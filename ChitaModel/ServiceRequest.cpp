@@ -9,7 +9,7 @@ ChitaModel::ServiceRequest::ServiceRequest() {
 
 }
 
-ChitaModel::ServiceRequest::ServiceRequest(DateTime Date, char Status, int Id, 
+ChitaModel::ServiceRequest::ServiceRequest(DateTime Date, String^ Status, int Id,
 											List<ServiceDetail^ >^ objServiceDetailList,
 											PetOwner^ objPetOwner, Carer^ objCarer, ServiceDetail^ objServiceDetail) {
 	this->objServiceDetailList = objServiceDetailList;

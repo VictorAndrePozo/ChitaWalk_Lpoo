@@ -301,3 +301,81 @@ void ChitaController::Controller::LoadWalkersData()
 	sr->Close();
 }
 
+//---------------------------------------------------------------------------------------------------------------------
+// PARA MANTENIMIENTO DE SERVICES REQUEST
+//---------------------------------------------------------------------------------------------------------------------
+
+void ChitaController::Controller::PersistServiceRequest() {
+	Stream^ stream = File::Open("ServiceRequest.bin", FileMode::Create);
+	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
+	bFormatter->Serialize(stream, servicerequestList);
+	stream->Close();
+}
+
+
+int ChitaController::Controller::AddServiceRequest(ServiceRequest^ servicerequest)
+{
+	servicerequestList->Add(servicerequest);  //agregar a la petList, el pet que entra al método
+	PersistServiceRequest();
+	return 0;
+}
+
+int ChitaController::Controller::UpdateServiceRequest(ServiceRequest^ servicerequest)
+{
+	for (int i = 0; i < servicerequestList->Count; i++) { // de 0 a ++ mientras i sea menor al total de listas(count)
+		if (servicerequest->Id == servicerequestList[i]->Id) {    //Si atributo Id de Pet es igual al atributo Id de petList entonces...
+			servicerequestList[i] = servicerequest;   //Flag Done 
+			PersistServiceRequest();
+			return 1;
+		}
+	}
+	return 0;
+}
+
+int ChitaController::Controller::DeleteServiceRequest(int servicerequestId)
+{
+	for (int i = 0; i < servicerequestList->Count; i++) { // de 0 a ++ mientras i sea menor al total de listas(count)
+		if (servicerequestId == servicerequestList[i]->Id) {    //Si petId entrante es igual al atributo Id de petList entonces...
+			servicerequestList->RemoveAt(i);       //Borrar toda la celda perteneciente a dicho i (Id)
+			PersistServiceRequest();
+			return 1;   //Flag Done
+		}
+	}
+	return 0;
+}
+
+ServiceRequest^ ChitaController::Controller::QueryServiceRequestById(int servicerequestId)
+{
+	for (int i = 0; i < servicerequestList->Count; i++) { //Barrido de todos los elementos de la lista
+		if (servicerequestId == servicerequestList[i]->Id) {    //Si petId es igual al atributo Id de petList entonces...
+			return servicerequestList[i];      //Retornamos la lista si encuentra una coincidencia
+		}
+	}
+	return nullptr; //Si no encuentra una coincidenica, no debuelve algo.
+}
+
+
+List<ServiceRequest^>^ ChitaController::Controller::QueryAllServiceRequest()
+{
+	LoadServiceRequestData();
+
+	List<ServiceRequest^>^ activeServiceRequestList = gcnew List<ServiceRequest^>(); //Reserva espacio de memoria para la lista
+	for (int i = 0; i < servicerequestList->Count; i++) {  //Barrido de todos los elementos de la lista
+		if (servicerequestList[i]->Id > 0) {
+			activeServiceRequestList->Add(servicerequestList[i]);
+		}
+	}
+	return activeServiceRequestList;
+}
+
+
+void ChitaController::Controller::LoadServiceRequestData() {
+
+	servicerequestList = gcnew List<ServiceRequest^>();
+	//Lectura desde un archivo binario
+	Stream^ sr = File::Open("ServiceRequest.bin", FileMode::Open);
+	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
+	servicerequestList = (List<ServiceRequest^>^)bFormatter->Deserialize(sr);
+
+	sr->Close();
+}
