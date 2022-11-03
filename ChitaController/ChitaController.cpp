@@ -54,6 +54,70 @@ void ChitaController::Controller::LoadPetOwnerData() {
 		if (sr != nullptr) sr->Close();
 	}
 }
+List<PetOwner^>^ ChitaController::Controller::QueryPetOwnerByName(String^)
+{
+	LoadPetOwnerData();
+	List<PetOwner^>^ newPetOwnerList = gcnew List<PetOwner^>();
+	for (int i = 0; i < PetOwnerList->Count; i++) {
+		if (PetOwnerList[i]->Lastname->Contains(value) ||
+			PetOwnerList[i]->Firstname->Contains(value))
+			newPetOwnerList->Add(PetOwnerList[i]);
+	}
+	return newPetOwnerList;
+}
+PetOwner^ ChitaController::Controller::QueryPetOwnerByDNI(String^ dni)
+{
+	LoadPetOwnerData();
+	for (int i = 0; i < PetOwnerList->Count; i++)
+		if (dni == PetOwnerList[i]->DocNumbrer) {
+			return PetOwnerList[i];
+		}
+	return nullptr;
+}
+
+void ChitaController::Controller::RegisterDiscount(Discount^ discount)
+{
+	DiscountList->Add(discount);
+	PersistDiscounts();
+}
+
+int ChitaController::Controller::QueryLastDiscountId()
+{
+	LoadDiscountsData();
+	int lastDiscountId = 0;
+	for (int i = 0; i < DiscountList->Count; i++) {
+		if (DiscountList[i]->Id > lastDiscountId)
+			lastDiscountId = DiscountList[i]->Id;
+	}
+	return lastDiscountId;
+}
+
+List<Discount^>^ ChitaController::Controller::QueryAllDiscounts()
+{
+	LoadDiscountsData();
+	return DiscountList;
+}
+
+void ChitaController::Controller::PersistDiscounts()
+{
+	//En formato de archivo binario
+	Stream^ stream = File::Open("Discounts.bin", FileMode::Create);
+	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
+	bFormatter->Serialize(stream, DiscountList);
+	stream->Close();
+}
+
+void ChitaController::Controller::LoadDiscountsData()
+{
+	DiscountList = gcnew List<Discount^>();
+	//Lectura desde un archivo binario
+	Stream^ sr = nullptr;
+
+	sr = File::Open("Discounts.bin", FileMode::Open);
+	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
+	DiscountList = (List<Discount^>^)bFormatter->Deserialize(sr);
+}
+
 List<PetOwner^>^ ChitaController::Controller::QueryAllPetOwner() {
 
 	LoadPetOwnerData();

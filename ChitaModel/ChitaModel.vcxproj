@@ -123,6 +123,8 @@
     <ClInclude Include="Carer.h" />
     <ClInclude Include="CarerService.h" />
     <ClInclude Include="ChitaModel.h" />
+    <ClInclude Include="Discount.h" />
+    <ClInclude Include="DiscountDetail.h" />
     <ClInclude Include="Disponibility.h" />
     <ClInclude Include="DomesticPet.h" />
     <ClInclude Include="ExoticPet.h" />
@@ -132,6 +134,7 @@
     <ClInclude Include="Person.h" />
     <ClInclude Include="Pet.h" />
     <ClInclude Include="PetOwner.h" />
+    <ClInclude Include="Promotions.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Service.h" />
     <ClInclude Include="ServiceDetail.h" />
@@ -146,6 +149,8 @@
     <ClCompile Include="Carer.cpp" />
     <ClCompile Include="CarerService.cpp" />
     <ClCompile Include="ChitaModel.cpp" />
+    <ClCompile Include="Discount.cpp" />
+    <ClCompile Include="DiscountDetail.cpp" />
     <ClCompile Include="Disponibility.cpp" />
     <ClCompile Include="DomesticPet.cpp" />
     <ClCompile Include="ExoticPet.cpp" />
@@ -160,6 +165,7 @@
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="Pet.cpp" />
     <ClCompile Include="PetOwner.cpp" />
+    <ClCompile Include="Promotions.cpp" />
     <ClCompile Include="Service.cpp" />
     <ClCompile Include="ServiceDetail.cpp" />
     <ClCompile Include="ServiceRequest.cpp" />

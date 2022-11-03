@@ -1,4 +1,6 @@
 #pragma once
+#include "../ChitaModel/PetOwner.cpp"
+#include "../ChitaModel/Discount.cpp"
 
 using namespace System;
 using namespace ChitaModel;
@@ -23,6 +25,33 @@ namespace ChitaController {
 		static PetOwner^ QueryPetOwnerById(int PetOwnerId);              // Consultar petowner por ID
 		static void PersistPetOwner();	
 		static void LoadPetOwnerData();
+
+		// Descuentos
+		static List<PetOwner^>^ QueryPetOwnerByName(String^);
+		static PetOwner^ QueryPetOwnerByDNI(String^ dni);
+
+		//Registro de descuento
+		private:
+			static List <Discount^>^ DiscountList = gcnew List<Discount^>(); //lista de Discounts
+		public:
+		static void RegisterDiscount(Discount^ discount);
+		static int QueryLastDiscountId();
+		static List<Discount^>^ QueryAllDiscounts();
+		static void PersistDiscounts();
+		static void LoadDiscountsData();
+
+		//Método CRUD para las promociones
+		//private:
+		//	static List <Promotions^>^ PromotionsList = gcnew List<Promotions^>(); // Variable de clase o atributo estático
+		//public:
+		//static int AddPromotions(Promotions^ Promotions);                      
+		//static int UpdatePromotions(Promotions^ Promotions);                   
+		//static int DeletePromotions(int PromotionsId);                    
+		//static List <Promotions^>^ QueryAllPromotions();                 
+		//static Promotions^ QueryPromotionsById(int PromotionsId);              
+		//static void PersistPromotions();
+		//static void LoadPromotionsData();
+
 		//---------------------------------------------------------------------------------------------------------------------
 		// PARA MANTENIMIENTO DE KEEPER
 		//---------------------------------------------------------------------------------------------------------------------
