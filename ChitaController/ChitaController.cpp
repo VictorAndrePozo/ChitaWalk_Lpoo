@@ -432,6 +432,79 @@ List<ServiceRequest^>^ ChitaController::Controller::QueryAllServiceRequest()
 	return activeServiceRequestList;
 }
 
+List<ServiceRequest^>^ ChitaController::Controller::QueryServiceRequestByPetKind(String^ value)
+{
+	LoadServiceRequestData();
+	List<ServiceRequest^>^ activeServiceRequestList = gcnew List<ServiceRequest^>(); //Reserva espacio de memoria para la lista
+	for (int i = 0; i < servicerequestList->Count; i++) {  //Barrido de todos los elementos de la lista
+		if (servicerequestList[i]->Kind->Contains(value)) {
+			activeServiceRequestList->Add(servicerequestList[i]);
+		}
+	}
+	return activeServiceRequestList;
+
+}
+
+List<ServiceRequest^>^ ChitaController::Controller::QueryServiceRequestByPet(String^ value)
+{
+	LoadServiceRequestData();
+	List<ServiceRequest^>^ activeServiceRequestList = gcnew List<ServiceRequest^>(); //Reserva espacio de memoria para la lista
+	for (int i = 0; i < servicerequestList->Count; i++) {  //Barrido de todos los elementos de la lista
+		if (servicerequestList[i]->Pet->Contains(value)) {
+			activeServiceRequestList->Add(servicerequestList[i]);
+		}
+	}
+	return activeServiceRequestList;
+}
+
+List<ServiceRequest^>^ ChitaController::Controller::QueryServiceRequestByService(String^ value)
+{
+	LoadServiceRequestData();
+	List<ServiceRequest^>^ activeServiceRequestList = gcnew List<ServiceRequest^>(); //Reserva espacio de memoria para la lista
+	for (int i = 0; i < servicerequestList->Count; i++) {  //Barrido de todos los elementos de la lista
+		if (servicerequestList[i]->Service->Contains(value)) {
+			activeServiceRequestList->Add(servicerequestList[i]);
+		}
+	}
+	return activeServiceRequestList;
+}
+
+List<ServiceRequest^>^ ChitaController::Controller::QueryServiceRequestByDistrict(String^ value)
+{
+	LoadServiceRequestData();
+	List<ServiceRequest^>^ activeServiceRequestList = gcnew List<ServiceRequest^>(); //Reserva espacio de memoria para la lista
+	for (int i = 0; i < servicerequestList->Count; i++) {  //Barrido de todos los elementos de la lista
+		if (servicerequestList[i]->District->Contains(value)) {
+			activeServiceRequestList->Add(servicerequestList[i]);
+		}
+	}
+	return activeServiceRequestList;
+}
+
+List<ServiceRequest^>^ ChitaController::Controller::QueryServiceRequestByServiceDate(String^ value)
+{
+	LoadServiceRequestData();
+	List<ServiceRequest^>^ activeServiceRequestList = gcnew List<ServiceRequest^>(); //Reserva espacio de memoria para la lista
+	
+	for (int i = 0; i < servicerequestList->Count; i++) {  //Barrido de todos los elementos de la lista
+		if (servicerequestList[i]->DateService->Contains(value)) {
+			activeServiceRequestList->Add(servicerequestList[i]);
+		}
+	}
+	return activeServiceRequestList;
+}
+
+List<ServiceRequest^>^ ChitaController::Controller::QueryServiceRequestByDateTimeInit(String^ value)
+{
+	LoadServiceRequestData();
+	List<ServiceRequest^>^ activeServiceRequestList = gcnew List<ServiceRequest^>(); //Reserva espacio de memoria para la lista
+	for (int i = 0; i < servicerequestList->Count; i++) {  //Barrido de todos los elementos de la lista
+		if (servicerequestList[i]->Pet->Contains(value)) {
+			activeServiceRequestList->Add(servicerequestList[i]);
+		}
+	}
+	return activeServiceRequestList;
+}
 
 void ChitaController::Controller::LoadServiceRequestData() {
 

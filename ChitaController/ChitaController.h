@@ -116,7 +116,14 @@ namespace ChitaController {
 		static int DeleteServiceRequest(int servicerequestId);		//Método para eliminar una mascota del registro.
 
 		static ServiceRequest^ QueryServiceRequestById(int servicerequestId);		//Método para mostrar una mascota por ID.
+		
 		static List <ServiceRequest^>^ QueryAllServiceRequest();			//Método para mostrar a todas las mascotas en una lista.
+		static List <ServiceRequest^>^ QueryServiceRequestByPetKind(String^);
+		static List <ServiceRequest^>^ QueryServiceRequestByPet(String^);
+		static List <ServiceRequest^>^ QueryServiceRequestByService(String^);
+		static List <ServiceRequest^>^ QueryServiceRequestByDistrict(String^);
+		static List <ServiceRequest^>^ QueryServiceRequestByServiceDate(String^);
+		static List <ServiceRequest^>^ QueryServiceRequestByDateTimeInit(String^);
 
 		static void PersistServiceRequest();
 

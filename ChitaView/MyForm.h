@@ -278,7 +278,7 @@ private: System::Void cuidadosPendientesToolStripMenuItem_Click(System::Object^ 
 }
 
 private: System::Void buscadorDeSolicitudesToolStripMenuItem_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	RequestSearcherForm^ requestSearcherForm = gcnew RequestSearcherForm();		//Crear form.
+	RequestSearcherForm^ requestSearcherForm = gcnew RequestSearcherForm(this);		//Crear form.
 	requestSearcherForm->MdiParent = this;			//Padre mdi(form de donde viene) this = ese mismo
 	requestSearcherForm->Show();
 }

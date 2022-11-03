@@ -436,9 +436,9 @@ namespace ChitaView {
 							  petList[i] -> Name,
 							  petList[i] -> Kind,
 							  petList[i] -> Species,
-							  petList[i] -> Vaccines,
-							  petList[i] -> Conduct,
 						" " + petList[i] -> Age,
+							  petList[i] -> Conduct,
+					     	  petList[i] -> Vaccines,
 					});
 				
 				}
@@ -461,9 +461,9 @@ namespace ChitaView {
 		p->Name = txtPetName->Text;				//Toma el Texto de txtName y lo carga en Name de p.
 		p->Kind = cbPetKind->Text;
 		p->Species = cbPetSpecies->Text;
-		p->Vaccines = cbPetVaccines->Text;
-		p->Conduct = cbPetConduct->Text;
 		p->Age = Int32::Parse(txtPetAge->Text);
+    	p->Conduct = cbPetConduct->Text;
+		p->Vaccines = cbPetVaccines->Text;
 	
 
 		Controller::AddPet(p);	//Invocamos al controller y agregamos el objeto p.
@@ -478,9 +478,9 @@ private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^
 	p->Name = txtPetName->Text;				//Toma el Texto de txtName y lo carga en Name de p.
 	p->Kind = cbPetKind->Text;
 	p->Species = cbPetSpecies->Text;
-	p->Vaccines = cbPetVaccines->Text;
-	p->Conduct = cbPetConduct->Text;
 	p->Age = Int32::Parse(txtPetAge->Text);
+	p->Conduct = cbPetConduct->Text;
+	p->Vaccines = cbPetVaccines->Text;
 
 
 	Controller::UpdatePet(p);	//Invocamos al controller y agregamos el objeto p.
@@ -495,7 +495,7 @@ private: System::Void btnRemove_Click(System::Object^ sender, System::EventArgs^
 
 }
 private: System::Void dgvPetList_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	int selectedRowIndex = dgvPetList->SelectedCells[0]->RowIndex;
+		int selectedRowIndex = dgvPetList->SelectedCells[0]->RowIndex;
 		int petId = Int32::Parse(dgvPetList->Rows[selectedRowIndex]->Cells[0]->Value->ToString());
 		Pet^ p = Controller::QueryPetById(petId);
 
@@ -503,21 +503,13 @@ private: System::Void dgvPetList_CellClick(System::Object^ sender, System::Windo
 		txtPetName->Text = p->Name;
 		cbPetKind-> Text = p->Kind;
 		cbPetSpecies->Text = p->Species;
-		cbPetVaccines->Text= p->Vaccines;
-		cbPetConduct->Text = p->Conduct;
 		txtPetAge->Text = " " + p->Age;
+		cbPetConduct->Text = p->Conduct;
+		cbPetVaccines->Text = p->Vaccines;
 }
 private: System::Void PetForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	//FillCmbPets();
+
 	RefreshGrid();
 }
 };
 }
-/*
-void FillCmbPets() {
-	cmbPet->Items->Clear();
-	List <String^>^ petList = Controller::QueryAllPets();
-	for (int = 0; i < petList->Count; i++) {
-		cmbPet->Items->Add(petList[i]);
-	}
-}*/

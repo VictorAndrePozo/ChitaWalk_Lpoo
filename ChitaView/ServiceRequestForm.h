@@ -1,4 +1,6 @@
 #pragma once
+#include "ServiceDetailForm.h"
+
 
 namespace ChitaView {
 
@@ -96,6 +98,8 @@ namespace ChitaView {
 	private: System::Windows::Forms::ComboBox^ cbRequestPet;
 	private: System::Windows::Forms::TextBox^ txtRequestPetOwner;
 	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::ComboBox^ cbRequestDistrict;
+	private: System::Windows::Forms::Label^ label6;
 
 
 
@@ -153,19 +157,21 @@ namespace ChitaView {
 			this->cbRequestPet = (gcnew System::Windows::Forms::ComboBox());
 			this->txtRequestPetOwner = (gcnew System::Windows::Forms::TextBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->cbRequestDistrict = (gcnew System::Windows::Forms::ComboBox());
+			this->label6 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvServiceRequestList))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// txtRequestAddressEnd
 			// 
-			this->txtRequestAddressEnd->Location = System::Drawing::Point(185, 196);
+			this->txtRequestAddressEnd->Location = System::Drawing::Point(185, 222);
 			this->txtRequestAddressEnd->Name = L"txtRequestAddressEnd";
 			this->txtRequestAddressEnd->Size = System::Drawing::Size(196, 20);
 			this->txtRequestAddressEnd->TabIndex = 48;
 			// 
 			// txtRequestAddressStart
 			// 
-			this->txtRequestAddressStart->Location = System::Drawing::Point(185, 169);
+			this->txtRequestAddressStart->Location = System::Drawing::Point(185, 195);
 			this->txtRequestAddressStart->Name = L"txtRequestAddressStart";
 			this->txtRequestAddressStart->Size = System::Drawing::Size(196, 20);
 			this->txtRequestAddressStart->TabIndex = 47;
@@ -173,7 +179,7 @@ namespace ChitaView {
 			// label12
 			// 
 			this->label12->AutoSize = true;
-			this->label12->Location = System::Drawing::Point(84, 199);
+			this->label12->Location = System::Drawing::Point(84, 225);
 			this->label12->Name = L"label12";
 			this->label12->Size = System::Drawing::Size(95, 13);
 			this->label12->TabIndex = 46;
@@ -182,7 +188,7 @@ namespace ChitaView {
 			// label11
 			// 
 			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(84, 172);
+			this->label11->Location = System::Drawing::Point(84, 198);
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(90, 13);
 			this->label11->TabIndex = 45;
@@ -199,25 +205,27 @@ namespace ChitaView {
 			// 
 			// btnRemove
 			// 
-			this->btnRemove->Location = System::Drawing::Point(241, 284);
+			this->btnRemove->Location = System::Drawing::Point(241, 310);
 			this->btnRemove->Name = L"btnRemove";
 			this->btnRemove->Size = System::Drawing::Size(75, 23);
 			this->btnRemove->TabIndex = 43;
 			this->btnRemove->Text = L"Eliminar";
 			this->btnRemove->UseVisualStyleBackColor = true;
+			this->btnRemove->Click += gcnew System::EventHandler(this, &ServiceRequestForm::btnRemove_Click);
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(150, 284);
+			this->btnUpdate->Location = System::Drawing::Point(150, 310);
 			this->btnUpdate->Name = L"btnUpdate";
 			this->btnUpdate->Size = System::Drawing::Size(75, 23);
 			this->btnUpdate->TabIndex = 42;
 			this->btnUpdate->Text = L"Modificar";
 			this->btnUpdate->UseVisualStyleBackColor = true;
+			this->btnUpdate->Click += gcnew System::EventHandler(this, &ServiceRequestForm::btnUpdate_Click);
 			// 
 			// btnAdd
 			// 
-			this->btnAdd->Location = System::Drawing::Point(60, 284);
+			this->btnAdd->Location = System::Drawing::Point(60, 310);
 			this->btnAdd->Name = L"btnAdd";
 			this->btnAdd->Size = System::Drawing::Size(75, 23);
 			this->btnAdd->TabIndex = 41;
@@ -229,7 +237,7 @@ namespace ChitaView {
 			// 
 			this->dtpServiceTimeEnd->CustomFormat = L"HH:mm";
 			this->dtpServiceTimeEnd->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
-			this->dtpServiceTimeEnd->Location = System::Drawing::Point(317, 249);
+			this->dtpServiceTimeEnd->Location = System::Drawing::Point(317, 275);
 			this->dtpServiceTimeEnd->Name = L"dtpServiceTimeEnd";
 			this->dtpServiceTimeEnd->ShowUpDown = true;
 			this->dtpServiceTimeEnd->Size = System::Drawing::Size(64, 20);
@@ -239,15 +247,17 @@ namespace ChitaView {
 			// 
 			this->dtpServiceTimeStart->CustomFormat = L"HH:mm";
 			this->dtpServiceTimeStart->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
-			this->dtpServiceTimeStart->Location = System::Drawing::Point(185, 248);
+			this->dtpServiceTimeStart->Location = System::Drawing::Point(185, 274);
 			this->dtpServiceTimeStart->Name = L"dtpServiceTimeStart";
 			this->dtpServiceTimeStart->ShowUpDown = true;
 			this->dtpServiceTimeStart->Size = System::Drawing::Size(64, 20);
-			this->dtpServiceTimeStart->TabIndex = 39;
+			this->dtpServiceTimeStart->TabIndex = 40;
 			// 
 			// dtpServiceDate
 			// 
-			this->dtpServiceDate->Location = System::Drawing::Point(185, 222);
+			this->dtpServiceDate->CustomFormat = L"dd-MM-yyyy";
+			this->dtpServiceDate->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
+			this->dtpServiceDate->Location = System::Drawing::Point(185, 248);
 			this->dtpServiceDate->Name = L"dtpServiceDate";
 			this->dtpServiceDate->Size = System::Drawing::Size(196, 20);
 			this->dtpServiceDate->TabIndex = 38;
@@ -259,10 +269,11 @@ namespace ChitaView {
 				this->dgvRequestId,
 					this->dgvRequestPet, this->dgvRequestService, this->dgvServiceDate, this->dgvServiceTimeInit, this->dgvRequestStatus
 			});
-			this->dgvServiceRequestList->Location = System::Drawing::Point(12, 322);
+			this->dgvServiceRequestList->Location = System::Drawing::Point(12, 348);
 			this->dgvServiceRequestList->Name = L"dgvServiceRequestList";
 			this->dgvServiceRequestList->Size = System::Drawing::Size(443, 211);
 			this->dgvServiceRequestList->TabIndex = 37;
+			this->dgvServiceRequestList->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &ServiceRequestForm::dgvServiceRequestList_CellClick);
 			// 
 			// dgvRequestId
 			// 
@@ -302,7 +313,7 @@ namespace ChitaView {
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(268, 254);
+			this->label10->Location = System::Drawing::Point(268, 280);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(38, 13);
 			this->label10->TabIndex = 36;
@@ -311,7 +322,7 @@ namespace ChitaView {
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(84, 254);
+			this->label9->Location = System::Drawing::Point(84, 280);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(75, 13);
 			this->label9->TabIndex = 35;
@@ -320,7 +331,7 @@ namespace ChitaView {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(84, 228);
+			this->label8->Location = System::Drawing::Point(84, 254);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(81, 13);
 			this->label8->TabIndex = 34;
@@ -331,9 +342,9 @@ namespace ChitaView {
 			this->label7->AutoSize = true;
 			this->label7->Location = System::Drawing::Point(84, 144);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(45, 13);
+			this->label7->Size = System::Drawing::Size(48, 13);
 			this->label7->TabIndex = 33;
-			this->label7->Text = L"Servicio";
+			this->label7->Text = L"Servicio:";
 			// 
 			// txtRequestId
 			// 
@@ -362,7 +373,9 @@ namespace ChitaView {
 			// 
 			// dtpRequestDate
 			// 
+			this->dtpRequestDate->CustomFormat = L"dd-MM-yyyy";
 			this->dtpRequestDate->Enabled = false;
+			this->dtpRequestDate->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
 			this->dtpRequestDate->Location = System::Drawing::Point(185, 62);
 			this->dtpRequestDate->Name = L"dtpRequestDate";
 			this->dtpRequestDate->Size = System::Drawing::Size(196, 20);
@@ -379,17 +392,18 @@ namespace ChitaView {
 			// 
 			// btnShow
 			// 
-			this->btnShow->Location = System::Drawing::Point(331, 284);
+			this->btnShow->Location = System::Drawing::Point(331, 310);
 			this->btnShow->Name = L"btnShow";
 			this->btnShow->Size = System::Drawing::Size(75, 23);
 			this->btnShow->TabIndex = 55;
 			this->btnShow->Text = L"Ver";
 			this->btnShow->UseVisualStyleBackColor = true;
+			this->btnShow->Click += gcnew System::EventHandler(this, &ServiceRequestForm::btnShow_Click);
 			// 
 			// cbRequestPetKind
 			// 
 			this->cbRequestPetKind->FormattingEnabled = true;
-			this->cbRequestPetKind->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Paseo", L"Cuidado", L"Transporte" });
+			this->cbRequestPetKind->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Doméstico", L"Exótico" });
 			this->cbRequestPetKind->Location = System::Drawing::Point(185, 88);
 			this->cbRequestPetKind->Name = L"cbRequestPetKind";
 			this->cbRequestPetKind->Size = System::Drawing::Size(196, 21);
@@ -407,7 +421,7 @@ namespace ChitaView {
 			// cbRequestPet
 			// 
 			this->cbRequestPet->FormattingEnabled = true;
-			this->cbRequestPet->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Paseo", L"Cuidado", L"Transporte" });
+			this->cbRequestPet->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Perro", L"Gato", L"Loro", L"Conejo" });
 			this->cbRequestPet->Location = System::Drawing::Point(185, 115);
 			this->cbRequestPet->Name = L"cbRequestPet";
 			this->cbRequestPet->Size = System::Drawing::Size(196, 21);
@@ -429,11 +443,34 @@ namespace ChitaView {
 			this->label5->TabIndex = 87;
 			this->label5->Text = L"Nombre Dueño:";
 			// 
+			// cbRequestDistrict
+			// 
+			this->cbRequestDistrict->FormattingEnabled = true;
+			this->cbRequestDistrict->Items->AddRange(gcnew cli::array< System::Object^  >(4) {
+				L"Lince", L"San Miguel", L"Miraflores",
+					L"Pueblo Libre"
+			});
+			this->cbRequestDistrict->Location = System::Drawing::Point(185, 168);
+			this->cbRequestDistrict->Name = L"cbRequestDistrict";
+			this->cbRequestDistrict->Size = System::Drawing::Size(196, 21);
+			this->cbRequestDistrict->TabIndex = 90;
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(84, 171);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(42, 13);
+			this->label6->TabIndex = 89;
+			this->label6->Text = L"Distrito:";
+			// 
 			// ServiceRequestForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(470, 545);
+			this->ClientSize = System::Drawing::Size(470, 571);
+			this->Controls->Add(this->cbRequestDistrict);
+			this->Controls->Add(this->label6);
 			this->Controls->Add(this->txtRequestPetOwner);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->cbRequestPet);
@@ -463,6 +500,7 @@ namespace ChitaView {
 			this->Controls->Add(this->label7);
 			this->Name = L"ServiceRequestForm";
 			this->Text = L"Solicitud de Servicio";
+			this->Load += gcnew System::EventHandler(this, &ServiceRequestForm::ServiceRequestForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvServiceRequestList))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -476,30 +514,120 @@ namespace ChitaView {
 
 				for (int i = 0; i < servicerequestList->Count; i++) {
 					dgvServiceRequestList->Rows->Add(gcnew array<String^>{
+							  
 						" " + servicerequestList[i] -> Id,
-							  //servicerequestList[i] -> Date,
+							  servicerequestList[i]->Pet,
+							  servicerequestList[i]->Service,
+
+			Convert::ToString(servicerequestList[i]->DateService),
+			Convert::ToString(servicerequestList[i]->DateServiceInit),
 							  servicerequestList[i] -> Status,
+/*
+							servicerequestList[i]->District,
+							servicerequestList[i]->PetOwner,
+							servicerequestList[i]->Kind,
+							" " + servicerequestList[i]->DateRequest,
+							" " + servicerequestList[i]->DateServiceEnd,
+							servicerequestList[i]->AdressStart,
+							servicerequestList[i]->AdressEnd,*/
 
 					});
 				
 				}
 			}
 	Void ClearControls() {
+			txtRequestPetOwner->Text = " ";
 			txtRequestId->Text = "";
+			cbRequestPetKind->Text = "";
 			cbRequestPet->Text = "";
 			cbRequestServices->Text = "";
+			cbRequestDistrict->Text = "";
 			txtRequestAddressStart->Text = "";
 			txtRequestAddressEnd->Text = "";
-			dtpServiceDate->Text = "";
-			dtpServiceTimeStart->Text = "";
-			dtpServiceTimeEnd->Text = "";
+			//dtpServiceDate->Text = "";
+			//dtpServiceTimeStart->Text = "";
+			//dtpServiceTimeEnd->Text = "";
 		}
 
 	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
 
+		ServiceRequest^ sr = gcnew ServiceRequest();					//definimos un objeto p (mascota)
+		sr->PetOwner = txtRequestPetOwner->Text;
+		sr->Id = Int32::Parse(txtRequestId->Text);	//pasamos el escrito en txtId al atributo Id de p
+		sr->DateRequest = dtpRequestDate->Value.ToString("dd-MM-yyyy");
+		sr->Kind = cbRequestPetKind->Text;
+		sr->Pet = cbRequestPet->Text;				//Toma el Texto de txtName y lo carga en Name de p.
+		sr->Service = cbRequestServices->Text;
+		sr->District = cbRequestDistrict->Text;
+		sr->AdressStart = txtRequestAddressStart->Text;
+		sr->AdressEnd = txtRequestAddressEnd->Text;
+		sr->DateService = dtpServiceDate->Value.ToString("dd-MM-yyyy");
+		sr->DateServiceInit = dtpServiceTimeStart->Value.ToString("HH:mm");
+		sr->DateServiceEnd = dtpServiceTimeEnd->Value.ToString("HH:mm");
+		sr->Status = "Espera";
 
+		Controller::AddServiceRequest(sr);	//Invocamos al controller y agregamos el objeto p.
 
+		RefreshGrid();
 
 	}
+private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
+	ServiceRequest^ sr = gcnew ServiceRequest();					
+	sr->PetOwner = txtRequestPetOwner->Text;
+	sr->Id = Int32::Parse(txtRequestId->Text);
+	sr->DateRequest = dtpRequestDate->Value.ToString("dd-MM-yyyy");
+	sr->Kind = cbRequestPetKind->Text;
+	sr->Pet = cbRequestPet->Text;				//Toma el Texto de txtName y lo carga en Name de p.
+	sr->Service = cbRequestServices->Text;
+	sr->District = cbRequestDistrict->Text;
+	sr->AdressStart = txtRequestAddressStart->Text;
+	sr->AdressEnd = txtRequestAddressEnd->Text;
+	sr->DateService = dtpRequestDate->Value.ToString("dd-MM-yyyy");
+	sr->DateServiceInit = dtpServiceTimeStart->Value.ToString("HH:mm");
+	sr->DateServiceEnd = dtpServiceTimeEnd->Value.ToString("HH:mm");
+	sr->Status = "Espera";
+
+	Controller::UpdateServiceRequest(sr);	//Invocamos al controller y agregamos el objeto p.
+
+	RefreshGrid();
+
+}
+private: System::Void btnRemove_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+	int requestId = Int32::Parse(txtRequestId->Text);
+	Controller::DeleteServiceRequest(requestId);
+	RefreshGrid();
+
+}
+private: System::Void dgvServiceRequestList_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	
+	int selectedRowIndex = dgvServiceRequestList->SelectedCells[0]->RowIndex;
+	int requestId = Int32::Parse(dgvServiceRequestList->Rows[selectedRowIndex]->Cells[0]->Value->ToString());
+	ServiceRequest^ sr= Controller::QueryServiceRequestById(requestId);
+
+	txtRequestPetOwner->Text = sr->PetOwner;
+	txtRequestId->Text = " "+ sr->Id;
+	dtpRequestDate->Text = sr->DateRequest->ToString();
+	cbRequestPetKind->Text = sr->Kind;
+	cbRequestPet->Text = sr->Pet;
+	cbRequestServices->Text = sr->Service;
+	cbRequestDistrict->Text = sr->District;
+	txtRequestAddressStart->Text = sr->AdressStart;
+	txtRequestAddressEnd->Text = sr->AdressEnd;
+
+	dtpServiceDate->Text = sr->DateService->ToString();
+	dtpServiceTimeStart->Text = sr->DateServiceInit->ToString();
+	dtpServiceTimeEnd->Text = sr->DateServiceEnd->ToString();
+
+	
+}
+private: System::Void ServiceRequestForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	RefreshGrid();
+}
+private: System::Void btnShow_Click(System::Object^ sender, System::EventArgs^ e) {
+	ServiceDetailForm^ serviceDetailForm = gcnew ServiceDetailForm();		//Crear form.
+	serviceDetailForm->ShowDialog();
+
+}
 };
 }

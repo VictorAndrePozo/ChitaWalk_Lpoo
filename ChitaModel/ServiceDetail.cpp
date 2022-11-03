@@ -9,7 +9,7 @@ ChitaModel::ServiceDetail::ServiceDetail() {
 
 }
 
-ChitaModel::ServiceDetail::ServiceDetail(DateTime Date, double Amount, int Id, Service^ objService, Pet^ objPet) {
+ChitaModel::ServiceDetail::ServiceDetail(String^ Date, double Amount, int Id, Service^ objService, Pet^ objPet) {
 	this->objService = objService;
 	this->objPet = objPet;
 	this->Date = Date;

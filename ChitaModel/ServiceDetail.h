@@ -5,15 +5,16 @@
 using namespace System;
 
 namespace ChitaModel {
+	[Serializable]
 	public ref class ServiceDetail{
 	public:
-		property DateTime Date;
+		property String^ Date;
         property double Amount;
         property int Id;
 		property Service^ objService;
 		property Pet^ objPet;
 	public:   
 		ServiceDetail();
-		ServiceDetail(DateTime Date, double Amount, int Id, Service^ objService, Pet^ objPet);
+		ServiceDetail(String^ Date, double Amount, int Id, Service^ objService, Pet^ objPet);
 	};
 }
