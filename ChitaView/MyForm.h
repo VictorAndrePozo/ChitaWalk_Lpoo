@@ -5,6 +5,7 @@
 #include "ServiceRequestForm.h"
 #include "RequestSearcherForm.h"
 #include "CarerWorkForm.h"
+#include "DistrictAnalyticForm.h"
 
 namespace ChitaView {
 
@@ -57,6 +58,8 @@ namespace ChitaView {
 	private: System::Windows::Forms::ToolStripMenuItem^ solicitarServicioToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ buscadorDeSolicitudesToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ cuidadosPendientesToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ ventasToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ graficosDistritalesToolStripMenuItem;
 
 	private:
 		/// <summary>
@@ -85,6 +88,8 @@ namespace ChitaView {
 			this->usuariosPropietariosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reporteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ayudaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ventasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->graficosDistritalesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->MenuPrincipal->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -187,6 +192,7 @@ namespace ChitaView {
 			// 
 			// reporteToolStripMenuItem
 			// 
+			this->reporteToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->ventasToolStripMenuItem });
 			this->reporteToolStripMenuItem->Name = L"reporteToolStripMenuItem";
 			this->reporteToolStripMenuItem->Size = System::Drawing::Size(60, 20);
 			this->reporteToolStripMenuItem->Text = L"Reporte";
@@ -196,6 +202,20 @@ namespace ChitaView {
 			this->ayudaToolStripMenuItem->Name = L"ayudaToolStripMenuItem";
 			this->ayudaToolStripMenuItem->Size = System::Drawing::Size(53, 20);
 			this->ayudaToolStripMenuItem->Text = L"Ayuda";
+			// 
+			// ventasToolStripMenuItem
+			// 
+			this->ventasToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->graficosDistritalesToolStripMenuItem });
+			this->ventasToolStripMenuItem->Name = L"ventasToolStripMenuItem";
+			this->ventasToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->ventasToolStripMenuItem->Text = L"Ventas";
+			// 
+			// graficosDistritalesToolStripMenuItem
+			// 
+			this->graficosDistritalesToolStripMenuItem->Name = L"graficosDistritalesToolStripMenuItem";
+			this->graficosDistritalesToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->graficosDistritalesToolStripMenuItem->Text = L"Graficos Distritales";
+			this->graficosDistritalesToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::graficosDistritalesToolStripMenuItem_Click);
 			// 
 			// MyForm
 			// 
@@ -261,6 +281,11 @@ private: System::Void buscadorDeSolicitudesToolStripMenuItem_Click_1(System::Obj
 	RequestSearcherForm^ requestSearcherForm = gcnew RequestSearcherForm();		//Crear form.
 	requestSearcherForm->MdiParent = this;			//Padre mdi(form de donde viene) this = ese mismo
 	requestSearcherForm->Show();
+}
+private: System::Void graficosDistritalesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	DistrictAnalyticForm^ districAnalyticForm = gcnew DistrictAnalyticForm();
+	districAnalyticForm->MdiParent = this;			//Padre mdi(form de donde viene) this = ese mismo
+	districAnalyticForm->Show();
 }
 };
 }
