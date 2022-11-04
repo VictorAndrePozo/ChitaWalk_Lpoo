@@ -143,6 +143,7 @@
     <ClCompile Include="RequestSearcherForm.cpp" />
     <ClCompile Include="ServiceDetailForm.cpp" />
     <ClCompile Include="ServiceRequestForm.cpp" />
+    <ClCompile Include="UserGraphicsForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="carermaintenance.h">
@@ -187,6 +188,9 @@
     <ClInclude Include="ServiceRequestForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="UserGraphicsForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="carermaintenance.resx">
@@ -227,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceRequestForm.resx">
       <DependentUpon>ServiceRequestForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserGraphicsForm.resx">
+      <DependentUpon>UserGraphicsForm.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
