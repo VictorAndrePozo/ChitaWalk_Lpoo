@@ -135,6 +135,9 @@
     <ClInclude Include="Pet.h" />
     <ClInclude Include="PetOwner.h" />
     <ClInclude Include="Promotions.h" />
+    <ClInclude Include="PromotionsSearchForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Service.h" />
     <ClInclude Include="ServiceDetail.h" />
@@ -166,6 +169,7 @@
     <ClCompile Include="Pet.cpp" />
     <ClCompile Include="PetOwner.cpp" />
     <ClCompile Include="Promotions.cpp" />
+    <ClCompile Include="PromotionsSearchForm.cpp" />
     <ClCompile Include="Service.cpp" />
     <ClCompile Include="ServiceDetail.cpp" />
     <ClCompile Include="ServiceRequest.cpp" />
@@ -182,6 +186,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

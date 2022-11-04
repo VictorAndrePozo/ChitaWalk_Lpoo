@@ -10,15 +10,14 @@
 using namespace System;
 using namespace System::Collections::Generic;
 namespace ChitaModel {
-    [Serializable]
     public ref class Discount {
     public:
         property int Id;
         property String^ TxnDate;
         property char Status;
         property double Total;
-        property PetOwner^ PetOwner;
+        property PetOwner^ Petowner;
         property Supervisor^ Supervisor;
-        property List<DiscountDetail^>^ DiscountDetails;
+        property List<DiscountDetail^>^ DiscountDetail;
     };
 }

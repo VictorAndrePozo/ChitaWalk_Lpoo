@@ -6,7 +6,6 @@
 using  namespace System;
 
 namespace ChitaModel {
-    [Serializable]
     public ref class Promotions {
     public:
         int Id;

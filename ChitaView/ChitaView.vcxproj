@@ -131,11 +131,13 @@
   <ItemGroup>
     <ClCompile Include="carermaintenance.cpp" />
     <ClCompile Include="CarerWorkForm.cpp" />
+    <ClCompile Include="DiscountsForm.cpp" />
     <ClCompile Include="DistrictAnalyticForm.cpp" />
     <ClCompile Include="MedalsTR.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="PetForm.cpp" />
     <ClCompile Include="PetOwnerMaintence.cpp" />
+    <ClCompile Include="PromotionSearchForm.cpp" />
     <ClCompile Include="RegisterForm.cpp" />
     <ClCompile Include="RequestSearcherForm.cpp" />
     <ClCompile Include="ServiceDetailForm.cpp" />
@@ -146,6 +148,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="CarerWorkForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="DiscountsForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="DistrictAnalyticForm.h">
@@ -161,6 +166,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="PetOwnerMaintence.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="PromotionSearchForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="RegisterForm.h">
@@ -182,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CarerWorkForm.resx">
       <DependentUpon>CarerWorkForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiscountsForm.resx">
+      <DependentUpon>DiscountsForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DistrictAnalyticForm.resx">
       <DependentUpon>DistrictAnalyticForm.h</DependentUpon>
