@@ -122,6 +122,7 @@
     <ClInclude Include="Achievment.h" />
     <ClInclude Include="Carer.h" />
     <ClInclude Include="CarerService.h" />
+    <ClInclude Include="ChitaModel.h" />
     <ClInclude Include="Discount.h" />
     <ClInclude Include="DiscountDetail.h" />
     <ClInclude Include="Disponibility.h" />
@@ -134,9 +135,6 @@
     <ClInclude Include="Pet.h" />
     <ClInclude Include="PetOwner.h" />
     <ClInclude Include="Promotions.h" />
-    <ClInclude Include="PromotionsSearchForm.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Service.h" />
     <ClInclude Include="ServiceDetail.h" />

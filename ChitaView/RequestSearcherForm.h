@@ -46,7 +46,7 @@ namespace ChitaView {
 
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::ComboBox^ cbSearcherService;
-	private: System::Windows::Forms::Button^ btnShow;
+
 	private: System::Windows::Forms::Button^ btnSearch;
 
 
@@ -94,6 +94,7 @@ namespace ChitaView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvServiceTimeInit;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvServiceTimeEnd;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvRequestStatus;
+	private: System::Windows::Forms::Button^ btnCancel;
 
 
 
@@ -144,7 +145,6 @@ namespace ChitaView {
 		{
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->cbSearcherService = (gcnew System::Windows::Forms::ComboBox());
-			this->btnShow = (gcnew System::Windows::Forms::Button());
 			this->btnSearch = (gcnew System::Windows::Forms::Button());
 			this->dtpSearcherTimeEnd = (gcnew System::Windows::Forms::DateTimePicker());
 			this->dtpSearcherTimeStart = (gcnew System::Windows::Forms::DateTimePicker());
@@ -170,6 +170,7 @@ namespace ChitaView {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->cbSearcherPet = (gcnew System::Windows::Forms::ComboBox());
 			this->cbSearcherDistrict = (gcnew System::Windows::Forms::ComboBox());
+			this->btnCancel = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvSearcherList))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -191,19 +192,9 @@ namespace ChitaView {
 			this->cbSearcherService->Size = System::Drawing::Size(196, 21);
 			this->cbSearcherService->TabIndex = 66;
 			// 
-			// btnShow
-			// 
-			this->btnShow->Location = System::Drawing::Point(161, 181);
-			this->btnShow->Name = L"btnShow";
-			this->btnShow->Size = System::Drawing::Size(75, 23);
-			this->btnShow->TabIndex = 64;
-			this->btnShow->Text = L"Ver";
-			this->btnShow->UseVisualStyleBackColor = true;
-			this->btnShow->Click += gcnew System::EventHandler(this, &RequestSearcherForm::btnShow_Click);
-			// 
 			// btnSearch
 			// 
-			this->btnSearch->Location = System::Drawing::Point(66, 181);
+			this->btnSearch->Location = System::Drawing::Point(65, 189);
 			this->btnSearch->Name = L"btnSearch";
 			this->btnSearch->Size = System::Drawing::Size(75, 23);
 			this->btnSearch->TabIndex = 63;
@@ -399,11 +390,22 @@ namespace ChitaView {
 			this->cbSearcherDistrict->Size = System::Drawing::Size(196, 21);
 			this->cbSearcherDistrict->TabIndex = 81;
 			// 
+			// btnCancel
+			// 
+			this->btnCancel->Location = System::Drawing::Point(168, 189);
+			this->btnCancel->Name = L"btnCancel";
+			this->btnCancel->Size = System::Drawing::Size(75, 23);
+			this->btnCancel->TabIndex = 82;
+			this->btnCancel->Text = L"Cancelar";
+			this->btnCancel->UseVisualStyleBackColor = true;
+			this->btnCancel->Click += gcnew System::EventHandler(this, &RequestSearcherForm::btnCancel_Click);
+			// 
 			// RequestSearcherForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1200, 445);
+			this->Controls->Add(this->btnCancel);
 			this->Controls->Add(this->cbSearcherDistrict);
 			this->Controls->Add(this->cbSearcherPet);
 			this->Controls->Add(this->label5);
@@ -411,7 +413,6 @@ namespace ChitaView {
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->cbSearcherService);
-			this->Controls->Add(this->btnShow);
 			this->Controls->Add(this->btnSearch);
 			this->Controls->Add(this->dtpSearcherTimeEnd);
 			this->Controls->Add(this->dtpSearcherTimeStart);
@@ -553,6 +554,9 @@ private: System::Void dgvSearcherList_CellClick(System::Object^ sender,
 private: System::Void btnShow_Click(System::Object^ sender, System::EventArgs^ e) {
 	ServiceDetailForm^ serviceDetailForm = gcnew ServiceDetailForm();		//Crear form.
 	serviceDetailForm->ShowDialog();
+}
+private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
+	Application::Exit();
 }
 };
 }

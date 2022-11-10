@@ -81,7 +81,7 @@
     <ClInclude Include="Promotions.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="PromotionsSearchForm.h">
+    <ClInclude Include="ChitaModel.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

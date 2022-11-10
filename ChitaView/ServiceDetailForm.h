@@ -69,7 +69,8 @@ namespace ChitaView {
 	private: System::Windows::Forms::Label^ label15;
 	private: System::Windows::Forms::TextBox^ textBox5;
 	private: System::Windows::Forms::Label^ label16;
-	private: System::Windows::Forms::Button^ btnUpdate;
+	private: System::Windows::Forms::Button^ btnCancel;
+
 	private: System::Windows::Forms::Button^ btnAdd;
 
 	protected:
@@ -140,7 +141,7 @@ namespace ChitaView {
 			this->label15 = (gcnew System::Windows::Forms::Label());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->label16 = (gcnew System::Windows::Forms::Label());
-			this->btnUpdate = (gcnew System::Windows::Forms::Button());
+			this->btnCancel = (gcnew System::Windows::Forms::Button());
 			this->btnAdd = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
@@ -343,7 +344,7 @@ namespace ChitaView {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(113, 293);
+			this->textBox1->Location = System::Drawing::Point(113, 308);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(196, 20);
 			this->textBox1->TabIndex = 112;
@@ -351,7 +352,7 @@ namespace ChitaView {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(12, 296);
+			this->label2->Location = System::Drawing::Point(12, 311);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(92, 13);
 			this->label2->TabIndex = 111;
@@ -360,7 +361,7 @@ namespace ChitaView {
 			// textBox2
 			// 
 			this->textBox2->Enabled = false;
-			this->textBox2->Location = System::Drawing::Point(113, 319);
+			this->textBox2->Location = System::Drawing::Point(113, 334);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(196, 20);
 			this->textBox2->TabIndex = 110;
@@ -368,7 +369,7 @@ namespace ChitaView {
 			// label13
 			// 
 			this->label13->AutoSize = true;
-			this->label13->Location = System::Drawing::Point(12, 322);
+			this->label13->Location = System::Drawing::Point(12, 337);
 			this->label13->Name = L"label13";
 			this->label13->Size = System::Drawing::Size(64, 13);
 			this->label13->TabIndex = 109;
@@ -422,14 +423,15 @@ namespace ChitaView {
 			this->label16->TabIndex = 117;
 			this->label16->Text = L"Total:";
 			// 
-			// btnUpdate
+			// btnCancel
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(184, 447);
-			this->btnUpdate->Name = L"btnUpdate";
-			this->btnUpdate->Size = System::Drawing::Size(75, 23);
-			this->btnUpdate->TabIndex = 120;
-			this->btnUpdate->Text = L"Cancelar";
-			this->btnUpdate->UseVisualStyleBackColor = true;
+			this->btnCancel->Location = System::Drawing::Point(184, 447);
+			this->btnCancel->Name = L"btnCancel";
+			this->btnCancel->Size = System::Drawing::Size(75, 23);
+			this->btnCancel->TabIndex = 120;
+			this->btnCancel->Text = L"Cancelar";
+			this->btnCancel->UseVisualStyleBackColor = true;
+			this->btnCancel->Click += gcnew System::EventHandler(this, &ServiceDetailForm::btnCancel_Click);
 			// 
 			// btnAdd
 			// 
@@ -439,13 +441,14 @@ namespace ChitaView {
 			this->btnAdd->TabIndex = 119;
 			this->btnAdd->Text = L"¡Cuidar!";
 			this->btnAdd->UseVisualStyleBackColor = true;
+			this->btnAdd->Click += gcnew System::EventHandler(this, &ServiceDetailForm::btnAdd_Click);
 			// 
 			// ServiceDetailForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(328, 490);
-			this->Controls->Add(this->btnUpdate);
+			this->Controls->Add(this->btnCancel);
 			this->Controls->Add(this->btnAdd);
 			this->Controls->Add(this->textBox5);
 			this->Controls->Add(this->label16);
@@ -486,5 +489,12 @@ namespace ChitaView {
 
 		}
 #pragma endregion
-	};
+	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
+
+
+	}
+private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
+	Application::Exit();
+}
+};
 }
