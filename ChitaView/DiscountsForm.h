@@ -1,10 +1,10 @@
 #pragma once
-#include "../ChitaModel/PetOwner.h"
-#include "../ChitaModel/PetOwner.cpp"
-#include "../ChitaModel/Promotions.h"
+//#include "../ChitaModel/PetOwner.h"
+//#include "../ChitaModel/PetOwner.cpp"
+//#include "../ChitaModel/Promotions.h"
 
-#include "PromotionSearchForm.h"
-#include "PetOwnerMaintence.h"
+//#include "PromotionSearchForm.h"
+//#include "PetOwnerMaintence.h"
 //#include "Resource.h"
 
 namespace ChitaView {
@@ -22,7 +22,7 @@ namespace ChitaView {
 	public ref class DiscountsForm : public System::Windows::Forms::Form
 	{
 	private:
-		PetOwner^ PetOwner;
+		//PetOwner^ PetOwner;
 	public:
 		DiscountsForm(void)
 		{
@@ -281,7 +281,7 @@ namespace ChitaView {
 			this->lblPetOwnerData->Size = System::Drawing::Size(235, 16);
 			this->lblPetOwnerData->TabIndex = 13;
 			this->lblPetOwnerData->Text = L"                                                       Sin Cliente";
-			this->lblPetOwnerData->Click += gcnew System::EventHandler(this, &DiscountsForm::lblPetOwnerData_Click);
+			//this->lblPetOwnerData->Click += gcnew System::EventHandler(this, &DiscountsForm::lblPetOwnerData_Click);
 			// 
 			// DiscountsForm
 			// 
@@ -309,6 +309,7 @@ namespace ChitaView {
 
 		}
 #pragma endregion
+		/*
 	private: System::Void btnAddPromotion_Click(System::Object^ sender, System::EventArgs^ e) {
 		PromotionSearchForm^ PromotionForm = gcnew PromotionSearchForm(this);
 		PromotionForm->ShowDialog();
@@ -364,6 +365,6 @@ namespace ChitaView {
 		//petOwnerMaintence->RefSaleForm = this;
 		petOwnerMaintence->ShowDialog();
 	}
-
+	*/
 };
 }

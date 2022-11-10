@@ -1,7 +1,7 @@
 #include "DiscountsForm.h"
-#include "MyForm.h"
-#include "PromotionSearchForm.h"
-
+//#include "MyForm.h"
+//#include "PromotionSearchForm.h"
+/*
 System::Void ChitaView::DiscountsForm::DiscountsForm_Load(System::Object^ sender, System::EventArgs^ e)
 {
 	txtDate->Text = DateTime::Now.ToString("dd/MM/yyyy");
@@ -41,3 +41,4 @@ System::Void ChitaView::DiscountsForm::btnRegisterDiscount_Click(System::Object^
 	Controller::RegisterDiscount(discount);
 	MessageBox::Show("Se ha registrado la venta exitosamente.");
 }
+*/

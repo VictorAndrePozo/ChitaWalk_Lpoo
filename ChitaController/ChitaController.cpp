@@ -54,7 +54,7 @@ void ChitaController::Controller::LoadPetOwnerData() {
 		if (sr != nullptr) sr->Close();
 	}
 }
-List<PetOwner^>^ ChitaController::Controller::QueryPetOwnerByName(String^)
+List<PetOwner^>^ ChitaController::Controller::QueryPetOwnerByName(String^ value)
 {
 	LoadPetOwnerData();
 	List<PetOwner^>^ newPetOwnerList = gcnew List<PetOwner^>();

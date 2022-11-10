@@ -122,7 +122,6 @@
     <ClInclude Include="Achievment.h" />
     <ClInclude Include="Carer.h" />
     <ClInclude Include="CarerService.h" />
-    <ClInclude Include="ChitaModel.h" />
     <ClInclude Include="Discount.h" />
     <ClInclude Include="DiscountDetail.h" />
     <ClInclude Include="Disponibility.h" />

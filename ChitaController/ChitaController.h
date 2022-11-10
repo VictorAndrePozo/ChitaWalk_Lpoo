@@ -1,6 +1,6 @@
 #pragma once
-#include "../ChitaModel/PetOwner.cpp"
-#include "../ChitaModel/Discount.cpp"
+//#include "../ChitaModel/PetOwner.cpp"
+//#include "../ChitaModel/Discount.cpp"
 
 using namespace System;
 using namespace ChitaModel;
