@@ -168,6 +168,7 @@ namespace ChitaView {
 			this->btnPhoto->TabIndex = 55;
 			this->btnPhoto->Text = L"Agregar foto";
 			this->btnPhoto->UseVisualStyleBackColor = true;
+			this->btnPhoto->Click += gcnew System::EventHandler(this, &Promotionsmaintenance::btnPhoto_Click);
 			// 
 			// dgvPromotion
 			// 
@@ -250,6 +251,7 @@ namespace ChitaView {
 			this->btnDelete->TabIndex = 53;
 			this->btnDelete->Text = L"Eliminar";
 			this->btnDelete->UseVisualStyleBackColor = true;
+			this->btnDelete->Click += gcnew System::EventHandler(this, &Promotionsmaintenance::btnDelete_Click);
 			// 
 			// btnUpdate
 			// 
@@ -261,6 +263,7 @@ namespace ChitaView {
 			this->btnUpdate->TabIndex = 52;
 			this->btnUpdate->Text = L"Modificar";
 			this->btnUpdate->UseVisualStyleBackColor = true;
+			this->btnUpdate->Click += gcnew System::EventHandler(this, &Promotionsmaintenance::btnUpdate_Click);
 			// 
 			// btnAdd
 			// 
@@ -272,6 +275,7 @@ namespace ChitaView {
 			this->btnAdd->TabIndex = 51;
 			this->btnAdd->Text = L"Agregar";
 			this->btnAdd->UseVisualStyleBackColor = true;
+			this->btnAdd->Click += gcnew System::EventHandler(this, &Promotionsmaintenance::btnAdd_Click);
 			// 
 			// pbPhoto
 			// 
@@ -442,6 +446,7 @@ namespace ChitaView {
 			this->Controls->Add(this->menuStrip1);
 			this->Name = L"Promotionsmaintenance";
 			this->Text = L"Promotionsmaintenance";
+			this->Load += gcnew System::EventHandler(this, &Promotionsmaintenance::Promotionsmaintenance_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPromotion))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->EndInit();
 			this->menuStrip1->ResumeLayout(false);
@@ -451,88 +456,87 @@ namespace ChitaView {
 
 		}
 #pragma endregion
-	public:
 		void RefreshGrid() {
-			List<Promotions^>^ promotionList = Controller::QueryAllPromotions();
+			List<Promotions^>^ PromotionList = Controller::QueryAllPromotions();
 			dgvPromotion->Rows->Clear();
-			for (int i = 0; i < promotionList->Count; i++) {
+			for (int i = 0; i < PromotionList->Count; i++) {
 				dgvPromotion->Rows->Add(gcnew array<String^>{
-					"" + promotionList[i]->Id,
-						promotionList[i]->Name,
-						"" + promotionList[i]->Price,
-						"" + promotionList[i]->Stock
+				   "" + PromotionList[i]->Id,
+						PromotionList[i]->Name,
+						PromotionList[i]->Description,
+				   "" + PromotionList[i]->Price,
+				   "" + PromotionList[i]->Stock,
+				   "" + PromotionList[i]->Status,
+				   "" + PromotionList[i]->Photo,
 				});
 			}
 		}
 
 	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
-		Promotions^ p = gcnew Promotions();
-		p->Id = Int32::Parse(txtId->Text);
-		p->Name = txtName->Text;
-		p->Description = txtDescription->Text;
-		p->Price = Double::Parse(txtPrice->Text);
-		p->Stock = Int32::Parse(txtStock->Text);
-		p->Status = 'A';
-		if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
-			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
-			pbPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
-			p->Photo= ms->ToArray();
-		}
-		Controller::AddPromotions(p);
+		Promotions^ c = gcnew Promotions();
+
+		c->Id = Int32::Parse(txtId->Text);
+		c->Name = txtName->Text;
+		c->Description = txtDescription->Text;
+		c->Price = Int32::Parse(txtPrice->Text);
+		c->Stock = Int32::Parse(txtStock->Text);
+		c->Status = char::Parse(txtStatus->Text);
+		//c->Photo = array::Parse(PicturePhoto->Picture);
+
+		Controller::AddPromotions(c);
 		RefreshGrid();
 		ClearControls();
 	}
 
 	private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
-		Promotions^ p = gcnew Promotions();
-		p->Id = Int32::Parse(txtId->Text);
-		p->Name = txtName->Text;
-		p->Description = txtDescription->Text;
-		p->Price = Double::Parse(txtPrice->Text);
-		p->Stock = Int32::Parse(txtStock->Text);
-		p->Status = 'A';
-		if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
-			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
-			pbPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
-			p->Photo = ms->ToArray();
-		}
-		Controller::UpdatePromotions(p);
+		Promotions^ c = gcnew Promotions();
+
+		c->Id = Int32::Parse(txtId->Text);
+		c->Name = txtName->Text;
+		c->Description = txtDescription->Text;
+		c->Price = Int32::Parse(txtPrice->Text);
+		c->Stock = Int32::Parse(txtStock->Text);
+		c->Status = char::Parse(txtStatus->Text);
+		//c->Photo = array::Parse(PicturePhoto->Picture);
+
+		Controller::UpdatePromotions(c);
 		RefreshGrid();
 
 	}
+
 	private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
-		System::Windows::Forms::DialogResult dr = MessageBox::Show("¿Está seguro de eliminar?", "Confirmación", MessageBoxButtons::YesNo);
-		if (dr == System::Windows::Forms::DialogResult::Yes)
-		{
-			int promotionId = Int32::Parse(txtId->Text);
-			Controller::DeletePromotions(promotionId);
-			RefreshGrid();
-			ClearControls();
-		}
-		else if (dr == System::Windows::Forms::DialogResult::No)
-		{
-			//do something else
-		}
+		int PromotionsId = Int32::Parse(txtId->Text);
+		Controller::DeletePromotions(PromotionsId);
+		RefreshGrid();
+		ClearControls();
 
 	}
+
 	private: System::Void dgvPromotion_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-		int selectedRowIndex = dgvPromotion->SelectedCells[0]->RowIndex;
-		int promotionId = Int32::Parse(dgvPromotion->Rows[selectedRowIndex]->Cells[0]->Value->ToString());
-		Promotions^ p = Controller::QueryPromotionsById(promotionId);
-		//MessageBox::Show("Columna seleccionada:" + e->ColumnIndex);
-		txtId->Text = "" + p->Id;
-		txtName->Text = p->Name;
-		txtDescription->Text = p->Description;
-		txtPrice->Text = "" + p->Price;
-		txtStock->Text = "" + p->Stock;
-		if (p->Photo != nullptr) {
-			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(p->Photo);
-			pbPhoto->Image = Image::FromStream(ms);
+
+		if (dgvPromotion->CurrentCell != nullptr &&
+			dgvPromotion->CurrentCell->Value != nullptr &&
+			dgvPromotion->CurrentCell->Value->ToString() != "") {
+			int selectedrowindex = dgvPromotion->SelectedCells[0]->RowIndex;
+			DataGridViewRow^ selectedRow = dgvPromotion->Rows[selectedrowindex];
+			String^ a = selectedRow->Cells[0]->Value->ToString();
+
+			int PromotionsId = Int32::Parse(a);
+			Promotions^ Promotion = Controller::QueryPromotionsById(PromotionsId);
+			//MessageBox::Show(customer->ToString()); //Polimorfismo
+			if (Promotion != nullptr && Promotion->GetType() == Promotions::typeid) {
+
+				txtId->Text = "" + Promotion->Id;
+				txtName->Text = Promotion->Name;
+				txtDescription->Text = Promotion->Description;
+				txtPrice->Text = "" + Promotion->Price;
+				txtStock->Text = "" + Promotion->Stock;
+				txtStatus->Text = "" + Promotion->Status;
+				//txt->Text = "" + c->Photo;
+
+			}
 		}
-		else {
-			pbPhoto->Image = nullptr;
-			pbPhoto->Invalidate();
-		}
+
 	}
 
 		   void ClearControls() {
@@ -541,30 +545,58 @@ namespace ChitaView {
 			   txtDescription->Clear();
 			   txtPrice->Clear();
 			   txtStock->Clear();
-			   pbPhoto->Image = nullptr;
+			   txtStatus->Clear();
+
 		   }
 
-	private: System::Void nuevaPromocionToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-		ClearControls();
-		btnAdd->Enabled = true;
-		btnUpdate->Enabled = false;
-		btnDelete->Enabled = false;
-	}
-	private: System::Void modificarPromocionToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-		btnAdd->Enabled = false;
-		btnUpdate->Enabled = true;
-		btnDelete->Enabled = true;
-	}
-	private: System::Void btnPhoto_Click(System::Object^ sender, System::EventArgs^ e) {
-		OpenFileDialog^ opnfd = gcnew OpenFileDialog();
-		opnfd->Filter = "Image Files (*.jpg;*.jpeg;)|*.jpg;*.jpeg;";
-		if (opnfd->ShowDialog() == System::Windows::Forms::DialogResult::OK)
-		{
-			pbPhoto->Image = gcnew Bitmap(opnfd->FileName);
+
+private: System::Void nuevoToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	ClearControls();
+	EnableControls();
+	btnAdd->Enabled = true;
+	btnUpdate->Enabled = false;
+	btnDelete->Enabled = false;
+
+
+}
+
+	public:
+		Void DisableControls() {
+
+			btnAdd->Enabled = false;
+			btnUpdate->Enabled = false;
+			btnDelete->Enabled = false;
 		}
+
+		Void EnableControls(){
+		
+			btnAdd->Enabled = true;
+			btnUpdate->Enabled = false;
+			btnDelete->Enabled = false;
+		}
+
+private: System::Void modificarToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	EnableControls();
+	btnAdd->Enabled = false;
+	btnUpdate->Enabled = true;
+	btnDelete->Enabled = true;
+
+}
+private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+}
+
+private: System::Void Promotionsmaintenance_Load(System::Object^ sender, System::EventArgs^ e) {
+	RefreshGrid();
+}
+
+private: System::Void btnPhoto_Click(System::Object^ sender, System::EventArgs^ e) {
+	OpenFileDialog^ opnfd = gcnew OpenFileDialog();
+	opnfd->Filter = "Image Files (*.jpg;*.jpeg;)|*.jpg;*.jpeg;";
+	if (opnfd->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+	{
+		pbPhoto->Image = gcnew Bitmap(opnfd->FileName);
 	}
-	private: System::Void ProductForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		RefreshGrid();
-	}
+}
 };
 }

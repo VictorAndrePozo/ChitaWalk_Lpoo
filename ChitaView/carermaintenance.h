@@ -1019,6 +1019,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Cuidador";
 			this->tabPage1->UseVisualStyleBackColor = true;
+			this->tabPage1->Click += gcnew System::EventHandler(this, &carermaintenance::tabPage1_Click);
 			// 
 			// tabPage2
 			// 
@@ -1920,6 +1921,8 @@ private: System::Void dgvKeeper_CellContentClick(System::Object^ sender, System:
 }
 private: System::Void carermaintenance_Load(System::Object^ sender, System::EventArgs^ e) {
 	RefreshGrid();
+}
+private: System::Void tabPage1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

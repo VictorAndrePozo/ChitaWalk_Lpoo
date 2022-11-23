@@ -7,6 +7,7 @@
 #include "CarerWorkForm.h"
 #include "DistrictAnalyticForm.h"
 #include "UserGraphicsForm.h"
+#include "Promotionsmaintenance.h"
 
 namespace ChitaView {
 
@@ -62,6 +63,7 @@ namespace ChitaView {
 	private: System::Windows::Forms::ToolStripMenuItem^ ventasToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ graficosDistritalesToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ usuariosToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ promocionesToolStripMenuItem;
 
 	private:
 		/// <summary>
@@ -91,9 +93,9 @@ namespace ChitaView {
 			this->reporteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ventasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->graficosDistritalesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->ayudaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->usuariosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ayudaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->promocionesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->MenuPrincipal->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -165,9 +167,9 @@ namespace ChitaView {
 			// 
 			// mantenimientoToolStripMenuItem
 			// 
-			this->mantenimientoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+			this->mantenimientoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 				this->carerToolStripMenuItem,
-					this->mascotasToolStripMenuItem, this->usuariosPropietariosToolStripMenuItem
+					this->mascotasToolStripMenuItem, this->usuariosPropietariosToolStripMenuItem, this->promocionesToolStripMenuItem
 			});
 			this->mantenimientoToolStripMenuItem->Name = L"mantenimientoToolStripMenuItem";
 			this->mantenimientoToolStripMenuItem->Size = System::Drawing::Size(124, 24);
@@ -208,7 +210,7 @@ namespace ChitaView {
 			// 
 			this->ventasToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->graficosDistritalesToolStripMenuItem });
 			this->ventasToolStripMenuItem->Name = L"ventasToolStripMenuItem";
-			this->ventasToolStripMenuItem->Size = System::Drawing::Size(135, 26);
+			this->ventasToolStripMenuItem->Size = System::Drawing::Size(148, 26);
 			this->ventasToolStripMenuItem->Text = L"Ventas";
 			// 
 			// graficosDistritalesToolStripMenuItem
@@ -218,16 +220,10 @@ namespace ChitaView {
 			this->graficosDistritalesToolStripMenuItem->Text = L"Graficos Distritales";
 			this->graficosDistritalesToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::graficosDistritalesToolStripMenuItem_Click);
 			// 
-			// ayudaToolStripMenuItem
-			// 
-			this->ayudaToolStripMenuItem->Name = L"ayudaToolStripMenuItem";
-			this->ayudaToolStripMenuItem->Size = System::Drawing::Size(53, 20);
-			this->ayudaToolStripMenuItem->Text = L"Ayuda";
-			// 
 			// usuariosToolStripMenuItem
 			// 
 			this->usuariosToolStripMenuItem->Name = L"usuariosToolStripMenuItem";
-			this->usuariosToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->usuariosToolStripMenuItem->Size = System::Drawing::Size(148, 26);
 			this->usuariosToolStripMenuItem->Text = L"Usuarios";
 			this->usuariosToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::usuariosToolStripMenuItem_Click);
 			// 
@@ -236,6 +232,13 @@ namespace ChitaView {
 			this->ayudaToolStripMenuItem->Name = L"ayudaToolStripMenuItem";
 			this->ayudaToolStripMenuItem->Size = System::Drawing::Size(65, 24);
 			this->ayudaToolStripMenuItem->Text = L"Ayuda";
+			// 
+			// promocionesToolStripMenuItem
+			// 
+			this->promocionesToolStripMenuItem->Name = L"promocionesToolStripMenuItem";
+			this->promocionesToolStripMenuItem->Size = System::Drawing::Size(232, 26);
+			this->promocionesToolStripMenuItem->Text = L"Promociones";
+			this->promocionesToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::promocionesToolStripMenuItem_Click);
 			// 
 			// MyForm
 			// 
@@ -312,6 +315,11 @@ private: System::Void usuariosToolStripMenuItem_Click(System::Object^ sender, Sy
 	userGraphicsForm->MdiParent = this;			//Padre mdi(form de donde viene) this = ese mismo
 	userGraphicsForm->Show();
 
+}
+private: System::Void promocionesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	Promotionsmaintenance^ PromotionsMaintenance = gcnew Promotionsmaintenance();
+	PromotionsMaintenance->MdiParent = this;			//Padre mdi(form de donde viene) this = ese mismo
+	PromotionsMaintenance->Show();
 }
 };
 }
