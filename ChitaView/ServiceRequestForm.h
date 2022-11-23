@@ -514,8 +514,7 @@ namespace ChitaView {
 
 				for (int i = 0; i < servicerequestList->Count; i++) {
 					dgvServiceRequestList->Rows->Add(gcnew array<String^>{
-							  
-						" " + servicerequestList[i] -> Id,
+			Convert::ToString(servicerequestList[i]->Id),
 							  servicerequestList[i]->Pet,
 							  servicerequestList[i]->Service,
 
@@ -564,6 +563,12 @@ namespace ChitaView {
 		sr->DateService = dtpServiceDate->Value.ToString("dd-MM-yyyy");
 		sr->DateServiceInit = dtpServiceTimeStart->Value.ToString("HH:mm");
 		sr->DateServiceEnd = dtpServiceTimeEnd->Value.ToString("HH:mm");
+
+		sr->Carer = "";
+		sr->CarerId = Int32::Parse("0");
+		sr->SubTotal = Int32::Parse("0");
+		sr->IGV = Int32::Parse("0");
+		sr->TotalAmount = Int32::Parse("0");
 		sr->Status = "Espera";
 
 		Controller::AddServiceRequest(sr);	//Invocamos al controller y agregamos el objeto p.
@@ -585,6 +590,12 @@ private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^
 	sr->DateService = dtpRequestDate->Value.ToString("dd-MM-yyyy");
 	sr->DateServiceInit = dtpServiceTimeStart->Value.ToString("HH:mm");
 	sr->DateServiceEnd = dtpServiceTimeEnd->Value.ToString("HH:mm");
+
+	sr->Carer = "";
+	sr->CarerId = Int32::Parse("0");
+	sr->SubTotal = Int32::Parse("0");
+	sr->IGV = Int32::Parse("0");
+	sr->TotalAmount = Int32::Parse("0");
 	sr->Status = "Espera";
 
 	Controller::UpdateServiceRequest(sr);	//Invocamos al controller y agregamos el objeto p.
@@ -606,7 +617,7 @@ private: System::Void dgvServiceRequestList_CellClick(System::Object^ sender, Sy
 	ServiceRequest^ sr= Controller::QueryServiceRequestById(requestId);
 
 	txtRequestPetOwner->Text = sr->PetOwner;
-	txtRequestId->Text = " "+ sr->Id;
+	txtRequestId->Text = "" + sr->Id;
 	dtpRequestDate->Text = sr->DateRequest->ToString();
 	cbRequestPetKind->Text = sr->Kind;
 	cbRequestPet->Text = sr->Pet;
@@ -625,9 +636,36 @@ private: System::Void ServiceRequestForm_Load(System::Object^ sender, System::Ev
 	RefreshGrid();
 }
 private: System::Void btnShow_Click(System::Object^ sender, System::EventArgs^ e) {
-	ServiceDetailForm^ serviceDetailForm = gcnew ServiceDetailForm();		//Crear form.
-	serviceDetailForm->ShowDialog();
 
-}
+		int selectedRowIndex = dgvServiceRequestList->SelectedCells[0]->RowIndex;
+		int requestId = Int32::Parse(dgvServiceRequestList->Rows[selectedRowIndex]->Cells[0]->Value->ToString());
+		ServiceRequest^ sr = Controller::QueryServiceRequestById(requestId);
+
+		ServiceRequest^ srn = gcnew ServiceRequest();
+		srn->PetOwner = sr->PetOwner;
+		srn->Id = sr->Id;
+		srn->DateRequest = sr->DateRequest;
+		srn->Kind = sr->Kind;
+		srn->Pet = sr->Pet;
+		srn->Service = sr->Service;
+		srn->District = sr->District;
+		srn->AdressStart = sr->AdressStart;
+		srn->AdressEnd = sr->AdressEnd;
+		srn->DateService = sr->DateService;
+		srn->DateServiceInit = sr->DateServiceInit;
+		srn->DateServiceEnd = sr->DateServiceEnd;
+
+		srn->Carer = sr->Carer;
+		srn->CarerId = sr->CarerId;
+		srn->SubTotal = sr->SubTotal;
+		srn->IGV = sr->IGV;
+		srn->TotalAmount = sr->TotalAmount;
+		//srn->Status = "Visto";
+		srn->Status = "Seleccionado";
+		Controller::UpdateServiceRequest(srn);
+
+		ServiceDetailForm^ serviceDetailForm = gcnew ServiceDetailForm(this);
+		serviceDetailForm->ShowDialog();
+	}
 };
 }

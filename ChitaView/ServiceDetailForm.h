@@ -1,4 +1,6 @@
+//#include "RequestSearcherForm.h"
 #pragma once
+#include "RankingForm.h"
 
 namespace ChitaView {
 
@@ -9,18 +11,24 @@ namespace ChitaView {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
+	using namespace ChitaController;
+	using namespace ChitaModel;
+	using namespace System::Collections::Generic;
+
 	/// <summary>
 	/// Resumen de ServiceDetailForm
 	/// </summary>
 	public ref class ServiceDetailForm : public System::Windows::Forms::Form
 	{
+		Form^ refForm;
 	public:
-		ServiceDetailForm(void)
+		ServiceDetailForm(Form^ form)
 		{
 			InitializeComponent();
 			//
 			//TODO: agregar código de constructor aquí
 			//
+			refForm = form;
 		}
 
 	protected:
@@ -58,43 +66,38 @@ namespace ChitaView {
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::TextBox^ txtRequestPetOwner;
+
+
 	private: System::Windows::Forms::Label^ label5;
-	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ txtRequestCarer;
+
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::TextBox^ textBox2;
+	private: System::Windows::Forms::TextBox^ txtRequestCarerId;
+
 	private: System::Windows::Forms::Label^ label13;
-	private: System::Windows::Forms::TextBox^ textBox3;
+	private: System::Windows::Forms::TextBox^ txtRequestSubTotal;
+
 	private: System::Windows::Forms::Label^ label14;
-	private: System::Windows::Forms::TextBox^ textBox4;
+	private: System::Windows::Forms::TextBox^ txtRequestIGV;
+
 	private: System::Windows::Forms::Label^ label15;
-	private: System::Windows::Forms::TextBox^ textBox5;
+	private: System::Windows::Forms::TextBox^ txtRequestTotalAmount;
+
 	private: System::Windows::Forms::Label^ label16;
 	private: System::Windows::Forms::Button^ btnCancel;
 
 	private: System::Windows::Forms::Button^ btnAdd;
+	private: System::Windows::Forms::ComboBox^ cbRequestDistrict;
+	private: System::Windows::Forms::Label^ label17;
+	private: System::Windows::Forms::Button^ btnCancelService;
+
+	private: System::Windows::Forms::Button^ btnFinishService;
+
+	private: System::Windows::Forms::Button^ btnStartService;
+
+	private: System::Windows::Forms::Label^ label18;
 
 	protected:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	private:
 		/// <summary>
@@ -131,18 +134,24 @@ namespace ChitaView {
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->txtRequestPetOwner = (gcnew System::Windows::Forms::TextBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->txtRequestCarer = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->txtRequestCarerId = (gcnew System::Windows::Forms::TextBox());
 			this->label13 = (gcnew System::Windows::Forms::Label());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->txtRequestSubTotal = (gcnew System::Windows::Forms::TextBox());
 			this->label14 = (gcnew System::Windows::Forms::Label());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
+			this->txtRequestIGV = (gcnew System::Windows::Forms::TextBox());
 			this->label15 = (gcnew System::Windows::Forms::Label());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
+			this->txtRequestTotalAmount = (gcnew System::Windows::Forms::TextBox());
 			this->label16 = (gcnew System::Windows::Forms::Label());
 			this->btnCancel = (gcnew System::Windows::Forms::Button());
 			this->btnAdd = (gcnew System::Windows::Forms::Button());
+			this->cbRequestDistrict = (gcnew System::Windows::Forms::ComboBox());
+			this->label17 = (gcnew System::Windows::Forms::Label());
+			this->btnCancelService = (gcnew System::Windows::Forms::Button());
+			this->btnFinishService = (gcnew System::Windows::Forms::Button());
+			this->btnStartService = (gcnew System::Windows::Forms::Button());
+			this->label18 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// dtpRequestDate
@@ -164,6 +173,7 @@ namespace ChitaView {
 			// 
 			// txtRequestId
 			// 
+			this->txtRequestId->Enabled = false;
 			this->txtRequestId->Location = System::Drawing::Point(113, 32);
 			this->txtRequestId->Name = L"txtRequestId";
 			this->txtRequestId->Size = System::Drawing::Size(196, 20);
@@ -181,7 +191,7 @@ namespace ChitaView {
 			// txtRequestAddressEnd
 			// 
 			this->txtRequestAddressEnd->Enabled = false;
-			this->txtRequestAddressEnd->Location = System::Drawing::Point(113, 193);
+			this->txtRequestAddressEnd->Location = System::Drawing::Point(113, 219);
 			this->txtRequestAddressEnd->Name = L"txtRequestAddressEnd";
 			this->txtRequestAddressEnd->Size = System::Drawing::Size(196, 20);
 			this->txtRequestAddressEnd->TabIndex = 66;
@@ -189,7 +199,7 @@ namespace ChitaView {
 			// txtRequestAddressStart
 			// 
 			this->txtRequestAddressStart->Enabled = false;
-			this->txtRequestAddressStart->Location = System::Drawing::Point(113, 166);
+			this->txtRequestAddressStart->Location = System::Drawing::Point(113, 192);
 			this->txtRequestAddressStart->Name = L"txtRequestAddressStart";
 			this->txtRequestAddressStart->Size = System::Drawing::Size(196, 20);
 			this->txtRequestAddressStart->TabIndex = 65;
@@ -197,7 +207,7 @@ namespace ChitaView {
 			// label12
 			// 
 			this->label12->AutoSize = true;
-			this->label12->Location = System::Drawing::Point(12, 196);
+			this->label12->Location = System::Drawing::Point(12, 222);
 			this->label12->Name = L"label12";
 			this->label12->Size = System::Drawing::Size(95, 13);
 			this->label12->TabIndex = 64;
@@ -206,7 +216,7 @@ namespace ChitaView {
 			// label11
 			// 
 			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(12, 169);
+			this->label11->Location = System::Drawing::Point(12, 195);
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(90, 13);
 			this->label11->TabIndex = 63;
@@ -227,7 +237,7 @@ namespace ChitaView {
 			this->dtpServiceTimeEnd->CustomFormat = L"HH:mm";
 			this->dtpServiceTimeEnd->Enabled = false;
 			this->dtpServiceTimeEnd->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
-			this->dtpServiceTimeEnd->Location = System::Drawing::Point(245, 246);
+			this->dtpServiceTimeEnd->Location = System::Drawing::Point(245, 272);
 			this->dtpServiceTimeEnd->Name = L"dtpServiceTimeEnd";
 			this->dtpServiceTimeEnd->ShowUpDown = true;
 			this->dtpServiceTimeEnd->Size = System::Drawing::Size(64, 20);
@@ -238,7 +248,7 @@ namespace ChitaView {
 			this->dtpServiceTimeStart->CustomFormat = L"HH:mm";
 			this->dtpServiceTimeStart->Enabled = false;
 			this->dtpServiceTimeStart->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
-			this->dtpServiceTimeStart->Location = System::Drawing::Point(113, 245);
+			this->dtpServiceTimeStart->Location = System::Drawing::Point(113, 271);
 			this->dtpServiceTimeStart->Name = L"dtpServiceTimeStart";
 			this->dtpServiceTimeStart->ShowUpDown = true;
 			this->dtpServiceTimeStart->Size = System::Drawing::Size(64, 20);
@@ -247,7 +257,7 @@ namespace ChitaView {
 			// dtpServiceDate
 			// 
 			this->dtpServiceDate->Enabled = false;
-			this->dtpServiceDate->Location = System::Drawing::Point(113, 219);
+			this->dtpServiceDate->Location = System::Drawing::Point(113, 245);
 			this->dtpServiceDate->Name = L"dtpServiceDate";
 			this->dtpServiceDate->Size = System::Drawing::Size(196, 20);
 			this->dtpServiceDate->TabIndex = 59;
@@ -255,7 +265,8 @@ namespace ChitaView {
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(196, 251);
+			this->label10->Enabled = false;
+			this->label10->Location = System::Drawing::Point(196, 277);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(38, 13);
 			this->label10->TabIndex = 58;
@@ -264,7 +275,7 @@ namespace ChitaView {
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(12, 251);
+			this->label9->Location = System::Drawing::Point(12, 277);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(75, 13);
 			this->label9->TabIndex = 57;
@@ -273,7 +284,7 @@ namespace ChitaView {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(12, 225);
+			this->label8->Location = System::Drawing::Point(12, 251);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(81, 13);
 			this->label8->TabIndex = 56;
@@ -328,6 +339,7 @@ namespace ChitaView {
 			// 
 			// txtRequestPetOwner
 			// 
+			this->txtRequestPetOwner->Enabled = false;
 			this->txtRequestPetOwner->Location = System::Drawing::Point(113, 6);
 			this->txtRequestPetOwner->Name = L"txtRequestPetOwner";
 			this->txtRequestPetOwner->Size = System::Drawing::Size(196, 20);
@@ -342,12 +354,12 @@ namespace ChitaView {
 			this->label5->TabIndex = 107;
 			this->label5->Text = L"Nombre Dueño:";
 			// 
-			// textBox1
+			// txtRequestCarer
 			// 
-			this->textBox1->Location = System::Drawing::Point(113, 308);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(196, 20);
-			this->textBox1->TabIndex = 112;
+			this->txtRequestCarer->Location = System::Drawing::Point(113, 308);
+			this->txtRequestCarer->Name = L"txtRequestCarer";
+			this->txtRequestCarer->Size = System::Drawing::Size(196, 20);
+			this->txtRequestCarer->TabIndex = 112;
 			// 
 			// label2
 			// 
@@ -358,13 +370,12 @@ namespace ChitaView {
 			this->label2->TabIndex = 111;
 			this->label2->Text = L"Nombre Cuidador:";
 			// 
-			// textBox2
+			// txtRequestCarerId
 			// 
-			this->textBox2->Enabled = false;
-			this->textBox2->Location = System::Drawing::Point(113, 334);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(196, 20);
-			this->textBox2->TabIndex = 110;
+			this->txtRequestCarerId->Location = System::Drawing::Point(113, 334);
+			this->txtRequestCarerId->Name = L"txtRequestCarerId";
+			this->txtRequestCarerId->Size = System::Drawing::Size(196, 20);
+			this->txtRequestCarerId->TabIndex = 110;
 			// 
 			// label13
 			// 
@@ -375,12 +386,12 @@ namespace ChitaView {
 			this->label13->TabIndex = 109;
 			this->label13->Text = L"Id Cuidador:";
 			// 
-			// textBox3
+			// txtRequestSubTotal
 			// 
-			this->textBox3->Location = System::Drawing::Point(113, 360);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(196, 20);
-			this->textBox3->TabIndex = 114;
+			this->txtRequestSubTotal->Location = System::Drawing::Point(113, 360);
+			this->txtRequestSubTotal->Name = L"txtRequestSubTotal";
+			this->txtRequestSubTotal->Size = System::Drawing::Size(196, 20);
+			this->txtRequestSubTotal->TabIndex = 114;
 			// 
 			// label14
 			// 
@@ -391,12 +402,12 @@ namespace ChitaView {
 			this->label14->TabIndex = 113;
 			this->label14->Text = L"Sub Total:";
 			// 
-			// textBox4
+			// txtRequestIGV
 			// 
-			this->textBox4->Location = System::Drawing::Point(113, 386);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(196, 20);
-			this->textBox4->TabIndex = 116;
+			this->txtRequestIGV->Location = System::Drawing::Point(113, 386);
+			this->txtRequestIGV->Name = L"txtRequestIGV";
+			this->txtRequestIGV->Size = System::Drawing::Size(196, 20);
+			this->txtRequestIGV->TabIndex = 116;
 			// 
 			// label15
 			// 
@@ -407,12 +418,12 @@ namespace ChitaView {
 			this->label15->TabIndex = 115;
 			this->label15->Text = L"I.G.V:";
 			// 
-			// textBox5
+			// txtRequestTotalAmount
 			// 
-			this->textBox5->Location = System::Drawing::Point(113, 412);
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(196, 20);
-			this->textBox5->TabIndex = 118;
+			this->txtRequestTotalAmount->Location = System::Drawing::Point(113, 412);
+			this->txtRequestTotalAmount->Name = L"txtRequestTotalAmount";
+			this->txtRequestTotalAmount->Size = System::Drawing::Size(196, 20);
+			this->txtRequestTotalAmount->TabIndex = 118;
 			// 
 			// label16
 			// 
@@ -443,22 +454,90 @@ namespace ChitaView {
 			this->btnAdd->UseVisualStyleBackColor = true;
 			this->btnAdd->Click += gcnew System::EventHandler(this, &ServiceDetailForm::btnAdd_Click);
 			// 
+			// cbRequestDistrict
+			// 
+			this->cbRequestDistrict->Enabled = false;
+			this->cbRequestDistrict->FormattingEnabled = true;
+			this->cbRequestDistrict->Items->AddRange(gcnew cli::array< System::Object^  >(4) {
+				L"Lince", L"San Miguel", L"Miraflores",
+					L"Pueblo Libre"
+			});
+			this->cbRequestDistrict->Location = System::Drawing::Point(113, 165);
+			this->cbRequestDistrict->Name = L"cbRequestDistrict";
+			this->cbRequestDistrict->Size = System::Drawing::Size(196, 21);
+			this->cbRequestDistrict->TabIndex = 122;
+			// 
+			// label17
+			// 
+			this->label17->AutoSize = true;
+			this->label17->Location = System::Drawing::Point(12, 168);
+			this->label17->Name = L"label17";
+			this->label17->Size = System::Drawing::Size(42, 13);
+			this->label17->TabIndex = 121;
+			this->label17->Text = L"Distrito:";
+			// 
+			// btnCancelService
+			// 
+			this->btnCancelService->Location = System::Drawing::Point(234, 498);
+			this->btnCancelService->Name = L"btnCancelService";
+			this->btnCancelService->Size = System::Drawing::Size(75, 34);
+			this->btnCancelService->TabIndex = 125;
+			this->btnCancelService->Text = L"Cancelar Servicio";
+			this->btnCancelService->UseVisualStyleBackColor = true;
+			this->btnCancelService->Click += gcnew System::EventHandler(this, &ServiceDetailForm::btnCancelService_Click);
+			// 
+			// btnFinishService
+			// 
+			this->btnFinishService->Location = System::Drawing::Point(124, 498);
+			this->btnFinishService->Name = L"btnFinishService";
+			this->btnFinishService->Size = System::Drawing::Size(75, 34);
+			this->btnFinishService->TabIndex = 124;
+			this->btnFinishService->Text = L"Finalizar Servicio";
+			this->btnFinishService->UseVisualStyleBackColor = true;
+			this->btnFinishService->Click += gcnew System::EventHandler(this, &ServiceDetailForm::btnFinishService_Click);
+			// 
+			// btnStartService
+			// 
+			this->btnStartService->Location = System::Drawing::Point(15, 498);
+			this->btnStartService->Name = L"btnStartService";
+			this->btnStartService->Size = System::Drawing::Size(75, 34);
+			this->btnStartService->TabIndex = 123;
+			this->btnStartService->Text = L"Iniciar Servicio";
+			this->btnStartService->UseVisualStyleBackColor = true;
+			this->btnStartService->Click += gcnew System::EventHandler(this, &ServiceDetailForm::btnStartService_Click);
+			// 
+			// label18
+			// 
+			this->label18->AutoSize = true;
+			this->label18->Enabled = false;
+			this->label18->Location = System::Drawing::Point(12, 473);
+			this->label18->Name = L"label18";
+			this->label18->Size = System::Drawing::Size(301, 13);
+			this->label18->TabIndex = 126;
+			this->label18->Text = L"_________________________________________________";
+			// 
 			// ServiceDetailForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(328, 490);
+			this->ClientSize = System::Drawing::Size(328, 537);
+			this->Controls->Add(this->label18);
+			this->Controls->Add(this->btnCancelService);
+			this->Controls->Add(this->btnFinishService);
+			this->Controls->Add(this->btnStartService);
+			this->Controls->Add(this->cbRequestDistrict);
+			this->Controls->Add(this->label17);
 			this->Controls->Add(this->btnCancel);
 			this->Controls->Add(this->btnAdd);
-			this->Controls->Add(this->textBox5);
+			this->Controls->Add(this->txtRequestTotalAmount);
 			this->Controls->Add(this->label16);
-			this->Controls->Add(this->textBox4);
+			this->Controls->Add(this->txtRequestIGV);
 			this->Controls->Add(this->label15);
-			this->Controls->Add(this->textBox3);
+			this->Controls->Add(this->txtRequestSubTotal);
 			this->Controls->Add(this->label14);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->txtRequestCarer);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->textBox2);
+			this->Controls->Add(this->txtRequestCarerId);
 			this->Controls->Add(this->label13);
 			this->Controls->Add(this->txtRequestPetOwner);
 			this->Controls->Add(this->label5);
@@ -484,17 +563,224 @@ namespace ChitaView {
 			this->Controls->Add(this->label7);
 			this->Name = L"ServiceDetailForm";
 			this->Text = L"Detalle de Servicio";
+			this->Load += gcnew System::EventHandler(this, &ServiceDetailForm::ServiceDetailForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
 
+	public: 
+	void RefreshDetail() {
+		ServiceRequest^ sr = Controller::QueryServiceRequestByStatus("Seleccionado");
+		
+		txtRequestPetOwner->Text = sr->PetOwner;
+		txtRequestId->Text = "" + sr->Id;
+		dtpRequestDate->Text = sr->DateRequest->ToString();
+		cbRequestPetKind->Text = sr->Kind;
+		cbRequestPet->Text = sr->Pet;
+		cbRequestServices->Text = sr->Service;
+		cbRequestDistrict->Text = sr->District;
+		txtRequestAddressStart->Text = sr->AdressStart;
+		txtRequestAddressEnd->Text = sr->AdressEnd;
 
+		dtpServiceDate->Text = sr->DateService->ToString();
+		dtpServiceTimeStart->Text = sr->DateServiceInit->ToString();
+		dtpServiceTimeEnd->Text = sr->DateServiceEnd->ToString();
+		
+		txtRequestCarer->Text = sr->Carer;
+		txtRequestCarerId->Text = "" + sr->CarerId;
+
+		txtRequestSubTotal->Text = "" + sr->SubTotal;
+		txtRequestIGV->Text = "" + sr->IGV;
+		txtRequestTotalAmount->Text = "" + sr->TotalAmount ;
+		
+	}
+    void ViewDetail() {
+		ServiceRequest^ sr = Controller::QueryServiceRequestByStatus("Visto");
+		txtRequestPetOwner->Text = sr->PetOwner;
+		txtRequestId->Text = "" + sr->Id;
+		dtpRequestDate->Text = sr->DateRequest->ToString();
+		cbRequestPetKind->Text = sr->Kind;
+		cbRequestPet->Text = sr->Pet;
+		cbRequestServices->Text = sr->Service;
+		cbRequestDistrict->Text = sr->District;
+		txtRequestAddressStart->Text = sr->AdressStart;
+		txtRequestAddressEnd->Text = sr->AdressEnd;
+		
+		dtpServiceDate->Text = sr->DateService->ToString();
+		dtpServiceTimeStart->Text = sr->DateServiceInit->ToString();
+		dtpServiceTimeEnd->Text = sr->DateServiceEnd->ToString();
+
+		txtRequestCarer->Text = sr->Carer;
+		txtRequestCarerId->Text = "" + sr->CarerId;
+
+		txtRequestSubTotal->Text = "" + sr->SubTotal;
+		txtRequestIGV->Text = "" + sr->IGV;
+		txtRequestTotalAmount->Text = "" + sr->TotalAmount;
+
+	 }
+
+		Void ClearControls() {
+			
+			txtRequestPetOwner->Text = "";
+			txtRequestId->Text = "" ;
+			dtpRequestDate->Text = "";
+			cbRequestPetKind->Text = "";
+			cbRequestPet->Text = "";
+			cbRequestServices->Text = "";
+			cbRequestDistrict->Text = "";
+			txtRequestAddressStart->Text = "";
+			txtRequestAddressEnd->Text = "";
+
+			dtpServiceDate->Text = "";
+			dtpServiceTimeStart->Text = "";
+			dtpServiceTimeEnd->Text = "";
+		}
+
+private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+		ServiceRequest^ sr = gcnew ServiceRequest();
+		sr->PetOwner = txtRequestPetOwner->Text;
+		sr->Id = Int32::Parse(txtRequestId->Text);
+		sr->DateRequest = dtpRequestDate->Value.ToString("dd-MM-yyyy");
+		sr->Kind = cbRequestPetKind->Text;
+		sr->Pet = cbRequestPet->Text;				//Toma el Texto de txtName y lo carga en Name de p.
+		sr->Service = cbRequestServices->Text;
+		sr->District = cbRequestDistrict->Text;
+		sr->AdressStart = txtRequestAddressStart->Text;
+		sr->AdressEnd = txtRequestAddressEnd->Text;
+		sr->DateService = dtpRequestDate->Value.ToString("dd-MM-yyyy");
+		sr->DateServiceInit = dtpServiceTimeStart->Value.ToString("HH:mm");
+		sr->DateServiceEnd = dtpServiceTimeEnd->Value.ToString("HH:mm");
+
+		sr->Carer = txtRequestCarer->Text;
+		sr->CarerId = Int32::Parse(txtRequestCarerId->Text);
+		sr->SubTotal = Int32::Parse(txtRequestSubTotal->Text);
+		sr->IGV = Int32::Parse(txtRequestIGV->Text);
+		sr->TotalAmount = Int32::Parse(txtRequestTotalAmount->Text);
+		sr->Status = "Aceptado";
+
+		Controller::UpdateServiceRequest(sr);	//Invocamos al controller y agregamos el objeto p.
+		this->Close();
 	}
 private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
-	Application::Exit();
+	ServiceRequest^ sr = gcnew ServiceRequest();
+	
+	sr->PetOwner = txtRequestPetOwner->Text;
+	sr->Id = Int32::Parse(txtRequestId->Text);
+	sr->DateRequest = dtpRequestDate->Value.ToString("dd-MM-yyyy");
+	sr->Kind = cbRequestPetKind->Text;
+	sr->Pet = cbRequestPet->Text;				//Toma el Texto de txtName y lo carga en Name de p.
+	sr->Service = cbRequestServices->Text;
+	sr->District = cbRequestDistrict->Text;
+	sr->AdressStart = txtRequestAddressStart->Text;
+	sr->AdressEnd = txtRequestAddressEnd->Text;
+	sr->DateService = dtpRequestDate->Value.ToString("dd-MM-yyyy");
+	sr->DateServiceInit = dtpServiceTimeStart->Value.ToString("HH:mm");
+	sr->DateServiceEnd = dtpServiceTimeEnd->Value.ToString("HH:mm");
+
+	sr->Carer = txtRequestCarer->Text;
+	sr->CarerId = Int32::Parse(txtRequestCarerId->Text);
+	sr->SubTotal = Int32::Parse(txtRequestSubTotal->Text);
+	sr->IGV = Int32::Parse(txtRequestIGV->Text);
+	sr->TotalAmount = Int32::Parse(txtRequestTotalAmount->Text);
+	
+	sr->Status = "Espera";
+	Controller::UpdateServiceRequest(sr);
+	
+	this->Close();
+}
+private: System::Void ServiceDetailForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	//RefreshDetail();
+}
+private: System::Void btnStartService_Click(System::Object^ sender, System::EventArgs^ e) {
+	ServiceRequest^ sr = gcnew ServiceRequest();
+
+	sr->PetOwner = txtRequestPetOwner->Text;
+	sr->Id = Int32::Parse(txtRequestId->Text);
+	sr->DateRequest = dtpRequestDate->Value.ToString("dd-MM-yyyy");
+	sr->Kind = cbRequestPetKind->Text;
+	sr->Pet = cbRequestPet->Text;				//Toma el Texto de txtName y lo carga en Name de p.
+	sr->Service = cbRequestServices->Text;
+	sr->District = cbRequestDistrict->Text;
+	sr->AdressStart = txtRequestAddressStart->Text;
+	sr->AdressEnd = txtRequestAddressEnd->Text;
+	sr->DateService = dtpRequestDate->Value.ToString("dd-MM-yyyy");
+	sr->DateServiceInit = dtpServiceTimeStart->Value.ToString("HH:mm");
+	sr->DateServiceEnd = dtpServiceTimeEnd->Value.ToString("HH:mm");
+
+	sr->Carer = txtRequestCarer->Text;
+	sr->CarerId = Int32::Parse(txtRequestCarerId->Text);
+	sr->SubTotal = Int32::Parse(txtRequestSubTotal->Text);
+	sr->IGV = Int32::Parse(txtRequestIGV->Text);
+	sr->TotalAmount = Int32::Parse(txtRequestTotalAmount->Text);
+
+	sr->Status = "Iniciado";
+	Controller::UpdateServiceRequest(sr);
+
+	this->Close();
+
+}
+private: System::Void btnFinishService_Click(System::Object^ sender, System::EventArgs^ e) {
+	/*NOTA:COMENTADO HASTA SOLUCIONAR REFRESHDETAIL
+	ServiceRequest^ sr = gcnew ServiceRequest();
+
+	sr->PetOwner = txtRequestPetOwner->Text;
+	sr->Id = Int32::Parse(txtRequestId->Text);
+	sr->DateRequest = dtpRequestDate->Value.ToString("dd-MM-yyyy");
+	sr->Kind = cbRequestPetKind->Text;
+	sr->Pet = cbRequestPet->Text;				//Toma el Texto de txtName y lo carga en Name de p.
+	sr->Service = cbRequestServices->Text;
+	sr->District = cbRequestDistrict->Text;
+	sr->AdressStart = txtRequestAddressStart->Text;
+	sr->AdressEnd = txtRequestAddressEnd->Text;
+	sr->DateService = dtpRequestDate->Value.ToString("dd-MM-yyyy");
+	sr->DateServiceInit = dtpServiceTimeStart->Value.ToString("HH:mm");
+	sr->DateServiceEnd = dtpServiceTimeEnd->Value.ToString("HH:mm");
+
+	sr->Carer = txtRequestCarer->Text;
+	sr->CarerId = Int32::Parse(txtRequestCarerId->Text);
+	sr->SubTotal = Int32::Parse(txtRequestSubTotal->Text);
+	sr->IGV = Int32::Parse(txtRequestIGV->Text);
+	sr->TotalAmount = Int32::Parse(txtRequestTotalAmount->Text);
+
+	sr->Status = "Terminado";
+	Controller::UpdateServiceRequest(sr);*/
+
+	RankingForm^ rankingForm = gcnew RankingForm();
+	rankingForm->ShowDialog();
+
+	this->Close();
+
+}
+private: System::Void btnCancelService_Click(System::Object^ sender, System::EventArgs^ e) {
+	ServiceRequest^ sr = gcnew ServiceRequest();
+
+	sr->PetOwner = txtRequestPetOwner->Text;
+	sr->Id = Int32::Parse(txtRequestId->Text);
+	sr->DateRequest = dtpRequestDate->Value.ToString("dd-MM-yyyy");
+	sr->Kind = cbRequestPetKind->Text;
+	sr->Pet = cbRequestPet->Text;				//Toma el Texto de txtName y lo carga en Name de p.
+	sr->Service = cbRequestServices->Text;
+	sr->District = cbRequestDistrict->Text;
+	sr->AdressStart = txtRequestAddressStart->Text;
+	sr->AdressEnd = txtRequestAddressEnd->Text;
+	sr->DateService = dtpRequestDate->Value.ToString("dd-MM-yyyy");
+	sr->DateServiceInit = dtpServiceTimeStart->Value.ToString("HH:mm");
+	sr->DateServiceEnd = dtpServiceTimeEnd->Value.ToString("HH:mm");
+
+	sr->Carer = txtRequestCarer->Text;
+	sr->CarerId = Int32::Parse(txtRequestCarerId->Text);
+	sr->SubTotal = Int32::Parse(txtRequestSubTotal->Text);
+	sr->IGV = Int32::Parse(txtRequestIGV->Text);
+	sr->TotalAmount = Int32::Parse(txtRequestTotalAmount->Text);
+
+	sr->Status = "Cancelado";
+	Controller::UpdateServiceRequest(sr);
+
+	this->Close();
+
 }
 };
 }

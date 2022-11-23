@@ -42,36 +42,15 @@ namespace ChitaView {
 		}
 
 	protected:
-
-
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::ComboBox^ cbSearcherService;
-
 	private: System::Windows::Forms::Button^ btnSearch;
-
-
-
-
-
-
-
-
-
-
 	private: System::Windows::Forms::DateTimePicker^ dtpSearcherTimeEnd;
 
 	private: System::Windows::Forms::DateTimePicker^ dtpSearcherTimeStart;
 
 	private: System::Windows::Forms::DateTimePicker^ dtpSearcherDate;
 	private: System::Windows::Forms::DataGridView^ dgvSearcherList;
-
-
-
-
-
-
-
-
 	private: System::Windows::Forms::Label^ label10;
 	private: System::Windows::Forms::Label^ label9;
 	private: System::Windows::Forms::Label^ label8;
@@ -95,41 +74,6 @@ namespace ChitaView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvServiceTimeEnd;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvRequestStatus;
 	private: System::Windows::Forms::Button^ btnCancel;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	private:
 		/// <summary>
 		/// Variable del diseñador necesaria.
@@ -424,12 +368,39 @@ namespace ChitaView {
 			this->Controls->Add(this->label7);
 			this->Name = L"RequestSearcherForm";
 			this->Text = L"Buscador de Solicitudes";
+			this->Load += gcnew System::EventHandler(this, &RequestSearcherForm::RequestSearcherForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvSearcherList))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
+	public:
+			void RefreshGrid() {
+				List<ServiceRequest^>^ servicerequestList = Controller::QueryAllServiceRequest();
+				dgvSearcherList->Rows->Clear();
+
+				for (int i = 0; i < servicerequestList->Count; i++) {
+					dgvSearcherList->Rows->Add(gcnew array<String^>{
+							  
+						"" + servicerequestList[i] -> Id,
+							  servicerequestList[i]->PetOwner,
+							  servicerequestList[i]->Kind,
+							  servicerequestList[i]->Pet,
+							  servicerequestList[i]->Service,
+							  servicerequestList[i]->District,
+						"" + servicerequestList[i]->DateRequest,
+			Convert::ToString(servicerequestList[i]->DateService),
+			Convert::ToString(servicerequestList[i]->DateServiceInit),
+						"" + servicerequestList[i]->DateServiceEnd,
+							  servicerequestList[i] -> Status,
+
+					});
+				
+				}
+			}
+
+
 	private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (cbSearcherPetKind->Text->Trim() != "") {
 			//Busqueda de solicitud por el tipo de mascota
@@ -439,7 +410,7 @@ namespace ChitaView {
 
 			for (int i = 0; i < requestList->Count; i++) {
 				dgvSearcherList->Rows->Add(gcnew array<String^>{
-					" " + requestList[i]->Id,
+					"" + requestList[i]->Id,
 						requestList[i]->PetOwner,
 						requestList[i]->Kind,
 						requestList[i]->Pet,
@@ -460,7 +431,7 @@ namespace ChitaView {
 
 			for (int i = 0; i < requestList->Count; i++) {
 				dgvSearcherList->Rows->Add(gcnew array<String^>{
-					" " + requestList[i]->Id,
+					"" + requestList[i]->Id,
 						requestList[i]->PetOwner,
 						requestList[i]->Kind,
 						requestList[i]->Pet,
@@ -481,7 +452,7 @@ namespace ChitaView {
 
 			for (int i = 0; i < requestList->Count; i++) {
 				dgvSearcherList->Rows->Add(gcnew array<String^>{
-					" " + requestList[i]->Id,
+					"" + requestList[i]->Id,
 						requestList[i]->PetOwner,
 						requestList[i]->Kind,
 						requestList[i]->Pet,
@@ -502,7 +473,7 @@ namespace ChitaView {
 
 			for (int i = 0; i < requestList->Count; i++) {
 				dgvSearcherList->Rows->Add(gcnew array<String^>{
-					" " + requestList[i]->Id,
+					"" + requestList[i]->Id,
 						requestList[i]->PetOwner,
 						requestList[i]->Kind,
 						requestList[i]->Pet,
@@ -525,7 +496,7 @@ namespace ChitaView {
 
 			for (int i = 0; i < requestList->Count; i++) {
 				dgvSearcherList->Rows->Add(gcnew array<String^>{
-					" " + requestList[i]->Id,
+					"" + requestList[i]->Id,
 						requestList[i]->PetOwner,
 						requestList[i]->Kind,
 						requestList[i]->Pet,
@@ -551,12 +522,11 @@ private: System::Void dgvSearcherList_CellClick(System::Object^ sender,
 	System::Windows::Forms::DataGridViewCellEventArgs^ e);
 	
 
-private: System::Void btnShow_Click(System::Object^ sender, System::EventArgs^ e) {
-	ServiceDetailForm^ serviceDetailForm = gcnew ServiceDetailForm();		//Crear form.
-	serviceDetailForm->ShowDialog();
-}
 private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
-	Application::Exit();
+	this->Close();
+}
+private: System::Void RequestSearcherForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	RefreshGrid();
 }
 };
 }

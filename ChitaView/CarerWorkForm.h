@@ -19,7 +19,7 @@ namespace ChitaView {
 	/// </summary>
 	public ref class CarerWorkForm : public System::Windows::Forms::Form
 	{
-		
+
 	public:
 		CarerWorkForm(void)
 		{
@@ -27,7 +27,7 @@ namespace ChitaView {
 			//
 			//TODO: agregar código de constructor aquí
 			//
-			
+
 		}
 
 	protected:
@@ -41,7 +41,7 @@ namespace ChitaView {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Button^ btnShow;
+
 	protected:
 	private: System::Windows::Forms::Button^ btnSearch;
 	private: System::Windows::Forms::DataGridView^ dgvCarerForm;
@@ -49,16 +49,6 @@ namespace ChitaView {
 
 
 
-
-
-
-
-
-
-
-	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvRequestId;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvRequestPetOwner;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvRequestPetKind;
@@ -75,7 +65,7 @@ namespace ChitaView {
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -84,12 +74,8 @@ namespace ChitaView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->btnShow = (gcnew System::Windows::Forms::Button());
 			this->btnSearch = (gcnew System::Windows::Forms::Button());
 			this->dgvCarerForm = (gcnew System::Windows::Forms::DataGridView());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->dgvRequestId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dgvRequestPetOwner = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dgvRequestPetKind = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -104,18 +90,9 @@ namespace ChitaView {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvCarerForm))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// btnShow
-			// 
-			this->btnShow->Location = System::Drawing::Point(12, 171);
-			this->btnShow->Name = L"btnShow";
-			this->btnShow->Size = System::Drawing::Size(75, 23);
-			this->btnShow->TabIndex = 91;
-			this->btnShow->Text = L"Ver";
-			this->btnShow->UseVisualStyleBackColor = true;
-			// 
 			// btnSearch
 			// 
-			this->btnSearch->Location = System::Drawing::Point(12, 142);
+			this->btnSearch->Location = System::Drawing::Point(12, 217);
 			this->btnSearch->Name = L"btnSearch";
 			this->btnSearch->Size = System::Drawing::Size(75, 23);
 			this->btnSearch->TabIndex = 90;
@@ -135,33 +112,7 @@ namespace ChitaView {
 			this->dgvCarerForm->Name = L"dgvCarerForm";
 			this->dgvCarerForm->Size = System::Drawing::Size(883, 421);
 			this->dgvCarerForm->TabIndex = 86;
-			// 
-			// button1
-			// 
-			this->button1->Location = System::Drawing::Point(12, 240);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 34);
-			this->button1->TabIndex = 100;
-			this->button1->Text = L"Servicio Finalizado";
-			this->button1->UseVisualStyleBackColor = true;
-			// 
-			// button2
-			// 
-			this->button2->Location = System::Drawing::Point(12, 200);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(75, 34);
-			this->button2->TabIndex = 99;
-			this->button2->Text = L"Servicio Iniciado";
-			this->button2->UseVisualStyleBackColor = true;
-			// 
-			// button3
-			// 
-			this->button3->Location = System::Drawing::Point(12, 280);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(75, 23);
-			this->button3->TabIndex = 101;
-			this->button3->Text = L"Cancelar";
-			this->button3->UseVisualStyleBackColor = true;
+			this->dgvCarerForm->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &CarerWorkForm::dgvCarerForm_CellClick);
 			// 
 			// dgvRequestId
 			// 
@@ -230,26 +181,48 @@ namespace ChitaView {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1000, 443);
-			this->Controls->Add(this->button3);
-			this->Controls->Add(this->button1);
-			this->Controls->Add(this->button2);
-			this->Controls->Add(this->btnShow);
 			this->Controls->Add(this->btnSearch);
 			this->Controls->Add(this->dgvCarerForm);
 			this->Name = L"CarerWorkForm";
 			this->Text = L"Cuidados Pendientes";
+			this->Load += gcnew System::EventHandler(this, &CarerWorkForm::CarerWorkForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvCarerForm))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
+
+		void RefreshGrid() {
+			List<ServiceRequest^>^ servicerequestList = Controller::QueryAllServiceRequest();
+
+			dgvCarerForm->Rows->Clear();
+
+			for (int i = 0; i < servicerequestList->Count; i++) {
+				if (servicerequestList[i]->Status == "Aceptado") {
+					dgvCarerForm->Rows->Add(gcnew array<String^>{
+						"" + servicerequestList[i]->Id,
+							servicerequestList[i]->PetOwner,
+							servicerequestList[i]->Kind,
+							servicerequestList[i]->Pet,
+							servicerequestList[i]->Service,
+							servicerequestList[i]->District,
+							"" + servicerequestList[i]->DateRequest,
+							Convert::ToString(servicerequestList[i]->DateService),
+							Convert::ToString(servicerequestList[i]->DateServiceInit),
+							"" + servicerequestList[i]->DateServiceEnd,
+							servicerequestList[i]->Status,
+					});
+				}
+
+			}
+		}
 	private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^ e) {
 		RequestSearcherForm^ requestSearcherForm = gcnew RequestSearcherForm(this);		//Crear form.
 		requestSearcherForm->ShowDialog();
 	}
 	public: void AddRequestToCarerWork(ServiceRequest^ sr) {
 		dgvCarerForm->Rows->Add(gcnew array<String^>{
-				Convert::ToString(sr->Id),
+			Convert::ToString(sr->Id),
 				sr->PetOwner,
 				sr->Kind,
 				sr->Pet,
@@ -260,7 +233,50 @@ namespace ChitaView {
 				Convert::ToString(sr->DateServiceInit),
 				Convert::ToString(sr->DateServiceEnd),
 				sr->Status
-				});
+		});
+	}
+	private: System::Void CarerWorkForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		RefreshGrid();
+	}
+
+	/*NOTA: ESTE EVENTO ES POR CLICK EN EL CONTENIDO DEL DVG
+	private: System::Void dgvCarerForm_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	
+	}*/
+	private: System::Void dgvCarerForm_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		/*NOTA: DESARROLLO PARA PODER VER EL DETAIL DESDE CARERWORKFORM*/
+		if (e->RowIndex < 0) return;
+		if (e->RowIndex >= 0) {
+
+			String^ requestId = dgvCarerForm->Rows[e->RowIndex]->Cells[0]->Value->ToString();
+			ServiceRequest^ sr = Controller::QueryServiceRequestById(Int32::Parse(requestId));
+
+			ServiceRequest^ srn = gcnew ServiceRequest();
+			srn->PetOwner = sr->PetOwner;
+			srn->Id = sr->Id;
+			srn->DateRequest = sr->DateRequest;
+			srn->Kind = sr->Kind;
+			srn->Pet = sr->Pet;
+			srn->Service = sr->Service;
+			srn->District = sr->District;
+			srn->AdressStart = sr->AdressStart;
+			srn->AdressEnd = sr->AdressEnd;
+			srn->DateService = sr->DateService;
+			srn->DateServiceInit = sr->DateServiceInit;
+			srn->DateServiceEnd = sr->DateServiceEnd;
+
+			srn->Carer = sr->Carer;
+			srn->CarerId = sr->CarerId;
+			srn->SubTotal = sr->SubTotal;
+			srn->IGV = sr->IGV;
+			srn->TotalAmount = sr->TotalAmount;
+			//srn->Status = "Visto";
+			srn->Status = "Seleccionado";
+			Controller::UpdateServiceRequest(srn);
+
+			ServiceDetailForm^ serviceDetailForm = gcnew ServiceDetailForm(this);
+			serviceDetailForm->ShowDialog();
+		}
 	}
 };
 }

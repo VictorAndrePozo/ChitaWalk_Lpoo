@@ -23,8 +23,13 @@ namespace ChitaModel {
 		property String^ AdressStart;
 		property String^ AdressEnd;
 		//property PetOwner^ objPetOwner;
-		property Carer^ objCarer;
+		//property Carer^ objCarer;
 		
+		property String^ Carer;
+		property int CarerId;
+		property double SubTotal;
+		property double IGV;
+		property double TotalAmount;
 
 		property String^ Status;
 
@@ -33,7 +38,8 @@ namespace ChitaModel {
 	public:
 		ServiceRequest();
 		ServiceRequest(int Id, String^ Kind, String^ Pet, String^ Service, String^ District, String^ DateRequest, String^ DateService,
-			String^ DateServiceInit, String^ DateServiceEnd,  String^ PetOwner, String^ AdressStart, String^ AdressEnd, Carer^ objCarer,	 String^ Status,
-		    ServiceDetail^ objServiceDetail, List<ServiceDetail^ >^ objServiceDetailList);
+			String^ DateServiceInit, String^ DateServiceEnd,  String^ PetOwner, String^ AdressStart, String^ AdressEnd, String^ Status,
+		    ServiceDetail^ objServiceDetail, List<ServiceDetail^ >^ objServiceDetailList, double SubTotal, double IGV, double TotalAmount, String^ Carer,
+		    int CarerId);
 	};
 }

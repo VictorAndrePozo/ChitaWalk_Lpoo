@@ -418,6 +418,9 @@ ServiceRequest^ ChitaController::Controller::QueryServiceRequestById(int service
 	return nullptr; //Si no encuentra una coincidenica, no debuelve algo.
 }
 
+//---------------------------------------------------------------------------------------------------------------------
+// PARA TRANSACCION DE SERVICES REQUEST
+//---------------------------------------------------------------------------------------------------------------------
 
 List<ServiceRequest^>^ ChitaController::Controller::QueryAllServiceRequest()
 {
@@ -515,6 +518,79 @@ void ChitaController::Controller::LoadServiceRequestData() {
 	servicerequestList = (List<ServiceRequest^>^)bFormatter->Deserialize(sr);
 
 	sr->Close();
+}
+
+int ChitaController::Controller::CreateTempServiceRequest(ServiceRequest^ servicerequest)
+{
+	servicerequestList->Add(servicerequest);  //agregar a la petList, el pet que entra al método
+	PersistUnicTempServiceRequest();
+	return 0;
+}
+
+int ChitaController::Controller::UpdateTempServiceRequest(ServiceRequest^ servicerequest)
+{
+	for (int i = 0; i < servicerequestList->Count; i++) { // de 0 a ++ mientras i sea menor al total de listas(count)
+		if (servicerequest->Id == servicerequestList[i]->Id) {    //Si atributo Id de Pet es igual al atributo Id de petList entonces...
+			servicerequestList[i] = servicerequest;   //Flag Done 
+			PersistUnicTempServiceRequest();
+			return 1;
+		}
+	}
+	return 0;
+}
+
+int ChitaController::Controller::DeleteTempServiceRequest(int servicerequestId)
+{
+	for (int i = 0; i < servicerequestList->Count; i++) { // de 0 a ++ mientras i sea menor al total de listas(count)
+		if (servicerequestId == servicerequestList[i]->Id) {    //Si petId entrante es igual al atributo Id de petList entonces...
+			servicerequestList->RemoveAt(i);       //Borrar toda la celda perteneciente a dicho i (Id)
+			PersistUnicTempServiceRequest();
+			return 1;   //Flag Done
+		}
+	}
+	return 0;
+}
+
+void ChitaController::Controller::PersistUnicTempServiceRequest()
+{
+	Stream^ stream = File::Open("ServiceRequestTemp.bin", FileMode::Create);
+	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
+	bFormatter->Serialize(stream, servicerequestList);
+	stream->Close();
+}
+
+Void ChitaController::Controller::LoadUnicTempServiceRequestData()
+{
+	servicerequestList = gcnew List<ServiceRequest^>();
+	//Lectura desde un archivo binario
+	Stream^ sr = File::Open("ServiceRequestTemp.bin", FileMode::Open);
+	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
+	servicerequestList = (List<ServiceRequest^>^)bFormatter->Deserialize(sr);
+
+	sr->Close();
+}
+
+ServiceRequest^ ChitaController::Controller::QueryServiceRequestByStatus(String^ servicerequestStatus)
+{
+	for (int i = 0; i < servicerequestList->Count; i++) { //Barrido de todos los elementos de la lista
+		if (servicerequestStatus == servicerequestList[i]->Status) {    //Si petId es igual al atributo Id de petList entonces...
+			return servicerequestList[i];      //Retornamos la lista si encuentra una coincidencia
+		}
+	}
+	return nullptr; //Si no encuentra una coincidenica, no debuelve algo.
+}
+
+List<ServiceRequest^>^ ChitaController::Controller::QueryTempServiceRequest()
+{
+	LoadUnicTempServiceRequestData();
+
+	List<ServiceRequest^>^ activeServiceRequestList = gcnew List<ServiceRequest^>(); //Reserva espacio de memoria para la lista
+	for (int i = 0; i < servicerequestList->Count; i++) {  //Barrido de todos los elementos de la lista
+		if (servicerequestList[i]->Id>0) {
+			activeServiceRequestList->Add(servicerequestList[i]);
+		}
+	}
+	return activeServiceRequestList;
 }
 
 int ChitaController::Controller::AddPromotions(Promotions^ Promotions)

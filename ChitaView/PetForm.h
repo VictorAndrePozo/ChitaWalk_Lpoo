@@ -47,17 +47,6 @@ namespace ChitaView {
 
 	private: System::Windows::Forms::Label^ label6;
 
-
-
-
-
-
-
-
-
-
-
-
 	private: System::Windows::Forms::Button^ btnAdd;
 	private: System::Windows::Forms::Button^ btnUpdate;
 
@@ -65,21 +54,8 @@ namespace ChitaView {
 	private: System::Windows::Forms::TextBox^ txtPetName;
 	private: System::Windows::Forms::TextBox^ txtPetAge;
 
-
-
-
-
-
-
-
 	private: System::Windows::Forms::ComboBox^ cbPetKind;
 	private: System::Windows::Forms::ComboBox^ cbPetVaccines;
-
-
-
-
-
-
 
 	private: System::Windows::Forms::ComboBox^ cbPetConduct;
 
@@ -87,8 +63,6 @@ namespace ChitaView {
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::PictureBox^ pbPetPhoto;
 	private: System::Windows::Forms::DataGridView^ dgvPetList;
-
-
 
 	private: System::Windows::Forms::TextBox^ txtPetId;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvPetId;
@@ -100,28 +74,6 @@ namespace ChitaView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvPetVaccines;
 	private: System::Windows::Forms::Button^ btnAddPetPhoto;
 	private: System::Windows::Forms::ComboBox^ cbPetSpecies;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	private:
 		/// <summary>

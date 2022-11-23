@@ -98,13 +98,13 @@ namespace ChitaController {
 		static List <ServiceRequest^>^ servicerequestList = gcnew List<ServiceRequest^>();	//como atributo para que viva mientras controller esté activo. static: Lista unica y global.
 
 	public: //static es para que los metodos sean globales.
-		static int AddServiceRequest(ServiceRequest^ servicerequest);				//Método para añadir mascotas.
-		static int UpdateServiceRequest(ServiceRequest^ servicerequest);				//Método para actualizar datos de las mascotas.
-		static int DeleteServiceRequest(int servicerequestId);		//Método para eliminar una mascota del registro.
+		static int AddServiceRequest(ServiceRequest^ servicerequest);				
+		static int UpdateServiceRequest(ServiceRequest^ servicerequest);				
+		static int DeleteServiceRequest(int servicerequestId);		//Método para eliminar 
 
-		static ServiceRequest^ QueryServiceRequestById(int servicerequestId);		//Método para mostrar una mascota por ID.
+		static ServiceRequest^ QueryServiceRequestById(int servicerequestId);		//Método para mostrar  por ID.
 		
-		static List <ServiceRequest^>^ QueryAllServiceRequest();			//Método para mostrar a todas las mascotas en una lista.
+		static List <ServiceRequest^>^ QueryAllServiceRequest();			//Método para mostrar a todas en una lista.
 		static List <ServiceRequest^>^ QueryServiceRequestByPetKind(String^);
 		static List <ServiceRequest^>^ QueryServiceRequestByPet(String^);
 		static List <ServiceRequest^>^ QueryServiceRequestByService(String^);
@@ -116,6 +116,17 @@ namespace ChitaController {
 
 		static Void LoadServiceRequestData();
 
+		//---------------------------------------------------------------------------------------------------------------------
+		// PARA TRANSACCIÓN INTERFORM DE SERVICE REQUEST
+		//---------------------------------------------------------------------------------------------------------------------
+
+		static int CreateTempServiceRequest(ServiceRequest^ servicerequest);				
+		static int UpdateTempServiceRequest(ServiceRequest^ servicerequest);
+		static int DeleteTempServiceRequest(int servicerequestId);
+			static void PersistUnicTempServiceRequest();
+		static List <ServiceRequest^>^ QueryTempServiceRequest();
+			static Void LoadUnicTempServiceRequestData();
+		static ServiceRequest^ QueryServiceRequestByStatus(String^ servicerequestStatus);
 			//---------------------------------------------------------------------------------------------------------------------
 			// PARA MANTENIMIENTO DE PROMOTIONS
 			//---------------------------------------------------------------------------------------------------------------------
