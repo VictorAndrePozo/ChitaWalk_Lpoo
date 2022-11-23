@@ -39,30 +39,30 @@ namespace ChitaView {
 		}
 	private: System::Windows::Forms::DateTimePicker^ dtpDeadline;
 	protected:
-	private: System::Windows::Forms::Label^ label6;
+
 	private: System::Windows::Forms::Label^ label7;
-	private: System::Windows::Forms::TextBox^ txtStatus;
+
 	private: System::Windows::Forms::Button^ btnPhoto;
 	private: System::Windows::Forms::DataGridView^ dgvPromotion;
 
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ promotionmaintenanceId;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ promotionmaintenanceCode;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ promotionmaintenanceName;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ promotionmaintenanceDescription;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ promotionmaintenanceStock;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ promotionmaintenanceDeadline;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ promotionmaintenanceStatus;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ promotionmaintenancePrice;
+
+
+
+
+
+
+
+
 	private: System::Windows::Forms::Button^ btnDelete;
 	private: System::Windows::Forms::Button^ btnUpdate;
 	private: System::Windows::Forms::Button^ btnAdd;
 	private: System::Windows::Forms::PictureBox^ pbPhoto;
 	private: System::Windows::Forms::Label^ label5;
-	private: System::Windows::Forms::Label^ label4;
+
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::TextBox^ txtStock;
-	private: System::Windows::Forms::TextBox^ txtPrice;
+
 	private: System::Windows::Forms::TextBox^ txtDescription;
 	private: System::Windows::Forms::TextBox^ txtName;
 	private: System::Windows::Forms::TextBox^ txtId;
@@ -72,6 +72,34 @@ namespace ChitaView {
 	private: System::Windows::Forms::ToolStripMenuItem^ nuevaPromocionToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ modificarPromocionToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
+	private: System::Windows::Forms::TextBox^ txtPromotionValue;
+
+
+	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::Label^ label9;
+	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::Label^ label10;
+
+
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ promotionmaintenanceId;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ promotionmaintenanceName;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ promotionmaintenanceDescription;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ promotionmaintenancePromotionType;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ promotionmaintenancePromotionValue;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ promotionmaintenanceStock;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ promotionmaintenanceDeadline;
+
+	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::ComboBox^ cbPromotionType;
+
+
+
+
+
+
+
+
+
 
 	private:
 		/// <summary>
@@ -87,29 +115,24 @@ namespace ChitaView {
 		void InitializeComponent(void)
 		{
 			this->dtpDeadline = (gcnew System::Windows::Forms::DateTimePicker());
-			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->txtStatus = (gcnew System::Windows::Forms::TextBox());
 			this->btnPhoto = (gcnew System::Windows::Forms::Button());
 			this->dgvPromotion = (gcnew System::Windows::Forms::DataGridView());
 			this->promotionmaintenanceId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->promotionmaintenanceCode = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->promotionmaintenanceName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->promotionmaintenanceDescription = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->promotionmaintenancePromotionType = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->promotionmaintenancePromotionValue = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->promotionmaintenanceStock = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->promotionmaintenanceDeadline = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->promotionmaintenanceStatus = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->promotionmaintenancePrice = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->btnDelete = (gcnew System::Windows::Forms::Button());
 			this->btnUpdate = (gcnew System::Windows::Forms::Button());
 			this->btnAdd = (gcnew System::Windows::Forms::Button());
 			this->pbPhoto = (gcnew System::Windows::Forms::PictureBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->txtStock = (gcnew System::Windows::Forms::TextBox());
-			this->txtPrice = (gcnew System::Windows::Forms::TextBox());
 			this->txtDescription = (gcnew System::Windows::Forms::TextBox());
 			this->txtName = (gcnew System::Windows::Forms::TextBox());
 			this->txtId = (gcnew System::Windows::Forms::TextBox());
@@ -119,6 +142,13 @@ namespace ChitaView {
 			this->nuevaPromocionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->modificarPromocionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->salirToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->txtPromotionValue = (gcnew System::Windows::Forms::TextBox());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->cbPromotionType = (gcnew System::Windows::Forms::ComboBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPromotion))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->BeginInit();
 			this->menuStrip1->SuspendLayout();
@@ -131,16 +161,6 @@ namespace ChitaView {
 			this->dtpDeadline->Size = System::Drawing::Size(393, 22);
 			this->dtpDeadline->TabIndex = 59;
 			// 
-			// label6
-			// 
-			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(449, 221);
-			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(50, 16);
-			this->label6->TabIndex = 58;
-			this->label6->Text = L"Estado";
-			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
@@ -151,17 +171,9 @@ namespace ChitaView {
 			this->label7->TabIndex = 57;
 			this->label7->Text = L"Deadline";
 			// 
-			// txtStatus
-			// 
-			this->txtStatus->Location = System::Drawing::Point(505, 217);
-			this->txtStatus->Margin = System::Windows::Forms::Padding(4);
-			this->txtStatus->Name = L"txtStatus";
-			this->txtStatus->Size = System::Drawing::Size(37, 22);
-			this->txtStatus->TabIndex = 56;
-			// 
 			// btnPhoto
 			// 
-			this->btnPhoto->Location = System::Drawing::Point(591, 226);
+			this->btnPhoto->Location = System::Drawing::Point(591, 239);
 			this->btnPhoto->Margin = System::Windows::Forms::Padding(4);
 			this->btnPhoto->Name = L"btnPhoto";
 			this->btnPhoto->Size = System::Drawing::Size(180, 41);
@@ -173,12 +185,12 @@ namespace ChitaView {
 			// dgvPromotion
 			// 
 			this->dgvPromotion->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvPromotion->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
+			this->dgvPromotion->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(7) {
 				this->promotionmaintenanceId,
-					this->promotionmaintenanceCode, this->promotionmaintenanceName, this->promotionmaintenanceDescription, this->promotionmaintenanceStock,
-					this->promotionmaintenanceDeadline, this->promotionmaintenanceStatus, this->promotionmaintenancePrice
+					this->promotionmaintenanceName, this->promotionmaintenanceDescription, this->promotionmaintenancePromotionType, this->promotionmaintenancePromotionValue,
+					this->promotionmaintenanceStock, this->promotionmaintenanceDeadline
 			});
-			this->dgvPromotion->Location = System::Drawing::Point(22, 341);
+			this->dgvPromotion->Location = System::Drawing::Point(22, 374);
 			this->dgvPromotion->Margin = System::Windows::Forms::Padding(4);
 			this->dgvPromotion->Name = L"dgvPromotion";
 			this->dgvPromotion->RowHeadersWidth = 51;
@@ -191,13 +203,6 @@ namespace ChitaView {
 			this->promotionmaintenanceId->MinimumWidth = 6;
 			this->promotionmaintenanceId->Name = L"promotionmaintenanceId";
 			this->promotionmaintenanceId->Width = 50;
-			// 
-			// promotionmaintenanceCode
-			// 
-			this->promotionmaintenanceCode->HeaderText = L"Codigo";
-			this->promotionmaintenanceCode->MinimumWidth = 6;
-			this->promotionmaintenanceCode->Name = L"promotionmaintenanceCode";
-			this->promotionmaintenanceCode->Width = 80;
 			// 
 			// promotionmaintenanceName
 			// 
@@ -213,6 +218,20 @@ namespace ChitaView {
 			this->promotionmaintenanceDescription->Name = L"promotionmaintenanceDescription";
 			this->promotionmaintenanceDescription->Width = 250;
 			// 
+			// promotionmaintenancePromotionType
+			// 
+			this->promotionmaintenancePromotionType->HeaderText = L"Tipo";
+			this->promotionmaintenancePromotionType->MinimumWidth = 6;
+			this->promotionmaintenancePromotionType->Name = L"promotionmaintenancePromotionType";
+			this->promotionmaintenancePromotionType->Width = 80;
+			// 
+			// promotionmaintenancePromotionValue
+			// 
+			this->promotionmaintenancePromotionValue->HeaderText = L"Valor";
+			this->promotionmaintenancePromotionValue->MinimumWidth = 6;
+			this->promotionmaintenancePromotionValue->Name = L"promotionmaintenancePromotionValue";
+			this->promotionmaintenancePromotionValue->Width = 70;
+			// 
 			// promotionmaintenanceStock
 			// 
 			this->promotionmaintenanceStock->HeaderText = L"Stock";
@@ -227,24 +246,9 @@ namespace ChitaView {
 			this->promotionmaintenanceDeadline->Name = L"promotionmaintenanceDeadline";
 			this->promotionmaintenanceDeadline->Width = 150;
 			// 
-			// promotionmaintenanceStatus
-			// 
-			this->promotionmaintenanceStatus->HeaderText = L"Estado";
-			this->promotionmaintenanceStatus->MinimumWidth = 6;
-			this->promotionmaintenanceStatus->Name = L"promotionmaintenanceStatus";
-			this->promotionmaintenanceStatus->Width = 50;
-			// 
-			// promotionmaintenancePrice
-			// 
-			this->promotionmaintenancePrice->HeaderText = L"Precio";
-			this->promotionmaintenancePrice->MinimumWidth = 6;
-			this->promotionmaintenancePrice->Name = L"promotionmaintenancePrice";
-			this->promotionmaintenancePrice->Width = 70;
-			// 
 			// btnDelete
 			// 
-			this->btnDelete->Enabled = false;
-			this->btnDelete->Location = System::Drawing::Point(559, 282);
+			this->btnDelete->Location = System::Drawing::Point(559, 315);
 			this->btnDelete->Margin = System::Windows::Forms::Padding(4);
 			this->btnDelete->Name = L"btnDelete";
 			this->btnDelete->Size = System::Drawing::Size(178, 41);
@@ -255,8 +259,7 @@ namespace ChitaView {
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Enabled = false;
-			this->btnUpdate->Location = System::Drawing::Point(315, 282);
+			this->btnUpdate->Location = System::Drawing::Point(315, 315);
 			this->btnUpdate->Margin = System::Windows::Forms::Padding(4);
 			this->btnUpdate->Name = L"btnUpdate";
 			this->btnUpdate->Size = System::Drawing::Size(175, 41);
@@ -267,8 +270,7 @@ namespace ChitaView {
 			// 
 			// btnAdd
 			// 
-			this->btnAdd->Enabled = false;
-			this->btnAdd->Location = System::Drawing::Point(55, 282);
+			this->btnAdd->Location = System::Drawing::Point(55, 315);
 			this->btnAdd->Margin = System::Windows::Forms::Padding(4);
 			this->btnAdd->Name = L"btnAdd";
 			this->btnAdd->Size = System::Drawing::Size(189, 41);
@@ -298,16 +300,6 @@ namespace ChitaView {
 			this->label5->TabIndex = 49;
 			this->label5->Text = L"Stock";
 			// 
-			// label4
-			// 
-			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(277, 220);
-			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(46, 16);
-			this->label4->TabIndex = 48;
-			this->label4->Text = L"Precio";
-			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
@@ -330,19 +322,11 @@ namespace ChitaView {
 			// 
 			// txtStock
 			// 
-			this->txtStock->Location = System::Drawing::Point(149, 217);
+			this->txtStock->Location = System::Drawing::Point(149, 220);
 			this->txtStock->Margin = System::Windows::Forms::Padding(4);
 			this->txtStock->Name = L"txtStock";
 			this->txtStock->Size = System::Drawing::Size(98, 22);
 			this->txtStock->TabIndex = 45;
-			// 
-			// txtPrice
-			// 
-			this->txtPrice->Location = System::Drawing::Point(343, 217);
-			this->txtPrice->Margin = System::Windows::Forms::Padding(4);
-			this->txtPrice->Name = L"txtPrice";
-			this->txtPrice->Size = System::Drawing::Size(75, 22);
-			this->txtPrice->TabIndex = 44;
 			// 
 			// txtDescription
 			// 
@@ -418,15 +402,90 @@ namespace ChitaView {
 			this->salirToolStripMenuItem->Size = System::Drawing::Size(233, 26);
 			this->salirToolStripMenuItem->Text = L"Salir";
 			// 
+			// txtPromotionValue
+			// 
+			this->txtPromotionValue->Location = System::Drawing::Point(149, 258);
+			this->txtPromotionValue->Margin = System::Windows::Forms::Padding(4);
+			this->txtPromotionValue->Name = L"txtPromotionValue";
+			this->txtPromotionValue->Size = System::Drawing::Size(98, 22);
+			this->txtPromotionValue->TabIndex = 61;
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Location = System::Drawing::Point(52, 258);
+			this->label8->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(75, 16);
+			this->label8->TabIndex = 60;
+			this->label8->Text = L"Valor de la ";
+			this->label8->TextAlign = System::Drawing::ContentAlignment::TopCenter;
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Location = System::Drawing::Point(52, 283);
+			this->label9->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(77, 16);
+			this->label9->TabIndex = 62;
+			this->label9->Text = L"promoción: ";
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(312, 233);
+			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(57, 16);
+			this->label4->TabIndex = 63;
+			this->label4->Text = L"Tipo de ";
+			this->label4->TextAlign = System::Drawing::ContentAlignment::TopCenter;
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Location = System::Drawing::Point(312, 261);
+			this->label10->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(74, 16);
+			this->label10->TabIndex = 64;
+			this->label10->Text = L"promoción:";
+			this->label10->TextAlign = System::Drawing::ContentAlignment::TopCenter;
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(418, 242);
+			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(0, 16);
+			this->label6->TabIndex = 66;
+			// 
+			// cbPromotionType
+			// 
+			this->cbPromotionType->FormattingEnabled = true;
+			this->cbPromotionType->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Descuento", L"Vale" });
+			this->cbPromotionType->Location = System::Drawing::Point(421, 234);
+			this->cbPromotionType->Margin = System::Windows::Forms::Padding(4);
+			this->cbPromotionType->Name = L"cbPromotionType";
+			this->cbPromotionType->Size = System::Drawing::Size(121, 24);
+			this->cbPromotionType->TabIndex = 67;
+			// 
 			// Promotionsmaintenance
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(794, 550);
-			this->Controls->Add(this->dtpDeadline);
+			this->ClientSize = System::Drawing::Size(794, 585);
+			this->Controls->Add(this->cbPromotionType);
 			this->Controls->Add(this->label6);
+			this->Controls->Add(this->label10);
+			this->Controls->Add(this->label4);
+			this->Controls->Add(this->label9);
+			this->Controls->Add(this->txtPromotionValue);
+			this->Controls->Add(this->label8);
+			this->Controls->Add(this->dtpDeadline);
 			this->Controls->Add(this->label7);
-			this->Controls->Add(this->txtStatus);
 			this->Controls->Add(this->btnPhoto);
 			this->Controls->Add(this->dgvPromotion);
 			this->Controls->Add(this->btnDelete);
@@ -434,11 +493,9 @@ namespace ChitaView {
 			this->Controls->Add(this->btnAdd);
 			this->Controls->Add(this->pbPhoto);
 			this->Controls->Add(this->label5);
-			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->txtStock);
-			this->Controls->Add(this->txtPrice);
 			this->Controls->Add(this->txtDescription);
 			this->Controls->Add(this->txtName);
 			this->Controls->Add(this->txtId);
@@ -464,8 +521,10 @@ namespace ChitaView {
 				   "" + PromotionList[i]->Id,
 						PromotionList[i]->Name,
 						PromotionList[i]->Description,
-				   "" + PromotionList[i]->Price,
+				   "" + PromotionList[i]->PromotionType,
+				   "" + PromotionList[i]->PromotionValue,
 				   "" + PromotionList[i]->Stock,
+				   "" + PromotionList[i]->DeadLine,
 				   "" + PromotionList[i]->Status,
 				   "" + PromotionList[i]->Photo,
 				});
@@ -478,9 +537,11 @@ namespace ChitaView {
 		c->Id = Int32::Parse(txtId->Text);
 		c->Name = txtName->Text;
 		c->Description = txtDescription->Text;
-		c->Price = Int32::Parse(txtPrice->Text);
 		c->Stock = Int32::Parse(txtStock->Text);
-		c->Status = char::Parse(txtStatus->Text);
+		c->Status = 'A';
+		c->PromotionType = cbPromotionType->Text;
+		c->PromotionValue = Double::Parse(txtPromotionValue->Text);
+		c->DeadLine = dtpDeadline->Value.ToString("yyyy-MM-dd");
 		//c->Photo = array::Parse(PicturePhoto->Picture);
 
 		Controller::AddPromotions(c);
@@ -494,10 +555,12 @@ namespace ChitaView {
 		c->Id = Int32::Parse(txtId->Text);
 		c->Name = txtName->Text;
 		c->Description = txtDescription->Text;
-		c->Price = Int32::Parse(txtPrice->Text);
 		c->Stock = Int32::Parse(txtStock->Text);
-		c->Status = char::Parse(txtStatus->Text);
+		c->Status = 'A';
 		//c->Photo = array::Parse(PicturePhoto->Picture);
+		c->PromotionType = cbPromotionType->Text;
+		c->PromotionValue = Double::Parse(txtPromotionValue->Text);
+		c->DeadLine = dtpDeadline->Value.ToString("yyyy-MM-dd");
 
 		Controller::UpdatePromotions(c);
 		RefreshGrid();
@@ -513,29 +576,17 @@ namespace ChitaView {
 	}
 
 	private: System::Void dgvPromotion_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-
-		if (dgvPromotion->CurrentCell != nullptr &&
-			dgvPromotion->CurrentCell->Value != nullptr &&
-			dgvPromotion->CurrentCell->Value->ToString() != "") {
-			int selectedrowindex = dgvPromotion->SelectedCells[0]->RowIndex;
-			DataGridViewRow^ selectedRow = dgvPromotion->Rows[selectedrowindex];
-			String^ a = selectedRow->Cells[0]->Value->ToString();
-
-			int PromotionsId = Int32::Parse(a);
-			Promotions^ Promotion = Controller::QueryPromotionsById(PromotionsId);
-			//MessageBox::Show(customer->ToString()); //Polimorfismo
-			if (Promotion != nullptr && Promotion->GetType() == Promotions::typeid) {
+		int selectedRowIndex = dgvPromotion->SelectedCells[0]->RowIndex;
+		int PromotionsId = Int32::Parse(dgvPromotion->Rows[selectedRowIndex]->Cells[0]->Value->ToString());
+		Promotions^ Promotion = Controller::QueryPromotionsById(PromotionsId);
 
 				txtId->Text = "" + Promotion->Id;
 				txtName->Text = Promotion->Name;
 				txtDescription->Text = Promotion->Description;
-				txtPrice->Text = "" + Promotion->Price;
+				cbPromotionType->Text = "" + Promotion->PromotionType;
+				txtPromotionValue->Text = "" + Promotion->PromotionValue;
+				dtpDeadline->Text = "" + Promotion->DeadLine;
 				txtStock->Text = "" + Promotion->Stock;
-				txtStatus->Text = "" + Promotion->Status;
-				//txt->Text = "" + c->Photo;
-
-			}
-		}
 
 	}
 
@@ -543,22 +594,11 @@ namespace ChitaView {
 			   txtId->Clear();
 			   txtName->Clear();
 			   txtDescription->Clear();
-			   txtPrice->Clear();
+			   //cbPromotionType->Clear();
+			   txtPromotionValue->Clear();
 			   txtStock->Clear();
-			   txtStatus->Clear();
 
 		   }
-
-
-private: System::Void nuevoToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	ClearControls();
-	EnableControls();
-	btnAdd->Enabled = true;
-	btnUpdate->Enabled = false;
-	btnDelete->Enabled = false;
-
-
-}
 
 	public:
 		Void DisableControls() {
@@ -575,6 +615,15 @@ private: System::Void nuevoToolStripMenuItem_Click(System::Object^ sender, Syste
 			btnDelete->Enabled = false;
 		}
 
+private: System::Void nuevoToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	ClearControls();
+	EnableControls();
+	btnAdd->Enabled = true;
+	btnUpdate->Enabled = false;
+	btnDelete->Enabled = false;
+
+
+}
 private: System::Void modificarToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	EnableControls();
 	btnAdd->Enabled = false;
@@ -598,5 +647,7 @@ private: System::Void btnPhoto_Click(System::Object^ sender, System::EventArgs^ 
 		pbPhoto->Image = gcnew Bitmap(opnfd->FileName);
 	}
 }
+
+
 };
 }

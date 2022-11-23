@@ -10,6 +10,7 @@
 using namespace System;
 using namespace System::Collections::Generic;
 namespace ChitaModel {
+    [Serializable]
     public ref class Discount {
     public:
         property int Id;

@@ -318,8 +318,7 @@ private: System::Void usuariosToolStripMenuItem_Click(System::Object^ sender, Sy
 }
 private: System::Void promocionesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	Promotionsmaintenance^ PromotionsMaintenance = gcnew Promotionsmaintenance();
-	PromotionsMaintenance->MdiParent = this;			//Padre mdi(form de donde viene) this = ese mismo
-	PromotionsMaintenance->Show();
+	PromotionsMaintenance->ShowDialog();
 }
 };
 }

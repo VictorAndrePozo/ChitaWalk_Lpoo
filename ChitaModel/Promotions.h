@@ -10,9 +10,11 @@ namespace ChitaModel {
     public ref class Promotions {
     public:
         int Id;
+        String^ PromotionType;
         String^ Name;
         String^ Description;
-        double Price;
+        double PromotionValue;
+        String^ DeadLine;
         int Stock;
         char Status;
         array <Byte>^ Photo;

@@ -569,7 +569,6 @@ Promotions^ ChitaController::Controller::QueryPromotionsById(int PromotionsId)
 
 void ChitaController::Controller::PersistPromotions()
 {
-	//En formato de archivo binario
 	Stream^ stream = File::Open("Promotions.bin", FileMode::Create);
 	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
 	bFormatter->Serialize(stream, PromotionList);
@@ -586,3 +585,6 @@ void ChitaController::Controller::LoadPromotionsData()
 
 	sr->Close();
 }
+
+
+
