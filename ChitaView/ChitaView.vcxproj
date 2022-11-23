@@ -138,6 +138,7 @@
     <ClCompile Include="PetForm.cpp" />
     <ClCompile Include="PetOwnerMaintence.cpp" />
     <ClCompile Include="PromotionSearchForm.cpp" />
+    <ClCompile Include="Promotionsmaintenance.cpp" />
     <ClCompile Include="RankingForm.cpp" />
     <ClCompile Include="RegisterForm.cpp" />
     <ClCompile Include="RequestSearcherForm.cpp" />
@@ -171,6 +172,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="PromotionSearchForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Promotionsmaintenance.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="RankingForm.h">
@@ -216,6 +220,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PetOwnerMaintence.resx">
       <DependentUpon>PetOwnerMaintence.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Promotionsmaintenance.resx">
+      <DependentUpon>Promotionsmaintenance.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RankingForm.resx">
       <DependentUpon>RankingForm.h</DependentUpon>

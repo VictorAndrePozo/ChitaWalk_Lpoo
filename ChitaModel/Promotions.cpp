@@ -9,4 +9,6 @@ ChitaModel::Promotions::Promotions(const Promotions^& copier)
     Price = copier->Price;
     Stock = copier->Stock;
     Status = copier->Status;
+    Photo = copier->Photo;
+
 }

@@ -516,3 +516,73 @@ void ChitaController::Controller::LoadServiceRequestData() {
 
 	sr->Close();
 }
+
+int ChitaController::Controller::AddPromotions(Promotions^ Promotions)
+{
+	PromotionList->Add(Promotions);
+	PersistPromotions();
+	return 1;
+}
+
+int ChitaController::Controller::UpdatePromotions(Promotions^ Promotions)
+{
+	for (int i = 0; i < PromotionList->Count; i++)
+		if (Promotions->Id == PromotionList[i]->Id) {
+			PromotionList[i] = Promotions;
+			PersistPromotions();
+			return 1;
+		}
+	return 0;
+}
+
+int ChitaController::Controller::DeletePromotions(int PromotionsId)
+{
+	for (int i = 0; i < PromotionList->Count; i++)
+		if (PromotionsId == PromotionList[i]->Id) {
+			PromotionList->RemoveAt(i);
+			PersistPromotions();
+			return 1;
+		}
+	return 0;
+}
+
+List<Promotions^>^ ChitaController::Controller::QueryAllPromotions()
+{
+	LoadPromotionsData();
+	List<Promotions^>^ activePromotionsList = gcnew List<Promotions^>();
+	for (int i = 0; i < PromotionList->Count; i++) {
+		if (PromotionList[i]->Status == 'A') {
+			activePromotionsList->Add(PromotionList[i]);
+		}
+	}
+	return activePromotionsList;
+}
+
+Promotions^ ChitaController::Controller::QueryPromotionsById(int PromotionsId)
+{
+	for (int i = 0; i < PromotionList->Count; i++)
+		if (PromotionsId == PromotionList[i]->Id) {
+			return PromotionList[i];
+		}
+	return nullptr;
+}
+
+void ChitaController::Controller::PersistPromotions()
+{
+	//En formato de archivo binario
+	Stream^ stream = File::Open("Promotions.bin", FileMode::Create);
+	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
+	bFormatter->Serialize(stream, PromotionList);
+	stream->Close();
+}
+
+void ChitaController::Controller::LoadPromotionsData()
+{
+	PromotionList = gcnew List<Promotions^>();
+	//Lectura desde un archivo binario
+	Stream^ sr = File::Open("Promotions.bin", FileMode::Open);
+	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
+	PromotionList = (List<Promotions^>^)bFormatter->Deserialize(sr);
+
+	sr->Close();
+}

@@ -60,6 +60,9 @@
     <ClInclude Include="UserGraphicsForm.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="Promotionsmaintenance.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyForm.cpp">
@@ -105,6 +108,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="UserGraphicsForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Promotionsmaintenance.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

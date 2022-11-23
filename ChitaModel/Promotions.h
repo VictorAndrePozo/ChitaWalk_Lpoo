@@ -6,6 +6,7 @@
 using  namespace System;
 
 namespace ChitaModel {
+    [Serializable]
     public ref class Promotions {
     public:
         int Id;
@@ -14,6 +15,7 @@ namespace ChitaModel {
         double Price;
         int Stock;
         char Status;
+        array <Byte>^ Photo;
         Promotions() {}
         Promotions(const Promotions^& copier);
     };

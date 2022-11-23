@@ -129,5 +129,20 @@ namespace ChitaController {
 
 		static Void LoadServiceRequestData();
 
+			//---------------------------------------------------------------------------------------------------------------------
+			// PARA MANTENIMIENTO DE PROMOTIONS
+			//---------------------------------------------------------------------------------------------------------------------
+
+		private:
+			static List <Promotions^>^ PromotionList = gcnew List<Promotions^>(); // Variable de clase o atributo estático
+		public:
+			static int AddPromotions(Promotions^ Promotions);
+			static int UpdatePromotions(Promotions^ Promotions);
+			static int DeletePromotions(int PromotionsId);
+			static List <Promotions^>^ QueryAllPromotions();
+			static Promotions^ QueryPromotionsById(int PromotionsId);
+			static void PersistPromotions();
+			static void LoadPromotionsData();
+
 	};
 }
