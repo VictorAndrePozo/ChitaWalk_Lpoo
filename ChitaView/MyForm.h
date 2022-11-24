@@ -139,7 +139,7 @@ namespace ChitaView {
 			// 
 			// transaccionToolStripMenuItem1
 			// 
-			this->transaccionToolStripMenuItem1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+			this->transaccionToolStripMenuItem1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
 				this->solicitarServicioToolStripMenuItem,
 				this->cuidadosPendientesToolStripMenuItem, 
 				this->asignarDescuentosToolStripMenuItem
@@ -147,6 +147,8 @@ namespace ChitaView {
 			this->transaccionToolStripMenuItem1->Name = L"transaccionToolStripMenuItem1";
 			this->transaccionToolStripMenuItem1->Size = System::Drawing::Size(81, 20);
 			this->transaccionToolStripMenuItem1->Text = L"Transaccion";
+
+
 			// 
 			// solicitarServicioToolStripMenuItem
 			// 
