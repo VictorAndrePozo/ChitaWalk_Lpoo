@@ -16,7 +16,7 @@ namespace ChitaModel {
         property int Id;
         property String^ TxnDate;
         property char Status;
-        property double Total;
+        property double StockFinal;
         property PetOwner^ PetOwner;
         property Supervisor^ Supervisor;
         property List<DiscountDetail^>^ DiscountDetail;

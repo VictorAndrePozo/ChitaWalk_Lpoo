@@ -196,6 +196,7 @@ namespace ChitaView {
 			this->dgvPromotion->RowHeadersWidth = 51;
 			this->dgvPromotion->Size = System::Drawing::Size(748, 185);
 			this->dgvPromotion->TabIndex = 54;
+			this->dgvPromotion->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Promotionsmaintenance::dgvPromotion_CellContentClick);
 			// 
 			// promotionmaintenanceId
 			// 
@@ -370,7 +371,7 @@ namespace ChitaView {
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->archivoToolStripMenuItem });
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(794, 28);
+			this->menuStrip1->Size = System::Drawing::Size(794, 30);
 			this->menuStrip1->TabIndex = 39;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -381,7 +382,7 @@ namespace ChitaView {
 					this->modificarPromocionToolStripMenuItem, this->salirToolStripMenuItem
 			});
 			this->archivoToolStripMenuItem->Name = L"archivoToolStripMenuItem";
-			this->archivoToolStripMenuItem->Size = System::Drawing::Size(73, 24);
+			this->archivoToolStripMenuItem->Size = System::Drawing::Size(73, 26);
 			this->archivoToolStripMenuItem->Text = L"Archivo";
 			// 
 			// nuevaPromocionToolStripMenuItem
@@ -649,5 +650,7 @@ private: System::Void btnPhoto_Click(System::Object^ sender, System::EventArgs^ 
 }
 
 
+private: System::Void dgvPromotion_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+}
 };
 }

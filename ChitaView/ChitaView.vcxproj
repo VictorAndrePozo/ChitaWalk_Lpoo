@@ -221,6 +221,9 @@
     <EmbeddedResource Include="PetOwnerMaintence.resx">
       <DependentUpon>PetOwnerMaintence.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PromotionSearchForm.resx">
+      <DependentUpon>PromotionSearchForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Promotionsmaintenance.resx">
       <DependentUpon>Promotionsmaintenance.h</DependentUpon>
     </EmbeddedResource>

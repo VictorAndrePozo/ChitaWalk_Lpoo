@@ -6,6 +6,7 @@
 using namespace System;
 
 namespace ChitaModel {
+	[Serializable]
 	public ref class Supervisor : public User {
 	public:
 		property String^ Area;

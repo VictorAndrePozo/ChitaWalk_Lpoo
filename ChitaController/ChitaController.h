@@ -141,6 +141,8 @@ namespace ChitaController {
 			static Promotions^ QueryPromotionsById(int PromotionsId);
 			static void PersistPromotions();
 			static void LoadPromotionsData();
+			static List<Promotions^>^ QueryPromotionsByNameOrDescription(String^ value);
+
 
 	};
 }
