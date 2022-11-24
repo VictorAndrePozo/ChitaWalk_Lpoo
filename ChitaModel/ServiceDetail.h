@@ -1,5 +1,7 @@
 #include "Service.h"
 #include "Pet.h"
+#include "Rating.h"
+
 #pragma once
 
 using namespace System;
@@ -13,8 +15,9 @@ namespace ChitaModel {
         property int Id;
 		property Service^ objService;
 		property Pet^ objPet;
+		property Rating^ objRating;
 	public:   
 		ServiceDetail();
-		ServiceDetail(String^ Date, double Amount, int Id, Service^ objService, Pet^ objPet);
+		ServiceDetail(String^ Date, double Amount, int Id, Service^ objService, Pet^ objPet, Rating^ objRating);
 	};
 }

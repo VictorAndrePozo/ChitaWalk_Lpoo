@@ -135,6 +135,7 @@
     <ClInclude Include="Pet.h" />
     <ClInclude Include="PetOwner.h" />
     <ClInclude Include="Promotions.h" />
+    <ClInclude Include="Rating.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Service.h" />
     <ClInclude Include="ServiceDetail.h" />
@@ -167,6 +168,7 @@
     <ClCompile Include="PetOwner.cpp" />
     <ClCompile Include="Promotions.cpp" />
     <ClCompile Include="PromotionsSearchForm.cpp" />
+    <ClCompile Include="Rating.cpp" />
     <ClCompile Include="Service.cpp" />
     <ClCompile Include="ServiceDetail.cpp" />
     <ClCompile Include="ServiceRequest.cpp" />

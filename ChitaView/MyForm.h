@@ -89,12 +89,12 @@ namespace ChitaView {
 			this->carerToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->mascotasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->usuariosPropietariosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->promocionesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reporteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ventasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->graficosDistritalesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->usuariosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ayudaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->promocionesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->MenuPrincipal->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -109,7 +109,7 @@ namespace ChitaView {
 			this->MenuPrincipal->Location = System::Drawing::Point(0, 0);
 			this->MenuPrincipal->Name = L"MenuPrincipal";
 			this->MenuPrincipal->Padding = System::Windows::Forms::Padding(4, 2, 0, 2);
-			this->MenuPrincipal->Size = System::Drawing::Size(675, 24);
+			this->MenuPrincipal->Size = System::Drawing::Size(1205, 24);
 			this->MenuPrincipal->TabIndex = 1;
 			this->MenuPrincipal->Text = L"MenuPrincipal";
 			// 
@@ -129,7 +129,7 @@ namespace ChitaView {
 			// salirToolStripMenuItem
 			// 
 			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
-			this->salirToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->salirToolStripMenuItem->Size = System::Drawing::Size(96, 22);
 			this->salirToolStripMenuItem->Text = L"Salir";
 			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::salirToolStripMenuItem_Click);
 			// 
@@ -188,6 +188,13 @@ namespace ChitaView {
 			this->usuariosPropietariosToolStripMenuItem->Text = L"Usuarios Propietarios";
 			this->usuariosPropietariosToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::usuariosPropietariosToolStripMenuItem_Click);
 			// 
+			// promocionesToolStripMenuItem
+			// 
+			this->promocionesToolStripMenuItem->Name = L"promocionesToolStripMenuItem";
+			this->promocionesToolStripMenuItem->Size = System::Drawing::Size(185, 22);
+			this->promocionesToolStripMenuItem->Text = L"Promociones";
+			this->promocionesToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::promocionesToolStripMenuItem_Click);
+			// 
 			// reporteToolStripMenuItem
 			// 
 			this->reporteToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
@@ -202,7 +209,7 @@ namespace ChitaView {
 			// 
 			this->ventasToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->graficosDistritalesToolStripMenuItem });
 			this->ventasToolStripMenuItem->Name = L"ventasToolStripMenuItem";
-			this->ventasToolStripMenuItem->Size = System::Drawing::Size(148, 26);
+			this->ventasToolStripMenuItem->Size = System::Drawing::Size(119, 22);
 			this->ventasToolStripMenuItem->Text = L"Ventas";
 			// 
 			// graficosDistritalesToolStripMenuItem
@@ -215,7 +222,7 @@ namespace ChitaView {
 			// usuariosToolStripMenuItem
 			// 
 			this->usuariosToolStripMenuItem->Name = L"usuariosToolStripMenuItem";
-			this->usuariosToolStripMenuItem->Size = System::Drawing::Size(148, 26);
+			this->usuariosToolStripMenuItem->Size = System::Drawing::Size(119, 22);
 			this->usuariosToolStripMenuItem->Text = L"Usuarios";
 			this->usuariosToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::usuariosToolStripMenuItem_Click);
 			// 
@@ -225,23 +232,16 @@ namespace ChitaView {
 			this->ayudaToolStripMenuItem->Size = System::Drawing::Size(53, 20);
 			this->ayudaToolStripMenuItem->Text = L"Ayuda";
 			// 
-			// promocionesToolStripMenuItem
-			// 
-			this->promocionesToolStripMenuItem->Name = L"promocionesToolStripMenuItem";
-			this->promocionesToolStripMenuItem->Size = System::Drawing::Size(232, 26);
-			this->promocionesToolStripMenuItem->Text = L"Promociones";
-			this->promocionesToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::promocionesToolStripMenuItem_Click);
-			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
-			this->ClientSize = System::Drawing::Size(675, 325);
+			this->ClientSize = System::Drawing::Size(1205, 612);
 			this->Controls->Add(this->MenuPrincipal);
 			this->IsMdiContainer = true;
 			this->MainMenuStrip = this->MenuPrincipal;
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"MyForm";
 			this->Text = L"Chita : Pagina general";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
