@@ -148,7 +148,6 @@ namespace ChitaView {
 			this->transaccionToolStripMenuItem1->Size = System::Drawing::Size(81, 20);
 			this->transaccionToolStripMenuItem1->Text = L"Transaccion";
 
-
 			// 
 			// solicitarServicioToolStripMenuItem
 			// 
