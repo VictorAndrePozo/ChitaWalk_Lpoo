@@ -6,10 +6,16 @@ using namespace ChitaModel;
 using namespace System::Collections::Generic;
 using namespace System::IO;
 
+using namespace System::Globalization;
+using namespace System::Data::SqlClient;
 
 namespace ChitaController {
 	public ref class Controller
 	{
+	public:
+		/* Static se usa definir miembros que se pueden invocar
+		sin necesidad de contar con una instancia de la clase. */
+		static SqlConnection^ GetConnection();
 
 		//---------------------------------------------------------------------------------------------------------------------
 		// PARA MANTENIMIENTO DE PETOWNER
@@ -17,6 +23,7 @@ namespace ChitaController {
 	private:
 		static List <PetOwner^>^ PetOwnerList = gcnew List<PetOwner^>(); //lista de PetOwners
 	public:
+
 		static int AddPetOwner(PetOwner^ PetOwner); //anadir petowner
 		static int UpdatePetOwner(PetOwner^ PetOwner);                   // Modificar petowner
 		static int DeletePetOwner(int PetOwnerId);                    // Eliminar petowner

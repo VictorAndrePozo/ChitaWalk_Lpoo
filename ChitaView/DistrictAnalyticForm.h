@@ -63,32 +63,38 @@ namespace ChitaView {
 			this->chart1->ChartAreas->Add(chartArea1);
 			legend1->Name = L"Legend1";
 			this->chart1->Legends->Add(legend1);
-			this->chart1->Location = System::Drawing::Point(112, 22);
+			this->chart1->Location = System::Drawing::Point(149, 27);
+			this->chart1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->chart1->Name = L"chart1";
 			series1->ChartArea = L"ChartArea1";
 			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
 			series1->Legend = L"Legend1";
 			series1->Name = L"Series1";
 			this->chart1->Series->Add(series1);
-			this->chart1->Size = System::Drawing::Size(474, 300);
+			this->chart1->Size = System::Drawing::Size(632, 369);
 			this->chart1->TabIndex = 0;
 			this->chart1->Text = L"chart1";
 			this->chart1->Click += gcnew System::EventHandler(this, &DistrictAnalyticForm::chart1_Click);
 			// 
 			// DistrictAnalyticForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(736, 512);
+			this->ClientSize = System::Drawing::Size(981, 630);
 			this->Controls->Add(this->chart1);
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"DistrictAnalyticForm";
 			this->Text = L"DistrictAnalyticForm";
+			this->Load += gcnew System::EventHandler(this, &DistrictAnalyticForm::DistrictAnalyticForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 	private: System::Void chart1_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void DistrictAnalyticForm_Load(System::Object^ sender, System::EventArgs^ e) {
+
 	}
 	};
 }

@@ -70,7 +70,8 @@ namespace ChitaView {
 
 	private: System::Windows::Forms::TextBox^ txtUsername;
 	private: System::Windows::Forms::TextBox^ txtStatus;
-	private: System::Windows::Forms::PictureBox^ picturePhoto;
+	private: System::Windows::Forms::PictureBox^ pccPhoto;
+
 	private: System::Windows::Forms::Button^ btnAdd;
 	private: System::Windows::Forms::Button^ btnUpdate;
 	private: System::Windows::Forms::Button^ btnDelete;
@@ -230,7 +231,9 @@ private: System::Windows::Forms::Label^ label28;
 private: System::Windows::Forms::TextBox^ txtStatusWalker;
 
 private: System::Windows::Forms::Label^ label29;
-private: System::Windows::Forms::PictureBox^ pictureBox1;
+private: System::Windows::Forms::PictureBox^ pcpPhoto;
+
+
 private: System::Windows::Forms::Label^ label30;
 private: System::Windows::Forms::Button^ btnUpdateWalker;
 
@@ -306,7 +309,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->txtLastName = (gcnew System::Windows::Forms::TextBox());
 			this->txtUsername = (gcnew System::Windows::Forms::TextBox());
 			this->txtStatus = (gcnew System::Windows::Forms::TextBox());
-			this->picturePhoto = (gcnew System::Windows::Forms::PictureBox());
+			this->pccPhoto = (gcnew System::Windows::Forms::PictureBox());
 			this->btnAdd = (gcnew System::Windows::Forms::Button());
 			this->btnUpdate = (gcnew System::Windows::Forms::Button());
 			this->btnDelete = (gcnew System::Windows::Forms::Button());
@@ -408,20 +411,20 @@ private: System::ComponentModel::IContainer^ components;
 			this->label28 = (gcnew System::Windows::Forms::Label());
 			this->txtStatusWalker = (gcnew System::Windows::Forms::TextBox());
 			this->label29 = (gcnew System::Windows::Forms::Label());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->pcpPhoto = (gcnew System::Windows::Forms::PictureBox());
 			this->label30 = (gcnew System::Windows::Forms::Label());
 			this->btnUpdateWalker = (gcnew System::Windows::Forms::Button());
 			this->label31 = (gcnew System::Windows::Forms::Label());
 			this->btnDeleteWalker = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picturePhoto))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pccPhoto))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvKeeper))->BeginInit();
 			this->menuStrip1->SuspendLayout();
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->tabPage2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvWalker))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pcpPhoto))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// labelId
@@ -561,14 +564,14 @@ private: System::ComponentModel::IContainer^ components;
 			this->txtStatus->Size = System::Drawing::Size(161, 22);
 			this->txtStatus->TabIndex = 16;
 			// 
-			// picturePhoto
+			// pccPhoto
 			// 
-			this->picturePhoto->Location = System::Drawing::Point(618, 15);
-			this->picturePhoto->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->picturePhoto->Name = L"picturePhoto";
-			this->picturePhoto->Size = System::Drawing::Size(179, 218);
-			this->picturePhoto->TabIndex = 17;
-			this->picturePhoto->TabStop = false;
+			this->pccPhoto->Location = System::Drawing::Point(618, 15);
+			this->pccPhoto->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pccPhoto->Name = L"pccPhoto";
+			this->pccPhoto->Size = System::Drawing::Size(179, 218);
+			this->pccPhoto->TabIndex = 17;
+			this->pccPhoto->TabStop = false;
 			// 
 			// btnAdd
 			// 
@@ -612,6 +615,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->btnChangePhoto->TabIndex = 21;
 			this->btnChangePhoto->Text = L"Agregar foto";
 			this->btnChangePhoto->UseVisualStyleBackColor = true;
+			this->btnChangePhoto->Click += gcnew System::EventHandler(this, &carermaintenance::btnChangePhoto_Click);
 			// 
 			// label1
 			// 
@@ -1006,7 +1010,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage1->Controls->Add(this->label12);
 			this->tabPage1->Controls->Add(this->txtStatus);
 			this->tabPage1->Controls->Add(this->label11);
-			this->tabPage1->Controls->Add(this->picturePhoto);
+			this->tabPage1->Controls->Add(this->pccPhoto);
 			this->tabPage1->Controls->Add(this->label9);
 			this->tabPage1->Controls->Add(this->btnUpdate);
 			this->tabPage1->Controls->Add(this->label1);
@@ -1056,7 +1060,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage2->Controls->Add(this->label28);
 			this->tabPage2->Controls->Add(this->txtStatusWalker);
 			this->tabPage2->Controls->Add(this->label29);
-			this->tabPage2->Controls->Add(this->pictureBox1);
+			this->tabPage2->Controls->Add(this->pcpPhoto);
 			this->tabPage2->Controls->Add(this->label30);
 			this->tabPage2->Controls->Add(this->btnUpdateWalker);
 			this->tabPage2->Controls->Add(this->label31);
@@ -1482,14 +1486,14 @@ private: System::ComponentModel::IContainer^ components;
 			this->label29->TabIndex = 66;
 			this->label29->Text = L"Experiencia";
 			// 
-			// pictureBox1
+			// pcpPhoto
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(618, 18);
-			this->pictureBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(179, 218);
-			this->pictureBox1->TabIndex = 59;
-			this->pictureBox1->TabStop = false;
+			this->pcpPhoto->Location = System::Drawing::Point(618, 18);
+			this->pcpPhoto->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pcpPhoto->Name = L"pcpPhoto";
+			this->pcpPhoto->Size = System::Drawing::Size(179, 218);
+			this->pcpPhoto->TabIndex = 59;
+			this->pcpPhoto->TabStop = false;
 			// 
 			// label30
 			// 
@@ -1538,6 +1542,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->button4->TabIndex = 63;
 			this->button4->Text = L"Agregar foto";
 			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &carermaintenance::button4_Click);
 			// 
 			// carermaintenance
 			// 
@@ -1551,7 +1556,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->Name = L"carermaintenance";
 			this->Text = L"carermaintenance";
 			this->Load += gcnew System::EventHandler(this, &carermaintenance::carermaintenance_Load);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picturePhoto))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pccPhoto))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvKeeper))->EndInit();
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
@@ -1561,7 +1566,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage2->ResumeLayout(false);
 			this->tabPage2->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvWalker))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pcpPhoto))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -1923,6 +1928,23 @@ private: System::Void carermaintenance_Load(System::Object^ sender, System::Even
 	RefreshGrid();
 }
 private: System::Void tabPage1_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void btnChangePhoto_Click(System::Object^ sender, System::EventArgs^ e) {
+	OpenFileDialog^ opnfd = gcnew OpenFileDialog();
+	opnfd->Filter = "Image Files (*.jpg;*.jpeg;)|*.jpg;*.jpeg;";
+	if (opnfd->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+	{
+		pccPhoto->Image = gcnew Bitmap(opnfd->FileName);
+	}
+}
+
+private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+	OpenFileDialog^ opnfd = gcnew OpenFileDialog();
+	opnfd->Filter = "Image Files (*.jpg;*.jpeg;)|*.jpg;*.jpeg;";
+	if (opnfd->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+	{
+		pcpPhoto->Image = gcnew Bitmap(opnfd->FileName);
+	}
 }
 };
 }

@@ -4,7 +4,19 @@
 
 using namespace System::Xml::Serialization;
 using namespace System::Runtime::Serialization::Formatters::Binary;
-using namespace System::Xml::Serialization;
+
+
+// -------------------------------------
+// Coneccion
+// ---------------------------------------
+SqlConnection^ ChitaController::Controller::GetConnection()
+{
+	SqlConnection^ conn = gcnew SqlConnection();
+	String^ connStr = "Server=200.16.7.140;Database=inf237m1;User ID=inf237m1;Password=s8aX3*R27{HK,4f:";
+	conn->ConnectionString = connStr;
+	conn->Open();
+	return conn;
+}
 
 //---------------------------------------------------------------------------------------------------------------------
 // PARA MANTENIMIENTO DE PETOWNER
@@ -76,6 +88,8 @@ PetOwner^ ChitaController::Controller::QueryPetOwnerByDNI(String^ dni)
 	return nullptr;
 }
 
+// DISCOUNT
+
 void ChitaController::Controller::RegisterDiscount(Discount^ discount)
 {
 	DiscountList->Add(discount);
@@ -110,13 +124,13 @@ void ChitaController::Controller::PersistDiscounts()
 
 void ChitaController::Controller::LoadDiscountsData()
 {
-	//DiscountList = gcnew List<Discount^>();
+	DiscountList = gcnew List<Discount^>();
 	//Lectura desde un archivo binario
-	//Stream^ sr = nullptr;
+	Stream^ sr = nullptr;
 
-	//sr = File::Open("Discounts.bin", FileMode::Open);
-	//BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
-	//DiscountList = (List<Discount^>^)bFormatter->Deserialize(sr);
+	sr = File::Open("Discounts.bin", FileMode::Open);
+	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
+	DiscountList = (List<Discount^>^)bFormatter->Deserialize(sr);
 }
 
 List<PetOwner^>^ ChitaController::Controller::QueryAllPetOwner() {
@@ -593,6 +607,8 @@ List<ServiceRequest^>^ ChitaController::Controller::QueryTempServiceRequest()
 	}
 	return activeServiceRequestList;
 }
+
+// PROMOTIONS
 
 int ChitaController::Controller::AddPromotions(Promotions^ Promotions)
 {
