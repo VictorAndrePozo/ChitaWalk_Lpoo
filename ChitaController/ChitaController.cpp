@@ -608,39 +608,196 @@ List<ServiceRequest^>^ ChitaController::Controller::QueryTempServiceRequest()
 	return activeServiceRequestList;
 }
 
-// PROMOTIONS
+// -------------------------------------------------------------------------------------------
+// MANTENIMIENTO PROMOTIONS
+// -------------------------------------------------------------------------------------------
 
+// Procedure
 int ChitaController::Controller::AddPromotions(Promotions^ Promotions)
 {
+	/* PRIMERA OPCION
 	PromotionList->Add(Promotions);
 	PersistPromotions();
-	return 1;
+	return 1;*/
+
+	//Paso 1: Se obtiene la conexión
+	SqlConnection^ conn = GetConnection();
+
+	//Paso 2: Se prepara la sentencia
+	/*
+	SqlCommand^ comm = gcnew SqlCommand("INSERT INTO PRODUCT(name, description, price, stock,status)"
+		+ "VALUES('" + product->Name + "','" + product->Description + "',"
+		+ product->Price + "," + product->Stock + ", 'A')", conn);
+	*/
+	String^ strCmd = "dbo.usp_AddPromotion";
+	SqlCommand^ comm = gcnew SqlCommand(strCmd, conn);
+	comm->CommandType = System::Data::CommandType::StoredProcedure;
+	comm->Parameters->Add("@promotiontype", System::Data::SqlDbType::VarChar, 500);
+	comm->Parameters->Add("@name", System::Data::SqlDbType::VarChar, 250);
+	comm->Parameters->Add("@description", System::Data::SqlDbType::VarChar, 500);
+	comm->Parameters->Add("@promotionvalue", System::Data::SqlDbType::Decimal, 10);
+	comm->Parameters["@promotionvalue"]->Precision = 10;
+	comm->Parameters["@promotionvalue"]->Scale = 2;
+	comm->Parameters->Add("@deadline", System::Data::SqlDbType::Date);
+	comm->Parameters->Add("@stock", System::Data::SqlDbType::Int);
+	comm->Parameters->Add("@status", System::Data::SqlDbType::Char, 1);
+	comm->Parameters->Add("@photo", System::Data::SqlDbType::Image);
+
+	SqlParameter^ outputIdParam = gcnew SqlParameter("@id", System::Data::SqlDbType::Int);
+	outputIdParam->Direction = System::Data::ParameterDirection::Output;
+	comm->Parameters->Add(outputIdParam);
+	comm->Prepare();
+	comm->Parameters["@promotiontype"]->Value = Promotions->PromotionType;
+	comm->Parameters["@name"]->Value = Promotions->Name;
+	comm->Parameters["@description"]->Value = Promotions->Description;
+	comm->Parameters["@promotionvalue"]->Value = Promotions->PromotionValue;
+	// DUDA
+	comm->Parameters["@deadline"]->Value = Promotions->DeadLine;
+	comm->Parameters["@stock"]->Value = Promotions->Stock;
+	comm->Parameters["@status"]->Value = Char::ToString(Promotions->Status);
+	if (Promotions->Photo == nullptr)
+		comm->Parameters["@photo"]->Value = DBNull::Value;
+	else
+		comm->Parameters["@photo"]->Value = Promotions->Photo;
+
+	//Paso 3: Se ejecuta la sentencia
+	comm->ExecuteNonQuery();
+
+	//Paso 4: Se procesan los resultados
+	int output_id = Convert::ToInt32(comm->Parameters["@id"]->Value);
+
+	//Paso 5: Se cierran los objetos de conexión
+	conn->Close();
+
+	return output_id;
 }
 
+// Procedure
 int ChitaController::Controller::UpdatePromotions(Promotions^ Promotions)
 {
+	/* PRINCIPAL
 	for (int i = 0; i < PromotionList->Count; i++)
 		if (Promotions->Id == PromotionList[i]->Id) {
 			PromotionList[i] = Promotions;
 			PersistPromotions();
 			return 1;
 		}
-	return 0;
+	return 0;*/
+
+	//Paso 1: Se obtiene la conexión
+	SqlConnection^ conn = GetConnection();
+
+	//Paso 2: Se prepara la sentencia
+	/*
+	SqlCommand^ comm = gcnew SqlCommand("UPDATE PRODUCT "
+		+ "SET name = '" + product->Name + "', "
+		+ "description = '" + product->Description + "', "
+		+ "price = " + product->Price + ", "
+		+ "stock = " + product->Stock + ", "
+		+ "status = '" + Char::ToString(product->Status) + "' "
+		//+ "photo = " + product->Photo
+		+ " WHERE id = " + product->Id, conn);
+	*/
+	String^ strCmd = "dbo.usp_UpdatePromotion";
+	SqlCommand^ comm = gcnew SqlCommand(strCmd, conn);
+	comm->CommandType = System::Data::CommandType::StoredProcedure;
+	comm->Parameters->Add("@id", System::Data::SqlDbType::Int);
+	comm->Parameters->Add("@promotiontype", System::Data::SqlDbType::VarChar, 250);
+	comm->Parameters->Add("@name", System::Data::SqlDbType::VarChar, 250);
+	comm->Parameters->Add("@description", System::Data::SqlDbType::VarChar, 500);
+	comm->Parameters->Add("@promotionvalue", System::Data::SqlDbType::Decimal, 10);
+	comm->Parameters["@promotionvalue"]->Precision = 10;
+	comm->Parameters["@promotionvalue"]->Scale = 2;
+	comm->Parameters->Add("@stock", System::Data::SqlDbType::Int);
+	comm->Parameters->Add("@status", System::Data::SqlDbType::Char, 1);
+	comm->Parameters->Add("@photo", System::Data::SqlDbType::Image);
+	comm->Prepare();
+	comm->Parameters["@id"]->Value = Promotions->Id;
+	comm->Parameters["@promotiontype"]->Value = Promotions->PromotionType;
+	comm->Parameters["@name"]->Value = Promotions->Name;
+	comm->Parameters["@description"]->Value = Promotions->Description;
+	comm->Parameters["@promotionvalue"]->Value = Promotions->PromotionValue;
+	comm->Parameters["@stock"]->Value = Promotions->Stock;
+	comm->Parameters["@status"]->Value = Char::ToString(Promotions->Status);
+	if (Promotions->Photo == nullptr)
+		comm->Parameters["@photo"]->Value = DBNull::Value;
+	else
+		comm->Parameters["@photo"]->Value = Promotions->Photo;
+
+	//Paso 3: Se ejecuta la sentencia
+	int res = comm->ExecuteNonQuery();
+
+	//Paso 4: Se procesan los resultados (No aplica)    
+
+	//Paso 5: Se cierran los objetos de conexión
+	conn->Close();
+
+	return res;
+
 }
 
+// Procedure e Independiente
 int ChitaController::Controller::DeletePromotions(int PromotionsId)
 {
+	/* PRINCIPAL
 	for (int i = 0; i < PromotionList->Count; i++)
 		if (PromotionsId == PromotionList[i]->Id) {
 			PromotionList->RemoveAt(i);
 			PersistPromotions();
 			return 1;
 		}
-	return 0;
+	return 0;*/
+
+	//Paso 1: Se obtiene la conexión
+	SqlConnection^ conn = GetConnection();
+
+	//Paso 2: Se prepara la sentencia
+	SqlCommand^ comm = gcnew SqlCommand("UPDATE PROMOTION "
+		+ "SET status = 'I' "
+		+ "WHERE id = " + PromotionsId, conn);
+
+	//Paso 3: Se ejecuta la sentencia
+	int res = comm->ExecuteNonQuery();
+
+	//Paso 4: Se procesan los resultados (No aplica)    
+
+	//Paso 5: Se cierran los objetos de conexión
+	conn->Close();
+	return res;
+
+	// --------------------------------------------------------------------------------
+	// EN CASO Haya PROCEDURE DELETE PROMOTION
+	// --------------------------------------------------------------------------------
+
+	/*
+	// 1er paso: Se obtiene la conexión 
+	SqlConnection^ conn = GetConnection();
+
+	// 2do paso: Se prepara la sentencia 
+	SqlCommand^ comm = gcnew SqlCommand();
+	comm->Connection = conn;
+	String^ strCmd;
+	strCmd = "dbo.usp_DeletePromotion";
+	comm = gcnew SqlCommand(strCmd, conn);
+	comm->CommandType = System::Data::CommandType::StoredProcedure;
+	comm->Parameters->Add("@iid", System::Data::SqlDbType::Int);
+
+	comm->Prepare();
+	comm->Parameters["@iid"]->Value = PromotionsId;
+
+	// Paso 3: Se ejecuta la sentencia 
+	comm->ExecuteNonQuery();
+
+	// Paso 5: Cerramos la conexión con la BD 
+	if (conn != nullptr) conn->Close();
+	return 0; */
+
 }
 
+// Procedure e Independiente
 List<Promotions^>^ ChitaController::Controller::QueryAllPromotions()
 {
+	/* PRINCIPAL
 	LoadPromotionsData();
 	List<Promotions^>^ activePromotionsList = gcnew List<Promotions^>();
 	for (int i = 0; i < PromotionList->Count; i++) {
@@ -648,16 +805,184 @@ List<Promotions^>^ ChitaController::Controller::QueryAllPromotions()
 			activePromotionsList->Add(PromotionList[i]);
 		}
 	}
+	return activePromotionsList; */
+
+	List<Promotions^>^ activePromotionsList = gcnew List<Promotions^>();
+	//Paso 1: Se obtiene la conexión
+	SqlConnection^ conn = GetConnection();
+
+	//Paso 2: Se prepara la sentencia
+	SqlCommand^ comm = gcnew SqlCommand("SELECT * FROM PROMOTION WHERE status='A'", conn);
+
+	//Paso 3: Se ejecuta la sentencia
+	SqlDataReader^ reader = comm->ExecuteReader();
+
+	//Paso 4: Se procesan los resultados
+	while (reader->Read()) {
+		Promotions^ p = gcnew Promotions();
+		p->Id = Convert::ToInt32(reader["id"]->ToString());
+		p->PromotionType = reader["promotiontype"]->ToString();
+		p->Name = reader["name"]->ToString();
+		p->Description = reader["description"]->ToString();
+		p->PromotionValue = Convert::ToDouble(reader["promotionvalue"]->ToString());
+
+		DateTime^ sdate = safe_cast<DateTime^>(reader["deadline"]);
+		p->DeadLine = sdate->ToString("dd/MM/yyyy", CultureInfo::InvariantCulture);
+
+		p->Stock = Convert::ToInt32(reader["stock"]->ToString());
+
+		if (!DBNull::Value->Equals(reader["status"]))
+			p->Status = reader["status"]->ToString()[0];
+		if (!DBNull::Value->Equals(reader["photo"]))
+			p->Photo = (array<Byte>^)reader["photo"];
+		activePromotionsList->Add(p);
+	}
+
+	//Paso 5: Se cierran los objetos de conexión
+	if (reader != nullptr) reader->Close();
+	if (conn != nullptr) conn->Close();
+
 	return activePromotionsList;
+
+	// ---------------------------------------------------------------------------
+	// PROCEDURE
+	// ---------------------------------------------------------------------------
+	
+	/*
+	// Paso 1: Obtener la conexión 
+	SqlConnection^ conn = GetConnection();
+
+	// Paso 2: Preparar la sentencia
+	SqlCommand^ comm = gcnew SqlCommand("usp_QueryAllPromotions", conn);
+	comm->CommandType = System::Data::CommandType::StoredProcedure;
+
+	SqlDataReader^ reader = comm->ExecuteReader();
+
+	List<Promotions^>^ activePromotionsList = gcnew List<Promotions^>();
+	// Paso 3: Se recorre los registros retornados 
+	while (reader->Read()) {
+		Promotions^ c = gcnew Promotions();
+		c->Id = Int32::Parse(reader["id"]->ToString());
+		c->PromotionType= reader["promotiontype"]->ToString();
+		c->Name = reader["name"]->ToString();
+		c->Description = reader["description"]->ToString();
+		c->PromotionValue = Convert::ToDouble(reader["promotionvalue"]->ToString());
+		DateTime^ sdate = safe_cast<DateTime^>(reader["deadline"]);
+		c->DeadLine = sdate->ToString("dd/MM/yyyy", CultureInfo::InvariantCulture);
+
+		c->Stock = Convert::ToInt32(reader["stock"]->ToString());
+
+		if (!DBNull::Value->Equals(reader["status"]))
+			c->Status = reader["status"]->ToString()[0];
+		if (!DBNull::Value->Equals(reader["photo"]))
+			c->Photo = (array<Byte>^)reader["photo"];
+
+		activePromotionsList->Add(c);
+	}
+
+	// Paso 4 (CRÍTICO): Cerrar la conexión. 
+	if (reader != nullptr) reader->Close();
+	if (conn != nullptr) conn->Close();
+	return activePromotionsList;*/
 }
 
 Promotions^ ChitaController::Controller::QueryPromotionsById(int PromotionsId)
 {
+	/* PRIMERO
 	for (int i = 0; i < PromotionList->Count; i++)
 		if (PromotionsId == PromotionList[i]->Id) {
 			return PromotionList[i];
 		}
-	return nullptr;
+	return nullptr;*/
+
+	//Paso 1: Se obtiene la conexión
+	SqlConnection^ conn = GetConnection();
+
+	//Paso 2: Se prepara la sentencia
+	SqlCommand^ comm = gcnew SqlCommand("SELECT * FROM PROMOTION WHERE status='A' AND id=" +
+		PromotionsId, conn);
+
+	//Paso 3: Se ejecuta la sentencia
+	SqlDataReader^ reader = comm->ExecuteReader();
+
+	//Paso 4: Se procesan los resultados
+	Promotions^ p;
+	if (reader->Read()) {
+		p = gcnew Promotions();
+		p->Id = Convert::ToInt32(reader["id"]->ToString());
+		p->PromotionType = reader["promotiontype"]->ToString();
+		p->Name = reader["name"]->ToString();
+		p->Description = reader["description"]->ToString();
+		p->PromotionValue = Convert::ToDouble(reader["promotionvalue"]->ToString());
+
+		DateTime^ sdate = safe_cast<DateTime^>(reader["deadline"]);
+		p->DeadLine = sdate->ToString("dd/MM/yyyy", CultureInfo::InvariantCulture);
+
+		p->Stock = Convert::ToInt32(reader["stock"]->ToString());
+		if (!DBNull::Value->Equals(reader["status"]))
+			p->Status = reader["status"]->ToString()[0];
+		if (!DBNull::Value->Equals(reader["photo"]))
+			p->Photo = (array<Byte>^)reader["photo"];
+	}
+
+
+	//Paso 5: Se cierran los objetos de conexión
+	if (reader != nullptr) reader->Close();
+	if (conn != nullptr) conn->Close();
+	return p;
+
+
+	// -----------------------------------------------------------------------------------------------------
+	// PROCEDURE
+	// -----------------------------------------------------------------------------------------------------
+	/*
+	// 1er paso: Se obtiene la conexión 
+	SqlConnection^ conn = GetConnection();
+
+	// 2do paso: Se prepara la sentencia
+	SqlCommand^ comm;
+
+	comm = gcnew SqlCommand("usp_QueryPromotionsById", conn);
+	comm->CommandType = System::Data::CommandType::StoredProcedure;
+	comm->Parameters->Add("@iid", System::Data::SqlDbType::Int);
+	comm->Prepare();
+	comm->Parameters["@iid"]->Value = PromotionsId;
+
+	// 3er paso: Se ejecuta la sentencia 
+	SqlDataReader^ reader = comm->ExecuteReader();
+
+	// 4to paso: Se procesan los resultados 
+	Promotions^ s;
+	if (reader->Read()) {
+
+		s->PromotionType = reader["promotiontype"]->ToString();
+		s->Name = reader["name"]->ToString();
+		s->Description = reader["description"]->ToString();
+		s->PromotionValue = Convert::ToDouble(reader["promotionvalue"]->ToString());
+
+		DateTime^ sdate = safe_cast<DateTime^>(reader["deadline"]);
+		s->DeadLine = sdate->ToString("dd/MM/yyyy", CultureInfo::InvariantCulture);
+
+		s->Stock = Convert::ToInt32(reader["stock"]->ToString());
+		if (!DBNull::Value->Equals(reader["status"]))
+			s->Status = reader["status"]->ToString()[0];
+		if (!DBNull::Value->Equals(reader["photo"]))
+			s->Photo = (array<Byte>^)reader["photo"];
+		
+		//
+		// Store^ st = gcnew Store();
+		// st->Id = Int32::Parse(reader["store_id"]->ToString());
+		// st->Name = reader["store_name"]->ToString();
+		// st->Address = reader["store_address"]->ToString();
+		// st->PostalCode = reader["store_postal_code"]->ToString();
+		// s->Store = st;
+		
+	}
+
+	// IMPORTANTE 5to paso: Cerramos la conexión con la BD 
+	if (reader != nullptr) reader->Close();
+	if (conn != nullptr) conn->Close();
+	return s;*/
 }
 
 void ChitaController::Controller::PersistPromotions()
@@ -681,6 +1006,7 @@ void ChitaController::Controller::LoadPromotionsData()
 
 List<Promotions^>^ ChitaController::Controller::QueryPromotionsByNameOrDescription(String^ value)
 {
+	/* PRIMERO
 	LoadPromotionsData();
 	List<Promotions^>^ newPromotionList = gcnew List<Promotions^>();
 	for (int i = 0; i < PromotionList->Count; i++) {
@@ -688,7 +1014,53 @@ List<Promotions^>^ ChitaController::Controller::QueryPromotionsByNameOrDescripti
 			PromotionList[i]->Description->Contains(value))
 			newPromotionList->Add(PromotionList[i]);
 	}
-	return newPromotionList;
+	return newPromotionList;*/
+
+	List<Promotions^>^ activePromotionsList = gcnew List<Promotions^>();
+	//Paso 1: Se obtiene la conexión
+	SqlConnection^ conn = GetConnection();
+
+	//Paso 2: Se prepara la sentencia
+	/*
+	SqlCommand^ comm = gcnew SqlCommand("SELECT * FROM PROMOTION "
+		+ "WHERE name LIKE '%"+ value + "%' OR "
+		+ "description LIKE '%" + value + "%'", conn);
+	*/
+	String^ strCmd = "dbo.usp_QueryPromotionsByNameOrDesc";
+	SqlCommand^ comm = gcnew SqlCommand(strCmd, conn);
+	comm->CommandType = System::Data::CommandType::StoredProcedure;
+	comm->Parameters->Add("@value", System::Data::SqlDbType::VarChar, 250);
+	comm->Prepare();
+	comm->Parameters["@value"]->Value = value;
+
+	//Paso 3: Se ejecuta la sentencia
+	SqlDataReader^ reader = comm->ExecuteReader();
+
+	//Paso 4: Se procesan los resultados
+	Promotions^ p;
+	while (reader->Read()) {
+		p = gcnew Promotions();
+		p->Id = Convert::ToInt32(reader["id"]->ToString());
+		p->PromotionType = reader["promotiontype"]->ToString();
+		p->Name = reader["name"]->ToString();
+		p->Description = reader["description"]->ToString();
+		p->PromotionValue = Convert::ToDouble(reader["promotionvalue"]->ToString());
+
+		DateTime^ sdate = safe_cast<DateTime^>(reader["deadline"]);
+		p->DeadLine = sdate->ToString("dd/MM/yyyy", CultureInfo::InvariantCulture);
+
+		p->Stock = Convert::ToInt32(reader["stock"]->ToString());
+		if (!DBNull::Value->Equals(reader["status"]))
+			p->Status = reader["status"]->ToString()[0];
+		if (!DBNull::Value->Equals(reader["photo"]))
+			p->Photo = (array<Byte>^)reader["photo"];
+		activePromotionsList->Add(p);
+	}
+
+	//Paso 5: Se cierran los objetos de conexión
+	reader->Close();
+	conn->Close();
+	return activePromotionsList;
 }
 
 
