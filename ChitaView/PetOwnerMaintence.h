@@ -775,22 +775,12 @@ private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^
 	RefreshPetOwnerGrid();
 }
 private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
-	int personId = -1;
-	try {
-		if (txtId->Text->Trim() == "") {
-			MessageBox::Show("No se puede eliminar porque no hay ningún cliente seleccionado.");
-			return;
-		}
-		personId = Int32::Parse(txtId->Text);
-	}
-	catch (Exception^ ex) {
-		MessageBox::Show(ex->ToString(), "Comparta el error al área de TI.");
-		return;
-	}
-
-	Controller::DeletePetOwner(personId);
+	int PetOwnerId = Int32::Parse(txtId->Text);
+	Controller::DeletePetOwner(PetOwnerId);
 	RefreshPetOwnerGrid();
+	ClearControls();
 }
 private: System::Void dgvPetOwner_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e);
+
 };
 }

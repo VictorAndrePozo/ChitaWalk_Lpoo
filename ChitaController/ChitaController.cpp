@@ -113,12 +113,12 @@ List<Discount^>^ ChitaController::Controller::QueryAllDiscounts()
 	return DiscountList;
 }
 void ChitaController::Controller::PersistDiscounts()
-{/*
+{
 	//En formato de archivo binario
 	Stream^ stream = File::Open("Discounts.bin", FileMode::Create);
 	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
 	bFormatter->Serialize(stream, DiscountList);
-	stream->Close();*/
+	stream->Close();
 }
 void ChitaController::Controller::LoadDiscountsData()
 { 

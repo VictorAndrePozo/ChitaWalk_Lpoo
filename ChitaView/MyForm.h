@@ -11,6 +11,8 @@
 #include "DiscountsForm.h"
 #include "Supervisormaintenance.h"
 #include "LoginForm.h"
+#include "Profiles.h"
+
 
 
 namespace ChitaView {
@@ -47,6 +49,8 @@ namespace ChitaView {
 	private: System::Windows::Forms::ToolStripMenuItem^ perfilesToolStripMenuItem;
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::ToolStripMenuItem^ perfilesToolStripMenuItem1;
+	private: System::Windows::Forms::ToolStripMenuItem^ descuentosToolStripMenuItem;
 
 
 
@@ -129,6 +133,7 @@ namespace ChitaView {
 			this->ventasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->graficosDistritalesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->usuariosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->perfilesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ayudaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
@@ -140,7 +145,8 @@ namespace ChitaView {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->perfilesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->perfilesToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->descuentosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->MenuPrincipal->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
@@ -288,6 +294,17 @@ namespace ChitaView {
 			this->usuariosToolStripMenuItem->Size = System::Drawing::Size(148, 26);
 			this->usuariosToolStripMenuItem->Text = L"Usuarios";
 			// 
+			// perfilesToolStripMenuItem
+			// 
+			this->perfilesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->perfilesToolStripMenuItem1,
+					this->descuentosToolStripMenuItem
+			});
+			this->perfilesToolStripMenuItem->Name = L"perfilesToolStripMenuItem";
+			this->perfilesToolStripMenuItem->Size = System::Drawing::Size(61, 24);
+			this->perfilesToolStripMenuItem->Text = L"Vistas";
+			this->perfilesToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::perfilesToolStripMenuItem_Click);
+			// 
 			// ayudaToolStripMenuItem
 			// 
 			this->ayudaToolStripMenuItem->Name = L"ayudaToolStripMenuItem";
@@ -406,11 +423,18 @@ namespace ChitaView {
 			this->label5->TabIndex = 21;
 			this->label5->Text = L"chita_Walky";
 			// 
-			// perfilesToolStripMenuItem
+			// perfilesToolStripMenuItem1
 			// 
-			this->perfilesToolStripMenuItem->Name = L"perfilesToolStripMenuItem";
-			this->perfilesToolStripMenuItem->Size = System::Drawing::Size(70, 24);
-			this->perfilesToolStripMenuItem->Text = L"Perfiles";
+			this->perfilesToolStripMenuItem1->Name = L"perfilesToolStripMenuItem1";
+			this->perfilesToolStripMenuItem1->Size = System::Drawing::Size(224, 26);
+			this->perfilesToolStripMenuItem1->Text = L"Perfiles";
+			this->perfilesToolStripMenuItem1->Click += gcnew System::EventHandler(this, &MyForm::perfilesToolStripMenuItem1_Click);
+			// 
+			// descuentosToolStripMenuItem
+			// 
+			this->descuentosToolStripMenuItem->Name = L"descuentosToolStripMenuItem";
+			this->descuentosToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->descuentosToolStripMenuItem->Text = L"Descuentos";
 			// 
 			// MyForm
 			// 
@@ -586,10 +610,10 @@ private: System::Void supervisoresToolStripMenuItem_Click(System::Object^ sender
 	//Carermaintenance->Show();
 }
 
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-}
 
-private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void perfilesToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
+	Profiles^ profiles = gcnew Profiles();
+	profiles->ShowDialog();
 }
 };
 }

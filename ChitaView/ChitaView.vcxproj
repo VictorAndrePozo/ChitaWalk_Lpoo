@@ -131,6 +131,7 @@
   <ItemGroup>
     <ClCompile Include="carermaintenance.cpp" />
     <ClCompile Include="CarerWorkForm.cpp" />
+    <ClCompile Include="DiscountSearch.cpp" />
     <ClCompile Include="DiscountsForm.cpp" />
     <ClCompile Include="DistrictAnalyticForm.cpp" />
     <ClCompile Include="LoginForm.cpp" />
@@ -138,6 +139,7 @@
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="PetForm.cpp" />
     <ClCompile Include="PetOwnerMaintence.cpp" />
+    <ClCompile Include="ProfileKeepers.cpp" />
     <ClCompile Include="Profiles.cpp" />
     <ClCompile Include="PromotionSearchForm.cpp" />
     <ClCompile Include="Promotionsmaintenance.cpp" />
@@ -154,6 +156,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="CarerWorkForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="DiscountSearch.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="DiscountsForm.h">
@@ -175,6 +180,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="PetOwnerMaintence.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ProfileKeepers.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Profiles.h">
@@ -215,6 +223,9 @@
     <EmbeddedResource Include="CarerWorkForm.resx">
       <DependentUpon>CarerWorkForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DiscountSearch.resx">
+      <DependentUpon>DiscountSearch.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DiscountsForm.resx">
       <DependentUpon>DiscountsForm.h</DependentUpon>
     </EmbeddedResource>
@@ -235,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PetOwnerMaintence.resx">
       <DependentUpon>PetOwnerMaintence.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfileKeepers.resx">
+      <DependentUpon>ProfileKeepers.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Profiles.resx">
       <DependentUpon>Profiles.h</DependentUpon>
