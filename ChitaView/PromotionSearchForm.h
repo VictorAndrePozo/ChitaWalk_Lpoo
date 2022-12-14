@@ -235,40 +235,41 @@ namespace ChitaView {
 #pragma endregion
 	private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (txtId->Text->Trim() != "") {
-			//Búsqueda de producto por el código ingresado por el usuario
+			//Búsqueda de promotions por el código ingresado por el usuario
+			Controller::LoadPromotionsData();
 			Promotions^ p = Controller::QueryPromotionsById(Convert::ToInt32(txtId->Text->Trim()));
 			//Se borran los datos del grid.
 			dgvListPromotions->Rows->Clear();
 			dgvListPromotions->Rows->Add(gcnew array<String^> {
-					"" + p->Id,
+				"" + p->Id,
 					p->Name,
 					p->Description,
 					p->PromotionType,
-					Convert::ToString(p->PromotionValue),
-					Convert::ToString(p->Stock),
-					Convert::ToString(p->DeadLine),
+					"" + p->PromotionValue,
+					"" + p->Stock,
+					"" + p->DeadLine
 			});
 		}
 		else {
-			//Búsqueda de productos por el nombre o descripción ingresado por el usuario
+			//Búsqueda de Promotions por el nombre o descripción ingresado por el usuario
 			List<Promotions^>^ promotionList = Controller::QueryPromotionsByNameOrDescription(txtNameDescription->Text->Trim());
 			//Se borran los datos del grid.
 			dgvListPromotions->Rows->Clear();
 			for (int i = 0; i < promotionList->Count; i++) {
 				dgvListPromotions->Rows->Add(gcnew array<String^> {
-						"" + promotionList[i]->Id,
+					"" + promotionList[i]->Id,
 						promotionList[i]->Name,
 						promotionList[i]->Description,
 						promotionList[i]->PromotionType,
 						Convert::ToString(promotionList[i]->PromotionValue),
 						Convert::ToString(promotionList[i]->Stock),
-						Convert::ToString(promotionList[i]->DeadLine),
+						Convert::ToString(promotionList[i]->DeadLine)
 				});
 			}
 		}
 
 	}
-
+	
 private: System::Void dgvListPromotions_CellClick(System::Object^ sender,
 	System::Windows::Forms::DataGridViewCellEventArgs^ e);
 

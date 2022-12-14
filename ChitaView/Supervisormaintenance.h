@@ -196,6 +196,7 @@ namespace ChitaView {
 			this->btnAdd->TabIndex = 60;
 			this->btnAdd->Text = L"Agregar";
 			this->btnAdd->UseVisualStyleBackColor = true;
+			this->btnAdd->Click += gcnew System::EventHandler(this, &Supervisormaintenance::btnAdd_Click);
 			// 
 			// labelId
 			// 
@@ -553,6 +554,7 @@ namespace ChitaView {
 			this->btnUpdate->TabIndex = 61;
 			this->btnUpdate->Text = L"Modificar";
 			this->btnUpdate->UseVisualStyleBackColor = true;
+			this->btnUpdate->Click += gcnew System::EventHandler(this, &Supervisormaintenance::btnUpdate_Click);
 			// 
 			// btnDelete
 			// 
@@ -563,6 +565,7 @@ namespace ChitaView {
 			this->btnDelete->TabIndex = 62;
 			this->btnDelete->Text = L"Eliminar";
 			this->btnDelete->UseVisualStyleBackColor = true;
+			this->btnDelete->Click += gcnew System::EventHandler(this, &Supervisormaintenance::btnDelete_Click);
 			// 
 			// btnChangePhoto
 			// 
@@ -573,6 +576,7 @@ namespace ChitaView {
 			this->btnChangePhoto->TabIndex = 63;
 			this->btnChangePhoto->Text = L"Agregar foto";
 			this->btnChangePhoto->UseVisualStyleBackColor = true;
+			this->btnChangePhoto->Click += gcnew System::EventHandler(this, &Supervisormaintenance::btnChangePhoto_Click);
 			// 
 			// menuStrip1
 			// 
@@ -660,6 +664,7 @@ namespace ChitaView {
 			this->Controls->Add(this->btnChangePhoto);
 			this->Name = L"Supervisormaintenance";
 			this->Text = L"Mantenimiento de Supervisor";
+			this->Load += gcnew System::EventHandler(this, &Supervisormaintenance::Supervisormaintenance_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvSupervisor))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pccPhoto))->EndInit();
 			this->menuStrip1->ResumeLayout(false);
@@ -881,6 +886,10 @@ private: System::Void nuevoToolStripMenuItem_Click(System::Object^ sender, Syste
 			pccPhoto->Image = gcnew Bitmap(opnfd->FileName);
 		}
 	}
+
+
+
+
 
 };
 }

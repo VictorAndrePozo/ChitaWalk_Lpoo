@@ -113,15 +113,15 @@ List<Discount^>^ ChitaController::Controller::QueryAllDiscounts()
 	return DiscountList;
 }
 void ChitaController::Controller::PersistDiscounts()
-{
+{/*
 	//En formato de archivo binario
 	Stream^ stream = File::Open("Discounts.bin", FileMode::Create);
 	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
 	bFormatter->Serialize(stream, DiscountList);
-	stream->Close();
+	stream->Close();*/
 }
 void ChitaController::Controller::LoadDiscountsData()
-{
+{ 
 	DiscountList = gcnew List<Discount^>();
 	//Lectura desde un archivo binario
 	Stream^ sr = nullptr;
@@ -1060,12 +1060,12 @@ void ChitaController::Controller::PersistSupervisors()
 	stream->Close();
 }
 void ChitaController::Controller::LoadSupervisorsData()
-{ /*
+{ 
 	supervisorList = gcnew List<Supervisor^>();
 	//Lectura desde un archivo binario
 	Stream^ sr = File::Open("Supervisors.bin", FileMode::Open);
 	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
 	supervisorList = (List<Supervisor^>^)bFormatter->Deserialize(sr);
 
-	sr->Close();*/
+	sr->Close();
 }
