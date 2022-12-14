@@ -19,6 +19,6 @@ namespace ChitaModel {
     public:
         User();
         User(int Id, String^ username, String^ password, String^ Lastname,
-            String^ Firstname, int Valoration, String^ Award);
+            String^ Firstname, int Valoration, String^ Award, String^ District);
     };
 }

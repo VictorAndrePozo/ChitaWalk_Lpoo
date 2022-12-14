@@ -9,8 +9,9 @@ ChitaModel::Person::Person() {
 
 }
 
+
 ChitaModel::Person::Person(int Dni, String^ DocNumbrer, String^ Address, String^ PhoneNumber,
-							String^ Email, char Gender, array<Byte>^ Photo, char Status) {
+							String^ Email, char Gender, array<Byte>^ Photo, char Status,String^ District) {
 	this->Dni = Dni;
 	this->DocNumbrer = DocNumbrer;
 	this->Address = Address;
@@ -19,4 +20,5 @@ ChitaModel::Person::Person(int Dni, String^ DocNumbrer, String^ Address, String^
 	this->Gender = Gender;
 	this->Photo = Photo;
 	this->Status = Status;
+	this->District = District;
 }

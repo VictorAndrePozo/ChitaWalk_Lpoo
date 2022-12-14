@@ -133,6 +133,9 @@ namespace ChitaView {
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ supervisorPassword;
 private: System::Windows::Forms::TextBox^ txtPassword;
 private: System::Windows::Forms::Label^ label1;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ supervisorDistrict;
+private: System::Windows::Forms::ComboBox^ cmbDistrict;
+private: System::Windows::Forms::Label^ label32;
 
 	private:
 		/// <summary>
@@ -164,6 +167,7 @@ private: System::Windows::Forms::Label^ label1;
 			this->supervisoraward = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->supervisorPhoneNumber = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->supervisorPassword = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->supervisorDistrict = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->rbtnMasc = (gcnew System::Windows::Forms::RadioButton());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->rbtnFem = (gcnew System::Windows::Forms::RadioButton());
@@ -202,6 +206,8 @@ private: System::Windows::Forms::Label^ label1;
 			this->eliminarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->txtPassword = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->cmbDistrict = (gcnew System::Windows::Forms::ComboBox());
+			this->label32 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvSupervisor))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pccPhoto))->BeginInit();
 			this->menuStrip1->SuspendLayout();
@@ -230,11 +236,11 @@ private: System::Windows::Forms::Label^ label1;
 			// dgvSupervisor
 			// 
 			this->dgvSupervisor->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvSupervisor->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(14) {
+			this->dgvSupervisor->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(15) {
 				this->supervisorId,
 					this->supervisordni, this->supervisorname, this->supervisorlastname, this->supervisorstatus, this->supervisorgender, this->supervisordirection,
 					this->supervisoremail, this->supervisorusername, this->supervisorvaloration, this->supervisorarea, this->supervisoraward, this->supervisorPhoneNumber,
-					this->supervisorPassword
+					this->supervisorPassword, this->supervisorDistrict
 			});
 			this->dgvSupervisor->Location = System::Drawing::Point(21, 320);
 			this->dgvSupervisor->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
@@ -243,6 +249,7 @@ private: System::Windows::Forms::Label^ label1;
 			this->dgvSupervisor->RowTemplate->Height = 24;
 			this->dgvSupervisor->Size = System::Drawing::Size(1084, 278);
 			this->dgvSupervisor->TabIndex = 77;
+			this->dgvSupervisor->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Supervisormaintenance::dgvSupervisor_CellClick);
 			// 
 			// supervisorId
 			// 
@@ -341,6 +348,13 @@ private: System::Windows::Forms::Label^ label1;
 			this->supervisorPassword->MinimumWidth = 6;
 			this->supervisorPassword->Name = L"supervisorPassword";
 			this->supervisorPassword->Width = 125;
+			// 
+			// supervisorDistrict
+			// 
+			this->supervisorDistrict->HeaderText = L"Column1";
+			this->supervisorDistrict->MinimumWidth = 6;
+			this->supervisorDistrict->Name = L"supervisorDistrict";
+			this->supervisorDistrict->Width = 125;
 			// 
 			// rbtnMasc
 			// 
@@ -675,11 +689,38 @@ private: System::Windows::Forms::Label^ label1;
 			this->label1->TabIndex = 83;
 			this->label1->Text = L"Contraseña";
 			// 
+			// cmbDistrict
+			// 
+			this->cmbDistrict->FormattingEnabled = true;
+			this->cmbDistrict->Items->AddRange(gcnew cli::array< System::Object^  >(43) {
+				L"Ancón", L"Ate", L"Barranco", L"Breña", L"Carabayllo",
+					L"Cercado de Lima", L"Chaclacayo", L"Chorrillos", L"Cieneguilla", L"Comas", L"El agustino", L"Independencia", L"Jesús maría",
+					L"La molina", L"La victoria", L"Lince", L"Los olivos", L"Lurigancho", L"Lurín", L"Magdalena del mar", L"Miraflores", L"Pachacámac",
+					L"Pucusana", L"Pueblo libre", L"Puente piedra", L"Punta hermosa", L"Punta negra", L"Rímac", L"San bartolo", L"San borja", L"San isidro",
+					L"San Juan de Lurigancho", L"San Juan de Miraflores", L"San Luis", L"San Martin de Porres", L"San Miguel", L"Santa Anita", L"Santa María del Mar",
+					L"Santa Rosa", L"Santiago de Surco", L"Surquillo", L"Villa el Salvador", L"Villa Maria del Triunfo"
+			});
+			this->cmbDistrict->Location = System::Drawing::Point(351, 29);
+			this->cmbDistrict->Name = L"cmbDistrict";
+			this->cmbDistrict->Size = System::Drawing::Size(252, 24);
+			this->cmbDistrict->TabIndex = 91;
+			// 
+			// label32
+			// 
+			this->label32->AutoSize = true;
+			this->label32->Location = System::Drawing::Point(250, 34);
+			this->label32->Name = L"label32";
+			this->label32->Size = System::Drawing::Size(61, 16);
+			this->label32->TabIndex = 90;
+			this->label32->Text = L"Distrito(*)";
+			// 
 			// Supervisormaintenance
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1126, 613);
+			this->Controls->Add(this->cmbDistrict);
+			this->Controls->Add(this->label32);
 			this->Controls->Add(this->txtPassword);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->menuStrip1);
@@ -747,7 +788,8 @@ private: System::Windows::Forms::Label^ label1;
 			         	     supervisorList[i]->Award,
 						     supervisorList[i]->Area,
 						   	 supervisorList[i]->PhoneNumber,
-							 supervisorList[i]->password
+							 supervisorList[i]->password,
+							supervisorList[i]->District
 
 						//"" + supervisorList[i]->Photo,
 
@@ -770,6 +812,7 @@ private: System::Windows::Forms::Label^ label1;
 		c->Award = txtAward->Text;
 		c->Area = txtArea->Text;
 		c->password = txtPassword->Text;
+		c->District = cmbDistrict->Text;
 
 		//c->Photo = array::Parse(PicturePhoto->Picture);
 		c->Status = 'A';
@@ -794,6 +837,8 @@ private: System::Windows::Forms::Label^ label1;
 		c->Award = txtAward->Text;
 		c->Area = txtArea->Text;
 		c->password = txtPassword->Text;
+		c->District = cmbDistrict->Text;
+
 
 		//c->Photo = array::Parse(PicturePhoto->Picture);
 		c->Status = 'A';
@@ -827,7 +872,7 @@ private: System::Windows::Forms::Label^ label1;
 				txtDni->Text = "" + supervisor->Dni;
 				txtFirstName->Text = dynamic_cast<Supervisor^>(supervisor)->Firstname;
 				txtLastName->Text = dynamic_cast<Supervisor^>(supervisor)->Lastname;
-				txtStatus->Text = "" + supervisor->Status;
+				txtStatus->Text = "A" ;
 				rbtnMasc->Checked = dynamic_cast<Supervisor^>(supervisor)->Gender == 'M';
 				rbtnFem->Checked = dynamic_cast<Supervisor^>(supervisor)->Gender == 'F';
 				txtAddress->Text = supervisor->Address;
@@ -838,6 +883,7 @@ private: System::Windows::Forms::Label^ label1;
 				txtArea->Text = supervisor->Area;
 				txtPhoneNumber->Text = supervisor->PhoneNumber;
 				txtPassword->Text = supervisor->password;
+				cmbDistrict->Text = supervisor->District;
 
 				//txtLastName->Text = supervisor->password;
 
@@ -952,6 +998,7 @@ private: System::Void nuevoToolStripMenuItem_Click(System::Object^ sender, Syste
 			pccPhoto->Image = gcnew Bitmap(opnfd->FileName);
 		}
 	}
+
 
 
 

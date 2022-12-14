@@ -14,10 +14,11 @@ namespace ChitaModel {
         property char Gender;
         property array <Byte>^ Photo;
         property char Status;
+        property String^ District;
 
     public:
         Person();
         Person(int Dni, String^ DocNumbrer, String^ Address, String^ PhoneNumber,
-               String^ Email, char Gender, array <Byte>^ Photo, char Status);
+               String^ Email, char Gender, array <Byte>^ Photo, char Status, String^ District);
     };
 }

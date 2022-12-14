@@ -23,6 +23,6 @@ namespace ChitaModel {
 			String^ Email, char Gender, int Id, String^ username,
 			String^ password, String^ Lastname,
 			String^ Firstname, int Valoration, String^ Award, int Experience,
-			int Level, String^ Warranty, double Salary, array <Byte>^ Photo, char Status, String^ Position);
+			int Level, String^ Warranty, double Salary, array <Byte>^ Photo, char Status, String^ Position, String^ District);
 	};
 }

@@ -90,14 +90,15 @@ PetOwner^ ChitaController::Controller::QueryPetOwnerByDNI(String^ dni)
 List<PetOwner^>^ ChitaController::Controller::QueryAllPetOwner() {
 
 	LoadPetOwnerData();
-
+	/*
 	List<PetOwner^>^ activePetOwnerList = gcnew List<PetOwner^>();
 	for (int i = 0; i < PetOwnerList->Count; i++) {
 		if (PetOwnerList[i]->Id > 0) {
 			activePetOwnerList->Add(PetOwnerList[i]);
 		}
 	}
-	return activePetOwnerList;
+	return activePetOwnerList;*/
+	return PetOwnerList;
 }
 PetOwner^ ChitaController::Controller::QueryPetOwnerById(int PetOwnerId) {
 	for (int i = 0; i < PetOwnerList->Count; i++)

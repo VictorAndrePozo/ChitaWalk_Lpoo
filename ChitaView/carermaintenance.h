@@ -134,7 +134,7 @@ namespace ChitaView {
 	private: System::Windows::Forms::TextBox^ txtPhoneNumber;
 private: System::Windows::Forms::MenuStrip^ menuStrip1;
 private: System::Windows::Forms::ToolStripMenuItem^ generalToolStripMenuItem;
-private: System::Windows::Forms::ToolStripMenuItem^ cuidadoresToolStripMenuItem;
+
 
 
 private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
@@ -241,6 +241,51 @@ private: System::Windows::Forms::Label^ label31;
 private: System::Windows::Forms::Button^ btnDeleteWalker;
 
 private: System::Windows::Forms::Button^ button4;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+private: System::Windows::Forms::ComboBox^ cmbWarranty;
+private: System::Windows::Forms::TextBox^ txtPassword;
+private: System::Windows::Forms::Label^ label15;
+private: System::Windows::Forms::ComboBox^ cmbWarrantyWalker;
+private: System::Windows::Forms::TextBox^ txtPasswordWalker;
+private: System::Windows::Forms::Label^ label20;
+private: System::Windows::Forms::TextBox^ txtPhoneNumberWalker;
+private: System::Windows::Forms::Label^ label25;
+private: System::Windows::Forms::Label^ label28;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+private: System::Windows::Forms::ComboBox^ cmbDistrict;
+private: System::Windows::Forms::Label^ Distrito;
+private: System::Windows::Forms::ComboBox^ cmbDistrictWalker;
+private: System::Windows::Forms::Label^ label32;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ keeperId;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ keeperdni;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ keepername;
@@ -257,15 +302,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ keeperexperience;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ keepersalary;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ keeperwarranty;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ keeperPhoneNumber;
-private: System::Windows::Forms::ComboBox^ cmbWarranty;
-private: System::Windows::Forms::TextBox^ txtPassword;
-private: System::Windows::Forms::Label^ label15;
-private: System::Windows::Forms::ComboBox^ cmbWarrantyWalker;
-private: System::Windows::Forms::TextBox^ txtPasswordWalker;
-private: System::Windows::Forms::Label^ label20;
-private: System::Windows::Forms::TextBox^ txtPhoneNumberWalker;
-private: System::Windows::Forms::Label^ label25;
-private: System::Windows::Forms::Label^ label28;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ keeperDistrict;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ walkerId;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ walkerDocNumber;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ walkerFirstname;
@@ -282,6 +319,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ walkerSalary;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ walkerWarranty;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ walkerPhoneNumber;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ walkerPassword;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ walkerDistrict;
 
 
 
@@ -427,6 +465,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->keepersalary = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->keeperwarranty = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->keeperPhoneNumber = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->keeperDistrict = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->txtPhoneNumber = (gcnew System::Windows::Forms::TextBox());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
@@ -435,7 +474,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->nuevoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->modificarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->eliminarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->cuidadoresToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->rbtnFem = (gcnew System::Windows::Forms::RadioButton());
 			this->rbtnMasc = (gcnew System::Windows::Forms::RadioButton());
 			this->toolTip1 = (gcnew System::Windows::Forms::ToolTip(this->components));
@@ -444,10 +482,14 @@ private: System::ComponentModel::IContainer^ components;
 			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->cmbDistrict = (gcnew System::Windows::Forms::ComboBox());
+			this->Distrito = (gcnew System::Windows::Forms::Label());
 			this->cmbWarranty = (gcnew System::Windows::Forms::ComboBox());
 			this->txtPassword = (gcnew System::Windows::Forms::TextBox());
 			this->label15 = (gcnew System::Windows::Forms::Label());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
+			this->cmbDistrictWalker = (gcnew System::Windows::Forms::ComboBox());
+			this->label32 = (gcnew System::Windows::Forms::Label());
 			this->cmbWarrantyWalker = (gcnew System::Windows::Forms::ComboBox());
 			this->txtPasswordWalker = (gcnew System::Windows::Forms::TextBox());
 			this->label20 = (gcnew System::Windows::Forms::Label());
@@ -473,6 +515,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->walkerWarranty = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->walkerPhoneNumber = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->walkerPassword = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->walkerDistrict = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->rbtnMascWalker = (gcnew System::Windows::Forms::RadioButton());
 			this->label17 = (gcnew System::Windows::Forms::Label());
 			this->rbtnFemWalker = (gcnew System::Windows::Forms::RadioButton());
@@ -793,11 +836,11 @@ private: System::ComponentModel::IContainer^ components;
 			// dgvKeeper
 			// 
 			this->dgvKeeper->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvKeeper->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(16) {
+			this->dgvKeeper->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(17) {
 				this->keeperId, this->keeperdni,
 					this->keepername, this->keeperlastname, this->keeperstatus, this->keepergender, this->keeperdirection, this->keeperemail, this->keeperusername,
 					this->keepervaloration, this->keeperlevel, this->keeperPassword, this->keeperexperience, this->keepersalary, this->keeperwarranty,
-					this->keeperPhoneNumber
+					this->keeperPhoneNumber, this->keeperDistrict
 			});
 			this->dgvKeeper->Location = System::Drawing::Point(14, 306);
 			this->dgvKeeper->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
@@ -920,6 +963,13 @@ private: System::ComponentModel::IContainer^ components;
 			this->keeperPhoneNumber->Name = L"keeperPhoneNumber";
 			this->keeperPhoneNumber->Width = 125;
 			// 
+			// keeperDistrict
+			// 
+			this->keeperDistrict->HeaderText = L"Distrito";
+			this->keeperDistrict->MinimumWidth = 6;
+			this->keeperDistrict->Name = L"keeperDistrict";
+			this->keeperDistrict->Width = 125;
+			// 
 			// label10
 			// 
 			this->label10->AutoSize = true;
@@ -940,10 +990,7 @@ private: System::ComponentModel::IContainer^ components;
 			// menuStrip1
 			// 
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->generalToolStripMenuItem,
-					this->cuidadoresToolStripMenuItem
-			});
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->generalToolStripMenuItem });
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
 			this->menuStrip1->Padding = System::Windows::Forms::Padding(5, 2, 0, 2);
@@ -988,13 +1035,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->eliminarToolStripMenuItem->Size = System::Drawing::Size(146, 26);
 			this->eliminarToolStripMenuItem->Text = L"Eliminar";
 			// 
-			// cuidadoresToolStripMenuItem
-			// 
-			this->cuidadoresToolStripMenuItem->Name = L"cuidadoresToolStripMenuItem";
-			this->cuidadoresToolStripMenuItem->Size = System::Drawing::Size(76, 24);
-			this->cuidadoresToolStripMenuItem->Text = L"Reporte";
-			this->cuidadoresToolStripMenuItem->Click += gcnew System::EventHandler(this, &carermaintenance::cuidadoresToolStripMenuItem_Click);
-			// 
 			// rbtnFem
 			// 
 			this->rbtnFem->AutoSize = true;
@@ -1027,7 +1067,7 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			this->tabControl1->Controls->Add(this->tabPage1);
 			this->tabControl1->Controls->Add(this->tabPage2);
-			this->tabControl1->Location = System::Drawing::Point(21, 43);
+			this->tabControl1->Location = System::Drawing::Point(28, 42);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
 			this->tabControl1->Size = System::Drawing::Size(1121, 633);
@@ -1035,6 +1075,8 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// tabPage1
 			// 
+			this->tabPage1->Controls->Add(this->cmbDistrict);
+			this->tabPage1->Controls->Add(this->Distrito);
 			this->tabPage1->Controls->Add(this->cmbWarranty);
 			this->tabPage1->Controls->Add(this->txtPassword);
 			this->tabPage1->Controls->Add(this->label15);
@@ -1083,6 +1125,31 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage1->UseVisualStyleBackColor = true;
 			this->tabPage1->Click += gcnew System::EventHandler(this, &carermaintenance::tabPage1_Click);
 			// 
+			// cmbDistrict
+			// 
+			this->cmbDistrict->FormattingEnabled = true;
+			this->cmbDistrict->Items->AddRange(gcnew cli::array< System::Object^  >(43) {
+				L"Ancón", L"Ate", L"Barranco", L"Breña", L"Carabayllo",
+					L"Cercado de Lima", L"Chaclacayo", L"Chorrillos", L"Cieneguilla", L"Comas", L"El agustino", L"Independencia", L"Jesús maría",
+					L"La molina", L"La victoria", L"Lince", L"Los olivos", L"Lurigancho", L"Lurín", L"Magdalena del mar", L"Miraflores", L"Pachacámac",
+					L"Pucusana", L"Pueblo libre", L"Puente piedra", L"Punta hermosa", L"Punta negra", L"Rímac", L"San bartolo", L"San borja", L"San isidro",
+					L"San Juan de Lurigancho", L"San Juan de Miraflores", L"San Luis", L"San Martin de Porres", L"San Miguel", L"Santa Anita", L"Santa María del Mar",
+					L"Santa Rosa", L"Santiago de Surco", L"Surquillo", L"Villa el Salvador", L"Villa Maria del Triunfo"
+			});
+			this->cmbDistrict->Location = System::Drawing::Point(344, 18);
+			this->cmbDistrict->Name = L"cmbDistrict";
+			this->cmbDistrict->Size = System::Drawing::Size(252, 24);
+			this->cmbDistrict->TabIndex = 71;
+			// 
+			// Distrito
+			// 
+			this->Distrito->AutoSize = true;
+			this->Distrito->Location = System::Drawing::Point(243, 23);
+			this->Distrito->Name = L"Distrito";
+			this->Distrito->Size = System::Drawing::Size(61, 16);
+			this->Distrito->TabIndex = 70;
+			this->Distrito->Text = L"Distrito(*)";
+			// 
 			// cmbWarranty
 			// 
 			this->cmbWarranty->FormattingEnabled = true;
@@ -1118,6 +1185,8 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// tabPage2
 			// 
+			this->tabPage2->Controls->Add(this->cmbDistrictWalker);
+			this->tabPage2->Controls->Add(this->label32);
 			this->tabPage2->Controls->Add(this->cmbWarrantyWalker);
 			this->tabPage2->Controls->Add(this->txtPasswordWalker);
 			this->tabPage2->Controls->Add(this->label20);
@@ -1164,6 +1233,31 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Paseador";
 			this->tabPage2->UseVisualStyleBackColor = true;
+			// 
+			// cmbDistrictWalker
+			// 
+			this->cmbDistrictWalker->FormattingEnabled = true;
+			this->cmbDistrictWalker->Items->AddRange(gcnew cli::array< System::Object^  >(43) {
+				L"Ancón", L"Ate", L"Barranco", L"Breña",
+					L"Carabayllo", L"Cercado de Lima", L"Chaclacayo", L"Chorrillos", L"Cieneguilla", L"Comas", L"El agustino", L"Independencia",
+					L"Jesús maría", L"La molina", L"La victoria", L"Lince", L"Los olivos", L"Lurigancho", L"Lurín", L"Magdalena del mar", L"Miraflores",
+					L"Pachacámac", L"Pucusana", L"Pueblo libre", L"Puente piedra", L"Punta hermosa", L"Punta negra", L"Rímac", L"San bartolo", L"San borja",
+					L"San isidro", L"San Juan de Lurigancho", L"San Juan de Miraflores", L"San Luis", L"San Martin de Porres", L"San Miguel", L"Santa Anita",
+					L"Santa María del Mar", L"Santa Rosa", L"Santiago de Surco", L"Surquillo", L"Villa el Salvador", L"Villa Maria del Triunfo"
+			});
+			this->cmbDistrictWalker->Location = System::Drawing::Point(344, 20);
+			this->cmbDistrictWalker->Name = L"cmbDistrictWalker";
+			this->cmbDistrictWalker->Size = System::Drawing::Size(252, 24);
+			this->cmbDistrictWalker->TabIndex = 89;
+			// 
+			// label32
+			// 
+			this->label32->AutoSize = true;
+			this->label32->Location = System::Drawing::Point(243, 25);
+			this->label32->Name = L"label32";
+			this->label32->Size = System::Drawing::Size(61, 16);
+			this->label32->TabIndex = 88;
+			this->label32->Text = L"Distrito(*)";
 			// 
 			// cmbWarrantyWalker
 			// 
@@ -1247,11 +1341,11 @@ private: System::ComponentModel::IContainer^ components;
 			// dgvWalker
 			// 
 			this->dgvWalker->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvWalker->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(16) {
+			this->dgvWalker->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(17) {
 				this->walkerId, this->walkerDocNumber,
 					this->walkerFirstname, this->walkerLastName, this->walkerStatus, this->walkerGender, this->walkerAddress, this->walkerEmail,
 					this->walkerUsername, this->walkerValoration, this->walkerLevel, this->walkerExperience, this->walkerSalary, this->walkerWarranty,
-					this->walkerPhoneNumber, this->walkerPassword
+					this->walkerPhoneNumber, this->walkerPassword, this->walkerDistrict
 			});
 			this->dgvWalker->Location = System::Drawing::Point(14, 309);
 			this->dgvWalker->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
@@ -1260,6 +1354,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->dgvWalker->RowTemplate->Height = 24;
 			this->dgvWalker->Size = System::Drawing::Size(1084, 278);
 			this->dgvWalker->TabIndex = 77;
+			this->dgvWalker->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &carermaintenance::dgvWalker_CellClick);
 			// 
 			// walkerId
 			// 
@@ -1373,6 +1468,13 @@ private: System::ComponentModel::IContainer^ components;
 			this->walkerPassword->MinimumWidth = 6;
 			this->walkerPassword->Name = L"walkerPassword";
 			this->walkerPassword->Width = 125;
+			// 
+			// walkerDistrict
+			// 
+			this->walkerDistrict->HeaderText = L"Distrito";
+			this->walkerDistrict->MinimumWidth = 6;
+			this->walkerDistrict->Name = L"walkerDistrict";
+			this->walkerDistrict->Width = 125;
 			// 
 			// rbtnMascWalker
 			// 
@@ -1694,7 +1796,8 @@ private: System::ComponentModel::IContainer^ components;
 					"" + keeperList[i]->Salary,
 					     keeperList[i]->Warranty,
 					"" + keeperList[i]->PhoneNumber,
-					"" + keeperList[i]->password
+					"" + keeperList[i]->password,
+					     keeperList[i]->District
 						//keeperList[i]->Award,
 						//"" + keeperList[i]->Photo,
 				});
@@ -1721,7 +1824,8 @@ private: System::ComponentModel::IContainer^ components;
 						"" + walkerList[i]->Salary,
 						walkerList[i]->Warranty,
 						"" + walkerList[i]->PhoneNumber,
-						"" + walkerList[i]->password
+						"" + walkerList[i]->password,
+						     walkerList[i]->District
 				});
 			}
 		}
@@ -1747,6 +1851,7 @@ private: System::ComponentModel::IContainer^ components;
 		//c->Photo = array::Parse(PicturePhoto->Picture);
 		c->Status = 'A';
 		c->password = txtPassword->Text;
+		c->District = cmbDistrict->Text;
 
 		Controller::AddKeeper(c);
 		RefreshGrid();
@@ -1773,6 +1878,7 @@ private: System::ComponentModel::IContainer^ components;
 		 //c->Photo = array::Parse(PicturePhoto->Picture);
 		 c->Status = 'A';
 		 c->password = txtPasswordWalker->Text;
+		 c->District = cmbDistrictWalker->Text;
 
 		 Controller::AddWalker(c);
 		 RefreshGrid_Walker();
@@ -1798,6 +1904,7 @@ private: System::ComponentModel::IContainer^ components;
 		//c->Photo = array::Parse(PicturePhoto->Picture);
 		c->Status = 'A';
 		c->password = txtPassword->Text;
+		c->District = cmbDistrict->Text;
 
 		Controller::UpdateKeeper(c);
 		RefreshGrid();
@@ -1823,6 +1930,7 @@ private: System::ComponentModel::IContainer^ components;
 		//c->Photo = array::Parse(PicturePhoto->Picture);
 		c->Status = 'A';
 		c->password = txtPasswordWalker->Text;
+		c->District = cmbDistrictWalker->Text;
 
 		Controller::UpdateWalker(c);
 		RefreshGrid_Walker();
@@ -1964,7 +2072,7 @@ private: System::Void dgvWalker_CellClick(System::Object^ sender, System::Window
 			   //txt->Text = "" + c->Photo;
 			   txtStatus->Clear();
 			   txtPassword->Clear();
-			   //CmbPosition->Clear();
+			   cmbDistrict->Text = "";
 			   
 			   // PARA WALKER
 			   txtDniWalker->Clear();
@@ -1986,6 +2094,7 @@ private: System::Void dgvWalker_CellClick(System::Object^ sender, System::Window
 			   txtStatusWalker->Clear();
 			   txtPasswordWalker->Clear();
 			   //CmbPosition->Clear();
+			   cmbDistrictWalker->Text = "";
 		   }
 
 
@@ -2102,6 +2211,7 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 		pcpPhoto->Image = gcnew Bitmap(opnfd->FileName);
 	}
 }
+
 
 
 
