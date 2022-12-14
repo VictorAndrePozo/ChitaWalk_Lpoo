@@ -411,6 +411,22 @@ private: System::ComponentModel::IContainer^ components;
 			this->txtExperience = (gcnew System::Windows::Forms::TextBox());
 			this->txtSalary = (gcnew System::Windows::Forms::TextBox());
 			this->dgvKeeper = (gcnew System::Windows::Forms::DataGridView());
+			this->keeperId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->keeperdni = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->keepername = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->keeperlastname = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->keeperstatus = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->keepergender = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->keeperdirection = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->keeperemail = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->keeperusername = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->keepervaloration = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->keeperlevel = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->keeperPassword = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->keeperexperience = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->keepersalary = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->keeperwarranty = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->keeperPhoneNumber = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->txtPhoneNumber = (gcnew System::Windows::Forms::TextBox());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
@@ -428,10 +444,35 @@ private: System::ComponentModel::IContainer^ components;
 			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->cmbWarranty = (gcnew System::Windows::Forms::ComboBox());
+			this->txtPassword = (gcnew System::Windows::Forms::TextBox());
+			this->label15 = (gcnew System::Windows::Forms::Label());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
+			this->cmbWarrantyWalker = (gcnew System::Windows::Forms::ComboBox());
+			this->txtPasswordWalker = (gcnew System::Windows::Forms::TextBox());
+			this->label20 = (gcnew System::Windows::Forms::Label());
+			this->txtPhoneNumberWalker = (gcnew System::Windows::Forms::TextBox());
+			this->label25 = (gcnew System::Windows::Forms::Label());
+			this->label28 = (gcnew System::Windows::Forms::Label());
 			this->btnAddWalker = (gcnew System::Windows::Forms::Button());
 			this->label16 = (gcnew System::Windows::Forms::Label());
 			this->dgvWalker = (gcnew System::Windows::Forms::DataGridView());
+			this->walkerId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->walkerDocNumber = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->walkerFirstname = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->walkerLastName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->walkerStatus = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->walkerGender = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->walkerAddress = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->walkerEmail = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->walkerUsername = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->walkerValoration = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->walkerLevel = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->walkerExperience = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->walkerSalary = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->walkerWarranty = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->walkerPhoneNumber = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->walkerPassword = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->rbtnMascWalker = (gcnew System::Windows::Forms::RadioButton());
 			this->label17 = (gcnew System::Windows::Forms::Label());
 			this->rbtnFemWalker = (gcnew System::Windows::Forms::RadioButton());
@@ -462,47 +503,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->label31 = (gcnew System::Windows::Forms::Label());
 			this->btnDeleteWalker = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
-			this->txtPassword = (gcnew System::Windows::Forms::TextBox());
-			this->label15 = (gcnew System::Windows::Forms::Label());
-			this->cmbWarranty = (gcnew System::Windows::Forms::ComboBox());
-			this->keeperId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->keeperdni = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->keepername = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->keeperlastname = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->keeperstatus = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->keepergender = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->keeperdirection = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->keeperemail = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->keeperusername = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->keepervaloration = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->keeperlevel = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->keeperPassword = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->keeperexperience = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->keepersalary = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->keeperwarranty = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->keeperPhoneNumber = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->cmbWarrantyWalker = (gcnew System::Windows::Forms::ComboBox());
-			this->txtPasswordWalker = (gcnew System::Windows::Forms::TextBox());
-			this->label20 = (gcnew System::Windows::Forms::Label());
-			this->txtPhoneNumberWalker = (gcnew System::Windows::Forms::TextBox());
-			this->label25 = (gcnew System::Windows::Forms::Label());
-			this->label28 = (gcnew System::Windows::Forms::Label());
-			this->walkerId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->walkerDocNumber = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->walkerFirstname = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->walkerLastName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->walkerStatus = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->walkerGender = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->walkerAddress = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->walkerEmail = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->walkerUsername = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->walkerValoration = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->walkerLevel = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->walkerExperience = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->walkerSalary = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->walkerWarranty = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->walkerPhoneNumber = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->walkerPassword = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pccPhoto))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvKeeper))->BeginInit();
 			this->menuStrip1->SuspendLayout();
@@ -808,6 +808,118 @@ private: System::ComponentModel::IContainer^ components;
 			this->dgvKeeper->TabIndex = 37;
 			this->dgvKeeper->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &carermaintenance::dgvKeeper_CellClick);
 			// 
+			// keeperId
+			// 
+			this->keeperId->HeaderText = L"Id";
+			this->keeperId->MinimumWidth = 6;
+			this->keeperId->Name = L"keeperId";
+			this->keeperId->Width = 125;
+			// 
+			// keeperdni
+			// 
+			this->keeperdni->HeaderText = L"Dni";
+			this->keeperdni->MinimumWidth = 6;
+			this->keeperdni->Name = L"keeperdni";
+			this->keeperdni->Width = 125;
+			// 
+			// keepername
+			// 
+			this->keepername->HeaderText = L"Nombres";
+			this->keepername->MinimumWidth = 6;
+			this->keepername->Name = L"keepername";
+			this->keepername->Width = 125;
+			// 
+			// keeperlastname
+			// 
+			this->keeperlastname->HeaderText = L"Apellidos";
+			this->keeperlastname->MinimumWidth = 6;
+			this->keeperlastname->Name = L"keeperlastname";
+			this->keeperlastname->Width = 125;
+			// 
+			// keeperstatus
+			// 
+			this->keeperstatus->HeaderText = L"Estado";
+			this->keeperstatus->MinimumWidth = 6;
+			this->keeperstatus->Name = L"keeperstatus";
+			this->keeperstatus->Width = 125;
+			// 
+			// keepergender
+			// 
+			this->keepergender->HeaderText = L"Género";
+			this->keepergender->MinimumWidth = 6;
+			this->keepergender->Name = L"keepergender";
+			this->keepergender->Width = 125;
+			// 
+			// keeperdirection
+			// 
+			this->keeperdirection->HeaderText = L"Dirección";
+			this->keeperdirection->MinimumWidth = 6;
+			this->keeperdirection->Name = L"keeperdirection";
+			this->keeperdirection->Width = 125;
+			// 
+			// keeperemail
+			// 
+			this->keeperemail->HeaderText = L"Correo";
+			this->keeperemail->MinimumWidth = 6;
+			this->keeperemail->Name = L"keeperemail";
+			this->keeperemail->Width = 125;
+			// 
+			// keeperusername
+			// 
+			this->keeperusername->HeaderText = L"Usuario";
+			this->keeperusername->MinimumWidth = 6;
+			this->keeperusername->Name = L"keeperusername";
+			this->keeperusername->Width = 125;
+			// 
+			// keepervaloration
+			// 
+			this->keepervaloration->HeaderText = L"Valoración";
+			this->keepervaloration->MinimumWidth = 6;
+			this->keepervaloration->Name = L"keepervaloration";
+			this->keepervaloration->Width = 125;
+			// 
+			// keeperlevel
+			// 
+			this->keeperlevel->HeaderText = L"Nivel";
+			this->keeperlevel->MinimumWidth = 6;
+			this->keeperlevel->Name = L"keeperlevel";
+			this->keeperlevel->Width = 125;
+			// 
+			// keeperPassword
+			// 
+			this->keeperPassword->HeaderText = L"Contraseña";
+			this->keeperPassword->MinimumWidth = 6;
+			this->keeperPassword->Name = L"keeperPassword";
+			this->keeperPassword->Width = 125;
+			// 
+			// keeperexperience
+			// 
+			this->keeperexperience->HeaderText = L"Experiencia";
+			this->keeperexperience->MinimumWidth = 6;
+			this->keeperexperience->Name = L"keeperexperience";
+			this->keeperexperience->Width = 125;
+			// 
+			// keepersalary
+			// 
+			this->keepersalary->HeaderText = L"Salario";
+			this->keepersalary->MinimumWidth = 6;
+			this->keepersalary->Name = L"keepersalary";
+			this->keepersalary->Width = 125;
+			// 
+			// keeperwarranty
+			// 
+			this->keeperwarranty->HeaderText = L"Garantía";
+			this->keeperwarranty->MinimumWidth = 6;
+			this->keeperwarranty->Name = L"keeperwarranty";
+			this->keeperwarranty->Width = 125;
+			// 
+			// keeperPhoneNumber
+			// 
+			this->keeperPhoneNumber->HeaderText = L"Celular";
+			this->keeperPhoneNumber->MinimumWidth = 6;
+			this->keeperPhoneNumber->Name = L"keeperPhoneNumber";
+			this->keeperPhoneNumber->Width = 125;
+			// 
 			// label10
 			// 
 			this->label10->AutoSize = true;
@@ -971,6 +1083,39 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage1->UseVisualStyleBackColor = true;
 			this->tabPage1->Click += gcnew System::EventHandler(this, &carermaintenance::tabPage1_Click);
 			// 
+			// cmbWarranty
+			// 
+			this->cmbWarranty->FormattingEnabled = true;
+			this->cmbWarranty->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
+				L"Etapa 0:  No cuenta con ninguna verificación",
+					L"Etapa 1:  Se verificó la foto y/o la identificación oficial del perfil (DNI/pasap"
+					L"orte)", L"Etapa 2:  Se verificó la ubicación del domicilio actual + Etapa 1",
+					L"Etapa 3:  Se verifica que la persona no tiene antecedentes penales, especialmente"
+					L" relacionado al maltrato animal + Etapas 1, 2",
+					L"Etapa 4:  Se verificó la actividad/continuidad en la página  + Etapas 1, 2, 3"
+			});
+			this->cmbWarranty->Location = System::Drawing::Point(929, 182);
+			this->cmbWarranty->Name = L"cmbWarranty";
+			this->cmbWarranty->Size = System::Drawing::Size(125, 24);
+			this->cmbWarranty->TabIndex = 45;
+			// 
+			// txtPassword
+			// 
+			this->txtPassword->Location = System::Drawing::Point(929, 238);
+			this->txtPassword->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->txtPassword->Name = L"txtPassword";
+			this->txtPassword->Size = System::Drawing::Size(125, 22);
+			this->txtPassword->TabIndex = 44;
+			// 
+			// label15
+			// 
+			this->label15->AutoSize = true;
+			this->label15->Location = System::Drawing::Point(820, 238);
+			this->label15->Name = L"label15";
+			this->label15->Size = System::Drawing::Size(76, 16);
+			this->label15->TabIndex = 43;
+			this->label15->Text = L"Contraseña";
+			// 
 			// tabPage2
 			// 
 			this->tabPage2->Controls->Add(this->cmbWarrantyWalker);
@@ -1020,6 +1165,65 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage2->Text = L"Paseador";
 			this->tabPage2->UseVisualStyleBackColor = true;
 			// 
+			// cmbWarrantyWalker
+			// 
+			this->cmbWarrantyWalker->FormattingEnabled = true;
+			this->cmbWarrantyWalker->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
+				L"Etapa 0:  No cuenta con ninguna verificación",
+					L"Etapa 1:  Se verificó la foto y/o la identificación oficial del perfil (DNI/pasap"
+					L"orte)", L"Etapa 2:  Se verificó la ubicación del domicilio actual + Etapa 1",
+					L"Etapa 3:  Se verifica que la persona no tiene antecedentes penales, especialmente"
+					L" relacionado al maltrato animal + Etapas 1, 2",
+					L"Etapa 4:  Se verificó la actividad/continuidad en la página  + Etapas 1, 2, 3"
+			});
+			this->cmbWarrantyWalker->Location = System::Drawing::Point(929, 192);
+			this->cmbWarrantyWalker->Name = L"cmbWarrantyWalker";
+			this->cmbWarrantyWalker->Size = System::Drawing::Size(125, 24);
+			this->cmbWarrantyWalker->TabIndex = 87;
+			// 
+			// txtPasswordWalker
+			// 
+			this->txtPasswordWalker->Location = System::Drawing::Point(929, 230);
+			this->txtPasswordWalker->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->txtPasswordWalker->Name = L"txtPasswordWalker";
+			this->txtPasswordWalker->Size = System::Drawing::Size(125, 22);
+			this->txtPasswordWalker->TabIndex = 86;
+			// 
+			// label20
+			// 
+			this->label20->AutoSize = true;
+			this->label20->Location = System::Drawing::Point(820, 230);
+			this->label20->Name = L"label20";
+			this->label20->Size = System::Drawing::Size(76, 16);
+			this->label20->TabIndex = 85;
+			this->label20->Text = L"Contraseña";
+			// 
+			// txtPhoneNumberWalker
+			// 
+			this->txtPhoneNumberWalker->Location = System::Drawing::Point(929, 272);
+			this->txtPhoneNumberWalker->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->txtPhoneNumberWalker->Name = L"txtPhoneNumberWalker";
+			this->txtPhoneNumberWalker->Size = System::Drawing::Size(125, 22);
+			this->txtPhoneNumberWalker->TabIndex = 84;
+			// 
+			// label25
+			// 
+			this->label25->AutoSize = true;
+			this->label25->Location = System::Drawing::Point(820, 272);
+			this->label25->Name = L"label25";
+			this->label25->Size = System::Drawing::Size(49, 16);
+			this->label25->TabIndex = 83;
+			this->label25->Text = L"Celular";
+			// 
+			// label28
+			// 
+			this->label28->AutoSize = true;
+			this->label28->Location = System::Drawing::Point(819, 192);
+			this->label28->Name = L"label28";
+			this->label28->Size = System::Drawing::Size(58, 16);
+			this->label28->TabIndex = 82;
+			this->label28->Text = L"Garantía";
+			// 
 			// btnAddWalker
 			// 
 			this->btnAddWalker->Location = System::Drawing::Point(59, 248);
@@ -1029,6 +1233,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->btnAddWalker->TabIndex = 60;
 			this->btnAddWalker->Text = L"Agregar";
 			this->btnAddWalker->UseVisualStyleBackColor = true;
+			this->btnAddWalker->Click += gcnew System::EventHandler(this, &carermaintenance::btnAddWalker_Click);
 			// 
 			// label16
 			// 
@@ -1055,6 +1260,119 @@ private: System::ComponentModel::IContainer^ components;
 			this->dgvWalker->RowTemplate->Height = 24;
 			this->dgvWalker->Size = System::Drawing::Size(1084, 278);
 			this->dgvWalker->TabIndex = 77;
+			// 
+			// walkerId
+			// 
+			this->walkerId->HeaderText = L"Id";
+			this->walkerId->MinimumWidth = 6;
+			this->walkerId->Name = L"walkerId";
+			this->walkerId->Width = 125;
+			// 
+			// walkerDocNumber
+			// 
+			this->walkerDocNumber->HeaderText = L"Dni";
+			this->walkerDocNumber->MinimumWidth = 6;
+			this->walkerDocNumber->Name = L"walkerDocNumber";
+			this->walkerDocNumber->Width = 125;
+			// 
+			// walkerFirstname
+			// 
+			this->walkerFirstname->HeaderText = L"Nombres";
+			this->walkerFirstname->MinimumWidth = 6;
+			this->walkerFirstname->Name = L"walkerFirstname";
+			this->walkerFirstname->Width = 125;
+			// 
+			// walkerLastName
+			// 
+			this->walkerLastName->HeaderText = L"Apellidos";
+			this->walkerLastName->MinimumWidth = 6;
+			this->walkerLastName->Name = L"walkerLastName";
+			this->walkerLastName->Width = 125;
+			// 
+			// walkerStatus
+			// 
+			this->walkerStatus->HeaderText = L"Estado";
+			this->walkerStatus->MinimumWidth = 6;
+			this->walkerStatus->Name = L"walkerStatus";
+			this->walkerStatus->Width = 125;
+			// 
+			// walkerGender
+			// 
+			this->walkerGender->HeaderText = L"Género";
+			this->walkerGender->MinimumWidth = 6;
+			this->walkerGender->Name = L"walkerGender";
+			this->walkerGender->Width = 125;
+			// 
+			// walkerAddress
+			// 
+			this->walkerAddress->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::None;
+			this->walkerAddress->HeaderText = L"Dirección";
+			this->walkerAddress->MinimumWidth = 6;
+			this->walkerAddress->Name = L"walkerAddress";
+			this->walkerAddress->Width = 125;
+			// 
+			// walkerEmail
+			// 
+			this->walkerEmail->HeaderText = L"Correo";
+			this->walkerEmail->MinimumWidth = 6;
+			this->walkerEmail->Name = L"walkerEmail";
+			this->walkerEmail->Width = 125;
+			// 
+			// walkerUsername
+			// 
+			this->walkerUsername->HeaderText = L"Usuario";
+			this->walkerUsername->MinimumWidth = 6;
+			this->walkerUsername->Name = L"walkerUsername";
+			this->walkerUsername->Width = 125;
+			// 
+			// walkerValoration
+			// 
+			this->walkerValoration->HeaderText = L"Valoración";
+			this->walkerValoration->MinimumWidth = 6;
+			this->walkerValoration->Name = L"walkerValoration";
+			this->walkerValoration->Width = 125;
+			// 
+			// walkerLevel
+			// 
+			this->walkerLevel->HeaderText = L"Nivel";
+			this->walkerLevel->MinimumWidth = 6;
+			this->walkerLevel->Name = L"walkerLevel";
+			this->walkerLevel->Width = 125;
+			// 
+			// walkerExperience
+			// 
+			this->walkerExperience->HeaderText = L"Experiencia";
+			this->walkerExperience->MinimumWidth = 6;
+			this->walkerExperience->Name = L"walkerExperience";
+			this->walkerExperience->Width = 125;
+			// 
+			// walkerSalary
+			// 
+			this->walkerSalary->HeaderText = L"Salario";
+			this->walkerSalary->MinimumWidth = 6;
+			this->walkerSalary->Name = L"walkerSalary";
+			this->walkerSalary->Width = 125;
+			// 
+			// walkerWarranty
+			// 
+			this->walkerWarranty->HeaderText = L"Garantía";
+			this->walkerWarranty->MinimumWidth = 6;
+			this->walkerWarranty->Name = L"walkerWarranty";
+			this->walkerWarranty->Width = 125;
+			// 
+			// walkerPhoneNumber
+			// 
+			this->walkerPhoneNumber->HeaderText = L"Celular";
+			this->walkerPhoneNumber->MinimumWidth = 6;
+			this->walkerPhoneNumber->Name = L"walkerPhoneNumber";
+			this->walkerPhoneNumber->Width = 125;
+			// 
+			// walkerPassword
+			// 
+			this->walkerPassword->HeaderText = L"Contraseña";
+			this->walkerPassword->MinimumWidth = 6;
+			this->walkerPassword->Name = L"walkerPassword";
+			this->walkerPassword->Width = 125;
 			// 
 			// rbtnMascWalker
 			// 
@@ -1293,6 +1611,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->btnUpdateWalker->TabIndex = 61;
 			this->btnUpdateWalker->Text = L"Modificar";
 			this->btnUpdateWalker->UseVisualStyleBackColor = true;
+			this->btnUpdateWalker->Click += gcnew System::EventHandler(this, &carermaintenance::btnUpdateWalker_Click);
 			// 
 			// label31
 			// 
@@ -1312,6 +1631,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->btnDeleteWalker->TabIndex = 62;
 			this->btnDeleteWalker->Text = L"Eliminar";
 			this->btnDeleteWalker->UseVisualStyleBackColor = true;
+			this->btnDeleteWalker->Click += gcnew System::EventHandler(this, &carermaintenance::btnDeleteWalker_Click);
 			// 
 			// button4
 			// 
@@ -1323,323 +1643,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->button4->Text = L"Agregar foto";
 			this->button4->UseVisualStyleBackColor = true;
 			this->button4->Click += gcnew System::EventHandler(this, &carermaintenance::button4_Click);
-			// 
-			// txtPassword
-			// 
-			this->txtPassword->Location = System::Drawing::Point(929, 238);
-			this->txtPassword->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->txtPassword->Name = L"txtPassword";
-			this->txtPassword->Size = System::Drawing::Size(125, 22);
-			this->txtPassword->TabIndex = 44;
-			// 
-			// label15
-			// 
-			this->label15->AutoSize = true;
-			this->label15->Location = System::Drawing::Point(820, 238);
-			this->label15->Name = L"label15";
-			this->label15->Size = System::Drawing::Size(76, 16);
-			this->label15->TabIndex = 43;
-			this->label15->Text = L"Contraseña";
-			// 
-			// cmbWarranty
-			// 
-			this->cmbWarranty->FormattingEnabled = true;
-			this->cmbWarranty->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
-				L"Etapa 0:  No cuenta con ninguna verificación",
-					L"Etapa 1:  Se verificó la foto y/o la identificación oficial del perfil (DNI/pasap"
-					L"orte)", L"Etapa 2:  Se verificó la ubicación del domicilio actual + Etapa 1",
-					L"Etapa 3:  Se verifica que la persona no tiene antecedentes penales, especialmente"
-					L" relacionado al maltrato animal + Etapas 1, 2",
-					L"Etapa 4:  Se verificó la actividad/continuidad en la página  + Etapas 1, 2, 3"
-			});
-			this->cmbWarranty->Location = System::Drawing::Point(929, 182);
-			this->cmbWarranty->Name = L"cmbWarranty";
-			this->cmbWarranty->Size = System::Drawing::Size(125, 24);
-			this->cmbWarranty->TabIndex = 45;
-			// 
-			// keeperId
-			// 
-			this->keeperId->HeaderText = L"Id";
-			this->keeperId->MinimumWidth = 6;
-			this->keeperId->Name = L"keeperId";
-			this->keeperId->Width = 125;
-			// 
-			// keeperdni
-			// 
-			this->keeperdni->HeaderText = L"Dni";
-			this->keeperdni->MinimumWidth = 6;
-			this->keeperdni->Name = L"keeperdni";
-			this->keeperdni->Width = 125;
-			// 
-			// keepername
-			// 
-			this->keepername->HeaderText = L"Nombres";
-			this->keepername->MinimumWidth = 6;
-			this->keepername->Name = L"keepername";
-			this->keepername->Width = 125;
-			// 
-			// keeperlastname
-			// 
-			this->keeperlastname->HeaderText = L"Apellidos";
-			this->keeperlastname->MinimumWidth = 6;
-			this->keeperlastname->Name = L"keeperlastname";
-			this->keeperlastname->Width = 125;
-			// 
-			// keeperstatus
-			// 
-			this->keeperstatus->HeaderText = L"Estado";
-			this->keeperstatus->MinimumWidth = 6;
-			this->keeperstatus->Name = L"keeperstatus";
-			this->keeperstatus->Width = 125;
-			// 
-			// keepergender
-			// 
-			this->keepergender->HeaderText = L"Género";
-			this->keepergender->MinimumWidth = 6;
-			this->keepergender->Name = L"keepergender";
-			this->keepergender->Width = 125;
-			// 
-			// keeperdirection
-			// 
-			this->keeperdirection->HeaderText = L"Dirección";
-			this->keeperdirection->MinimumWidth = 6;
-			this->keeperdirection->Name = L"keeperdirection";
-			this->keeperdirection->Width = 125;
-			// 
-			// keeperemail
-			// 
-			this->keeperemail->HeaderText = L"Correo";
-			this->keeperemail->MinimumWidth = 6;
-			this->keeperemail->Name = L"keeperemail";
-			this->keeperemail->Width = 125;
-			// 
-			// keeperusername
-			// 
-			this->keeperusername->HeaderText = L"Usuario";
-			this->keeperusername->MinimumWidth = 6;
-			this->keeperusername->Name = L"keeperusername";
-			this->keeperusername->Width = 125;
-			// 
-			// keepervaloration
-			// 
-			this->keepervaloration->HeaderText = L"Valoración";
-			this->keepervaloration->MinimumWidth = 6;
-			this->keepervaloration->Name = L"keepervaloration";
-			this->keepervaloration->Width = 125;
-			// 
-			// keeperlevel
-			// 
-			this->keeperlevel->HeaderText = L"Nivel";
-			this->keeperlevel->MinimumWidth = 6;
-			this->keeperlevel->Name = L"keeperlevel";
-			this->keeperlevel->Width = 125;
-			// 
-			// keeperPassword
-			// 
-			this->keeperPassword->HeaderText = L"Contraseña";
-			this->keeperPassword->MinimumWidth = 6;
-			this->keeperPassword->Name = L"keeperPassword";
-			this->keeperPassword->Width = 125;
-			// 
-			// keeperexperience
-			// 
-			this->keeperexperience->HeaderText = L"Experiencia";
-			this->keeperexperience->MinimumWidth = 6;
-			this->keeperexperience->Name = L"keeperexperience";
-			this->keeperexperience->Width = 125;
-			// 
-			// keepersalary
-			// 
-			this->keepersalary->HeaderText = L"Salario";
-			this->keepersalary->MinimumWidth = 6;
-			this->keepersalary->Name = L"keepersalary";
-			this->keepersalary->Width = 125;
-			// 
-			// keeperwarranty
-			// 
-			this->keeperwarranty->HeaderText = L"Garantía";
-			this->keeperwarranty->MinimumWidth = 6;
-			this->keeperwarranty->Name = L"keeperwarranty";
-			this->keeperwarranty->Width = 125;
-			// 
-			// keeperPhoneNumber
-			// 
-			this->keeperPhoneNumber->HeaderText = L"Celular";
-			this->keeperPhoneNumber->MinimumWidth = 6;
-			this->keeperPhoneNumber->Name = L"keeperPhoneNumber";
-			this->keeperPhoneNumber->Width = 125;
-			// 
-			// cmbWarrantyWalker
-			// 
-			this->cmbWarrantyWalker->FormattingEnabled = true;
-			this->cmbWarrantyWalker->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
-				L"Etapa 0:  No cuenta con ninguna verificación",
-					L"Etapa 1:  Se verificó la foto y/o la identificación oficial del perfil (DNI/pasap"
-					L"orte)", L"Etapa 2:  Se verificó la ubicación del domicilio actual + Etapa 1",
-					L"Etapa 3:  Se verifica que la persona no tiene antecedentes penales, especialmente"
-					L" relacionado al maltrato animal + Etapas 1, 2",
-					L"Etapa 4:  Se verificó la actividad/continuidad en la página  + Etapas 1, 2, 3"
-			});
-			this->cmbWarrantyWalker->Location = System::Drawing::Point(929, 192);
-			this->cmbWarrantyWalker->Name = L"cmbWarrantyWalker";
-			this->cmbWarrantyWalker->Size = System::Drawing::Size(125, 24);
-			this->cmbWarrantyWalker->TabIndex = 87;
-			// 
-			// txtPasswordWalker
-			// 
-			this->txtPasswordWalker->Location = System::Drawing::Point(929, 230);
-			this->txtPasswordWalker->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->txtPasswordWalker->Name = L"txtPasswordWalker";
-			this->txtPasswordWalker->Size = System::Drawing::Size(125, 22);
-			this->txtPasswordWalker->TabIndex = 86;
-			// 
-			// label20
-			// 
-			this->label20->AutoSize = true;
-			this->label20->Location = System::Drawing::Point(820, 230);
-			this->label20->Name = L"label20";
-			this->label20->Size = System::Drawing::Size(76, 16);
-			this->label20->TabIndex = 85;
-			this->label20->Text = L"Contraseña";
-			// 
-			// txtPhoneNumberWalker
-			// 
-			this->txtPhoneNumberWalker->Location = System::Drawing::Point(929, 272);
-			this->txtPhoneNumberWalker->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->txtPhoneNumberWalker->Name = L"txtPhoneNumberWalker";
-			this->txtPhoneNumberWalker->Size = System::Drawing::Size(125, 22);
-			this->txtPhoneNumberWalker->TabIndex = 84;
-			// 
-			// label25
-			// 
-			this->label25->AutoSize = true;
-			this->label25->Location = System::Drawing::Point(820, 272);
-			this->label25->Name = L"label25";
-			this->label25->Size = System::Drawing::Size(49, 16);
-			this->label25->TabIndex = 83;
-			this->label25->Text = L"Celular";
-			// 
-			// label28
-			// 
-			this->label28->AutoSize = true;
-			this->label28->Location = System::Drawing::Point(819, 192);
-			this->label28->Name = L"label28";
-			this->label28->Size = System::Drawing::Size(58, 16);
-			this->label28->TabIndex = 82;
-			this->label28->Text = L"Garantía";
-			// 
-			// walkerId
-			// 
-			this->walkerId->HeaderText = L"Id";
-			this->walkerId->MinimumWidth = 6;
-			this->walkerId->Name = L"walkerId";
-			this->walkerId->Width = 125;
-			// 
-			// walkerDocNumber
-			// 
-			this->walkerDocNumber->HeaderText = L"Dni";
-			this->walkerDocNumber->MinimumWidth = 6;
-			this->walkerDocNumber->Name = L"walkerDocNumber";
-			this->walkerDocNumber->Width = 125;
-			// 
-			// walkerFirstname
-			// 
-			this->walkerFirstname->HeaderText = L"Nombres";
-			this->walkerFirstname->MinimumWidth = 6;
-			this->walkerFirstname->Name = L"walkerFirstname";
-			this->walkerFirstname->Width = 125;
-			// 
-			// walkerLastName
-			// 
-			this->walkerLastName->HeaderText = L"Apellidos";
-			this->walkerLastName->MinimumWidth = 6;
-			this->walkerLastName->Name = L"walkerLastName";
-			this->walkerLastName->Width = 125;
-			// 
-			// walkerStatus
-			// 
-			this->walkerStatus->HeaderText = L"Estado";
-			this->walkerStatus->MinimumWidth = 6;
-			this->walkerStatus->Name = L"walkerStatus";
-			this->walkerStatus->Width = 125;
-			// 
-			// walkerGender
-			// 
-			this->walkerGender->HeaderText = L"Género";
-			this->walkerGender->MinimumWidth = 6;
-			this->walkerGender->Name = L"walkerGender";
-			this->walkerGender->Width = 125;
-			// 
-			// walkerAddress
-			// 
-			this->walkerAddress->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::None;
-			this->walkerAddress->HeaderText = L"Dirección";
-			this->walkerAddress->MinimumWidth = 6;
-			this->walkerAddress->Name = L"walkerAddress";
-			this->walkerAddress->Width = 125;
-			// 
-			// walkerEmail
-			// 
-			this->walkerEmail->HeaderText = L"Correo";
-			this->walkerEmail->MinimumWidth = 6;
-			this->walkerEmail->Name = L"walkerEmail";
-			this->walkerEmail->Width = 125;
-			// 
-			// walkerUsername
-			// 
-			this->walkerUsername->HeaderText = L"Usuario";
-			this->walkerUsername->MinimumWidth = 6;
-			this->walkerUsername->Name = L"walkerUsername";
-			this->walkerUsername->Width = 125;
-			// 
-			// walkerValoration
-			// 
-			this->walkerValoration->HeaderText = L"Valoración";
-			this->walkerValoration->MinimumWidth = 6;
-			this->walkerValoration->Name = L"walkerValoration";
-			this->walkerValoration->Width = 125;
-			// 
-			// walkerLevel
-			// 
-			this->walkerLevel->HeaderText = L"Nivel";
-			this->walkerLevel->MinimumWidth = 6;
-			this->walkerLevel->Name = L"walkerLevel";
-			this->walkerLevel->Width = 125;
-			// 
-			// walkerExperience
-			// 
-			this->walkerExperience->HeaderText = L"Experiencia";
-			this->walkerExperience->MinimumWidth = 6;
-			this->walkerExperience->Name = L"walkerExperience";
-			this->walkerExperience->Width = 125;
-			// 
-			// walkerSalary
-			// 
-			this->walkerSalary->HeaderText = L"Salario";
-			this->walkerSalary->MinimumWidth = 6;
-			this->walkerSalary->Name = L"walkerSalary";
-			this->walkerSalary->Width = 125;
-			// 
-			// walkerWarranty
-			// 
-			this->walkerWarranty->HeaderText = L"Garantía";
-			this->walkerWarranty->MinimumWidth = 6;
-			this->walkerWarranty->Name = L"walkerWarranty";
-			this->walkerWarranty->Width = 125;
-			// 
-			// walkerPhoneNumber
-			// 
-			this->walkerPhoneNumber->HeaderText = L"Celular";
-			this->walkerPhoneNumber->MinimumWidth = 6;
-			this->walkerPhoneNumber->Name = L"walkerPhoneNumber";
-			this->walkerPhoneNumber->Width = 125;
-			// 
-			// walkerPassword
-			// 
-			this->walkerPassword->HeaderText = L"Contraseña";
-			this->walkerPassword->MinimumWidth = 6;
-			this->walkerPassword->Name = L"walkerPassword";
-			this->walkerPassword->Width = 125;
 			// 
 			// carermaintenance
 			// 
@@ -2078,6 +2081,7 @@ private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, Syste
 
 private: System::Void carermaintenance_Load(System::Object^ sender, System::EventArgs^ e) {
 	RefreshGrid();
+	RefreshGrid_Walker();
 }
 private: System::Void tabPage1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
@@ -2098,5 +2102,8 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 		pcpPhoto->Image = gcnew Bitmap(opnfd->FileName);
 	}
 }
+
+
+
 };
 }

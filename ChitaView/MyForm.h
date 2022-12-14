@@ -33,6 +33,25 @@ namespace ChitaView {
 
 	public:
 		static Supervisor^ supervisor;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	public:
+
+
+	private: System::Windows::Forms::PictureBox^ pictureBox4;
+	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::PictureBox^ pictureBox2;
+	private: System::Windows::Forms::PictureBox^ pictureBox5;
+	private: System::Windows::Forms::PictureBox^ pictureBox6;
+	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::ToolStripMenuItem^ perfilesToolStripMenuItem;
+	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::Label^ label5;
+
+
+
+
+	public:
 		static User^ user;
 
 		MyForm(void)
@@ -91,6 +110,7 @@ namespace ChitaView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->MenuPrincipal = (gcnew System::Windows::Forms::MenuStrip());
 			this->transaccionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->archivoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -104,27 +124,43 @@ namespace ChitaView {
 			this->mascotasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->usuariosPropietariosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->promocionesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->supervisoresToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reporteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ventasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->graficosDistritalesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->usuariosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ayudaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->supervisoresToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->perfilesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->MenuPrincipal->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// MenuPrincipal
 			// 
 			this->MenuPrincipal->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->MenuPrincipal->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(6) {
+			this->MenuPrincipal->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(7) {
 				this->transaccionToolStripMenuItem,
 					this->archivoToolStripMenuItem, this->transaccionToolStripMenuItem1, this->mantenimientoToolStripMenuItem, this->reporteToolStripMenuItem,
-					this->ayudaToolStripMenuItem
+					this->perfilesToolStripMenuItem, this->ayudaToolStripMenuItem
 			});
 			this->MenuPrincipal->Location = System::Drawing::Point(0, 0);
 			this->MenuPrincipal->Name = L"MenuPrincipal";
-			this->MenuPrincipal->Padding = System::Windows::Forms::Padding(5, 2, 0, 2);
-			this->MenuPrincipal->Size = System::Drawing::Size(1607, 28);
+			this->MenuPrincipal->Padding = System::Windows::Forms::Padding(11, 4, 0, 4);
+			this->MenuPrincipal->Size = System::Drawing::Size(1009, 32);
 			this->MenuPrincipal->TabIndex = 1;
 			this->MenuPrincipal->Text = L"MenuPrincipal";
 			// 
@@ -143,7 +179,7 @@ namespace ChitaView {
 			// salirToolStripMenuItem
 			// 
 			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
-			this->salirToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->salirToolStripMenuItem->Size = System::Drawing::Size(121, 26);
 			this->salirToolStripMenuItem->Text = L"Salir";
 			// 
 			// transaccionToolStripMenuItem1
@@ -215,6 +251,13 @@ namespace ChitaView {
 			this->promocionesToolStripMenuItem->Text = L"Promociones";
 			this->promocionesToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::promocionesToolStripMenuItem_Click);
 			// 
+			// supervisoresToolStripMenuItem
+			// 
+			this->supervisoresToolStripMenuItem->Name = L"supervisoresToolStripMenuItem";
+			this->supervisoresToolStripMenuItem->Size = System::Drawing::Size(232, 26);
+			this->supervisoresToolStripMenuItem->Text = L"Supervisores";
+			this->supervisoresToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::supervisoresToolStripMenuItem_Click);
+			// 
 			// reporteToolStripMenuItem
 			// 
 			this->reporteToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
@@ -229,22 +272,21 @@ namespace ChitaView {
 			// 
 			this->ventasToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->graficosDistritalesToolStripMenuItem });
 			this->ventasToolStripMenuItem->Name = L"ventasToolStripMenuItem";
-			this->ventasToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->ventasToolStripMenuItem->Size = System::Drawing::Size(148, 26);
 			this->ventasToolStripMenuItem->Text = L"Ventas";
 			// 
 			// graficosDistritalesToolStripMenuItem
 			// 
 			this->graficosDistritalesToolStripMenuItem->Name = L"graficosDistritalesToolStripMenuItem";
-			this->graficosDistritalesToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->graficosDistritalesToolStripMenuItem->Size = System::Drawing::Size(216, 26);
 			this->graficosDistritalesToolStripMenuItem->Text = L"Graficos Distritales";
 			this->graficosDistritalesToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::graficosDistritalesToolStripMenuItem_Click);
 			// 
 			// usuariosToolStripMenuItem
 			// 
 			this->usuariosToolStripMenuItem->Name = L"usuariosToolStripMenuItem";
-			this->usuariosToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->usuariosToolStripMenuItem->Size = System::Drawing::Size(148, 26);
 			this->usuariosToolStripMenuItem->Text = L"Usuarios";
-			this->usuariosToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::usuariosToolStripMenuItem_Click);
 			// 
 			// ayudaToolStripMenuItem
 			// 
@@ -252,28 +294,159 @@ namespace ChitaView {
 			this->ayudaToolStripMenuItem->Size = System::Drawing::Size(65, 24);
 			this->ayudaToolStripMenuItem->Text = L"Ayuda";
 			// 
-			// supervisoresToolStripMenuItem
+			// pictureBox1
 			// 
-			this->supervisoresToolStripMenuItem->Name = L"supervisoresToolStripMenuItem";
-			this->supervisoresToolStripMenuItem->Size = System::Drawing::Size(232, 26);
-			this->supervisoresToolStripMenuItem->Text = L"Supervisores";
-			this->supervisoresToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::supervisoresToolStripMenuItem_Click);
+			this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
+			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox1->ErrorImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.ErrorImage")));
+			this->pictureBox1->Location = System::Drawing::Point(0, 30);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(1009, 582);
+			this->pictureBox1->TabIndex = 5;
+			this->pictureBox1->TabStop = false;
+			// 
+			// pictureBox4
+			// 
+			this->pictureBox4->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.BackgroundImage")));
+			this->pictureBox4->Location = System::Drawing::Point(-6, 30);
+			this->pictureBox4->Name = L"pictureBox4";
+			this->pictureBox4->Size = System::Drawing::Size(370, 582);
+			this->pictureBox4->TabIndex = 9;
+			this->pictureBox4->TabStop = false;
+			// 
+			// label2
+			// 
+			this->label2->BackColor = System::Drawing::SystemColors::Desktop;
+			this->label2->ForeColor = System::Drawing::Color::Silver;
+			this->label2->Location = System::Drawing::Point(12, 188);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(352, 131);
+			this->label2->TabIndex = 10;
+			this->label2->Text = L"Descubre los mejores cuidadores/paseadores para tu mascota";
+			this->label2->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// label1
+			// 
+			this->label1->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(128)));
+			this->label1->Location = System::Drawing::Point(77, 94);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(224, 47);
+			this->label1->TabIndex = 14;
+			this->label1->Text = L"CHITA WALK";
+			// 
+			// pictureBox2
+			// 
+			this->pictureBox2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.BackgroundImage")));
+			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox2->Location = System::Drawing::Point(12, 448);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(39, 37);
+			this->pictureBox2->TabIndex = 16;
+			this->pictureBox2->TabStop = false;
+			// 
+			// pictureBox5
+			// 
+			this->pictureBox5->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.BackgroundImage")));
+			this->pictureBox5->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox5->Location = System::Drawing::Point(12, 507);
+			this->pictureBox5->Name = L"pictureBox5";
+			this->pictureBox5->Size = System::Drawing::Size(39, 37);
+			this->pictureBox5->TabIndex = 17;
+			this->pictureBox5->TabStop = false;
+			// 
+			// pictureBox6
+			// 
+			this->pictureBox6->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.BackgroundImage")));
+			this->pictureBox6->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox6->Location = System::Drawing::Point(12, 563);
+			this->pictureBox6->Name = L"pictureBox6";
+			this->pictureBox6->Size = System::Drawing::Size(39, 37);
+			this->pictureBox6->TabIndex = 18;
+			this->pictureBox6->TabStop = false;
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->label3->ForeColor = System::Drawing::Color::DarkGray;
+			this->label3->Location = System::Drawing::Point(77, 448);
+			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(225, 37);
+			this->label3->TabIndex = 19;
+			this->label3->Text = L"+51945045018";
+			this->label3->Click += gcnew System::EventHandler(this, &MyForm::label3_Click);
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->label4->ForeColor = System::Drawing::Color::DarkGray;
+			this->label4->Location = System::Drawing::Point(77, 507);
+			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(211, 37);
+			this->label4->TabIndex = 20;
+			this->label4->Text = L"_chitawalk_pe";
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->label5->ForeColor = System::Drawing::Color::DarkGray;
+			this->label5->Location = System::Drawing::Point(77, 563);
+			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(185, 37);
+			this->label5->TabIndex = 21;
+			this->label5->Text = L"chita_Walky";
+			// 
+			// perfilesToolStripMenuItem
+			// 
+			this->perfilesToolStripMenuItem->Name = L"perfilesToolStripMenuItem";
+			this->perfilesToolStripMenuItem->Size = System::Drawing::Size(70, 24);
+			this->perfilesToolStripMenuItem->Text = L"Perfiles";
 			// 
 			// MyForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(17, 36);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
-			this->ClientSize = System::Drawing::Size(1607, 753);
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->ClientSize = System::Drawing::Size(1009, 612);
+			this->Controls->Add(this->label5);
+			this->Controls->Add(this->label4);
+			this->Controls->Add(this->label3);
+			this->Controls->Add(this->pictureBox6);
+			this->Controls->Add(this->pictureBox5);
+			this->Controls->Add(this->pictureBox2);
+			this->Controls->Add(this->label1);
+			this->Controls->Add(this->label2);
+			this->Controls->Add(this->pictureBox4);
+			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->MenuPrincipal);
+			this->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->IsMdiContainer = true;
 			this->MainMenuStrip = this->MenuPrincipal;
-			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->Margin = System::Windows::Forms::Padding(6, 4, 6, 4);
 			this->Name = L"MyForm";
 			this->Text = L"Chita : Pagina general";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->MenuPrincipal->ResumeLayout(false);
 			this->MenuPrincipal->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -411,6 +584,12 @@ private: System::Void supervisoresToolStripMenuItem_Click(System::Object^ sender
 	supervisormaintenance->ShowDialog();
 	//Carermaintenance->MdiParent = this;
 	//Carermaintenance->Show();
+}
+
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+
+private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

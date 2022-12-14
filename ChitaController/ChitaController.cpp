@@ -210,14 +210,14 @@ void ChitaController::Controller::PersistKeepers()
 }
 void ChitaController::Controller::LoadKeepersData()
 {
-	/*
+	
 	keeperList = gcnew List<Keeper^>();
 	//Lectura desde un archivo binario
 	Stream^ sr = File::Open("Keepers.bin", FileMode::Open);
 	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
 	keeperList = (List<Keeper^>^)bFormatter->Deserialize(sr);
 
-	sr->Close();*/
+	sr->Close();
 }
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -294,10 +294,11 @@ void ChitaController::Controller::LoadPetsData() {
 // PARA MANTENIMIENTO DE WALKER
 //---------------------------------------------------------------------------------------------------------------------
 
-
 int ChitaController::Controller::AddWalker(Walker^ walker)
 {
 	walkerList->Add(walker);
+	PersistWalkers();
+
 	return 1;
 }
 int ChitaController::Controller::UpdateWalker(Walker^ walker)
@@ -305,6 +306,8 @@ int ChitaController::Controller::UpdateWalker(Walker^ walker)
 	for (int i = 0; i < walkerList->Count; i++)
 		if (walker->Id == walkerList[i]->Id) {
 			walkerList[i] = walker;
+			PersistWalkers();
+
 			return 1;
 		}
 	return 0;
@@ -314,12 +317,15 @@ int ChitaController::Controller::DeleteWalker(int walkerId)
 	for (int i = 0; i < walkerList->Count; i++)
 		if (walkerId == walkerList[i]->Id) {
 			walkerList->RemoveAt(i);
+			PersistPets();
+
 			return 1;
 		}
 	return 0;
 }
 List<Walker^>^ ChitaController::Controller::QueryAllWalkers()
 {
+	LoadWalkersData();
 	List<Walker^>^ activeWalkersList = gcnew List<Walker^>();
 	for (int i = 0; i < walkerList->Count; i++) {
 		if (walkerList[i]->Status == 'A') {
@@ -347,7 +353,7 @@ void ChitaController::Controller::PersistWalkers()
 }
 void ChitaController::Controller::LoadWalkersData()
 {
-
+	
 	walkerList = gcnew List<Walker^>();
 	//Lectura desde un archivo binario
 	Stream^ sr = File::Open("Walkers.bin", FileMode::Open);
@@ -1077,8 +1083,12 @@ void ChitaController::Controller::LoadSupervisorsData()
 User^ ChitaController::Controller::Login(String^ username, String^ password)
 {
 	User^ user;
-	
+
 	LoadSupervisorsData();
+	LoadWalkersData();
+	LoadKeepersData();
+	LoadPetOwnerData();
+
 	for (int i = 0; i < supervisorList->Count; i++) {
 		if (username == supervisorList[i]->username &&
 			password == supervisorList[i]->password) {
@@ -1086,5 +1096,25 @@ User^ ChitaController::Controller::Login(String^ username, String^ password)
 			return user;
 		}
 	}
-	
+	for (int i = 0; i < walkerList->Count; i++) {
+		if (username == walkerList[i]->username &&
+			password == walkerList[i]->password) {
+			user = walkerList[i];
+			return user;
+		}
+	}
+	for (int i = 0; i < keeperList->Count; i++) {
+		if (username == keeperList[i]->username &&
+			password == keeperList[i]->password) {
+			user = keeperList[i];
+			return user;
+		}
+	}
+	for (int i = 0; i < PetOwnerList->Count; i++) {
+		if (username == PetOwnerList[i]->username &&
+			password == PetOwnerList[i]->password) {
+			user = PetOwnerList[i];
+			return user;
+		}
+	}
 }
