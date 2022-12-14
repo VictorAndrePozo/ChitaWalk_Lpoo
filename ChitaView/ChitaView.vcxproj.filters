@@ -78,6 +78,9 @@
     <ClInclude Include="DiscountSearch.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="PromotionsSearchs.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyForm.cpp">
@@ -141,6 +144,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="DiscountSearch.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="PromotionsSearchs.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

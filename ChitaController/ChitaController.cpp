@@ -87,6 +87,25 @@ PetOwner^ ChitaController::Controller::QueryPetOwnerByDNI(String^ dni)
 	}
 	return nullptr;
 }
+List<PetOwner^>^ ChitaController::Controller::QueryAllPetOwner() {
+
+	LoadPetOwnerData();
+
+	List<PetOwner^>^ activePetOwnerList = gcnew List<PetOwner^>();
+	for (int i = 0; i < PetOwnerList->Count; i++) {
+		if (PetOwnerList[i]->Id > 0) {
+			activePetOwnerList->Add(PetOwnerList[i]);
+		}
+	}
+	return activePetOwnerList;
+}
+PetOwner^ ChitaController::Controller::QueryPetOwnerById(int PetOwnerId) {
+	for (int i = 0; i < PetOwnerList->Count; i++)
+		if (PetOwnerId == PetOwnerList[i]->Id) {
+			return PetOwnerList[i];
+		}
+	return nullptr;
+}
 
 //---------------------------------------------------------------------------------------------------------------------
 // PARA TRANSACCION DE DISCOUNT
@@ -115,40 +134,22 @@ List<Discount^>^ ChitaController::Controller::QueryAllDiscounts()
 void ChitaController::Controller::PersistDiscounts()
 {
 	//En formato de archivo binario
-	Stream^ stream = File::Open("Discounts.bin", FileMode::Create);
+	Stream^ stream = File::Open("Discount.bin", FileMode::Create);
 	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
 	bFormatter->Serialize(stream, DiscountList);
 	stream->Close();
 }
 void ChitaController::Controller::LoadDiscountsData()
-{ 
+{  /*
 	DiscountList = gcnew List<Discount^>();
 	//Lectura desde un archivo binario
 	Stream^ sr = nullptr;
 
-	sr = File::Open("Discounts.bin", FileMode::Open);
+	sr = File::Open("Discount.bin", FileMode::Open);
 	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
-	DiscountList = (List<Discount^>^)bFormatter->Deserialize(sr);
+	DiscountList = (List<Discount^>^)bFormatter->Deserialize(sr);*/
 }
-List<PetOwner^>^ ChitaController::Controller::QueryAllPetOwner() {
 
-	LoadPetOwnerData();
-
-	List<PetOwner^>^ activePetOwnerList = gcnew List<PetOwner^>();
-	for (int i = 0; i < PetOwnerList->Count; i++) {
-		if (PetOwnerList[i]->Id > 0) {
-			activePetOwnerList->Add(PetOwnerList[i]);
-		}
-	}
-	return activePetOwnerList;
-}
-PetOwner^ ChitaController::Controller::QueryPetOwnerById(int PetOwnerId){
-	for (int i = 0; i < PetOwnerList->Count; i++)
-		if (PetOwnerId == PetOwnerList[i]->Id) {
-			return PetOwnerList[i];
-		}
-	return nullptr;
-}
 
 //---------------------------------------------------------------------------------------------------------------------
 // PARA MANTENIMIENTO DE KEEPER

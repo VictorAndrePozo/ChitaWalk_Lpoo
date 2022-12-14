@@ -78,7 +78,14 @@ namespace ChitaView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ discountDiscountType;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ discountUnitDiscountValue;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ discountDeadLine;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ discountSubTotal;
+
+
+
+
+
+
+
+
 
 
 
@@ -125,6 +132,10 @@ namespace ChitaView {
 			this->txtDate = (gcnew System::Windows::Forms::TextBox());
 			this->txtPetOwner = (gcnew System::Windows::Forms::TextBox());
 			this->dgvDiscountDetails = (gcnew System::Windows::Forms::DataGridView());
+			this->btnRegisterDiscount = (gcnew System::Windows::Forms::Button());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->txtTotal = (gcnew System::Windows::Forms::TextBox());
+			this->lblPetOwnerData = (gcnew System::Windows::Forms::Label());
 			this->discountId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->discountName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->discountDescription = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -132,11 +143,6 @@ namespace ChitaView {
 			this->discountDiscountType = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->discountUnitDiscountValue = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->discountDeadLine = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->discountSubTotal = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->btnRegisterDiscount = (gcnew System::Windows::Forms::Button());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->txtTotal = (gcnew System::Windows::Forms::TextBox());
-			this->lblPetOwnerData = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvDiscountDetails))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -217,10 +223,10 @@ namespace ChitaView {
 			// dgvDiscountDetails
 			// 
 			this->dgvDiscountDetails->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvDiscountDetails->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
+			this->dgvDiscountDetails->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(7) {
 				this->discountId,
 					this->discountName, this->discountDescription, this->discountQuantity, this->discountDiscountType, this->discountUnitDiscountValue,
-					this->discountDeadLine, this->discountSubTotal
+					this->discountDeadLine
 			});
 			this->dgvDiscountDetails->Location = System::Drawing::Point(24, 173);
 			this->dgvDiscountDetails->Name = L"dgvDiscountDetails";
@@ -228,6 +234,42 @@ namespace ChitaView {
 			this->dgvDiscountDetails->RowTemplate->Height = 24;
 			this->dgvDiscountDetails->Size = System::Drawing::Size(894, 171);
 			this->dgvDiscountDetails->TabIndex = 9;
+			// 
+			// btnRegisterDiscount
+			// 
+			this->btnRegisterDiscount->Location = System::Drawing::Point(35, 363);
+			this->btnRegisterDiscount->Name = L"btnRegisterDiscount";
+			this->btnRegisterDiscount->Size = System::Drawing::Size(184, 42);
+			this->btnRegisterDiscount->TabIndex = 10;
+			this->btnRegisterDiscount->Text = L"Registrar descuentos";
+			this->btnRegisterDiscount->UseVisualStyleBackColor = true;
+			this->btnRegisterDiscount->Click += gcnew System::EventHandler(this, &DiscountsForm::btnRegisterDiscount_Click);
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point(544, 385);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(73, 16);
+			this->label3->TabIndex = 11;
+			this->label3->Text = L"Stock Final";
+			// 
+			// txtTotal
+			// 
+			this->txtTotal->Location = System::Drawing::Point(633, 382);
+			this->txtTotal->Name = L"txtTotal";
+			this->txtTotal->Size = System::Drawing::Size(95, 22);
+			this->txtTotal->TabIndex = 12;
+			// 
+			// lblPetOwnerData
+			// 
+			this->lblPetOwnerData->Location = System::Drawing::Point(144, 85);
+			this->lblPetOwnerData->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->lblPetOwnerData->Name = L"lblPetOwnerData";
+			this->lblPetOwnerData->Size = System::Drawing::Size(317, 28);
+			this->lblPetOwnerData->TabIndex = 18;
+			this->lblPetOwnerData->Text = L"Sin cliente";
+			this->lblPetOwnerData->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			// 
 			// discountId
 			// 
@@ -277,49 +319,6 @@ namespace ChitaView {
 			this->discountDeadLine->MinimumWidth = 6;
 			this->discountDeadLine->Name = L"discountDeadLine";
 			this->discountDeadLine->Width = 125;
-			// 
-			// discountSubTotal
-			// 
-			this->discountSubTotal->HeaderText = L"Sub Total Descontado";
-			this->discountSubTotal->MinimumWidth = 6;
-			this->discountSubTotal->Name = L"discountSubTotal";
-			this->discountSubTotal->Width = 125;
-			// 
-			// btnRegisterDiscount
-			// 
-			this->btnRegisterDiscount->Location = System::Drawing::Point(35, 363);
-			this->btnRegisterDiscount->Name = L"btnRegisterDiscount";
-			this->btnRegisterDiscount->Size = System::Drawing::Size(184, 42);
-			this->btnRegisterDiscount->TabIndex = 10;
-			this->btnRegisterDiscount->Text = L"Registrar descuentos";
-			this->btnRegisterDiscount->UseVisualStyleBackColor = true;
-			this->btnRegisterDiscount->Click += gcnew System::EventHandler(this, &DiscountsForm::btnRegisterDiscount_Click);
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(544, 385);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(73, 16);
-			this->label3->TabIndex = 11;
-			this->label3->Text = L"Stock Final";
-			// 
-			// txtTotal
-			// 
-			this->txtTotal->Location = System::Drawing::Point(633, 382);
-			this->txtTotal->Name = L"txtTotal";
-			this->txtTotal->Size = System::Drawing::Size(95, 22);
-			this->txtTotal->TabIndex = 12;
-			// 
-			// lblPetOwnerData
-			// 
-			this->lblPetOwnerData->Location = System::Drawing::Point(144, 85);
-			this->lblPetOwnerData->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->lblPetOwnerData->Name = L"lblPetOwnerData";
-			this->lblPetOwnerData->Size = System::Drawing::Size(317, 28);
-			this->lblPetOwnerData->TabIndex = 18;
-			this->lblPetOwnerData->Text = L"Sin cliente";
-			this->lblPetOwnerData->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			// 
 			// DiscountsForm
 			// 
@@ -384,11 +383,11 @@ namespace ChitaView {
 	private: System::Void dgvDiscountDetails_CellValueChanged(System::Object^ sender,
 		 System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 		 if (dgvDiscountDetails->Columns[e->ColumnIndex]->Name == "discountQuantity" && (dgvDiscountDetails->Rows[e->ColumnIndex]->Cells[3]->Value == "Vale")) {
-			 
+			 /*
 			 dgvDiscountDetails->Rows[e->RowIndex]->Cells[7]->Value =
 				 Int32::Parse(dgvDiscountDetails->CurrentCell->Value->ToString()) *
-				 Double::Parse(dgvDiscountDetails->Rows[e->RowIndex]->Cells[2]->Value->ToString());
-			 RefreshTotalAmounts();
+				 Double::Parse(dgvDiscountDetails->Rows[e->RowIndex]->Cells[5]->Value->ToString());
+			 RefreshTotalAmounts();*/
 		}
 	}
 	private: System::Void DiscountForm_Load(System::Object^ sender, System::EventArgs^ e) {
@@ -415,6 +414,15 @@ private: System::Void btnRegisterDiscount_Click(System::Object^ sender, System::
 
 
 private: System::Void btnDeletePromotion_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (dgvDiscountDetails->SelectedRows->Count == 1) {
+		if (dgvDiscountDetails->SelectedRows[0]->Cells[0]->Value->ToString()->Trim() != "")
+			dgvDiscountDetails->Rows->RemoveAt(dgvDiscountDetails->SelectedRows[0]->Index);
+		else
+			MessageBox::Show("No se puede eliminar una fila vacía.");
+	}
+	else
+		MessageBox::Show("Para eliminar un producto debe seleccionar toda la fila.");
 }
+
 };
 }

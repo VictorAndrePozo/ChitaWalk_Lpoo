@@ -30,7 +30,7 @@ System::Void ChitaView::DiscountsForm::btnRegisterDiscount_Click(System::Object^
 		discountDetail->DiscountType = (dgvDiscountDetails->Rows[i]->Cells[4]->Value->ToString());
 		discountDetail->UnitDiscountValue = Convert::ToInt32(dgvDiscountDetails->Rows[i]->Cells[5]->Value->ToString());
 		discountDetail->DeadLine = (dgvDiscountDetails->Rows[i]->Cells[6]->Value->ToString());
-		discountDetail->SubTotal = Convert::ToDouble(dgvDiscountDetails->Rows[i]->Cells[7]->Value->ToString());
+		//discountDetail->SubTotal = Convert::ToDouble(dgvDiscountDetails->Rows[i]->Cells[7]->Value->ToString());
 
 		discount->DiscountDetail->Add(discountDetail);
 	}
