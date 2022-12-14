@@ -210,14 +210,14 @@ void ChitaController::Controller::PersistKeepers()
 }
 void ChitaController::Controller::LoadKeepersData()
 {
-
+	/*
 	keeperList = gcnew List<Keeper^>();
 	//Lectura desde un archivo binario
 	Stream^ sr = File::Open("Keepers.bin", FileMode::Open);
 	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
 	keeperList = (List<Keeper^>^)bFormatter->Deserialize(sr);
 
-	sr->Close();
+	sr->Close();*/
 }
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -1068,4 +1068,23 @@ void ChitaController::Controller::LoadSupervisorsData()
 	supervisorList = (List<Supervisor^>^)bFormatter->Deserialize(sr);
 
 	sr->Close();
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+// AUTENTIFICACION DE USUARIO
+//---------------------------------------------------------------------------------------------------------------------
+
+User^ ChitaController::Controller::Login(String^ username, String^ password)
+{
+	User^ user;
+	
+	LoadSupervisorsData();
+	for (int i = 0; i < supervisorList->Count; i++) {
+		if (username == supervisorList[i]->username &&
+			password == supervisorList[i]->password) {
+			user = supervisorList[i];
+			return user;
+		}
+	}
+	
 }

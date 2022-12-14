@@ -14,7 +14,7 @@ namespace ChitaModel {
 	public:
 		property int Experience;
 		property int Level;
-		property int Warranty;
+		property String^ Warranty;
 		property double Salary;
 		property  String^ Position;
 	public:
@@ -23,6 +23,6 @@ namespace ChitaModel {
 			String^ Email, char Gender, int Id, String^ username,
 			String^ password, String^ Lastname,
 			String^ Firstname, int Valoration, String^ Award, int Experience,
-			int Level, int Warranty, double Salary, array <Byte>^ Photo, char Status, String^ Position);
+			int Level, String^ Warranty, double Salary, array <Byte>^ Photo, char Status, String^ Position);
 	};
 }

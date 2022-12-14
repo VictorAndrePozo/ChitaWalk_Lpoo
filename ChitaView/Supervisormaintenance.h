@@ -99,6 +99,24 @@ namespace ChitaView {
 
 	private: System::Windows::Forms::Button^ btnDelete;
 	private: System::Windows::Forms::Button^ btnChangePhoto;
+
+
+
+
+
+
+
+
+
+
+
+
+	private: System::Windows::Forms::MenuStrip^ menuStrip1;
+	private: System::Windows::Forms::ToolStripMenuItem^ generalToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ nuevoToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ modificarToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ eliminarToolStripMenuItem;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ supervisorId;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ supervisordni;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ supervisorname;
@@ -111,12 +129,10 @@ namespace ChitaView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ supervisorvaloration;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ supervisorarea;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ supervisoraward;
-	private: System::Windows::Forms::MenuStrip^ menuStrip1;
-	private: System::Windows::Forms::ToolStripMenuItem^ generalToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ nuevoToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ modificarToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ eliminarToolStripMenuItem;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ supervisorPhoneNumber;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ supervisorPassword;
+private: System::Windows::Forms::TextBox^ txtPassword;
+private: System::Windows::Forms::Label^ label1;
 
 	private:
 		/// <summary>
@@ -146,6 +162,8 @@ namespace ChitaView {
 			this->supervisorvaloration = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->supervisorarea = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->supervisoraward = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->supervisorPhoneNumber = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->supervisorPassword = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->rbtnMasc = (gcnew System::Windows::Forms::RadioButton());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->rbtnFem = (gcnew System::Windows::Forms::RadioButton());
@@ -182,6 +200,8 @@ namespace ChitaView {
 			this->nuevoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->modificarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->eliminarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->txtPassword = (gcnew System::Windows::Forms::TextBox());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvSupervisor))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pccPhoto))->BeginInit();
 			this->menuStrip1->SuspendLayout();
@@ -210,10 +230,11 @@ namespace ChitaView {
 			// dgvSupervisor
 			// 
 			this->dgvSupervisor->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvSupervisor->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(12) {
+			this->dgvSupervisor->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(14) {
 				this->supervisorId,
 					this->supervisordni, this->supervisorname, this->supervisorlastname, this->supervisorstatus, this->supervisorgender, this->supervisordirection,
-					this->supervisoremail, this->supervisorusername, this->supervisorvaloration, this->supervisorarea, this->supervisoraward
+					this->supervisoremail, this->supervisorusername, this->supervisorvaloration, this->supervisorarea, this->supervisoraward, this->supervisorPhoneNumber,
+					this->supervisorPassword
 			});
 			this->dgvSupervisor->Location = System::Drawing::Point(21, 320);
 			this->dgvSupervisor->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
@@ -307,6 +328,20 @@ namespace ChitaView {
 			this->supervisoraward->Name = L"supervisoraward";
 			this->supervisoraward->Width = 125;
 			// 
+			// supervisorPhoneNumber
+			// 
+			this->supervisorPhoneNumber->HeaderText = L"Celular";
+			this->supervisorPhoneNumber->MinimumWidth = 6;
+			this->supervisorPhoneNumber->Name = L"supervisorPhoneNumber";
+			this->supervisorPhoneNumber->Width = 125;
+			// 
+			// supervisorPassword
+			// 
+			this->supervisorPassword->HeaderText = L"Contraseña";
+			this->supervisorPassword->MinimumWidth = 6;
+			this->supervisorPassword->Name = L"supervisorPassword";
+			this->supervisorPassword->Width = 125;
+			// 
 			// rbtnMasc
 			// 
 			this->rbtnMasc->AutoSize = true;
@@ -367,7 +402,7 @@ namespace ChitaView {
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(834, 282);
+			this->label10->Location = System::Drawing::Point(826, 282);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(49, 16);
 			this->label10->TabIndex = 78;
@@ -397,7 +432,7 @@ namespace ChitaView {
 			this->txtAward->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->txtAward->Multiline = true;
 			this->txtAward->Name = L"txtAward";
-			this->txtAward->Size = System::Drawing::Size(125, 144);
+			this->txtAward->Size = System::Drawing::Size(125, 99);
 			this->txtAward->TabIndex = 76;
 			// 
 			// label7
@@ -623,11 +658,30 @@ namespace ChitaView {
 			this->eliminarToolStripMenuItem->Size = System::Drawing::Size(146, 26);
 			this->eliminarToolStripMenuItem->Text = L"Eliminar";
 			// 
+			// txtPassword
+			// 
+			this->txtPassword->Location = System::Drawing::Point(936, 246);
+			this->txtPassword->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->txtPassword->Name = L"txtPassword";
+			this->txtPassword->Size = System::Drawing::Size(125, 22);
+			this->txtPassword->TabIndex = 84;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(826, 246);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(76, 16);
+			this->label1->TabIndex = 83;
+			this->label1->Text = L"Contraseña";
+			// 
 			// Supervisormaintenance
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1126, 613);
+			this->Controls->Add(this->txtPassword);
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->menuStrip1);
 			this->Controls->Add(this->btnAdd);
 			this->Controls->Add(this->labelId);
@@ -680,21 +734,23 @@ namespace ChitaView {
 			dgvSupervisor->Rows->Clear();
 			for (int i = 0; i < supervisorList->Count; i++) {
 				dgvSupervisor->Rows->Add(gcnew array<String^>{
-					"" + supervisorList[i]->Dni,
-						supervisorList[i]->Address,
-						supervisorList[i]->PhoneNumber,
-						supervisorList[i]->Email,
-						"" + supervisorList[i]->Gender,
 						"" + supervisorList[i]->Id,
+					    "" + supervisorList[i]->Dni,
+							 supervisorList[i]->Firstname,
+							 supervisorList[i]->Lastname,
+						"" + supervisorList[i]->Status,
+						"" + supervisorList[i]->Gender,
+						supervisorList[i]->Address,
+						supervisorList[i]->Email,
 						supervisorList[i]->username,
-						supervisorList[i]->password,
-						supervisorList[i]->Lastname,
-						supervisorList[i]->Firstname,
 						"" + supervisorList[i]->Valoration,
-						supervisorList[i]->Award,
-						supervisorList[i]->Area,
-						"" + supervisorList[i]->Photo,
-						"" + supervisorList[i]->Status
+			         	     supervisorList[i]->Award,
+						     supervisorList[i]->Area,
+						   	 supervisorList[i]->PhoneNumber,
+							 supervisorList[i]->password
+
+						//"" + supervisorList[i]->Photo,
+
 				});
 			}
 		}
@@ -713,6 +769,8 @@ namespace ChitaView {
 		c->Valoration = Int32::Parse(txtValoration->Text);
 		c->Award = txtAward->Text;
 		c->Area = txtArea->Text;
+		c->password = txtPassword->Text;
+
 		//c->Photo = array::Parse(PicturePhoto->Picture);
 		c->Status = 'A';
 
@@ -735,6 +793,8 @@ namespace ChitaView {
 		c->Valoration = Int32::Parse(txtValoration->Text);
 		c->Award = txtAward->Text;
 		c->Area = txtArea->Text;
+		c->password = txtPassword->Text;
+
 		//c->Photo = array::Parse(PicturePhoto->Picture);
 		c->Status = 'A';
 
@@ -762,23 +822,29 @@ namespace ChitaView {
 			Supervisor^ supervisor = Controller::QuerySupervisorById(supervisorId);
 			//MessageBox::Show(customer->ToString()); //Polimorfismo
 			if (supervisor != nullptr && supervisor->GetType() == Supervisor::typeid) {
-
+				
+				txtId->Text = "" + supervisor->Id;
 				txtDni->Text = "" + supervisor->Dni;
-				txtAddress->Text = supervisor->Address;
-				txtPhoneNumber->Text = supervisor->PhoneNumber;
-				txtEmail->Text = supervisor->Email;
+				txtFirstName->Text = dynamic_cast<Supervisor^>(supervisor)->Firstname;
+				txtLastName->Text = dynamic_cast<Supervisor^>(supervisor)->Lastname;
+				txtStatus->Text = "" + supervisor->Status;
 				rbtnMasc->Checked = dynamic_cast<Supervisor^>(supervisor)->Gender == 'M';
 				rbtnFem->Checked = dynamic_cast<Supervisor^>(supervisor)->Gender == 'F';
-				txtId->Text = "" + supervisor->Id;
+				txtAddress->Text = supervisor->Address;
+				txtEmail->Text = supervisor->Email;
 				txtUsername->Text = supervisor->username;
-				//txtLastName->Text = supervisor->password;
-				txtLastName->Text = dynamic_cast<Supervisor^>(supervisor)->Lastname;
-				txtFirstName->Text = dynamic_cast<Supervisor^>(supervisor)->Firstname;
 				txtValoration->Text = "" + supervisor->Valoration;
 				txtAward->Text = supervisor->Award;
 				txtArea->Text = supervisor->Area;
+				txtPhoneNumber->Text = supervisor->PhoneNumber;
+				txtPassword->Text = supervisor->password;
+
+				//txtLastName->Text = supervisor->password;
+
+
+
 				//txt->Text = "" + c->Photo;
-				txtStatus->Text = "" + supervisor->Status;
+
 			}
 		}
 

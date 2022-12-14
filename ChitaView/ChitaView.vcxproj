@@ -133,6 +133,7 @@
     <ClCompile Include="CarerWorkForm.cpp" />
     <ClCompile Include="DiscountsForm.cpp" />
     <ClCompile Include="DistrictAnalyticForm.cpp" />
+    <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="MedalsTR.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="PetForm.cpp" />
@@ -158,6 +159,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="DistrictAnalyticForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="LoginForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MedalsTR.h">
@@ -212,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DistrictAnalyticForm.resx">
       <DependentUpon>DistrictAnalyticForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MedalsTR.resx">
       <DependentUpon>MedalsTR.h</DependentUpon>

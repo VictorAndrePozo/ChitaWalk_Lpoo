@@ -164,7 +164,10 @@ namespace ChitaController {
 			static Supervisor^ QuerySupervisorById(int supervisorId);              // Consultar supervisor por ID
 			static void PersistSupervisors();
 			static void LoadSupervisorsData();
-
+		//---------------------------------------------------------------------------------------------------------------------
+		// AUTENTIFICACION DE USUARIO
+		//---------------------------------------------------------------------------------------------------------------------
+			static User^ Login(String^ username, String^ password);
 
 	};
 }

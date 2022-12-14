@@ -8,11 +8,12 @@ ChitaModel::Walker::Walker() {
 
 
 
+
 ChitaModel::Walker::Walker(int Dni, String^ DocNumbrer, String^ Address, String^ PhoneNumber,
 	String^ Email, char Gender, int Id, String^ username,
 	String^ password, String^ Lastname,
 	String^ Firstname, int Valoration, String^ Award, int Experience,
-	int Level, int Warranty, double Salary, String^ StrollArea, array <Byte>^ Photo, char Status) {
+	int Level, String^ Warranty, double Salary, String^ StrollArea, array <Byte>^ Photo, char Status) {
 	this->Dni = Dni;
 	this->DocNumbrer = DocNumbrer;
 	this->Address = Address;

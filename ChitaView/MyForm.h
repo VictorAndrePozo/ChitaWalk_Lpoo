@@ -10,6 +10,8 @@
 #include "Promotionsmaintenance.h"
 #include "DiscountsForm.h"
 #include "Supervisormaintenance.h"
+#include "LoginForm.h"
+
 
 namespace ChitaView {
 
@@ -19,14 +21,20 @@ namespace ChitaView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	using namespace ChitaModel;
 	/// <summary>
 	/// Resumen de MyForm
 	/// </summary>
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
+	private:
+		Thread^ myThread;
+	//private: System::Windows::Forms::ToolStripMenuItem^ tiendasToolStripMenuItem;
+
 	public:
 		static Supervisor^ supervisor;
+		static User^ user;
+
 		MyForm(void)
 		{
 			InitializeComponent();
@@ -124,7 +132,6 @@ namespace ChitaView {
 			// 
 			this->transaccionToolStripMenuItem->Name = L"transaccionToolStripMenuItem";
 			this->transaccionToolStripMenuItem->Size = System::Drawing::Size(14, 24);
-			this->transaccionToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::transaccionToolStripMenuItem_Click);
 			// 
 			// archivoToolStripMenuItem
 			// 
@@ -138,7 +145,6 @@ namespace ChitaView {
 			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
 			this->salirToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->salirToolStripMenuItem->Text = L"Salir";
-			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::salirToolStripMenuItem_Click);
 			// 
 			// transaccionToolStripMenuItem1
 			// 
@@ -274,9 +280,71 @@ namespace ChitaView {
 		}
 #pragma endregion
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		if (user == nullptr) {
+			LoginForm^ loginForm = gcnew LoginForm();
+			loginForm->ShowDialog();
+		}
+		if (user != nullptr) {
+			if (user->GetType() == Walker ::typeid) {
+				carerToolStripMenuItem->Visible = false;
+				mascotasToolStripMenuItem->Visible = false;
+				usuariosPropietariosToolStripMenuItem->Visible = false;
+				ventasToolStripMenuItem->Visible = false;
+				promocionesToolStripMenuItem->Visible = false;
+				supervisoresToolStripMenuItem->Visible = false;
+				solicitarServicioToolStripMenuItem->Visible = false;
+				asignarDescuentosToolStripMenuItem->Visible = false;
+				cuidadosPendientesToolStripMenuItem->Visible = false;
+
+			}
+			else if (user->GetType() == Keeper::typeid) {
+				carerToolStripMenuItem->Visible = false;
+				mascotasToolStripMenuItem->Visible = false;
+				usuariosPropietariosToolStripMenuItem->Visible = false;
+				ventasToolStripMenuItem->Visible = false;
+				promocionesToolStripMenuItem->Visible = false;
+				supervisoresToolStripMenuItem->Visible = false;
+				solicitarServicioToolStripMenuItem->Visible = false;
+				asignarDescuentosToolStripMenuItem->Visible = false;
+				cuidadosPendientesToolStripMenuItem->Visible = false;
+			}
+			else if (user->GetType() == PetOwner::typeid) {
+				carerToolStripMenuItem->Visible = false;
+				mascotasToolStripMenuItem->Visible = false;
+				usuariosPropietariosToolStripMenuItem->Visible = false;
+				ventasToolStripMenuItem->Visible = false;
+				promocionesToolStripMenuItem->Visible = false;
+				supervisoresToolStripMenuItem->Visible = false;
+				solicitarServicioToolStripMenuItem->Visible = false;
+				asignarDescuentosToolStripMenuItem->Visible = false;
+				cuidadosPendientesToolStripMenuItem->Visible = false;
+			}
+
+
+			myThread = gcnew Thread(gcnew ThreadStart(this, &MyForm::MyRun));
+			myThread->IsBackground = true;
+			myThread->Start();
+		}
 	}
-	private: System::Void transaccionToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
+
+		   delegate void MyDelegate(String^);
+
+		   void MyRun() {
+			   while (true) {
+				   try {
+					   myThread->Sleep(1000);
+					   Invoke(gcnew MyDelegate(this, &MyForm::UpdateTitle),
+						   DateTime::Now.ToString("dd/MM/yyyy hh:mm:ss"));
+				   }
+				   catch (Exception^ ex) {
+					   return;
+				   }
+			   }
+		   }
+		   void UpdateTitle(String^ new_title) {
+			   this->Text = new_title;
+		   }
+
 	private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		Application::Exit();
 	}
