@@ -573,20 +573,17 @@ List<ServiceRequest^>^ ChitaController::Controller::QueryTempServiceRequest()
 // Procedure
 int ChitaController::Controller::AddPromotions(Promotions^ Promotions)
 {
-	/* PRIMERA OPCION
+	/* PRIMERA OPCION */
 	PromotionList->Add(Promotions);
 	PersistPromotions();
-	return 1;*/
+	return 1;
 
+	/*
 	//Paso 1: Se obtiene la conexión
 	SqlConnection^ conn = GetConnection();
 
 	//Paso 2: Se prepara la sentencia
-	/*
-	SqlCommand^ comm = gcnew SqlCommand("INSERT INTO PRODUCT(name, description, price, stock,status)"
-		+ "VALUES('" + product->Name + "','" + product->Description + "',"
-		+ product->Price + "," + product->Stock + ", 'A')", conn);
-	*/
+
 	String^ strCmd = "dbo.usp_AddPromotion";
 	SqlCommand^ comm = gcnew SqlCommand(strCmd, conn);
 	comm->CommandType = System::Data::CommandType::StoredProcedure;
@@ -627,34 +624,26 @@ int ChitaController::Controller::AddPromotions(Promotions^ Promotions)
 	//Paso 5: Se cierran los objetos de conexión
 	conn->Close();
 
-	return output_id;
+	return output_id;*/
 }
 // Procedure
 int ChitaController::Controller::UpdatePromotions(Promotions^ Promotions)
 {
-	/* PRINCIPAL
+	/* PRINCIPAL */
 	for (int i = 0; i < PromotionList->Count; i++)
 		if (Promotions->Id == PromotionList[i]->Id) {
 			PromotionList[i] = Promotions;
 			PersistPromotions();
 			return 1;
 		}
-	return 0;*/
+	return 0;
 
+	/*
 	//Paso 1: Se obtiene la conexión
 	SqlConnection^ conn = GetConnection();
 
 	//Paso 2: Se prepara la sentencia
-	/*
-	SqlCommand^ comm = gcnew SqlCommand("UPDATE PRODUCT "
-		+ "SET name = '" + product->Name + "', "
-		+ "description = '" + product->Description + "', "
-		+ "price = " + product->Price + ", "
-		+ "stock = " + product->Stock + ", "
-		+ "status = '" + Char::ToString(product->Status) + "' "
-		//+ "photo = " + product->Photo
-		+ " WHERE id = " + product->Id, conn);
-	*/
+
 	String^ strCmd = "dbo.usp_UpdatePromotion";
 	SqlCommand^ comm = gcnew SqlCommand(strCmd, conn);
 	comm->CommandType = System::Data::CommandType::StoredProcedure;
@@ -689,21 +678,22 @@ int ChitaController::Controller::UpdatePromotions(Promotions^ Promotions)
 	//Paso 5: Se cierran los objetos de conexión
 	conn->Close();
 
-	return res;
+	return res;*/
 
 }
 // Procedure e Independiente
 int ChitaController::Controller::DeletePromotions(int PromotionsId)
 {
-	/* PRINCIPAL
+	/* PRINCIPAL */
 	for (int i = 0; i < PromotionList->Count; i++)
 		if (PromotionsId == PromotionList[i]->Id) {
 			PromotionList->RemoveAt(i);
 			PersistPromotions();
 			return 1;
 		}
-	return 0;*/
+	return 0;
 
+	/*
 	//Paso 1: Se obtiene la conexión
 	SqlConnection^ conn = GetConnection();
 
@@ -719,7 +709,7 @@ int ChitaController::Controller::DeletePromotions(int PromotionsId)
 
 	//Paso 5: Se cierran los objetos de conexión
 	conn->Close();
-	return res;
+	return res;*/
 
 	// --------------------------------------------------------------------------------
 	// EN CASO Haya PROCEDURE DELETE PROMOTION
@@ -752,7 +742,7 @@ int ChitaController::Controller::DeletePromotions(int PromotionsId)
 // Procedure e Independiente
 List<Promotions^>^ ChitaController::Controller::QueryAllPromotions()
 {
-	/* PRINCIPAL
+	/* PRINCIPAL */
 	LoadPromotionsData();
 	List<Promotions^>^ activePromotionsList = gcnew List<Promotions^>();
 	for (int i = 0; i < PromotionList->Count; i++) {
@@ -760,8 +750,9 @@ List<Promotions^>^ ChitaController::Controller::QueryAllPromotions()
 			activePromotionsList->Add(PromotionList[i]);
 		}
 	}
-	return activePromotionsList; */
+	return activePromotionsList; 
 
+	/*
 	List<Promotions^>^ activePromotionsList = gcnew List<Promotions^>();
 	//Paso 1: Se obtiene la conexión
 	SqlConnection^ conn = GetConnection();
@@ -797,7 +788,7 @@ List<Promotions^>^ ChitaController::Controller::QueryAllPromotions()
 	if (reader != nullptr) reader->Close();
 	if (conn != nullptr) conn->Close();
 
-	return activePromotionsList;
+	return activePromotionsList;*/
 
 	// ---------------------------------------------------------------------------
 	// PROCEDURE
@@ -842,13 +833,14 @@ List<Promotions^>^ ChitaController::Controller::QueryAllPromotions()
 }
 Promotions^ ChitaController::Controller::QueryPromotionsById(int PromotionsId)
 {
-	/* PRIMERO
+	/* PRIMERO */
 	for (int i = 0; i < PromotionList->Count; i++)
 		if (PromotionsId == PromotionList[i]->Id) {
 			return PromotionList[i];
 		}
-	return nullptr;*/
+	return nullptr;
 
+	/*
 	//Paso 1: Se obtiene la conexión
 	SqlConnection^ conn = GetConnection();
 
@@ -883,7 +875,7 @@ Promotions^ ChitaController::Controller::QueryPromotionsById(int PromotionsId)
 	//Paso 5: Se cierran los objetos de conexión
 	if (reader != nullptr) reader->Close();
 	if (conn != nullptr) conn->Close();
-	return p;
+	return p;*/
 
 
 	// -----------------------------------------------------------------------------------------------------
@@ -957,7 +949,7 @@ void ChitaController::Controller::LoadPromotionsData()
 }
 List<Promotions^>^ ChitaController::Controller::QueryPromotionsByNameOrDescription(String^ value)
 {
-	/* PRIMERO
+	/* PRIMERO */
 	LoadPromotionsData();
 	List<Promotions^>^ newPromotionList = gcnew List<Promotions^>();
 	for (int i = 0; i < PromotionList->Count; i++) {
@@ -965,18 +957,14 @@ List<Promotions^>^ ChitaController::Controller::QueryPromotionsByNameOrDescripti
 			PromotionList[i]->Description->Contains(value))
 			newPromotionList->Add(PromotionList[i]);
 	}
-	return newPromotionList;*/
-
+	return newPromotionList;
+	/*
 	List<Promotions^>^ activePromotionsList = gcnew List<Promotions^>();
 	//Paso 1: Se obtiene la conexión
 	SqlConnection^ conn = GetConnection();
 
 	//Paso 2: Se prepara la sentencia
-	/*
-	SqlCommand^ comm = gcnew SqlCommand("SELECT * FROM PROMOTION "
-		+ "WHERE name LIKE '%"+ value + "%' OR "
-		+ "description LIKE '%" + value + "%'", conn);
-	*/
+
 	String^ strCmd = "dbo.usp_QueryPromotionsByNameOrDesc";
 	SqlCommand^ comm = gcnew SqlCommand(strCmd, conn);
 	comm->CommandType = System::Data::CommandType::StoredProcedure;
@@ -1011,7 +999,7 @@ List<Promotions^>^ ChitaController::Controller::QueryPromotionsByNameOrDescripti
 	//Paso 5: Se cierran los objetos de conexión
 	reader->Close();
 	conn->Close();
-	return activePromotionsList;
+	return activePromotionsList; */
 }
 
 // -------------------------------------------------------------------------------------------
