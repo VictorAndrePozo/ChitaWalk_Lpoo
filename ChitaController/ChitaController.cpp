@@ -88,14 +88,15 @@ PetOwner^ ChitaController::Controller::QueryPetOwnerByDNI(String^ dni)
 	return nullptr;
 }
 
-// DISCOUNT
+//---------------------------------------------------------------------------------------------------------------------
+// PARA TRANSACCION DE DISCOUNT
+//---------------------------------------------------------------------------------------------------------------------
 
 void ChitaController::Controller::RegisterDiscount(Discount^ discount)
 {
 	DiscountList->Add(discount);
 	PersistDiscounts();
 }
-
 int ChitaController::Controller::QueryLastDiscountId()
 {
 	LoadDiscountsData();
@@ -106,13 +107,11 @@ int ChitaController::Controller::QueryLastDiscountId()
 	}
 	return lastDiscountId;
 }
-
 List<Discount^>^ ChitaController::Controller::QueryAllDiscounts()
 {
 	LoadDiscountsData();
 	return DiscountList;
 }
-
 void ChitaController::Controller::PersistDiscounts()
 {
 	//En formato de archivo binario
@@ -121,7 +120,6 @@ void ChitaController::Controller::PersistDiscounts()
 	bFormatter->Serialize(stream, DiscountList);
 	stream->Close();
 }
-
 void ChitaController::Controller::LoadDiscountsData()
 {
 	DiscountList = gcnew List<Discount^>();
@@ -132,7 +130,6 @@ void ChitaController::Controller::LoadDiscountsData()
 	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
 	DiscountList = (List<Discount^>^)bFormatter->Deserialize(sr);
 }
-
 List<PetOwner^>^ ChitaController::Controller::QueryAllPetOwner() {
 
 	LoadPetOwnerData();
@@ -152,6 +149,7 @@ PetOwner^ ChitaController::Controller::QueryPetOwnerById(int PetOwnerId){
 		}
 	return nullptr;
 }
+
 //---------------------------------------------------------------------------------------------------------------------
 // PARA MANTENIMIENTO DE KEEPER
 //---------------------------------------------------------------------------------------------------------------------
@@ -162,7 +160,6 @@ int ChitaController::Controller::AddKeeper(Keeper^ keeper)
 	PersistKeepers();
 	return 1;
 }
-
 int ChitaController::Controller::UpdateKeeper(Keeper^ keeper)
 {
 	for (int i = 0; i < keeperList->Count; i++)
@@ -173,7 +170,6 @@ int ChitaController::Controller::UpdateKeeper(Keeper^ keeper)
 		}
 	return 0;
 }
-
 int ChitaController::Controller::DeleteKeeper(int keeperId)
 {
 	for (int i = 0; i < keeperList->Count; i++)
@@ -184,7 +180,6 @@ int ChitaController::Controller::DeleteKeeper(int keeperId)
 		}
 	return 0;
 }
-
 List<Keeper^>^ ChitaController::Controller::QueryAllKeepers()
 {
 	LoadKeepersData();
@@ -196,7 +191,6 @@ List<Keeper^>^ ChitaController::Controller::QueryAllKeepers()
 	}
 	return activeKeepersList;
 }
-
 Keeper^ ChitaController::Controller::QueryKeeperById(int keeperId)
 {
 	for (int i = 0; i < keeperList->Count; i++)
@@ -205,7 +199,6 @@ Keeper^ ChitaController::Controller::QueryKeeperById(int keeperId)
 		}
 	return nullptr;
 }
-
 void ChitaController::Controller::PersistKeepers()
 {
 
@@ -215,7 +208,6 @@ void ChitaController::Controller::PersistKeepers()
 	bFormatter->Serialize(stream, keeperList);
 	stream->Close();
 }
-
 void ChitaController::Controller::LoadKeepersData()
 {
 
@@ -238,15 +230,12 @@ void ChitaController::Controller::PersistPets() {
 	bFormatter->Serialize(stream, petList);
 	stream->Close();
 }
-
-
 int ChitaController::Controller::AddPet(Pet^ pet)
 {
     petList->Add(pet);  //agregar a la petList, el pet que entra al método
 	PersistPets();
     return 0;
 }
-
 int ChitaController::Controller::UpdatePet(Pet^ pet)
 {
     for (int i = 0; i < petList->Count; i++) { // de 0 a ++ mientras i sea menor al total de listas(count)
@@ -258,7 +247,6 @@ int ChitaController::Controller::UpdatePet(Pet^ pet)
     }
     return 0;
 }
-
 int ChitaController::Controller::DeletePet(int petId)
 {
     for (int i = 0; i < petList->Count; i++) { // de 0 a ++ mientras i sea menor al total de listas(count)
@@ -270,7 +258,6 @@ int ChitaController::Controller::DeletePet(int petId)
     }
     return 0;
 }
-
 Pet^ ChitaController::Controller::QueryPetById(int petId)
 {
     for (int i = 0; i < petList->Count; i++) { //Barrido de todos los elementos de la lista
@@ -280,8 +267,6 @@ Pet^ ChitaController::Controller::QueryPetById(int petId)
     }
     return nullptr; //Si no encuentra una coincidenica, no debuelve algo.
 }
-
-
 List<Pet^>^ ChitaController::Controller::QueryAllPets()
 {
 	LoadPetsData();
@@ -294,8 +279,6 @@ List<Pet^>^ ChitaController::Controller::QueryAllPets()
     }
     return activePetList;
 }
-
-
 void ChitaController::Controller::LoadPetsData() {
 
 	petList = gcnew List<Pet^>();
@@ -317,7 +300,6 @@ int ChitaController::Controller::AddWalker(Walker^ walker)
 	walkerList->Add(walker);
 	return 1;
 }
-
 int ChitaController::Controller::UpdateWalker(Walker^ walker)
 {
 	for (int i = 0; i < walkerList->Count; i++)
@@ -327,7 +309,6 @@ int ChitaController::Controller::UpdateWalker(Walker^ walker)
 		}
 	return 0;
 }
-
 int ChitaController::Controller::DeleteWalker(int walkerId)
 {
 	for (int i = 0; i < walkerList->Count; i++)
@@ -337,7 +318,6 @@ int ChitaController::Controller::DeleteWalker(int walkerId)
 		}
 	return 0;
 }
-
 List<Walker^>^ ChitaController::Controller::QueryAllWalkers()
 {
 	List<Walker^>^ activeWalkersList = gcnew List<Walker^>();
@@ -348,7 +328,6 @@ List<Walker^>^ ChitaController::Controller::QueryAllWalkers()
 	}
 	return activeWalkersList;
 }
-
 Walker^ ChitaController::Controller::QueryWalkerById(int walkerId)
 {
 	for (int i = 0; i < walkerList->Count; i++)
@@ -357,7 +336,6 @@ Walker^ ChitaController::Controller::QueryWalkerById(int walkerId)
 		}
 	return nullptr;
 }
-
 void ChitaController::Controller::PersistWalkers()
 {
 
@@ -367,7 +345,6 @@ void ChitaController::Controller::PersistWalkers()
 	bFormatter->Serialize(stream, walkerList);
 	stream->Close();
 }
-
 void ChitaController::Controller::LoadWalkersData()
 {
 
@@ -390,15 +367,12 @@ void ChitaController::Controller::PersistServiceRequest() {
 	bFormatter->Serialize(stream, servicerequestList);
 	stream->Close();
 }
-
-
 int ChitaController::Controller::AddServiceRequest(ServiceRequest^ servicerequest)
 {
 	servicerequestList->Add(servicerequest);  //agregar a la petList, el pet que entra al método
 	PersistServiceRequest();
 	return 0;
 }
-
 int ChitaController::Controller::UpdateServiceRequest(ServiceRequest^ servicerequest)
 {
 	for (int i = 0; i < servicerequestList->Count; i++) { // de 0 a ++ mientras i sea menor al total de listas(count)
@@ -410,7 +384,6 @@ int ChitaController::Controller::UpdateServiceRequest(ServiceRequest^ servicereq
 	}
 	return 0;
 }
-
 int ChitaController::Controller::DeleteServiceRequest(int servicerequestId)
 {
 	for (int i = 0; i < servicerequestList->Count; i++) { // de 0 a ++ mientras i sea menor al total de listas(count)
@@ -422,7 +395,6 @@ int ChitaController::Controller::DeleteServiceRequest(int servicerequestId)
 	}
 	return 0;
 }
-
 ServiceRequest^ ChitaController::Controller::QueryServiceRequestById(int servicerequestId)
 {
 	for (int i = 0; i < servicerequestList->Count; i++) { //Barrido de todos los elementos de la lista
@@ -449,7 +421,6 @@ List<ServiceRequest^>^ ChitaController::Controller::QueryAllServiceRequest()
 	}
 	return activeServiceRequestList;
 }
-
 List<ServiceRequest^>^ ChitaController::Controller::QueryServiceRequestByPetKind(String^ value)
 {
 	LoadServiceRequestData();
@@ -462,7 +433,6 @@ List<ServiceRequest^>^ ChitaController::Controller::QueryServiceRequestByPetKind
 	return activeServiceRequestList;
 
 }
-
 List<ServiceRequest^>^ ChitaController::Controller::QueryServiceRequestByPet(String^ value)
 {
 	LoadServiceRequestData();
@@ -474,7 +444,6 @@ List<ServiceRequest^>^ ChitaController::Controller::QueryServiceRequestByPet(Str
 	}
 	return activeServiceRequestList;
 }
-
 List<ServiceRequest^>^ ChitaController::Controller::QueryServiceRequestByService(String^ value)
 {
 	LoadServiceRequestData();
@@ -486,7 +455,6 @@ List<ServiceRequest^>^ ChitaController::Controller::QueryServiceRequestByService
 	}
 	return activeServiceRequestList;
 }
-
 List<ServiceRequest^>^ ChitaController::Controller::QueryServiceRequestByDistrict(String^ value)
 {
 	LoadServiceRequestData();
@@ -498,7 +466,6 @@ List<ServiceRequest^>^ ChitaController::Controller::QueryServiceRequestByDistric
 	}
 	return activeServiceRequestList;
 }
-
 List<ServiceRequest^>^ ChitaController::Controller::QueryServiceRequestByServiceDate(String^ value)
 {
 	LoadServiceRequestData();
@@ -511,7 +478,6 @@ List<ServiceRequest^>^ ChitaController::Controller::QueryServiceRequestByService
 	}
 	return activeServiceRequestList;
 }
-
 List<ServiceRequest^>^ ChitaController::Controller::QueryServiceRequestByDateTimeInit(String^ value)
 {
 	LoadServiceRequestData();
@@ -523,7 +489,6 @@ List<ServiceRequest^>^ ChitaController::Controller::QueryServiceRequestByDateTim
 	}
 	return activeServiceRequestList;
 }
-
 void ChitaController::Controller::LoadServiceRequestData() {
 
 	servicerequestList = gcnew List<ServiceRequest^>();
@@ -534,14 +499,12 @@ void ChitaController::Controller::LoadServiceRequestData() {
 
 	sr->Close();
 }
-
 int ChitaController::Controller::CreateTempServiceRequest(ServiceRequest^ servicerequest)
 {
 	servicerequestList->Add(servicerequest);  //agregar a la petList, el pet que entra al método
 	PersistUnicTempServiceRequest();
 	return 0;
 }
-
 int ChitaController::Controller::UpdateTempServiceRequest(ServiceRequest^ servicerequest)
 {
 	for (int i = 0; i < servicerequestList->Count; i++) { // de 0 a ++ mientras i sea menor al total de listas(count)
@@ -553,7 +516,6 @@ int ChitaController::Controller::UpdateTempServiceRequest(ServiceRequest^ servic
 	}
 	return 0;
 }
-
 int ChitaController::Controller::DeleteTempServiceRequest(int servicerequestId)
 {
 	for (int i = 0; i < servicerequestList->Count; i++) { // de 0 a ++ mientras i sea menor al total de listas(count)
@@ -565,7 +527,6 @@ int ChitaController::Controller::DeleteTempServiceRequest(int servicerequestId)
 	}
 	return 0;
 }
-
 void ChitaController::Controller::PersistUnicTempServiceRequest()
 {
 	Stream^ stream = File::Open("ServiceRequestTemp.bin", FileMode::Create);
@@ -573,7 +534,6 @@ void ChitaController::Controller::PersistUnicTempServiceRequest()
 	bFormatter->Serialize(stream, servicerequestList);
 	stream->Close();
 }
-
 Void ChitaController::Controller::LoadUnicTempServiceRequestData()
 {
 	servicerequestList = gcnew List<ServiceRequest^>();
@@ -584,7 +544,6 @@ Void ChitaController::Controller::LoadUnicTempServiceRequestData()
 
 	sr->Close();
 }
-
 ServiceRequest^ ChitaController::Controller::QueryServiceRequestByStatus(String^ servicerequestStatus)
 {
 	for (int i = 0; i < servicerequestList->Count; i++) { //Barrido de todos los elementos de la lista
@@ -594,7 +553,6 @@ ServiceRequest^ ChitaController::Controller::QueryServiceRequestByStatus(String^
 	}
 	return nullptr; //Si no encuentra una coincidenica, no debuelve algo.
 }
-
 List<ServiceRequest^>^ ChitaController::Controller::QueryTempServiceRequest()
 {
 	LoadUnicTempServiceRequestData();
@@ -671,7 +629,6 @@ int ChitaController::Controller::AddPromotions(Promotions^ Promotions)
 
 	return output_id;
 }
-
 // Procedure
 int ChitaController::Controller::UpdatePromotions(Promotions^ Promotions)
 {
@@ -735,7 +692,6 @@ int ChitaController::Controller::UpdatePromotions(Promotions^ Promotions)
 	return res;
 
 }
-
 // Procedure e Independiente
 int ChitaController::Controller::DeletePromotions(int PromotionsId)
 {
@@ -793,7 +749,6 @@ int ChitaController::Controller::DeletePromotions(int PromotionsId)
 	return 0; */
 
 }
-
 // Procedure e Independiente
 List<Promotions^>^ ChitaController::Controller::QueryAllPromotions()
 {
@@ -885,7 +840,6 @@ List<Promotions^>^ ChitaController::Controller::QueryAllPromotions()
 	if (conn != nullptr) conn->Close();
 	return activePromotionsList;*/
 }
-
 Promotions^ ChitaController::Controller::QueryPromotionsById(int PromotionsId)
 {
 	/* PRIMERO
@@ -933,7 +887,7 @@ Promotions^ ChitaController::Controller::QueryPromotionsById(int PromotionsId)
 
 
 	// -----------------------------------------------------------------------------------------------------
-	// PROCEDURE
+	// PROCEDURE PROMOTIONS
 	// -----------------------------------------------------------------------------------------------------
 	/*
 	// 1er paso: Se obtiene la conexión 
@@ -984,7 +938,6 @@ Promotions^ ChitaController::Controller::QueryPromotionsById(int PromotionsId)
 	if (conn != nullptr) conn->Close();
 	return s;*/
 }
-
 void ChitaController::Controller::PersistPromotions()
 {
 	Stream^ stream = File::Open("Promotions.bin", FileMode::Create);
@@ -992,7 +945,6 @@ void ChitaController::Controller::PersistPromotions()
 	bFormatter->Serialize(stream, PromotionList);
 	stream->Close();
 }
-
 void ChitaController::Controller::LoadPromotionsData()
 {
 	PromotionList = gcnew List<Promotions^>();
@@ -1003,7 +955,6 @@ void ChitaController::Controller::LoadPromotionsData()
 
 	sr->Close();
 }
-
 List<Promotions^>^ ChitaController::Controller::QueryPromotionsByNameOrDescription(String^ value)
 {
 	/* PRIMERO
@@ -1063,5 +1014,70 @@ List<Promotions^>^ ChitaController::Controller::QueryPromotionsByNameOrDescripti
 	return activePromotionsList;
 }
 
+// -------------------------------------------------------------------------------------------
+// MANTENIMIENTO SUPERVISOR
+// -------------------------------------------------------------------------------------------
 
+int ChitaController::Controller::AddSupervisor(Supervisor^ supervisor)
+{
+	supervisorList->Add(supervisor);
+	PersistSupervisors();
+	return 1;
+}
+int ChitaController::Controller::UpdateSupervisor(Supervisor^ supervisor)
+{
+	for (int i = 0; i < supervisorList->Count; i++)
+		if (supervisor->Id == supervisorList[i]->Id) {
+			supervisorList[i] = supervisor;
+			PersistSupervisors();
+			return 1;
+		}
+	return 0;
+}
+int ChitaController::Controller::DeleteSupervisor(int supervisorId)
+{
+	for (int i = 0; i < supervisorList->Count; i++)
+		if (supervisorId == supervisorList[i]->Id) {
+			supervisorList->RemoveAt(i);
+			PersistSupervisors();
+			return 1;
+		}
+	return 0;
+}
+List<Supervisor^>^ ChitaController::Controller::QueryAllSupervisors()
+{
+	LoadSupervisorsData();
+	List<Supervisor^>^ activeSupervisorsList = gcnew List<Supervisor^>();
+	for (int i = 0; i < supervisorList->Count; i++) {
+		if (supervisorList[i]->Status == 'A') {
+			activeSupervisorsList->Add(supervisorList[i]);
+		}
+	}
+	return activeSupervisorsList;
+}
+Supervisor^ ChitaController::Controller::QuerySupervisorById(int supervisorId)
+{
+	for (int i = 0; i < supervisorList->Count; i++)
+		if (supervisorId == supervisorList[i]->Id) {
+			return supervisorList[i];
+		}
+	return nullptr;
+}
+void ChitaController::Controller::PersistSupervisors()
+{
+	//En formato de archivo binario
+	Stream^ stream = File::Open("Supervisors.bin", FileMode::Create);
+	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
+	bFormatter->Serialize(stream, supervisorList);
+	stream->Close();
+}
+void ChitaController::Controller::LoadSupervisorsData()
+{ /*
+	supervisorList = gcnew List<Supervisor^>();
+	//Lectura desde un archivo binario
+	Stream^ sr = File::Open("Supervisors.bin", FileMode::Open);
+	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
+	supervisorList = (List<Supervisor^>^)bFormatter->Deserialize(sr);
 
+	sr->Close();*/
+}

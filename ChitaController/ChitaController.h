@@ -150,6 +150,21 @@ namespace ChitaController {
 			static void LoadPromotionsData();
 			static List<Promotions^>^ QueryPromotionsByNameOrDescription(String^ value);
 
+		//---------------------------------------------------------------------------------------------------------------------
+		// PARA MANTENIMIENTO DE SUPERVISOR
+		//---------------------------------------------------------------------------------------------------------------------
+
+		private:
+			static List <Supervisor^>^ supervisorList = gcnew List<Supervisor^>(); // Variable de clase o atributo estático
+		public:
+			static int AddSupervisor(Supervisor^ supervisor);                      // Añadir supervisor
+			static int UpdateSupervisor(Supervisor^ supervisor);                   // Modificar supervisor
+			static int DeleteSupervisor(int supervisorId);                    // Eliminar supervisor
+			static List <Supervisor^>^ QueryAllSupervisors();                 // Consultar todos los supervisors activos
+			static Supervisor^ QuerySupervisorById(int supervisorId);              // Consultar supervisor por ID
+			static void PersistSupervisors();
+			static void LoadSupervisorsData();
+
 
 	};
 }

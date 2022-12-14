@@ -95,11 +95,11 @@ namespace ChitaView {
 	private: System::Windows::Forms::Label^ label11;
 	private: System::Windows::Forms::Label^ label12;
 	private: System::Windows::Forms::Label^ label13;
-	private: System::Windows::Forms::ComboBox^ CmbPosition;
+
 
 
 	private: System::Windows::Forms::Label^ label14;
-	private: System::Windows::Forms::Label^ label15;
+
 	private: System::Windows::Forms::TextBox^ txtValoration;
 	private: System::Windows::Forms::TextBox^ txtLevel;
 	private: System::Windows::Forms::TextBox^ txtExperience;
@@ -211,12 +211,12 @@ private: System::Windows::Forms::TextBox^ txtValorationWalker;
 
 private: System::Windows::Forms::TextBox^ txtEmailWalker;
 
-private: System::Windows::Forms::Label^ label25;
+
 private: System::Windows::Forms::TextBox^ txtAddressWalker;
 
 private: System::Windows::Forms::Label^ label26;
 private: System::Windows::Forms::TextBox^ txtFirstNameWalker;
-private: System::Windows::Forms::ComboBox^ CmbPositionWalker;
+
 
 
 private: System::Windows::Forms::TextBox^ txtLastNameWalker;
@@ -319,9 +319,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->label13 = (gcnew System::Windows::Forms::Label());
-			this->CmbPosition = (gcnew System::Windows::Forms::ComboBox());
 			this->label14 = (gcnew System::Windows::Forms::Label());
-			this->label15 = (gcnew System::Windows::Forms::Label());
 			this->txtValoration = (gcnew System::Windows::Forms::TextBox());
 			this->txtLevel = (gcnew System::Windows::Forms::TextBox());
 			this->txtExperience = (gcnew System::Windows::Forms::TextBox());
@@ -400,11 +398,9 @@ private: System::ComponentModel::IContainer^ components;
 			this->txtDniWalker = (gcnew System::Windows::Forms::TextBox());
 			this->txtValorationWalker = (gcnew System::Windows::Forms::TextBox());
 			this->txtEmailWalker = (gcnew System::Windows::Forms::TextBox());
-			this->label25 = (gcnew System::Windows::Forms::Label());
 			this->txtAddressWalker = (gcnew System::Windows::Forms::TextBox());
 			this->label26 = (gcnew System::Windows::Forms::Label());
 			this->txtFirstNameWalker = (gcnew System::Windows::Forms::TextBox());
-			this->CmbPositionWalker = (gcnew System::Windows::Forms::ComboBox());
 			this->txtLastNameWalker = (gcnew System::Windows::Forms::TextBox());
 			this->label27 = (gcnew System::Windows::Forms::Label());
 			this->txtUsernameWalker = (gcnew System::Windows::Forms::TextBox());
@@ -662,15 +658,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->label13->TabIndex = 27;
 			this->label13->Text = L"Salario";
 			// 
-			// CmbPosition
-			// 
-			this->CmbPosition->FormattingEnabled = true;
-			this->CmbPosition->Location = System::Drawing::Point(441, 15);
-			this->CmbPosition->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->CmbPosition->Name = L"CmbPosition";
-			this->CmbPosition->Size = System::Drawing::Size(155, 24);
-			this->CmbPosition->TabIndex = 29;
-			// 
 			// label14
 			// 
 			this->label14->AutoSize = true;
@@ -679,15 +666,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->label14->Size = System::Drawing::Size(50, 16);
 			this->label14->TabIndex = 30;
 			this->label14->Text = L"Estado";
-			// 
-			// label15
-			// 
-			this->label15->AutoSize = true;
-			this->label15->Location = System::Drawing::Point(353, 19);
-			this->label15->Name = L"label15";
-			this->label15->Size = System::Drawing::Size(59, 16);
-			this->label15->TabIndex = 31;
-			this->label15->Text = L"Posición";
 			// 
 			// txtValoration
 			// 
@@ -748,7 +726,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->dgvKeeper->Size = System::Drawing::Size(1084, 278);
 			this->dgvKeeper->TabIndex = 37;
 			this->dgvKeeper->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &carermaintenance::dgvKeeper_CellClick);
-			this->dgvKeeper->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &carermaintenance::dgvKeeper_CellContentClick);
 			// 
 			// keeperId
 			// 
@@ -999,11 +976,9 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage1->Controls->Add(this->txtDni);
 			this->tabPage1->Controls->Add(this->txtValoration);
 			this->tabPage1->Controls->Add(this->txtEmail);
-			this->tabPage1->Controls->Add(this->label15);
 			this->tabPage1->Controls->Add(this->txtAddress);
 			this->tabPage1->Controls->Add(this->label14);
 			this->tabPage1->Controls->Add(this->txtFirstName);
-			this->tabPage1->Controls->Add(this->CmbPosition);
 			this->tabPage1->Controls->Add(this->txtLastName);
 			this->tabPage1->Controls->Add(this->label13);
 			this->tabPage1->Controls->Add(this->txtUsername);
@@ -1049,11 +1024,9 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabPage2->Controls->Add(this->txtDniWalker);
 			this->tabPage2->Controls->Add(this->txtValorationWalker);
 			this->tabPage2->Controls->Add(this->txtEmailWalker);
-			this->tabPage2->Controls->Add(this->label25);
 			this->tabPage2->Controls->Add(this->txtAddressWalker);
 			this->tabPage2->Controls->Add(this->label26);
 			this->tabPage2->Controls->Add(this->txtFirstNameWalker);
-			this->tabPage2->Controls->Add(this->CmbPositionWalker);
 			this->tabPage2->Controls->Add(this->txtLastNameWalker);
 			this->tabPage2->Controls->Add(this->label27);
 			this->tabPage2->Controls->Add(this->txtUsernameWalker);
@@ -1391,15 +1364,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->txtEmailWalker->Size = System::Drawing::Size(453, 22);
 			this->txtEmailWalker->TabIndex = 53;
 			// 
-			// label25
-			// 
-			this->label25->AutoSize = true;
-			this->label25->Location = System::Drawing::Point(353, 22);
-			this->label25->Name = L"label25";
-			this->label25->Size = System::Drawing::Size(59, 16);
-			this->label25->TabIndex = 71;
-			this->label25->Text = L"Posición";
-			// 
 			// txtAddressWalker
 			// 
 			this->txtAddressWalker->Location = System::Drawing::Point(143, 117);
@@ -1425,15 +1389,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->txtFirstNameWalker->Name = L"txtFirstNameWalker";
 			this->txtFirstNameWalker->Size = System::Drawing::Size(161, 22);
 			this->txtFirstNameWalker->TabIndex = 55;
-			// 
-			// CmbPositionWalker
-			// 
-			this->CmbPositionWalker->FormattingEnabled = true;
-			this->CmbPositionWalker->Location = System::Drawing::Point(441, 18);
-			this->CmbPositionWalker->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->CmbPositionWalker->Name = L"CmbPositionWalker";
-			this->CmbPositionWalker->Size = System::Drawing::Size(155, 24);
-			this->CmbPositionWalker->TabIndex = 69;
 			// 
 			// txtLastNameWalker
 			// 
@@ -1650,7 +1605,6 @@ private: System::ComponentModel::IContainer^ components;
 		c->Salary = Double::Parse(txtSalary->Text);
 		//c->Photo = array::Parse(PicturePhoto->Picture);
 		c->Status = 'A';
-		c->Position = CmbPosition->Text;
 
 		Controller::AddKeeper(c);
 		RefreshGrid();
@@ -1676,7 +1630,6 @@ private: System::ComponentModel::IContainer^ components;
 		 c->Salary = Double::Parse(txtSalaryWalker->Text);
 		 //c->Photo = array::Parse(PicturePhoto->Picture);
 		 c->Status = 'A';
-		 c->Position = CmbPositionWalker->Text;
 
 		 Controller::AddWalker(c);
 		 RefreshGrid_Walker();
@@ -1701,7 +1654,6 @@ private: System::ComponentModel::IContainer^ components;
 		c->Salary = Double::Parse(txtSalary->Text);
 		//c->Photo = array::Parse(PicturePhoto->Picture);
 		c->Status = 'A';
-		c->Position = CmbPosition->Text;
 
 		Controller::UpdateKeeper(c);
 		RefreshGrid();
@@ -1726,7 +1678,6 @@ private: System::ComponentModel::IContainer^ components;
 		c->Salary = Double::Parse(txtSalaryWalker->Text);
 		//c->Photo = array::Parse(PicturePhoto->Picture);
 		c->Status = 'A';
-		c->Position = CmbPositionWalker->Text;
 
 		Controller::UpdateWalker(c);
 		RefreshGrid_Walker();
@@ -1804,11 +1755,47 @@ private: System::ComponentModel::IContainer^ components;
 				txtSalary->Text = "" + keeper->Salary;
 				//txt->Text = "" + c->Photo;
 				txtStatus->Text = "" + keeper->Status;
-				CmbPosition->Text = "" + keeper->Position;
 			}
 		}
 
 	}
+
+private: System::Void dgvWalker_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	
+	if (dgvWalker->CurrentCell != nullptr &&
+		dgvWalker->CurrentCell->Value != nullptr &&
+		dgvWalker->CurrentCell->Value->ToString() != "") {
+		int selectedrowindex = dgvWalker->SelectedCells[0]->RowIndex;
+		DataGridViewRow^ selectedRow = dgvWalker ->Rows[selectedrowindex];
+		String^ a = selectedRow->Cells[0]->Value->ToString();
+
+		int walkerId = Int32::Parse(a);
+		Walker^ walker = Controller::QueryWalkerById(walkerId);
+		//MessageBox::Show(customer->ToString()); //Polimorfismo
+		if (walker != nullptr && walker->GetType() == Walker::typeid) {
+
+			txtDniWalker->Text = "" + walker->Dni;
+			txtAddressWalker->Text = walker->Address;
+			txtPhoneNumberWalker->Text = walker->PhoneNumber;
+			txtEmailWalker->Text = walker->Email;
+			rbtnMascWalker->Checked = dynamic_cast<Walker^>(walker)->Gender == 'M';
+			rbtnFemWalker->Checked = dynamic_cast<Walker^>(walker)->Gender == 'F';
+			txtIdWalker->Text = "" + walker->Id;
+			txtUsernameWalker->Text = walker->username;
+			//txtLastName->Text = walker->password;
+			txtLastNameWalker->Text = dynamic_cast<Walker^>(walker)->Lastname;
+			txtFirstNameWalker->Text = dynamic_cast<Walker^>(walker)->Firstname;
+			txtValorationWalker->Text = "" + walker->Valoration;
+			txtExperienceWalker->Text = "" + walker->Experience;
+			txtLevelWalker->Text = "" + walker->Level;
+			txtWarrantyWalker->Text = "" + walker->Warranty;
+			txtSalaryWalker->Text = "" + walker->Salary;
+			//txt->Text = "" + c->Photo;
+			txtStatusWalker->Text = "" + walker->Status;
+		}
+	}
+
+}
 
 		   void ClearControls() {
 			   txtDni->Clear();
@@ -1922,8 +1909,7 @@ private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, Syste
 	this->Close();
 }
 
-private: System::Void dgvKeeper_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-}
+
 private: System::Void carermaintenance_Load(System::Object^ sender, System::EventArgs^ e) {
 	RefreshGrid();
 }
