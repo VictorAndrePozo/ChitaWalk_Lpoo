@@ -347,7 +347,7 @@ namespace ChitaView {
 			this->tabPage4->Name = L"tabPage4";
 			this->tabPage4->Size = System::Drawing::Size(1044, 484);
 			this->tabPage4->TabIndex = 3;
-			this->tabPage4->Text = L"Supervisor";
+			this->tabPage4->Text = L"Supervisores";
 			this->tabPage4->UseVisualStyleBackColor = true;
 			// 
 			// chart3
@@ -415,50 +415,50 @@ namespace ChitaView {
 	private: System::Void DistrictAnalyticForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		List<PetOwner^>^ PetOwnerList = Controller::QueryAllPetOwner();
 		for (int i = 0; i < PetOwnerList->Count; i++) {
-			chartdistrict->Series["Distritos"]->Points->Add(PetOwnerList[i]->Id);
+			chartdistrict->Series["Distritos"]->Points->Add(PetOwnerList[i]->Valoration);
 			chartdistrict->Series["Distritos"]->Points[i]->AxisLabel = PetOwnerList[i]->District;
-			chartdistrict->Series["Distritos"]->Points[i]->Label = Convert::ToString(PetOwnerList[i]->Firstname);
+			chartdistrict->Series["Distritos"]->Points[i]->Label = Convert::ToString(PetOwnerList[i]->Valoration);
 
-			piechartdistrict->Series["Distritos"]->Points->Add(PetOwnerList[i]->Id);
+			piechartdistrict->Series["Distritos"]->Points->Add(PetOwnerList[i]->Valoration);
 			piechartdistrict->Series["Distritos"]->Points[i]->LegendText = PetOwnerList[i]->District;
-			piechartdistrict->Series["Distritos"]->Points[i]->Label = Convert::ToString(PetOwnerList[i]->Firstname);
+			piechartdistrict->Series["Distritos"]->Points[i]->Label = Convert::ToString(PetOwnerList[i]->Valoration);
 
 		}
 
 		List<Keeper^>^ keeperList = Controller::QueryAllKeepers();
 		for (int i = 0; i < keeperList->Count; i++) {
-			chart1->Series["Distritos"]->Points->Add(keeperList[i]->Id);
+			chart1->Series["Distritos"]->Points->Add(keeperList[i]->Valoration);
 			chart1->Series["Distritos"]->Points[i]->AxisLabel = keeperList[i]->District;
-			chart1->Series["Distritos"]->Points[i]->Label = Convert::ToString(keeperList[i]->Firstname);
+			chart1->Series["Distritos"]->Points[i]->Label = Convert::ToString(keeperList[i]->Valoration);
 
-			piechart1->Series["Distritos"]->Points->Add(keeperList[i]->Id);
+			piechart1->Series["Distritos"]->Points->Add(keeperList[i]->Valoration);
 			piechart1->Series["Distritos"]->Points[i]->LegendText = keeperList[i]->District;
-			piechart1->Series["Distritos"]->Points[i]->Label = Convert::ToString(keeperList[i]->Firstname);
+			piechart1->Series["Distritos"]->Points[i]->Label = Convert::ToString(keeperList[i]->Valoration);
 
 		}
 
 		List<Walker^>^ walkerList = Controller::QueryAllWalkers();
 		for (int i = 0; i < walkerList->Count; i++) {
-			chart2->Series["Distritos"]->Points->Add(walkerList[i]->Id);
+			chart2->Series["Distritos"]->Points->Add(walkerList[i]->Valoration);
 			chart2->Series["Distritos"]->Points[i]->AxisLabel = walkerList[i]->District;
-			chart2->Series["Distritos"]->Points[i]->Label = Convert::ToString(walkerList[i]->Firstname);
+			chart2->Series["Distritos"]->Points[i]->Label = Convert::ToString(walkerList[i]->Valoration);
 
-			piechart2->Series["Distritos"]->Points->Add(walkerList[i]->Id);
+			piechart2->Series["Distritos"]->Points->Add(walkerList[i]->Valoration);
 			piechart2->Series["Distritos"]->Points[i]->LegendText = walkerList[i]->District;
-			piechart2->Series["Distritos"]->Points[i]->Label = Convert::ToString(walkerList[i]->Firstname);
+			piechart2->Series["Distritos"]->Points[i]->Label = Convert::ToString(walkerList[i]->Valoration);
 
 		}
 
-
+		
 		List<Supervisor^>^ supervisorList = Controller::QueryAllSupervisors();
 		for (int i = 0; i < supervisorList->Count; i++) {
-			chart3->Series["Distritos"]->Points->Add(supervisorList[i]->Id);
+			chart3->Series["Distritos"]->Points->Add(supervisorList[i]->Valoration);
 			chart3->Series["Distritos"]->Points[i]->AxisLabel = supervisorList[i]->District;
-			chart3->Series["Distritos"]->Points[i]->Label = Convert::ToString(supervisorList[i]->Firstname);
+			chart3->Series["Distritos"]->Points[i]->Label = Convert::ToString(supervisorList[i]->Valoration);
 
-			piechart3->Series["Distritos"]->Points->Add(supervisorList[i]->Id);
+			piechart3->Series["Distritos"]->Points->Add(supervisorList[i]->Valoration);
 			piechart3->Series["Distritos"]->Points[i]->LegendText = supervisorList[i]->District;
-			piechart3->Series["Distritos"]->Points[i]->Label = Convert::ToString(supervisorList[i]->Firstname);
+			piechart3->Series["Distritos"]->Points[i]->Label = Convert::ToString(supervisorList[i]->Valoration);
 
 		}
 	}

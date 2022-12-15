@@ -116,6 +116,9 @@ namespace ChitaView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ DireccionColumna;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ GeneroColumna;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ DistrictColumna;
+private: System::Windows::Forms::TextBox^ txtValoration;
+
+private: System::Windows::Forms::Label^ label2;
 
 
 
@@ -179,8 +182,6 @@ namespace ChitaView {
 			this->dtpBirthday = (gcnew System::Windows::Forms::DateTimePicker());
 			this->CumpleanosPO = (gcnew System::Windows::Forms::Label());
 			this->dgvPetOwner = (gcnew System::Windows::Forms::DataGridView());
-			this->Distrito = (gcnew System::Windows::Forms::Label());
-			this->cmbDistrict = (gcnew System::Windows::Forms::ComboBox());
 			this->IdColumna = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->UsuarioColumna = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->NombreColumna = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -191,6 +192,10 @@ namespace ChitaView {
 			this->DireccionColumna = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->GeneroColumna = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->DistrictColumna = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Distrito = (gcnew System::Windows::Forms::Label());
+			this->cmbDistrict = (gcnew System::Windows::Forms::ComboBox());
+			this->txtValoration = (gcnew System::Windows::Forms::TextBox());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picturePhoto))->BeginInit();
 			this->MenuPetOwner->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPetOwner))->BeginInit();
@@ -458,7 +463,7 @@ namespace ChitaView {
 					this->editarToolStripMenuItem, this->salirToolStripMenuItem
 			});
 			this->archivoToolStripMenuItem->Name = L"archivoToolStripMenuItem";
-			this->archivoToolStripMenuItem->Size = System::Drawing::Size(73, 24);
+			this->archivoToolStripMenuItem->Size = System::Drawing::Size(73, 26);
 			this->archivoToolStripMenuItem->Text = L"Archivo";
 			// 
 			// nuevoToolStripMenuItem
@@ -486,7 +491,7 @@ namespace ChitaView {
 			// 
 			this->consultaToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->consultaToolStripMenuItem1 });
 			this->consultaToolStripMenuItem->Name = L"consultaToolStripMenuItem";
-			this->consultaToolStripMenuItem->Size = System::Drawing::Size(76, 24);
+			this->consultaToolStripMenuItem->Size = System::Drawing::Size(76, 26);
 			this->consultaToolStripMenuItem->Text = L"Reporte";
 			// 
 			// consultaToolStripMenuItem1
@@ -521,39 +526,14 @@ namespace ChitaView {
 					this->UsuarioColumna, this->NombreColumna, this->ApellidoColumna, this->DniColumna, this->CorreoColumna, this->CumpleanosColumna,
 					this->DireccionColumna, this->GeneroColumna, this->DistrictColumna
 			});
-			this->dgvPetOwner->Location = System::Drawing::Point(16, 279);
+			this->dgvPetOwner->Location = System::Drawing::Point(16, 314);
 			this->dgvPetOwner->Margin = System::Windows::Forms::Padding(4);
 			this->dgvPetOwner->Name = L"dgvPetOwner";
 			this->dgvPetOwner->RowHeadersWidth = 51;
-			this->dgvPetOwner->Size = System::Drawing::Size(891, 352);
+			this->dgvPetOwner->Size = System::Drawing::Size(891, 317);
 			this->dgvPetOwner->TabIndex = 66;
 			this->dgvPetOwner->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &PetOwnerMaintence::dgvPetOwner_CellClick);
 			this->dgvPetOwner->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &PetOwnerMaintence::dataGridView1_CellContentClick);
-			// 
-			// Distrito
-			// 
-			this->Distrito->AutoSize = true;
-			this->Distrito->Location = System::Drawing::Point(512, 238);
-			this->Distrito->Name = L"Distrito";
-			this->Distrito->Size = System::Drawing::Size(61, 16);
-			this->Distrito->TabIndex = 67;
-			this->Distrito->Text = L"Distrito(*)";
-			// 
-			// cmbDistrict
-			// 
-			this->cmbDistrict->FormattingEnabled = true;
-			this->cmbDistrict->Items->AddRange(gcnew cli::array< System::Object^  >(43) {
-				L"Ancón", L"Ate", L"Barranco", L"Breña", L"Carabayllo",
-					L"Cercado de Lima", L"Chaclacayo", L"Chorrillos", L"Cieneguilla", L"Comas", L"El agustino", L"Independencia", L"Jesús maría",
-					L"La molina", L"La victoria", L"Lince", L"Los olivos", L"Lurigancho", L"Lurín", L"Magdalena del mar", L"Miraflores", L"Pachacámac",
-					L"Pucusana", L"Pueblo libre", L"Puente piedra", L"Punta hermosa", L"Punta negra", L"Rímac", L"San bartolo", L"San borja", L"San isidro",
-					L"San Juan de Lurigancho", L"San Juan de Miraflores", L"San Luis", L"San Martin de Porres", L"San Miguel", L"Santa Anita", L"Santa María del Mar",
-					L"Santa Rosa", L"Santiago de Surco", L"Surquillo", L"Villa el Salvador", L"Villa Maria del Triunfo"
-			});
-			this->cmbDistrict->Location = System::Drawing::Point(655, 238);
-			this->cmbDistrict->Name = L"cmbDistrict";
-			this->cmbDistrict->Size = System::Drawing::Size(252, 24);
-			this->cmbDistrict->TabIndex = 69;
 			// 
 			// IdColumna
 			// 
@@ -625,11 +605,57 @@ namespace ChitaView {
 			this->DistrictColumna->Name = L"DistrictColumna";
 			this->DistrictColumna->Width = 125;
 			// 
+			// Distrito
+			// 
+			this->Distrito->AutoSize = true;
+			this->Distrito->Location = System::Drawing::Point(512, 238);
+			this->Distrito->Name = L"Distrito";
+			this->Distrito->Size = System::Drawing::Size(61, 16);
+			this->Distrito->TabIndex = 67;
+			this->Distrito->Text = L"Distrito(*)";
+			// 
+			// cmbDistrict
+			// 
+			this->cmbDistrict->FormattingEnabled = true;
+			this->cmbDistrict->Items->AddRange(gcnew cli::array< System::Object^  >(43) {
+				L"Ancón", L"Ate", L"Barranco", L"Breña", L"Carabayllo",
+					L"Cercado de Lima", L"Chaclacayo", L"Chorrillos", L"Cieneguilla", L"Comas", L"El agustino", L"Independencia", L"Jesús maría",
+					L"La molina", L"La victoria", L"Lince", L"Los olivos", L"Lurigancho", L"Lurín", L"Magdalena del mar", L"Miraflores", L"Pachacámac",
+					L"Pucusana", L"Pueblo libre", L"Puente piedra", L"Punta hermosa", L"Punta negra", L"Rímac", L"San bartolo", L"San borja", L"San isidro",
+					L"San Juan de Lurigancho", L"San Juan de Miraflores", L"San Luis", L"San Martin de Porres", L"San Miguel", L"Santa Anita", L"Santa María del Mar",
+					L"Santa Rosa", L"Santiago de Surco", L"Surquillo", L"Villa el Salvador", L"Villa Maria del Triunfo"
+			});
+			this->cmbDistrict->Location = System::Drawing::Point(655, 238);
+			this->cmbDistrict->Name = L"cmbDistrict";
+			this->cmbDistrict->Size = System::Drawing::Size(252, 24);
+			this->cmbDistrict->TabIndex = 69;
+			// 
+			// txtValoration
+			// 
+			this->txtValoration->Location = System::Drawing::Point(195, 273);
+			this->txtValoration->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->txtValoration->Name = L"txtValoration";
+			this->txtValoration->Size = System::Drawing::Size(251, 22);
+			this->txtValoration->TabIndex = 71;
+			this->txtValoration->TextChanged += gcnew System::EventHandler(this, &PetOwnerMaintence::textBox1_TextChanged);
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(52, 276);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(88, 16);
+			this->label2->TabIndex = 70;
+			this->label2->Text = L"Valoracion (*)";
+			this->label2->Click += gcnew System::EventHandler(this, &PetOwnerMaintence::label2_Click);
+			// 
 			// PetOwnerMaintence
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1155, 646);
+			this->Controls->Add(this->txtValoration);
+			this->Controls->Add(this->label2);
 			this->Controls->Add(this->cmbDistrict);
 			this->Controls->Add(this->Distrito);
 			this->Controls->Add(this->dgvPetOwner);
@@ -749,7 +775,8 @@ namespace ChitaView {
 											PetOwnerList[i]->Birthday,
 											PetOwnerList[i]->Address,
 										" "	+ PetOwnerList[i]->Gender,
-											PetOwnerList[i]->District
+											PetOwnerList[i]->District,
+											" " + PetOwnerList[i]->Valoration
 
 				});
 			}
@@ -762,6 +789,7 @@ namespace ChitaView {
 		txtDni->Text = "";
 		txtEmail->Text = "";
 		txtPassword->Text = "";
+		txtValoration->Text = "";
 		txtPhoneNumber->Text = "";
 		txtUsername->Text = "";
 		dtpBirthday->Text = "";
@@ -784,6 +812,8 @@ namespace ChitaView {
 			p->Birthday = dtpBirthday->Value.ToString("yyyy-MM-dd");
 			p->password = txtPassword->Text;
 			p->District = cmbDistrict->Text;
+			p->Valoration = Int32::Parse(txtValoration->Text);
+
 
 		}
 		catch(Exception^ ex) {
@@ -822,6 +852,7 @@ private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^
 		p->Birthday = dtpBirthday->Value.ToString("yyyy-MM-dd");
 		p->password = txtPassword->Text;
 		p->District = cmbDistrict->Text;
+		p->Valoration = Int32::Parse(txtValoration->Text);
 
 	}
 	catch (Exception^ ex) {
@@ -841,5 +872,9 @@ private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^
 private: System::Void dgvPetOwner_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e);
 
 
+private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

@@ -38,6 +38,9 @@ System::Void ChitaView::PetOwnerMaintence::dgvPetOwner_CellClick(System::Object^
 				txtId->Text = "" + petowner->Id;
 				txtAddress->Text = petowner->Address;
 				txtEmail->Text = petowner->Email;
+				txtValoration->Text = "" + petowner->Valoration;
+
+
 			}
 		}
 	}
