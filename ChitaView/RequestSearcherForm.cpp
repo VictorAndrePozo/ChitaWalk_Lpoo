@@ -30,34 +30,37 @@ System::Void ChitaView::RequestSearcherForm::dgvSearcherList_CellClick(System::O
 			srn->SubTotal = sr->SubTotal;
 			srn->IGV = sr->IGV;
 			srn->TotalAmount = sr->TotalAmount;
-			srn->Status = "Seleccionado";
+			if(sr->Status == "Espera")		srn->Status = "Seleccionado";
+			if (sr->Status == "Pendiente")  srn->Status = "Pendiente";
+					
+			srn->previousForm = "RequestSearcherForm";
 			Controller::UpdateServiceRequest(srn);
 
 			ServiceDetailForm^ serviceDetailForm = gcnew ServiceDetailForm(this);
 			serviceDetailForm->ShowDialog();
-
-	//NOTA: NO FUNCIONA CUANDO CANCELA EL DETAIL
-			//ServiceRequest^ srt = Controller::QueryServiceRequestByStatus("Seleccionado");
-		//do{
-			ServiceRequest^ srt = Controller::QueryServiceRequestByStatus("Aceptado");
 			
-				if (srt->Status == "Aceptado") {
+
+			ServiceRequest^ srt = Controller::QueryServiceRequestByStatus("Pendiente");
+
+			if (srt != nullptr)
+				((CarerWorkForm^)refForm)->AddRequestToCarerWork(srt);
+				this->Close();
+
+			//da vueltas hasta que sea pendiente : loop infinito hasta que cambie de valor: no deseado
+			
+			/*
+			int pendiente = 1;
+			do {
+				ServiceRequest^ srt = Controller::QueryServiceRequestByStatus("Pendiente");
+
+				if (srt != nullptr) {
+					pendiente = 0;
 					((CarerWorkForm^)refForm)->AddRequestToCarerWork(srt);
-
 					this->Close();
-					//break;
 				}
+			} while (pendiente == 0);
 
-				if (srt->Status == "Espera") {
-					this->Close();
-					//break;
-				}
-			
-			//else{
-				//ServiceRequest^ srt = Controller::QueryServiceRequestByStatus("Seleccionado");
-			//}
-		//} while (srt->Status == "Seleccionado");
-
+			*/	
 	}
 	
 }

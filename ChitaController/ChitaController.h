@@ -151,6 +151,21 @@ namespace ChitaController {
 			static List<Promotions^>^ QueryPromotionsByNameOrDescription(String^ value);
 
 		//---------------------------------------------------------------------------------------------------------------------
+		// PARA MANTENIMIENTO DEL RATING y RANKING
+		//---------------------------------------------------------------------------------------------------------------------
+		private:	//privado para que otras clases no accedan a el.
+			static List <Rating^>^ ratingList = gcnew List<Rating^>();
+		public:
+			static int AddRating(Rating^ rating);
+
+			static Rating^ QueryRatingById(int ratingId);
+
+			static void PersistRating();
+			static Void LoadRatingData();
+
+			static List <Rating^>^ QueryAllRating();
+			static List <Rating^>^ QueryRatingByCarerId(int carerid);
+		//---------------------------------------------------------------------------------------------------------------------
 		// PARA MANTENIMIENTO DE SUPERVISOR
 		//---------------------------------------------------------------------------------------------------------------------
 

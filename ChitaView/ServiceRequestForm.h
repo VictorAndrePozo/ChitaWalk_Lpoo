@@ -100,6 +100,7 @@ namespace ChitaView {
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::ComboBox^ cbRequestDistrict;
 	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Button^ btnRefresh;
 
 
 
@@ -159,6 +160,7 @@ namespace ChitaView {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->cbRequestDistrict = (gcnew System::Windows::Forms::ComboBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->btnRefresh = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvServiceRequestList))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -205,7 +207,7 @@ namespace ChitaView {
 			// 
 			// btnRemove
 			// 
-			this->btnRemove->Location = System::Drawing::Point(241, 310);
+			this->btnRemove->Location = System::Drawing::Point(306, 309);
 			this->btnRemove->Name = L"btnRemove";
 			this->btnRemove->Size = System::Drawing::Size(75, 23);
 			this->btnRemove->TabIndex = 43;
@@ -215,7 +217,7 @@ namespace ChitaView {
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(150, 310);
+			this->btnUpdate->Location = System::Drawing::Point(196, 309);
 			this->btnUpdate->Name = L"btnUpdate";
 			this->btnUpdate->Size = System::Drawing::Size(75, 23);
 			this->btnUpdate->TabIndex = 42;
@@ -225,7 +227,7 @@ namespace ChitaView {
 			// 
 			// btnAdd
 			// 
-			this->btnAdd->Location = System::Drawing::Point(60, 310);
+			this->btnAdd->Location = System::Drawing::Point(87, 309);
 			this->btnAdd->Name = L"btnAdd";
 			this->btnAdd->Size = System::Drawing::Size(75, 23);
 			this->btnAdd->TabIndex = 41;
@@ -269,7 +271,7 @@ namespace ChitaView {
 				this->dgvRequestId,
 					this->dgvRequestPet, this->dgvRequestService, this->dgvServiceDate, this->dgvServiceTimeInit, this->dgvRequestStatus
 			});
-			this->dgvServiceRequestList->Location = System::Drawing::Point(12, 348);
+			this->dgvServiceRequestList->Location = System::Drawing::Point(12, 369);
 			this->dgvServiceRequestList->Name = L"dgvServiceRequestList";
 			this->dgvServiceRequestList->Size = System::Drawing::Size(443, 211);
 			this->dgvServiceRequestList->TabIndex = 37;
@@ -392,7 +394,7 @@ namespace ChitaView {
 			// 
 			// btnShow
 			// 
-			this->btnShow->Location = System::Drawing::Point(331, 310);
+			this->btnShow->Location = System::Drawing::Point(306, 338);
 			this->btnShow->Name = L"btnShow";
 			this->btnShow->Size = System::Drawing::Size(75, 23);
 			this->btnShow->TabIndex = 55;
@@ -464,11 +466,22 @@ namespace ChitaView {
 			this->label6->TabIndex = 89;
 			this->label6->Text = L"Distrito:";
 			// 
+			// btnRefresh
+			// 
+			this->btnRefresh->Location = System::Drawing::Point(87, 338);
+			this->btnRefresh->Name = L"btnRefresh";
+			this->btnRefresh->Size = System::Drawing::Size(75, 23);
+			this->btnRefresh->TabIndex = 91;
+			this->btnRefresh->Text = L"Refrescar";
+			this->btnRefresh->UseVisualStyleBackColor = true;
+			this->btnRefresh->Click += gcnew System::EventHandler(this, &ServiceRequestForm::btnRefresh_Click);
+			// 
 			// ServiceRequestForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(470, 571);
+			this->ClientSize = System::Drawing::Size(470, 586);
+			this->Controls->Add(this->btnRefresh);
 			this->Controls->Add(this->cbRequestDistrict);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->txtRequestPetOwner);
@@ -570,6 +583,7 @@ namespace ChitaView {
 		sr->IGV = Int32::Parse("0");
 		sr->TotalAmount = Int32::Parse("0");
 		sr->Status = "Espera";
+		sr->previousForm = "ServiceRequestForm";
 
 		Controller::AddServiceRequest(sr);	//Invocamos al controller y agregamos el objeto p.
 
@@ -597,6 +611,7 @@ private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^
 	sr->IGV = Int32::Parse("0");
 	sr->TotalAmount = Int32::Parse("0");
 	sr->Status = "Espera";
+	sr->previousForm = "ServiceRequestForm";
 
 	Controller::UpdateServiceRequest(sr);	//Invocamos al controller y agregamos el objeto p.
 
@@ -636,7 +651,8 @@ private: System::Void ServiceRequestForm_Load(System::Object^ sender, System::Ev
 	RefreshGrid();
 }
 private: System::Void btnShow_Click(System::Object^ sender, System::EventArgs^ e) {
-
+		
+		int statusflag=0;
 		int selectedRowIndex = dgvServiceRequestList->SelectedCells[0]->RowIndex;
 		int requestId = Int32::Parse(dgvServiceRequestList->Rows[selectedRowIndex]->Cells[0]->Value->ToString());
 		ServiceRequest^ sr = Controller::QueryServiceRequestById(requestId);
@@ -660,12 +676,58 @@ private: System::Void btnShow_Click(System::Object^ sender, System::EventArgs^ e
 		srn->SubTotal = sr->SubTotal;
 		srn->IGV = sr->IGV;
 		srn->TotalAmount = sr->TotalAmount;
-		//srn->Status = "Visto";
-		srn->Status = "Seleccionado";
+
+		if (sr->Status=="Espera") {
+			srn->Status = "Seleccionado";
+			statusflag = 1;
+		}
+		if (sr->Status == "Pendiente") {
+			srn->Status = "Seleccionado";
+			statusflag = 2;
+		}
+		if (sr->Status == "Aceptado") {
+			srn->Status = "Seleccionado";
+			statusflag = 3;
+		}
+		if (sr->Status == "Iniciado") {
+			srn->Status = "Seleccionado";
+			statusflag = 4;
+		}
+		if (sr->Status == "Terminado") {
+			srn->Status = "Seleccionado";
+			statusflag = 5;
+		}
+		if (sr->Status == "Cancelado") {
+			srn->Status = "Seleccionado";
+			statusflag = 6;
+		}
+		srn->previousForm = "ServiceRequestForm";
 		Controller::UpdateServiceRequest(srn);
 
 		ServiceDetailForm^ serviceDetailForm = gcnew ServiceDetailForm(this);
 		serviceDetailForm->ShowDialog();
+
+		switch (statusflag)
+		{
+		case 1:	srn->Status = "Espera";
+			break;
+		case 2:	srn->Status = "Pendiente";
+			break;
+		case 3:	srn->Status = "Aceptado";
+			break;
+		case 4:	srn->Status = "Iniciado";
+			break;
+		case 5:	srn->Status = "Terminado";
+			break;
+		case 6:	srn->Status = "Cancelado";
+			break;
+		default:
+			break;
+		}
+		RefreshGrid();
 	}
+private: System::Void btnRefresh_Click(System::Object^ sender, System::EventArgs^ e) {
+	RefreshGrid();
+}
 };
 }

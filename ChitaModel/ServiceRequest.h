@@ -32,6 +32,7 @@ namespace ChitaModel {
 		property double TotalAmount;
 
 		property String^ Status;
+		property String^ previousForm;
 
 		property ServiceDetail^ objServiceDetail;
 		property List<ServiceDetail^ >^ objServiceDetailList;
@@ -40,6 +41,6 @@ namespace ChitaModel {
 		ServiceRequest(int Id, String^ Kind, String^ Pet, String^ Service, String^ District, String^ DateRequest, String^ DateService,
 			String^ DateServiceInit, String^ DateServiceEnd,  String^ PetOwner, String^ AdressStart, String^ AdressEnd, String^ Status,
 		    ServiceDetail^ objServiceDetail, List<ServiceDetail^ >^ objServiceDetailList, double SubTotal, double IGV, double TotalAmount, String^ Carer,
-		    int CarerId);
+		    int CarerId, String^ previousForm);
 	};
 }

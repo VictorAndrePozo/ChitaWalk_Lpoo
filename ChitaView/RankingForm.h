@@ -8,6 +8,8 @@ namespace ChitaView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace ChitaController;
+	using namespace ChitaModel;
 
 	/// <summary>
 	/// Resumen de RankingForm
@@ -300,14 +302,31 @@ namespace ChitaView {
 			this->Controls->Add(this->lblStar4);
 			this->Name = L"RankingForm";
 			this->Text = L"Calificación";
+			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &RankingForm::RankingForm_FormClosing);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
 	private: System::Void btnSend_Click(System::Object^ sender, System::EventArgs^ e) {
+		
+		ServiceRequest^ sr = Controller::QueryServiceRequestByStatus("PorTerminar");
+		
+		Rating^ rating = gcnew Rating();
 
+		rating->Id = sr->Id;
+		rating->CarerId = sr->CarerId;
+		rating->Comment1 = "" + cbRankingComment1->Text;
+		rating->Comment2 = "" + cbRankingComment2->Text;
+		rating->Comment3 = "" + cbRankingComment3->Text;
+		rating->Comment4 = "" + cbRankingComment4->Text;
 
+		rating->Stars = lblStarList->ImageIndex;
+
+		rating->Advice = "" + txtRankingAdvice->Text;
+
+		Controller::AddRating(rating);
+		this->Close();
 	}
 
 private: System::Void lblStar1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -327,7 +346,43 @@ private: System::Void lblStar5_Click(System::Object^ sender, System::EventArgs^ 
 }
 private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
 
+	ServiceRequest^ sr = Controller::QueryServiceRequestByStatus("PorTerminar");
 
+	Rating^ rating = gcnew Rating();
+
+	rating->Id = sr->Id;
+	rating->CarerId = sr->CarerId;
+	rating->Comment1 = "" + cbRankingComment1->Text;
+	rating->Comment2 = "" + cbRankingComment2->Text;
+	rating->Comment3 = "" + cbRankingComment3->Text;
+	rating->Comment4 = "" + cbRankingComment4->Text;
+
+	rating->Stars = 0;
+
+	rating->Advice = "" + txtRankingAdvice->Text;
+
+	Controller::AddRating(rating);
+	this->Close();
+}
+private: System::Void RankingForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
+	/*
+		ServiceRequest^ sr = Controller::QueryServiceRequestByStatus("PorTerminar");
+
+	Rating^ rating = gcnew Rating();
+
+	rating->Id = sr->Id;
+	rating->CarerId = sr->CarerId;
+	rating->Comment1 = "" + cbRankingComment1->Text;
+	rating->Comment2 = "" + cbRankingComment2->Text;
+	rating->Comment3 = "" + cbRankingComment3->Text;
+	rating->Comment4 = "" + cbRankingComment4->Text;
+
+	rating->Stars = 0;
+
+	rating->Advice = "" + txtRankingAdvice->Text;
+
+	Controller::AddRating(rating);
+	*/
 }
 };
 }

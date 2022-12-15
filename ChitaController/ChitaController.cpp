@@ -498,7 +498,7 @@ List<ServiceRequest^>^ ChitaController::Controller::QueryServiceRequestByDateTim
 	return activeServiceRequestList;
 }
 void ChitaController::Controller::LoadServiceRequestData() {
-
+	
 	servicerequestList = gcnew List<ServiceRequest^>();
 	//Lectura desde un archivo binario
 	Stream^ sr = File::Open("ServiceRequest.bin", FileMode::Open);
@@ -506,6 +506,8 @@ void ChitaController::Controller::LoadServiceRequestData() {
 	servicerequestList = (List<ServiceRequest^>^)bFormatter->Deserialize(sr);
 
 	sr->Close();
+	
+
 }
 int ChitaController::Controller::CreateTempServiceRequest(ServiceRequest^ servicerequest)
 {
@@ -1076,6 +1078,71 @@ void ChitaController::Controller::LoadSupervisorsData()
 	supervisorList = (List<Supervisor^>^)bFormatter->Deserialize(sr);
 
 	sr->Close();
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+// PARA MANTENIMIENTO DEL RATING y RANKING
+//---------------------------------------------------------------------------------------------------------------------
+
+int ChitaController::Controller::AddRating(Rating^ rating)
+{
+	ratingList->Add(rating);
+	PersistRating();
+	return 1;
+}
+
+Rating^ ChitaController::Controller::QueryRatingById(int ratingId)
+{
+	for (int i = 0; i < ratingList->Count; i++) { //Barrido de todos los elementos de la lista
+		if (ratingId == ratingList[i]->Id) {    //Si Id es igual al atributo Id de List entonces...
+			return ratingList[i];      //Retornamos la lista si encuentra una coincidencia
+		}
+	}
+	return nullptr;
+}
+
+void ChitaController::Controller::PersistRating()
+{
+	Stream^ stream = File::Open("Rating.bin", FileMode::Create);
+	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
+	bFormatter->Serialize(stream, ratingList);
+	stream->Close();
+}
+
+Void ChitaController::Controller::LoadRatingData()
+{
+	ratingList = gcnew List<Rating^>();
+	//Lectura desde un archivo binario
+	Stream^ sr = File::Open("Rating.bin", FileMode::Open);
+	BinaryFormatter^ bFormatter = gcnew BinaryFormatter();
+	ratingList = (List<Rating^>^)bFormatter->Deserialize(sr);
+
+	sr->Close();
+}
+
+List<Rating^>^ ChitaController::Controller::QueryAllRating()
+{
+	LoadRatingData();
+
+	List<Rating^>^ activeRatingList = gcnew List<Rating^>(); //Reserva espacio de memoria para la lista
+	for (int i = 0; i < ratingList->Count; i++) {  //Barrido de todos los elementos de la lista
+		if (ratingList[i]->Id > 0) {
+			activeRatingList->Add(ratingList[i]);
+		}
+	}
+	return activeRatingList;
+}
+
+List<Rating^>^ ChitaController::Controller::QueryRatingByCarerId(int carerid)
+{
+	LoadRatingData();
+	List<Rating^>^ activeRatingList = gcnew List<Rating^>(); //Reserva espacio de memoria para la lista
+	for (int i = 0; i < ratingList->Count; i++) {  //Barrido de todos los elementos de la lista
+		if (ratingList[i]->CarerId == carerid) {
+			activeRatingList->Add(ratingList[i]);
+		}
+	}
+	return activeRatingList;
 }
 
 //---------------------------------------------------------------------------------------------------------------------

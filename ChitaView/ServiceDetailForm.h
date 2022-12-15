@@ -85,8 +85,9 @@ namespace ChitaView {
 
 	private: System::Windows::Forms::Label^ label16;
 	private: System::Windows::Forms::Button^ btnCancel;
+	private: System::Windows::Forms::Button^ btnCare;
 
-	private: System::Windows::Forms::Button^ btnAdd;
+
 	private: System::Windows::Forms::ComboBox^ cbRequestDistrict;
 	private: System::Windows::Forms::Label^ label17;
 	private: System::Windows::Forms::Button^ btnCancelService;
@@ -96,6 +97,8 @@ namespace ChitaView {
 	private: System::Windows::Forms::Button^ btnStartService;
 
 	private: System::Windows::Forms::Label^ label18;
+	private: System::Windows::Forms::Button^ btnAdd;
+
 
 	protected:
 
@@ -145,13 +148,14 @@ namespace ChitaView {
 			this->txtRequestTotalAmount = (gcnew System::Windows::Forms::TextBox());
 			this->label16 = (gcnew System::Windows::Forms::Label());
 			this->btnCancel = (gcnew System::Windows::Forms::Button());
-			this->btnAdd = (gcnew System::Windows::Forms::Button());
+			this->btnCare = (gcnew System::Windows::Forms::Button());
 			this->cbRequestDistrict = (gcnew System::Windows::Forms::ComboBox());
 			this->label17 = (gcnew System::Windows::Forms::Label());
 			this->btnCancelService = (gcnew System::Windows::Forms::Button());
 			this->btnFinishService = (gcnew System::Windows::Forms::Button());
 			this->btnStartService = (gcnew System::Windows::Forms::Button());
 			this->label18 = (gcnew System::Windows::Forms::Label());
+			this->btnAdd = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// dtpRequestDate
@@ -392,6 +396,7 @@ namespace ChitaView {
 			this->txtRequestSubTotal->Name = L"txtRequestSubTotal";
 			this->txtRequestSubTotal->Size = System::Drawing::Size(196, 20);
 			this->txtRequestSubTotal->TabIndex = 114;
+			this->txtRequestSubTotal->TextChanged += gcnew System::EventHandler(this, &ServiceDetailForm::txtRequestSubTotal_TextChanged);
 			// 
 			// label14
 			// 
@@ -406,6 +411,7 @@ namespace ChitaView {
 			// 
 			this->txtRequestIGV->Location = System::Drawing::Point(113, 386);
 			this->txtRequestIGV->Name = L"txtRequestIGV";
+			this->txtRequestIGV->ReadOnly = true;
 			this->txtRequestIGV->Size = System::Drawing::Size(196, 20);
 			this->txtRequestIGV->TabIndex = 116;
 			// 
@@ -422,6 +428,7 @@ namespace ChitaView {
 			// 
 			this->txtRequestTotalAmount->Location = System::Drawing::Point(113, 412);
 			this->txtRequestTotalAmount->Name = L"txtRequestTotalAmount";
+			this->txtRequestTotalAmount->ReadOnly = true;
 			this->txtRequestTotalAmount->Size = System::Drawing::Size(196, 20);
 			this->txtRequestTotalAmount->TabIndex = 118;
 			// 
@@ -436,7 +443,7 @@ namespace ChitaView {
 			// 
 			// btnCancel
 			// 
-			this->btnCancel->Location = System::Drawing::Point(184, 447);
+			this->btnCancel->Location = System::Drawing::Point(234, 447);
 			this->btnCancel->Name = L"btnCancel";
 			this->btnCancel->Size = System::Drawing::Size(75, 23);
 			this->btnCancel->TabIndex = 120;
@@ -444,15 +451,15 @@ namespace ChitaView {
 			this->btnCancel->UseVisualStyleBackColor = true;
 			this->btnCancel->Click += gcnew System::EventHandler(this, &ServiceDetailForm::btnCancel_Click);
 			// 
-			// btnAdd
+			// btnCare
 			// 
-			this->btnAdd->Location = System::Drawing::Point(70, 447);
-			this->btnAdd->Name = L"btnAdd";
-			this->btnAdd->Size = System::Drawing::Size(75, 23);
-			this->btnAdd->TabIndex = 119;
-			this->btnAdd->Text = L"¡Cuidar!";
-			this->btnAdd->UseVisualStyleBackColor = true;
-			this->btnAdd->Click += gcnew System::EventHandler(this, &ServiceDetailForm::btnAdd_Click);
+			this->btnCare->Location = System::Drawing::Point(15, 447);
+			this->btnCare->Name = L"btnCare";
+			this->btnCare->Size = System::Drawing::Size(75, 23);
+			this->btnCare->TabIndex = 119;
+			this->btnCare->Text = L"¡Cuidar!";
+			this->btnCare->UseVisualStyleBackColor = true;
+			this->btnCare->Click += gcnew System::EventHandler(this, &ServiceDetailForm::btnCare_Click);
 			// 
 			// cbRequestDistrict
 			// 
@@ -516,11 +523,22 @@ namespace ChitaView {
 			this->label18->TabIndex = 126;
 			this->label18->Text = L"_________________________________________________";
 			// 
+			// btnAdd
+			// 
+			this->btnAdd->Location = System::Drawing::Point(124, 447);
+			this->btnAdd->Name = L"btnAdd";
+			this->btnAdd->Size = System::Drawing::Size(75, 23);
+			this->btnAdd->TabIndex = 127;
+			this->btnAdd->Text = L"Aceptar";
+			this->btnAdd->UseVisualStyleBackColor = true;
+			this->btnAdd->Click += gcnew System::EventHandler(this, &ServiceDetailForm::btnAdd_Click);
+			// 
 			// ServiceDetailForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(328, 537);
+			this->Controls->Add(this->btnAdd);
 			this->Controls->Add(this->label18);
 			this->Controls->Add(this->btnCancelService);
 			this->Controls->Add(this->btnFinishService);
@@ -528,7 +546,7 @@ namespace ChitaView {
 			this->Controls->Add(this->cbRequestDistrict);
 			this->Controls->Add(this->label17);
 			this->Controls->Add(this->btnCancel);
-			this->Controls->Add(this->btnAdd);
+			this->Controls->Add(this->btnCare);
 			this->Controls->Add(this->txtRequestTotalAmount);
 			this->Controls->Add(this->label16);
 			this->Controls->Add(this->txtRequestIGV);
@@ -573,53 +591,115 @@ namespace ChitaView {
 	public: 
 	void RefreshDetail() {
 		ServiceRequest^ sr = Controller::QueryServiceRequestByStatus("Seleccionado");
-		
-		txtRequestPetOwner->Text = sr->PetOwner;
-		txtRequestId->Text = "" + sr->Id;
-		dtpRequestDate->Text = sr->DateRequest->ToString();
-		cbRequestPetKind->Text = sr->Kind;
-		cbRequestPet->Text = sr->Pet;
-		cbRequestServices->Text = sr->Service;
-		cbRequestDistrict->Text = sr->District;
-		txtRequestAddressStart->Text = sr->AdressStart;
-		txtRequestAddressEnd->Text = sr->AdressEnd;
+		if (sr->previousForm=="ServiceRequestForm") {
+			//Disabled Buttons:
+			btnStartService->Enabled = true;
+			btnFinishService->Enabled = true;
+			btnCancelService->Enabled = true;
+			btnCare->Enabled = false;
 
-		dtpServiceDate->Text = sr->DateService->ToString();
-		dtpServiceTimeStart->Text = sr->DateServiceInit->ToString();
-		dtpServiceTimeEnd->Text = sr->DateServiceEnd->ToString();
-		
-		txtRequestCarer->Text = sr->Carer;
-		txtRequestCarerId->Text = "" + sr->CarerId;
+			
+			txtRequestCarer->Enabled=false;
+			txtRequestCarerId ->Enabled = false;
+			txtRequestSubTotal->Enabled = false;
+			txtRequestIGV->Enabled = false;
+			txtRequestTotalAmount->Enabled = false;
 
-		txtRequestSubTotal->Text = "" + sr->SubTotal;
-		txtRequestIGV->Text = "" + sr->IGV;
-		txtRequestTotalAmount->Text = "" + sr->TotalAmount ;
+			//Refresh Data:
+			txtRequestPetOwner->Text = sr->PetOwner;
+			txtRequestId->Text = "" + sr->Id;
+			dtpRequestDate->Text = sr->DateRequest->ToString();
+			cbRequestPetKind->Text = sr->Kind;
+			cbRequestPet->Text = sr->Pet;
+			cbRequestServices->Text = sr->Service;
+			cbRequestDistrict->Text = sr->District;
+			txtRequestAddressStart->Text = sr->AdressStart;
+			txtRequestAddressEnd->Text = sr->AdressEnd;
+
+			dtpServiceDate->Text = sr->DateService->ToString();
+			dtpServiceTimeStart->Text = sr->DateServiceInit->ToString();
+			dtpServiceTimeEnd->Text = sr->DateServiceEnd->ToString();
+
+			txtRequestCarer->Text = sr->Carer;
+			txtRequestCarerId->Text = "" + sr->CarerId;
+
+			txtRequestSubTotal->Text = "" + sr->SubTotal;
+			txtRequestIGV->Text = "" + sr->IGV;
+			txtRequestTotalAmount->Text = "" + sr->TotalAmount;
+		}
+		else if (sr->previousForm == "RequestSearcherForm") {
+			//Disabled Buttons:
+			btnCare->Enabled = true;
+			btnAdd->Enabled = false;
+			btnCancel->Enabled = true;
+
+			btnStartService->Enabled = false;
+			btnFinishService->Enabled = false;
+			btnCancelService->Enabled = true;
+
+			//Refresh Data:
+			txtRequestPetOwner->Text = sr->PetOwner;
+			txtRequestId->Text = "" + sr->Id;
+			dtpRequestDate->Text = sr->DateRequest->ToString();
+			cbRequestPetKind->Text = sr->Kind;
+			cbRequestPet->Text = sr->Pet;
+			cbRequestServices->Text = sr->Service;
+			cbRequestDistrict->Text = sr->District;
+			txtRequestAddressStart->Text = sr->AdressStart;
+			txtRequestAddressEnd->Text = sr->AdressEnd;
+
+			dtpServiceDate->Text = sr->DateService->ToString();
+			dtpServiceTimeStart->Text = sr->DateServiceInit->ToString();
+			dtpServiceTimeEnd->Text = sr->DateServiceEnd->ToString();
+
+			txtRequestCarer->Text = sr->Carer;
+			txtRequestCarerId->Text = "" + sr->CarerId;
+
+			txtRequestSubTotal->Text = "" + sr->SubTotal;
+			txtRequestIGV->Text = "" + sr->IGV;
+			txtRequestTotalAmount->Text = "" + sr->TotalAmount;
+		}
+		else if (sr->previousForm == "CarerWorkForm") {
+			//Disabled Buttons:
+			btnCare->Enabled = false;
+			btnAdd->Enabled = false;
+			btnCancel->Enabled = true;
+
+			btnStartService->Enabled = false;
+			btnFinishService->Enabled = false;
+			btnCancelService->Enabled = true;
+
+			txtRequestCarer->Enabled = false;
+			txtRequestCarerId->Enabled = false;
+			txtRequestSubTotal->Enabled = false;
+			txtRequestIGV->Enabled = false;
+			txtRequestTotalAmount->Enabled = false;
+
+			//Refresh Data:
+			txtRequestPetOwner->Text = sr->PetOwner;
+			txtRequestId->Text = "" + sr->Id;
+			dtpRequestDate->Text = sr->DateRequest->ToString();
+			cbRequestPetKind->Text = sr->Kind;
+			cbRequestPet->Text = sr->Pet;
+			cbRequestServices->Text = sr->Service;
+			cbRequestDistrict->Text = sr->District;
+			txtRequestAddressStart->Text = sr->AdressStart;
+			txtRequestAddressEnd->Text = sr->AdressEnd;
+
+			dtpServiceDate->Text = sr->DateService->ToString();
+			dtpServiceTimeStart->Text = sr->DateServiceInit->ToString();
+			dtpServiceTimeEnd->Text = sr->DateServiceEnd->ToString();
+
+			txtRequestCarer->Text = sr->Carer;
+			txtRequestCarerId->Text = "" + sr->CarerId;
+
+			txtRequestSubTotal->Text = "" + sr->SubTotal;
+			txtRequestIGV->Text = "" + sr->IGV;
+			txtRequestTotalAmount->Text = "" + sr->TotalAmount;
+		}
 		
 	}
-    void ViewDetail() {
-		ServiceRequest^ sr = Controller::QueryServiceRequestByStatus("Visto");
-		txtRequestPetOwner->Text = sr->PetOwner;
-		txtRequestId->Text = "" + sr->Id;
-		dtpRequestDate->Text = sr->DateRequest->ToString();
-		cbRequestPetKind->Text = sr->Kind;
-		cbRequestPet->Text = sr->Pet;
-		cbRequestServices->Text = sr->Service;
-		cbRequestDistrict->Text = sr->District;
-		txtRequestAddressStart->Text = sr->AdressStart;
-		txtRequestAddressEnd->Text = sr->AdressEnd;
-		
-		dtpServiceDate->Text = sr->DateService->ToString();
-		dtpServiceTimeStart->Text = sr->DateServiceInit->ToString();
-		dtpServiceTimeEnd->Text = sr->DateServiceEnd->ToString();
 
-		txtRequestCarer->Text = sr->Carer;
-		txtRequestCarerId->Text = "" + sr->CarerId;
-
-		txtRequestSubTotal->Text = "" + sr->SubTotal;
-		txtRequestIGV->Text = "" + sr->IGV;
-		txtRequestTotalAmount->Text = "" + sr->TotalAmount;
-
-	 }
 
 		Void ClearControls() {
 			
@@ -638,7 +718,18 @@ namespace ChitaView {
 			dtpServiceTimeEnd->Text = "";
 		}
 
-private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void txtRequestSubTotal_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+		double  subtotal, IGV = 0.18;
+
+		subtotal = Double::Parse(0 + txtRequestSubTotal->Text);
+
+		//txtRequestIGV->Text = "" + (subtotal * IGV / 0.82); //Con double decimales
+		txtRequestIGV->Text = "" + Convert::ToDecimal(Convert::ToInt32(100 * subtotal * IGV / 0.82)) / 100;
+		txtRequestTotalAmount->Text = subtotal + Double::Parse(txtRequestIGV->Text) + "";
+
+	}
+
+private: System::Void btnCare_Click(System::Object^ sender, System::EventArgs^ e) {
 	
 		ServiceRequest^ sr = gcnew ServiceRequest();
 		sr->PetOwner = txtRequestPetOwner->Text;
@@ -656,43 +747,21 @@ private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e)
 
 		sr->Carer = txtRequestCarer->Text;
 		sr->CarerId = Int32::Parse(txtRequestCarerId->Text);
-		sr->SubTotal = Int32::Parse(txtRequestSubTotal->Text);
-		sr->IGV = Int32::Parse(txtRequestIGV->Text);
-		sr->TotalAmount = Int32::Parse(txtRequestTotalAmount->Text);
-		sr->Status = "Aceptado";
+		sr->SubTotal = Double::Parse(txtRequestSubTotal->Text);
+		sr->IGV = Double::Parse(txtRequestIGV->Text);
+		sr->TotalAmount = Double::Parse(txtRequestTotalAmount->Text);
+		sr->Status = "Pendiente";
+
+		sr->previousForm = "RequestDetailForm";
 
 		Controller::UpdateServiceRequest(sr);	//Invocamos al controller y agregamos el objeto p.
 		this->Close();
 	}
 private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
-	ServiceRequest^ sr = gcnew ServiceRequest();
-	
-	sr->PetOwner = txtRequestPetOwner->Text;
-	sr->Id = Int32::Parse(txtRequestId->Text);
-	sr->DateRequest = dtpRequestDate->Value.ToString("dd-MM-yyyy");
-	sr->Kind = cbRequestPetKind->Text;
-	sr->Pet = cbRequestPet->Text;				//Toma el Texto de txtName y lo carga en Name de p.
-	sr->Service = cbRequestServices->Text;
-	sr->District = cbRequestDistrict->Text;
-	sr->AdressStart = txtRequestAddressStart->Text;
-	sr->AdressEnd = txtRequestAddressEnd->Text;
-	sr->DateService = dtpRequestDate->Value.ToString("dd-MM-yyyy");
-	sr->DateServiceInit = dtpServiceTimeStart->Value.ToString("HH:mm");
-	sr->DateServiceEnd = dtpServiceTimeEnd->Value.ToString("HH:mm");
-
-	sr->Carer = txtRequestCarer->Text;
-	sr->CarerId = Int32::Parse(txtRequestCarerId->Text);
-	sr->SubTotal = Int32::Parse(txtRequestSubTotal->Text);
-	sr->IGV = Int32::Parse(txtRequestIGV->Text);
-	sr->TotalAmount = Int32::Parse(txtRequestTotalAmount->Text);
-	
-	sr->Status = "Espera";
-	Controller::UpdateServiceRequest(sr);
-	
 	this->Close();
 }
 private: System::Void ServiceDetailForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	//RefreshDetail();
+	RefreshDetail();
 }
 private: System::Void btnStartService_Click(System::Object^ sender, System::EventArgs^ e) {
 	ServiceRequest^ sr = gcnew ServiceRequest();
@@ -712,18 +781,19 @@ private: System::Void btnStartService_Click(System::Object^ sender, System::Even
 
 	sr->Carer = txtRequestCarer->Text;
 	sr->CarerId = Int32::Parse(txtRequestCarerId->Text);
-	sr->SubTotal = Int32::Parse(txtRequestSubTotal->Text);
-	sr->IGV = Int32::Parse(txtRequestIGV->Text);
-	sr->TotalAmount = Int32::Parse(txtRequestTotalAmount->Text);
+	sr->SubTotal = Double::Parse(txtRequestSubTotal->Text);
+	sr->IGV = Double::Parse(txtRequestIGV->Text);
+	sr->TotalAmount = Double::Parse(txtRequestTotalAmount->Text);
 
 	sr->Status = "Iniciado";
+	sr->previousForm = "RequestDetailForm";
 	Controller::UpdateServiceRequest(sr);
 
 	this->Close();
 
 }
 private: System::Void btnFinishService_Click(System::Object^ sender, System::EventArgs^ e) {
-	/*NOTA:COMENTADO HASTA SOLUCIONAR REFRESHDETAIL
+	/*NOTA:COMENTADO HASTA SOLUCIONAR REFRESHDETAIL*/
 	ServiceRequest^ sr = gcnew ServiceRequest();
 
 	sr->PetOwner = txtRequestPetOwner->Text;
@@ -741,15 +811,23 @@ private: System::Void btnFinishService_Click(System::Object^ sender, System::Eve
 
 	sr->Carer = txtRequestCarer->Text;
 	sr->CarerId = Int32::Parse(txtRequestCarerId->Text);
-	sr->SubTotal = Int32::Parse(txtRequestSubTotal->Text);
-	sr->IGV = Int32::Parse(txtRequestIGV->Text);
-	sr->TotalAmount = Int32::Parse(txtRequestTotalAmount->Text);
+	sr->SubTotal = Double::Parse(txtRequestSubTotal->Text);
+	sr->IGV = Double::Parse(txtRequestIGV->Text);
+	sr->TotalAmount = Double::Parse(txtRequestTotalAmount->Text);
 
-	sr->Status = "Terminado";
-	Controller::UpdateServiceRequest(sr);*/
+	sr->Status = "PorTerminar";
+
+	sr->previousForm = "RequestDetailForm";
+	Controller::UpdateServiceRequest(sr);
 
 	RankingForm^ rankingForm = gcnew RankingForm();
 	rankingForm->ShowDialog();
+
+
+	sr->Status = "Terminado";
+
+	sr->previousForm = "RequestDetailForm";
+	Controller::UpdateServiceRequest(sr);
 
 	this->Close();
 
@@ -772,15 +850,44 @@ private: System::Void btnCancelService_Click(System::Object^ sender, System::Eve
 
 	sr->Carer = txtRequestCarer->Text;
 	sr->CarerId = Int32::Parse(txtRequestCarerId->Text);
-	sr->SubTotal = Int32::Parse(txtRequestSubTotal->Text);
-	sr->IGV = Int32::Parse(txtRequestIGV->Text);
-	sr->TotalAmount = Int32::Parse(txtRequestTotalAmount->Text);
+	sr->SubTotal = Double::Parse(txtRequestSubTotal->Text);
+	sr->IGV = Double::Parse(txtRequestIGV->Text);
+	sr->TotalAmount = Double::Parse(txtRequestTotalAmount->Text);
 
 	sr->Status = "Cancelado";
+	sr->previousForm = "RequestDetailForm";
 	Controller::UpdateServiceRequest(sr);
 
 	this->Close();
 
 }
+private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
+	ServiceRequest^ sr = gcnew ServiceRequest();
+	sr->PetOwner = txtRequestPetOwner->Text;
+	sr->Id = Int32::Parse(txtRequestId->Text);
+	sr->DateRequest = dtpRequestDate->Value.ToString("dd-MM-yyyy");
+	sr->Kind = cbRequestPetKind->Text;
+	sr->Pet = cbRequestPet->Text;				//Toma el Texto de txtName y lo carga en Name de p.
+	sr->Service = cbRequestServices->Text;
+	sr->District = cbRequestDistrict->Text;
+	sr->AdressStart = txtRequestAddressStart->Text;
+	sr->AdressEnd = txtRequestAddressEnd->Text;
+	sr->DateService = dtpRequestDate->Value.ToString("dd-MM-yyyy");
+	sr->DateServiceInit = dtpServiceTimeStart->Value.ToString("HH:mm");
+	sr->DateServiceEnd = dtpServiceTimeEnd->Value.ToString("HH:mm");
+
+	sr->Carer = txtRequestCarer->Text;
+	sr->CarerId = Int32::Parse(txtRequestCarerId->Text);
+	sr->SubTotal = Double::Parse(txtRequestSubTotal->Text);
+	sr->IGV = Double::Parse(txtRequestIGV->Text);
+	sr->TotalAmount = Double::Parse(txtRequestTotalAmount->Text);
+	sr->Status = "Aceptado";
+	sr->previousForm = "RequestDetailForm";
+
+	Controller::UpdateServiceRequest(sr);	//Invocamos al controller y agregamos el objeto p.
+	this->Close();
+}
+
+
 };
 }

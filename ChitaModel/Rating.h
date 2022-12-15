@@ -5,9 +5,11 @@
 using namespace System;
 
 namespace ChitaModel {
+	[Serializable]
 	public ref class Rating {
 	public:
 		property int Id;
+		property int CarerId;
 		property String^ Comment1;
 		property String^ Comment2;
 		property String^ Comment3;
@@ -18,6 +20,6 @@ namespace ChitaModel {
 
 	public:
 		Rating();
-		Rating(int id, String^ Comment1, String^ Comment2, String^ Comment3, String^ Comment4, int Stars, String^ Advice, Carer^ objCarer);
+		Rating(int id, int CarerId, String^ Comment1, String^ Comment2, String^ Comment3, String^ Comment4, int Stars, String^ Advice, Carer^ objCarer);
 	};
 }

@@ -60,6 +60,7 @@ namespace ChitaView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvServiceTimeInit;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvServiceTimeEnd;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvRequestStatus;
+	private: System::Windows::Forms::Button^ btnRefresh;
 
 	private:
 		/// <summary>
@@ -87,12 +88,13 @@ namespace ChitaView {
 			this->dgvServiceTimeInit = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dgvServiceTimeEnd = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dgvRequestStatus = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->btnRefresh = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvCarerForm))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// btnSearch
 			// 
-			this->btnSearch->Location = System::Drawing::Point(12, 217);
+			this->btnSearch->Location = System::Drawing::Point(12, 146);
 			this->btnSearch->Name = L"btnSearch";
 			this->btnSearch->Size = System::Drawing::Size(75, 23);
 			this->btnSearch->TabIndex = 90;
@@ -176,11 +178,22 @@ namespace ChitaView {
 			this->dgvRequestStatus->Name = L"dgvRequestStatus";
 			this->dgvRequestStatus->Width = 70;
 			// 
+			// btnRefresh
+			// 
+			this->btnRefresh->Location = System::Drawing::Point(12, 193);
+			this->btnRefresh->Name = L"btnRefresh";
+			this->btnRefresh->Size = System::Drawing::Size(75, 23);
+			this->btnRefresh->TabIndex = 91;
+			this->btnRefresh->Text = L"Refrescar";
+			this->btnRefresh->UseVisualStyleBackColor = true;
+			this->btnRefresh->Click += gcnew System::EventHandler(this, &CarerWorkForm::btnRefresh_Click);
+			// 
 			// CarerWorkForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1000, 443);
+			this->Controls->Add(this->btnRefresh);
 			this->Controls->Add(this->btnSearch);
 			this->Controls->Add(this->dgvCarerForm);
 			this->Name = L"CarerWorkForm";
@@ -198,7 +211,7 @@ namespace ChitaView {
 			dgvCarerForm->Rows->Clear();
 
 			for (int i = 0; i < servicerequestList->Count; i++) {
-				if (servicerequestList[i]->Status == "Aceptado") {
+				if (servicerequestList[i]->Status == "Aceptado" || servicerequestList[i]->Status == "Pendiente") {
 					dgvCarerForm->Rows->Add(gcnew array<String^>{
 						"" + servicerequestList[i]->Id,
 							servicerequestList[i]->PetOwner,
@@ -231,7 +244,7 @@ namespace ChitaView {
 				Convert::ToString(sr->DateRequest),
 				Convert::ToString(sr->DateService),
 				Convert::ToString(sr->DateServiceInit),
-				Convert::ToString(sr->DateServiceEnd),
+				Convert::ToString(sr->DateServiceEnd), 
 				sr->Status
 		});
 	}
@@ -250,6 +263,7 @@ namespace ChitaView {
 
 			String^ requestId = dgvCarerForm->Rows[e->RowIndex]->Cells[0]->Value->ToString();
 			ServiceRequest^ sr = Controller::QueryServiceRequestById(Int32::Parse(requestId));
+			int statusflag = 0;
 
 			ServiceRequest^ srn = gcnew ServiceRequest();
 			srn->PetOwner = sr->PetOwner;
@@ -270,13 +284,42 @@ namespace ChitaView {
 			srn->SubTotal = sr->SubTotal;
 			srn->IGV = sr->IGV;
 			srn->TotalAmount = sr->TotalAmount;
-			//srn->Status = "Visto";
-			srn->Status = "Seleccionado";
+
+			if (sr->Status == "Espera") {
+				statusflag = 1;
+				srn->Status = "Seleccionado";
+			}
+			if (sr->Status == "Pendiente") {
+				statusflag = 2;
+				srn->Status = "Seleccionado";
+			}
+			if (sr->Status == "Aceptado") {
+				statusflag = 3;
+				srn->Status = "Seleccionado";
+			}
+			srn->previousForm = "CarerWorkForm";
 			Controller::UpdateServiceRequest(srn);
 
 			ServiceDetailForm^ serviceDetailForm = gcnew ServiceDetailForm(this);
 			serviceDetailForm->ShowDialog();
+
+			switch (statusflag)
+			{
+			case 1:	srn->Status = "Espera";
+				break;
+			case 2:	srn->Status = "Pendiente";
+				break;
+			case 3:	srn->Status = "Aceptado";
+				break;
+			default:
+				break;
+			}
+
+			Controller::UpdateServiceRequest(srn);
 		}
 	}
+private: System::Void btnRefresh_Click(System::Object^ sender, System::EventArgs^ e) {
+	RefreshGrid();
+}
 };
 }
