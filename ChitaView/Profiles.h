@@ -2224,30 +2224,30 @@ private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, Syste
 
 private: System::Void btnSearchWalker_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	String^ a = txtId->Text;
+	String^ a = txtIdWalker->Text;
 	int walkerId = Int32::Parse(a);
 	Walker^ walker = Controller::QueryWalkerById(walkerId);
 	//MessageBox::Show(customer->ToString()); //Polimorfismo
 	if (walker != nullptr) {
 
-		txtDni->Text = "" + walker->Dni;
-		txtAddress->Text = walker->Address;
-		txtPhoneNumber->Text = walker->PhoneNumber;
-		txtEmail->Text = walker->Email;
-		rbtnMasc->Checked = dynamic_cast<Walker^>(walker)->Gender == 'M';
-		rbtnFem->Checked = dynamic_cast<Walker^>(walker)->Gender == 'F';
-		txtId->Text = "" + walker->Id;
-		txtUsername->Text = walker->username;
+		txtDniWalker->Text = "" + walker->Dni;
+		txtAddressWalker->Text = walker->Address;
+		txtPhoneNumberWalker->Text = walker->PhoneNumber;
+		txtEmailWalker->Text = walker->Email;
+		rbtnMascWalker->Checked = dynamic_cast<Walker^>(walker)->Gender == 'M';
+		rbtnFemWalker->Checked = dynamic_cast<Walker^>(walker)->Gender == 'F';
+		txtIdWalker->Text = "" + walker->Id;
+		txtUsernameWalker->Text = walker->username;
 		//txtLastName->Text = walker->password;
-		txtLastName->Text = dynamic_cast<Walker^>(walker)->Lastname;
-		txtFirstName->Text = dynamic_cast<Walker^>(walker)->Firstname;
-		txtValoration->Text = "" + walker->Valoration;
-		txtExperience->Text = "" + walker->Experience;
-		txtLevel->Text = "" + walker->Level;
-		cmbWarranty->Text = walker->Warranty;
-		txtSalary->Text = "" + walker->Salary;
+		txtLastNameWalker->Text = dynamic_cast<Walker^>(walker)->Lastname;
+		txtFirstNameWalker->Text = dynamic_cast<Walker^>(walker)->Firstname;
+		txtValorationWalker->Text = "" + walker->Valoration;
+		txtExperienceWalker->Text = "" + walker->Experience;
+		txtLevelWalker->Text = "" + walker->Level;
+		cmbWarrantyWalker->Text = walker->Warranty;
+		txtSalaryWalker->Text = "" + walker->Salary;
 		//txt->Text = "" + c->Photo;
-		txtStatus->Text = "" + walker->Status;
+		txtStatusWalker->Text = "A";
 	}
 }
 
